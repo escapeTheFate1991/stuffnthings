@@ -1,51 +1,71 @@
 export default function Footer() {
+  const navItems = [
+    { label: 'Problem', href: '#problem' },
+    { label: 'Services', href: '#services' },
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Process', href: '#how-it-works' },
+    { label: 'Results', href: '#testimonials' },
+    { label: 'Contact', href: '#contact' },
+  ]
+
   return (
-    <footer className="bg-slate-950 border-t border-slate-800">
+    <footer className="relative bg-slate-950 border-t border-slate-800/50">
+      {/* Gradient top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-12 gap-10">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <h3 className="text-3xl font-bold gradient-text mb-3">stuffnthings</h3>
-            <p className="text-slate-400 max-w-md">
+          <div className="md:col-span-5">
+            <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
+            <p className="text-slate-400 max-w-md leading-relaxed mb-6">
               High-Performance Digital Presence. Zero Technical Friction.
               We build, optimize, and maintain your entire digital presence so you can focus on growth.
             </p>
+            <div className="flex items-center gap-3 text-slate-500 text-sm">
+              <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
+              All systems operational
+            </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Navigate</h4>
-            <ul className="space-y-2 text-slate-400">
-              {['Problem', 'Services', 'How It Works', 'Testimonials', 'Contact'].map((item) => (
-                <li key={item}>
+          {/* Navigation */}
+          <div className="md:col-span-3">
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Navigate</h4>
+            <ul className="space-y-3">
+              {navItems.map((item) => (
+                <li key={item.label}>
                   <a
-                    href={`#${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="hover:text-blue-400 transition-colors"
+                    href={item.href}
+                    className="text-slate-400 hover:text-brand-cyan transition-colors duration-300 text-sm"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Get Started</h4>
-            <p className="text-slate-400 text-sm mb-4">
-              Free friction audit — complete analysis in 48 hours.
+          {/* Get Started */}
+          <div className="md:col-span-4">
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Get Started</h4>
+            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
+              Free friction audit — complete website analysis delivered in 48 hours. No strings attached.
             </p>
-            <a href="#contact" className="btn btn-primary text-sm inline-block">
-              Get Free Audit
+            <a href="#contact" className="btn btn-primary text-sm !px-6 !py-3 inline-block">
+              Get Free Audit →
             </a>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>© 2026 Stuff N Things. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-blue-400 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-blue-400 transition-colors">Terms</a>
+        {/* Bottom bar */}
+        <div className="border-t border-slate-800/50 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-slate-600">
+            © {new Date().getFullYear()} Stuff N Things. All rights reserved.
+          </p>
+          <div className="flex items-center gap-8 text-sm text-slate-600">
+            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Privacy</a>
+            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Terms</a>
+            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Sitemap</a>
           </div>
         </div>
       </div>

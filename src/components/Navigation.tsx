@@ -1,25 +1,30 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { useActiveSection } from '@/lib/hooks'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+  const sectionIds = useMemo(
+    () => ['hero', 'problem', 'services', 'portfolio', 'how-it-works', 'testimonials', 'contact'],
+    []
+  )
+  const activeSection = useActiveSection(sectionIds)
 
-    window.addEventListener('scroll', handleScroll)
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
     { href: '#problem', label: 'Problem' },
     { href: '#services', label: 'Services' },
-    { href: '#how-it-works', label: 'How It Works' },
-    { href: '#testimonials', label: 'Testimonials' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#how-it-works', label: 'Process' },
+    { href: '#testimonials', label: 'Results' },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -33,14 +38,14 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg'
+          ? 'glass shadow-lg shadow-black/10'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a
@@ -49,7 +54,7 @@ export default function Navigation() {
                 e.preventDefault()
                 handleLinkClick('#hero')
               }}
-              className="text-2xl font-bold gradient-text"
+              className="text-2xl font-bold gradient-text tracking-tight hover:opacity-80 transition-opacity"
             >
               stuffnthings
             </a>
@@ -57,27 +62,37 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleLinkClick(link.href)
-                  }}
-                  className="text-slate-300 hover:text-electric-blue px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                >
-                  {link.label}
-                </a>
-              ))}
+            <div className="ml-10 flex items-center space-x-1">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1)
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleLinkClick(link.href)
+                    }}
+                    className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-full" />
+                    )}
+                  </a>
+                )
+              })}
               <a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault()
                   handleLinkClick('#contact')
                 }}
-                className="btn btn-primary text-sm"
+                className="btn btn-primary text-sm !px-6 !py-2.5 ml-4"
               >
                 Get Free Audit
               </a>
@@ -88,31 +103,24 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-300 hover:text-white focus:outline-none focus:text-white"
+              className="relative w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white focus:outline-none"
               aria-label="Toggle mobile menu"
             >
-              <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                {isMobileMenuOpen ? (
-                  <path
-                    fillRule="evenodd"
-                    d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-                  />
-                ) : (
-                  <path
-                    fillRule="evenodd"
-                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                  />
-                )}
-              </svg>
+              <div className="w-6 flex flex-col items-end gap-1.5">
+                <span className={`block h-0.5 bg-current rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
+                <span className={`block h-0.5 bg-current rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'w-0 opacity-0' : 'w-4'}`} />
+                <span className={`block h-0.5 bg-current rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'w-6 -rotate-45 -translate-y-2' : 'w-5'}`} />
+              </div>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-900/95 backdrop-blur-sm rounded-lg mt-2">
-              {navLinks.map((link) => (
+        <div className={`md:hidden transition-all duration-500 overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="px-2 pt-2 pb-4 space-y-1 glass rounded-2xl mb-4">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1)
+              return (
                 <a
                   key={link.href}
                   href={link.href}
@@ -120,24 +128,30 @@ export default function Navigation() {
                     e.preventDefault()
                     handleLinkClick(link.href)
                   }}
-                  className="text-slate-300 hover:text-electric-blue block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                  className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
+                    isActive
+                      ? 'text-white bg-white/5'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
                 >
                   {link.label}
                 </a>
-              ))}
+              )
+            })}
+            <div className="pt-2 px-2">
               <a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault()
                   handleLinkClick('#contact')
                 }}
-                className="btn btn-primary w-full text-center mt-4"
+                className="btn btn-primary w-full text-center !py-3"
               >
                 Get Free Audit
               </a>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   )

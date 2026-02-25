@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero'
 import Problem from '@/components/Problem'
 import Services from '@/components/Services'
+import Portfolio from '@/components/Portfolio'
 import HowItWorks from '@/components/HowItWorks'
 import SocialProof from '@/components/SocialProof'
 import ContactForm from '@/components/ContactForm'
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <Services />
+        <Portfolio />
         <HowItWorks />
         <SocialProof />
         <ContactForm />
