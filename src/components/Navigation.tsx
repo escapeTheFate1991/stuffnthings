@@ -51,7 +51,7 @@ export default function Navigation() {
               }}
               className="text-2xl font-bold gradient-text"
             >
-              yieldlabs
+              stuffnthings
             </a>
           </div>
 

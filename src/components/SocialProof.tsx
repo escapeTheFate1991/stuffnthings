@@ -27,7 +27,7 @@ export default function SocialProof() {
     {
       name: 'Sarah Chen',
       title: 'CEO, TechFlow Solutions',
-      quote: 'YieldLabs transformed our online presence completely. Our site speed increased by 340% and conversions doubled in the first month.',
+      quote: 'Stuff N Things transformed our online presence completely. Our site speed increased by 340% and conversions doubled in the first month.',
       result: '+340% Speed, +127% Conversions',
     },
     {
