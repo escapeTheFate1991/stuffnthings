@@ -9,21 +9,21 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'YieldLabs — High-Performance Digital Presence. Zero Technical Friction.',
+  title: 'Stuff N Things — High-Performance Digital Presence. Zero Technical Friction.',
   description: 'Transform your website into a high-converting, lightning-fast digital presence. Website-as-a-Service with zero technical friction.',
   keywords: 'web development, website optimization, digital presence, website performance, WaaS',
-  authors: [{ name: 'YieldLabs' }],
+  authors: [{ name: 'Stuff N Things' }],
   openGraph: {
-    title: 'YieldLabs — High-Performance Digital Presence',
+    title: 'Stuff N Things — High-Performance Digital Presence',
     description: 'Transform your website into a high-converting, lightning-fast digital presence with zero technical friction.',
-    url: 'https://yieldlabs.co',
-    siteName: 'YieldLabs',
+    url: 'https://stuffnthings.io',
+    siteName: 'Stuff N Things',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YieldLabs — High-Performance Digital Presence',
+    title: 'Stuff N Things — High-Performance Digital Presence',
     description: 'Transform your website into a high-converting, lightning-fast digital presence with zero technical friction.',
   },
   robots: { index: true, follow: true },
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="canonical" href="https://yieldlabs.co" />
+        <link rel="canonical" href="https://stuffnthings.io" />
       </head>
       <body className="bg-slate-950 text-white antialiased font-sans">
         {children}

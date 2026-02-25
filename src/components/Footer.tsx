@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-3xl font-bold gradient-text mb-3">yieldlabs</h3>
+            <h3 className="text-3xl font-bold gradient-text mb-3">stuffnthings</h3>
             <p className="text-slate-400 max-w-md">
               High-Performance Digital Presence. Zero Technical Friction.
               We build, optimize, and maintain your entire digital presence so you can focus on growth.
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>© 2026 YieldLabs. All rights reserved.</p>
+          <p>© 2026 Stuff N Things. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-blue-400 transition-colors">Privacy</a>
             <a href="#" className="hover:text-blue-400 transition-colors">Terms</a>
