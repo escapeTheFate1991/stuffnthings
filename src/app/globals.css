@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation classes for intersection observer */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@layer components {
+  .btn {
+    @apply px-8 py-4 font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600 shadow-lg hover:shadow-xl;
+  }
+  .btn-secondary {
+    @apply bg-slate-800 text-white hover:bg-slate-700 border border-slate-600;
+  }
+  .card {
+    @apply bg-slate-800 rounded-xl p-8 shadow-xl border border-slate-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-slate-600;
+  }
+}

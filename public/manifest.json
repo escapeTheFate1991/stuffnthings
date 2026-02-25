@@ -1,0 +1,21 @@
+{
+  "name": "YieldLabs - High-Performance Digital Presence",
+  "short_name": "YieldLabs",
+  "description": "Transform your website into a high-converting, lightning-fast digital presence with zero technical friction.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
