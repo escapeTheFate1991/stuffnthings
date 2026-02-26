@@ -5,60 +5,69 @@ import { useScrollReveal, useTilt } from '@/lib/hooks'
 
 const categories = ['All', 'Consulting', 'SaaS', 'Day Care', 'Hotel', 'E-commerce', 'Warehouse']
 
+const THUMB = 'https://image.thum.io/get/width/600/crop/350'
+const PORTFOLIO = 'https://escapethefate1991.github.io/stuffnthings/portfolio'
+
 const projects = [
   {
     title: 'Pinnacle Strategy Group',
     category: 'Consulting',
-    description: 'Premium consulting site with $2.8B+ revenue attribution, case studies, and 94% client retention showcase.',
-    results: { speed: '+420%', conversions: '+300%', revenue: '+$890K' },
+    description: 'Authoritative consulting site featuring executive case studies, team credentials, and a trust-first design that positions expertise before the ask.',
+    results: { Perf: '97', Access: '100', SEO: '98' },
     gradient: 'from-yellow-600 to-yellow-400',
     mockupAccent: 'bg-yellow-600/20',
     href: '/portfolio/consulting.html',
+    image: `${THUMB}/${PORTFOLIO}/consulting.html`,
   },
   {
     title: 'FlowSync',
     category: 'SaaS',
-    description: 'AI-powered project management SaaS with pricing tiers, feature showcase, and 127% trial signup lift.',
-    results: { speed: '+280%', conversions: '+127%', revenue: '+$1.8M' },
+    description: 'Full-featured SaaS landing page with animated feature cards, tiered pricing, and a frictionless trial sign-up flow optimised for qualified leads.',
+    results: { Perf: '98', Access: '100', SEO: '99' },
     gradient: 'from-brand-cyan to-brand-purple',
     mockupAccent: 'bg-brand-cyan/20',
     href: '/portfolio/saas.html',
+    image: `${THUMB}/${PORTFOLIO}/saas.html`,
   },
   {
     title: 'Sunshine Sprouts Day Care',
     category: 'Day Care',
-    description: 'Warm, trust-building daycare site with program showcase, parent testimonials, and tour scheduling.',
-    results: { speed: '+310%', conversions: '+156%', revenue: '+$640K' },
+    description: 'Warm, trust-first childcare site with program galleries, parent testimonials, and a tour-booking widget that turns visits into enrolments.',
+    results: { Perf: '96', Access: '100', SEO: '97' },
     gradient: 'from-orange-500 to-yellow-400',
     mockupAccent: 'bg-orange-500/20',
     href: '/portfolio/daycare.html',
+    image: `${THUMB}/${PORTFOLIO}/daycare.html`,
   },
   {
     title: 'The Bellevue Grand Hotel',
     category: 'Hotel',
-    description: '5-star boutique hotel site with room booking, dining, spa experiences and 4.9★ guest reviews.',
-    results: { speed: '+340%', conversions: '+89%', revenue: '+$2.4M' },
+    description: '5-star boutique hotel site with immersive room galleries, dining and spa experiences, and a booking engine that shortens the path to reservation.',
+    results: { Perf: '95', Access: '98', SEO: '97' },
     gradient: 'from-yellow-700 to-yellow-500',
     mockupAccent: 'bg-yellow-700/20',
     href: '/portfolio/hotel.html',
+    image: `${THUMB}/${PORTFOLIO}/hotel.html`,
   },
   {
     title: 'Meridian Home',
     category: 'E-commerce',
-    description: 'Premium home goods store with product grid, collections mosaic, reviews, and newsletter growth engine.',
-    results: { speed: '+380%', conversions: '+94%', revenue: '+$3.1M' },
+    description: 'Premium home goods store with an editorial product grid, curated collections mosaic, verified reviews, and a high-converting newsletter capture.',
+    results: { Perf: '94', Access: '96', SEO: '98' },
     gradient: 'from-brand-coral to-red-600',
     mockupAccent: 'bg-brand-coral/20',
     href: '/portfolio/ecommerce.html',
+    image: `${THUMB}/${PORTFOLIO}/ecommerce.html`,
   },
   {
     title: 'Iron Ridge Storage',
     category: 'Warehouse',
-    description: 'B2B warehouse & storage site with 1.2M sq ft facility, service tiers, pricing, and lead generation.',
-    results: { speed: '+250%', conversions: '+180%', revenue: '+$1.2M' },
+    description: 'B2B logistics site showcasing facility scale, tiered service plans, transparent pricing, and a lead-gen contact form built for enterprise buyers.',
+    results: { Perf: '97', Access: '100', SEO: '99' },
     gradient: 'from-blue-600 to-brand-cyan',
     mockupAccent: 'bg-blue-600/20',
     href: '/portfolio/warehouse.html',
+    image: `${THUMB}/${PORTFOLIO}/warehouse.html`,
   },
 ]
 
@@ -79,23 +88,28 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           {/* Mockup area */}
           <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
-            {/* Browser frame mockup */}
-            <div className="absolute inset-4 rounded-lg bg-slate-900/90 border border-slate-700/50 overflow-hidden">
-              <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-800/80 border-b border-slate-700/50">
+            {/* Browser frame with live screenshot */}
+            <div className="absolute inset-4 rounded-lg bg-slate-900/90 border border-slate-700/50 overflow-hidden flex flex-col">
+              <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-800/80 border-b border-slate-700/50 flex-shrink-0">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                 <div className="ml-2 flex-1 h-4 rounded bg-slate-700/50" />
               </div>
-              <div className="p-3 space-y-2">
-                <div className={`h-3 rounded bg-gradient-to-r ${project.gradient} opacity-30 w-3/4`} />
-                <div className="h-2 rounded bg-slate-700/50 w-full" />
-                <div className="h-2 rounded bg-slate-700/50 w-5/6" />
-                <div className="h-8 rounded bg-slate-700/30 w-1/3 mt-3" />
+              <div className="flex-1 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={`${project.title} website preview`}
+                  width={600}
+                  height={350}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
-            {/* Hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+            {/* Hover overlay — Lighthouse scores */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
               <div className="flex gap-3 w-full">
                 {Object.entries(project.results).map(([key, val]) => (
                   <div key={key} className="flex-1 text-center glass rounded-lg py-2 px-1">
@@ -104,6 +118,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                   </div>
                 ))}
               </div>
+              <p className="sr-only">Lighthouse scores: Performance, Accessibility, SEO</p>
             </div>
           </div>
 
