@@ -9,13 +9,13 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Stuff N Things — High-Performance Digital Presence. Zero Technical Friction.',
-  description: 'Transform your website into a high-converting, lightning-fast digital presence. Website-as-a-Service with zero technical friction.',
-  keywords: 'web development, website optimization, digital presence, website performance, WaaS, web design agency',
+  title: 'Stuff N Things — Your Website Should Work as Hard as You Do.',
+  description: 'We design, engineer, and actively manage high-performance websites for ambitious businesses. 95+ Lighthouse scores, sub-1.5s LCP, and ongoing optimization — delivered as a partnership, not a project.',
+  keywords: 'web performance agency, Lighthouse optimization, Core Web Vitals, website-as-a-service, technical SEO, high-performance web development',
   authors: [{ name: 'Stuff N Things' }],
   openGraph: {
-    title: 'Stuff N Things — High-Performance Digital Presence',
-    description: 'Transform your website into a high-converting, lightning-fast digital presence with zero technical friction.',
+    title: 'Stuff N Things — High-Performance Web Partnerships',
+    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and keep improving month over month.',
     url: 'https://stuffnthings.io',
     siteName: 'Stuff N Things',
     locale: 'en_US',
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stuff N Things — High-Performance Digital Presence',
-    description: 'Transform your website into a high-converting, lightning-fast digital presence with zero technical friction.',
+    title: 'Stuff N Things — High-Performance Web Partnerships',
+    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and keep improving month over month.',
   },
   robots: { index: true, follow: true },
 }

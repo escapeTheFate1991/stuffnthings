@@ -53,32 +53,32 @@ function LogoMarquee() {
 const testimonials = [
   {
     name: 'Sarah Chen',
-    title: 'CEO, TechFlow Solutions',
-    quote: 'Stuff N Things transformed our online presence completely. Our site speed increased by 340% and conversions doubled in the first month.',
-    result: '+340% Speed, +127% Conversions',
+    title: 'Head of Operations, TechFlow Solutions',
+    quote: "We'd been living with a slow, outdated site for two years. The team rebuilt it properly — mobile-first, clean architecture, no shortcuts. Our Lighthouse score went from 54 to 97. We finally feel confident sending clients to our URL.",
+    result: 'Lighthouse: 54 → 97 · LCP: 4.2s → 0.9s',
     gradient: 'from-brand-cyan to-blue-500',
   },
   {
     name: 'Marcus Rodriguez',
-    title: 'Founder, Elevate Marketing',
-    quote: "They didn't just build us a pretty website — they built a revenue-generating machine. ROI was positive within 6 weeks.",
-    result: '6-week ROI, +89% Lead Quality',
+    title: 'Founder, Elevate Digital',
+    quote: "What stood out was that they treated our website like infrastructure, not a design project. They identified three critical performance bottlenecks in the first week that our previous agency had never flagged. It's been maintained proactively ever since.",
+    result: 'Perf: 61 → 96 · Accessibility: 78 → 100',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
     name: 'Jennifer Liu',
-    title: 'Director, Pinnacle Consulting',
-    quote: 'Mobile traffic converted 3× better immediately. Their ongoing support means we never worry about technical issues.',
-    result: '+300% Mobile Conversions',
+    title: 'Director of Marketing, Pinnacle Consulting',
+    quote: "The audit they delivered before we even signed a contract was more thorough than anything we'd received from vendors we'd paid. That set the tone — every recommendation has been clear, prioritized, and actually implemented.",
+    result: 'SEO: 72 → 100 · CLS: 0.24 → 0.00',
     gradient: 'from-brand-green to-emerald-400',
   },
 ]
 
 const stats = [
-  { end: 340, suffix: '%', label: 'Avg Speed Increase', icon: '⚡' },
-  { end: 127, suffix: '%', label: 'Conversion Lift', icon: '📈' },
-  { end: 98, suffix: '+', label: 'PageSpeed Scores', icon: '🚀' },
-  { end: 99, suffix: '.9%', label: 'Uptime Guarantee', icon: '🔧' },
+  { end: 95, suffix: '+', label: 'Avg Lighthouse Performance', icon: '🚀' },
+  { end: 100, suffix: '', label: 'Accessibility Score Target', icon: '♿' },
+  { end: 99, suffix: '.9%', label: 'Uptime SLA', icon: '🔧' },
+  { end: 100, suffix: '', label: 'SEO Score Target', icon: '📡' },
 ]
 
 export default function SocialProof() {
@@ -93,13 +93,15 @@ export default function SocialProof() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Proven Results.</span>{' '}
-              <span className="text-white">Real Impact.</span>
+              <span className="gradient-text">The scores speak</span>
+              <br />
+              <span className="text-white">for themselves.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Don&apos;t take our word for it. Here&apos;s what our clients achieve.
+              Every site we deliver is measured against the same standard Google uses to rank your competition.
+              Here&apos;s what that looks like in practice.
             </p>
           </div>
         </div>
@@ -107,7 +109,7 @@ export default function SocialProof() {
         {/* Logo Marquee */}
         <div className="reveal">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-slate-600 font-medium mb-4">
-            Trusted by innovative companies
+            Trusted by teams that take their web presence seriously
           </p>
           <LogoMarquee />
         </div>

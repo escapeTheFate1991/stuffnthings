@@ -9,23 +9,23 @@ const inputClass =
 const benefits = [
   {
     icon: '🔍',
-    title: 'Complete Website Analysis',
-    text: 'In-depth performance, SEO, mobile, and conversion audit in 48 hours.',
+    title: 'Full Lighthouse Diagnostic',
+    text: 'We run a structured audit across Performance, Accessibility, Best Practices, and SEO — and explain every score in plain language.',
   },
   {
     icon: '⚡',
-    title: 'Performance Bottlenecks',
-    text: 'Identify exactly what slows your site down and costs you customers.',
+    title: 'Core Web Vitals Breakdown',
+    text: 'We identify your LCP, CLS, and INP readings and map each one back to the specific code or infrastructure causing the issue.',
   },
   {
     icon: '📊',
-    title: 'Actionable Roadmap',
-    text: 'Detailed improvement plan with prioritized recommendations.',
+    title: 'Prioritized Action Plan',
+    text: 'Not a list of generic tips — a sequenced technical roadmap with estimated impact for each recommendation.',
   },
   {
-    icon: '💰',
-    title: 'Zero Cost, Zero Risk',
-    text: 'No upfront costs, no hidden fees. The audit is completely free.',
+    icon: '🔒',
+    title: 'No Obligation. No Sales Pressure.',
+    text: 'The audit is yours, regardless of whether you work with us. We believe the work should speak for itself.',
   },
 ]
 
@@ -71,15 +71,15 @@ export default function ContactForm() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Get Your Free</span>
+              <span className="text-white">Get a Free</span>
               <br />
-              <span className="gradient-text">Friction Audit</span>
+              <span className="gradient-text">Technical Site Audit</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Discover exactly what&apos;s holding your website back from peak performance.
-              Our comprehensive audit reveals the friction points costing you customers.
+              Most sites have three to five critical issues that are measurable, fixable, and being ignored.
+              We&apos;ll find them, document them, and show you exactly what it would take to resolve each one.
             </p>
           </div>
         </div>
@@ -214,11 +214,11 @@ export default function ContactForm() {
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                What You&apos;ll Receive
+                What the Audit Covers
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Our friction audit goes deep into your website&apos;s performance,
-                user experience, and conversion optimization opportunities.
+                This isn&apos;t a traffic-light report with no context. Every finding comes with a technical explanation,
+                a severity rating, and a concrete next step — whether you work with us or not.
               </p>
             </div>
 
@@ -238,24 +238,24 @@ export default function ContactForm() {
 
             <div className="glass rounded-2xl p-6 border border-brand-green/10">
               <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
-                <span className="text-lg">🚀</span> Typical Results After Implementation
+                <span className="text-lg">📋</span> What We Measure
               </h4>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">200-400%</div>
-                  <div className="text-xs text-slate-400 mt-1">Speed Improvement</div>
+                  <div className="text-2xl font-bold gradient-text">95+</div>
+                  <div className="text-xs text-slate-400 mt-1">Lighthouse Performance Target</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">50-150%</div>
-                  <div className="text-xs text-slate-400 mt-1">Conversion Lift</div>
+                  <div className="text-2xl font-bold gradient-text">&lt;1.5s</div>
+                  <div className="text-xs text-slate-400 mt-1">LCP (Largest Contentful Paint)</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">80%+</div>
-                  <div className="text-xs text-slate-400 mt-1">Mobile Performance</div>
+                  <div className="text-2xl font-bold gradient-text">100</div>
+                  <div className="text-xs text-slate-400 mt-1">Accessibility Score Goal</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">Top 10</div>
-                  <div className="text-xs text-slate-400 mt-1">Search Rankings</div>
+                  <div className="text-2xl font-bold gradient-text">0.00</div>
+                  <div className="text-xs text-slate-400 mt-1">CLS (Layout Shift) Target</div>
                 </div>
               </div>
             </div>

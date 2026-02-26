@@ -5,82 +5,79 @@ import { useScrollReveal } from '@/lib/hooks'
 
 const services = [
   {
-    name: 'Foundation',
+    name: 'Essentials',
     price: '$299',
     period: '/month',
-    description: 'Perfect for small businesses ready to establish their digital presence',
+    description: 'A professionally engineered foundation — built to perform, not just look good.',
     features: [
-      'Professional website design & development',
-      'Mobile-optimized responsive design',
-      'Basic SEO setup & optimization',
-      'Contact forms & lead capture',
-      'SSL certificate & security basics',
-      'Monthly performance reports',
-      'Email support',
-      '1 design revision per month',
+      'Mobile-first design & development',
+      'Core Web Vitals optimized build',
+      'On-page SEO architecture',
+      'Lead capture & contact forms',
+      'SSL, security hardening & uptime monitoring',
+      'Monthly Lighthouse performance report',
+      'Email support with 48-hour response SLA',
+      '1 content or design update per month',
     ],
     popular: false,
-    cta: 'Start with Foundation',
-    ideal: 'Consultants, local services, small retailers',
+    cta: 'Start with Essentials',
+    ideal: 'Consultants, local services, professional practices',
     accent: 'from-slate-500 to-slate-400',
     iconBg: 'bg-slate-700/50',
   },
   {
-    name: 'Operational',
+    name: 'Growth Partner',
     price: '$599',
     priceRange: '–$899',
     period: '/month',
-    description: 'For growing businesses that need advanced functionality and integrations',
+    description: 'Full-stack partnership for businesses ready to scale their digital infrastructure.',
     features: [
-      'Everything in Foundation, plus:',
-      'Advanced SEO & content optimization',
-      'E-commerce capabilities',
-      'CRM & email marketing integrations',
-      'Analytics & conversion tracking',
-      'A/B testing & optimization',
-      'Priority support & monthly strategy calls',
-      'Unlimited design revisions',
-      'Custom functionality development',
-      'Social media integration',
+      'Everything in Essentials, plus:',
+      'Advanced technical SEO & structured data',
+      'E-commerce integration & product optimization',
+      'CRM, analytics & marketing stack setup',
+      'Monthly strategy & performance review call',
+      'Unlimited content updates & design revisions',
+      'Custom feature development (up to 5 hrs/mo)',
+      'Priority support with 24-hour response SLA',
+      'A/B testing & UX experimentation',
     ],
     popular: true,
-    cta: 'Choose Operational',
+    cta: 'Start Growing',
     ideal: 'Growing businesses, online stores, B2B companies',
     accent: 'from-brand-cyan to-brand-purple',
     iconBg: 'bg-brand-cyan/10',
   },
   {
-    name: 'Growth',
+    name: 'Enterprise',
     price: '$1,200',
     priceRange: '+',
     period: '/month',
-    description: 'Enterprise-grade solution for businesses serious about digital dominance',
+    description: 'A dedicated engineering partner for organizations where web performance is mission-critical.',
     features: [
-      'Everything in Operational, plus:',
-      'Enterprise-grade performance optimization',
-      'Advanced conversion rate optimization',
-      'Custom web applications',
-      'Multi-site management',
-      'Advanced integrations & automation',
-      'Dedicated account manager',
-      'Weekly strategy & optimization calls',
-      'Priority development queue',
-      'Advanced analytics & reporting',
-      '24/7 monitoring & support',
+      'Everything in Growth Partner, plus:',
+      'Custom web application development',
+      'Multi-site & multi-brand management',
+      'Advanced automation & API integrations',
+      'Dedicated account manager & engineer',
+      'Weekly strategy, roadmap & optimization calls',
+      'Priority development queue (no ticket backlogs)',
+      '24/7 infrastructure monitoring & incident response',
+      'Executive-level analytics & reporting dashboards',
     ],
     popular: false,
-    cta: 'Scale with Growth',
-    ideal: 'Established businesses, enterprises, high-traffic sites',
+    cta: 'Let\'s Talk Enterprise',
+    ideal: 'Established brands, high-traffic platforms, enterprises',
     accent: 'from-brand-purple to-brand-coral',
     iconBg: 'bg-brand-purple/10',
   },
 ]
 
 const guarantees = [
-  { icon: '🚀', label: '99.9% Uptime Guarantee' },
-  { icon: '⚡', label: 'PageSpeed Score 95+' },
-  { icon: '🔒', label: 'Enterprise Security' },
-  { icon: '🔄', label: 'Continuous Optimization' },
+  { icon: '🚀', label: '95+ Lighthouse Score' },
+  { icon: '⚡', label: 'Sub-1.5s LCP Target' },
+  { icon: '🔒', label: 'Enterprise-Grade Security' },
+  { icon: '🔄', label: 'Proactive Monthly Optimization' },
 ]
 
 export default function Services() {
@@ -101,15 +98,15 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Website-as-a-Service</span>
+              <span className="gradient-text">Choose Your</span>
               <br />
-              <span className="text-white">Built for Growth</span>
+              <span className="text-white">Partnership Level</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Choose the plan that matches your ambition. Every plan includes ongoing optimization,
-              maintenance, and support. No hidden fees, no surprises.
+              Every engagement is a long-term partnership — not a one-time project.
+              Each tier includes active optimization, monitoring, and support. No lock-in contracts. No surprise invoices.
             </p>
           </div>
         </div>
@@ -195,7 +192,7 @@ export default function Services() {
         {/* Guarantees */}
         <div className="reveal mt-20">
           <div className="glass rounded-2xl p-8 md:p-10 max-w-4xl mx-auto border border-brand-green/10">
-            <h3 className="text-xl font-bold text-white mb-6 text-center">All Plans Include</h3>
+            <h3 className="text-xl font-bold text-white mb-6 text-center">Every Partnership Includes</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {guarantees.map((g, i) => (
                 <div key={i} className="text-center group cursor-default">
