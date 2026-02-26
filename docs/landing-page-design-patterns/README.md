@@ -19,6 +19,7 @@
 | [05-trust-and-social-proof.md](./05-trust-and-social-proof.md) | Reviews, logos, statistics, guarantees, trust triggers |
 | [06-above-the-fold-checklist.md](./06-above-the-fold-checklist.md) | Universal "first fold" requirements for every page we build |
 | [07-industry-playbooks.md](./07-industry-playbooks.md) | Specific patterns for Consulting, SaaS, Daycare, Hotel, E-comm, Warehouse |
+| [08-command-of-message-copywriting.md](./08-command-of-message-copywriting.md) | CotM framework, Apple-style CTAs, copy gotchas, knowledge-leader communication techniques |
 
 ---
 
