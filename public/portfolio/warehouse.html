@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iron Ridge Storage Solutions | Flexible Warehouse & Storage</title>
+    <meta name="description"
+        content="Iron Ridge provides secure, scalable commercial warehouse and storage solutions for businesses of all sizes. Get a quote today." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --bg: #F8F7F4;
+            --orange: #EA580C;
+            --orange-l: #FFF7ED;
+            --orange-d: #C2410C;
+            --yellow: #FDE68A;
+            --text: #1C1917;
+            --sub: #44403C;
+            --muted: #78716C;
+            --border: #E7E5E4;
+            --steel: #292524;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 68px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .nav-cta {
+            background: var(--orange);
+            color: #fff !important;
+            padding: 0.55rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 700 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange-d) !important;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-left {
+            background: var(--steel);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 5% 60px 6%;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(234, 88, 12, 0.5);
+            color: var(--orange);
+            padding: 0.35rem 0.9rem;
+            border-radius: 3px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+            background: rgba(234, 88, 12, 0.08);
+        }
+
+        .hero-left h1 {
+            font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-left h1 em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .hero-left p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 440px;
+        }
+
+        .btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-o {
+            background: var(--orange);
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-o:hover {
+            background: var(--orange-d);
+        }
+
+        .btn-light {
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-light:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #fff;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .sv {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .sl {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--steel) 0%, transparent 30%);
+        }
+
+        /* ── TICKER ── */
+        .ticker {
+            background: var(--orange);
+            padding: 0.75rem 0;
+            overflow: hidden;
+        }
+
+        .ticker-inner {
+            display: flex;
+            gap: 3rem;
+            animation: ticker 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-inner span {
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .ticker-inner .sep {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ── SECTIONS ── */
+        section.sec {
+            padding: 5.5rem 5%;
+        }
+
+        .sec-wrapper {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .sec-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 0.75rem;
+        }
+
+        h2.sh {
+            font-size: clamp(2rem, 3.2vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        h2.sh em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .subtext {
+            color: var(--sub);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .tc {
+            text-align: center;
+        }
+
+        .bg-alt {
+            background: var(--bg);
+        }
+
+        /* Certifications strip */
+        .certs-strip {
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            background: var(--white);
+            padding: 2.5rem 5%;
+        }
+
+        .cert-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-item {
+            text-align: center;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .cert-item h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .cert-item p {
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+        /* Services */
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5px;
+            margin-top: 3rem;
+            background: var(--border);
+            border: 1.5px solid var(--border);
+            overflow: hidden;
+        }
+
+        .svc-card {
+            background: var(--white);
+            padding: 2rem;
+            transition: all 0.25s;
+        }
+
+        .svc-card:hover {
+            background: var(--orange-l);
+        }
+
+        .svc-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--border);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .svc-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .svc-card p {
+            color: var(--sub);
+            font-size: 0.875rem;
+            line-height: 1.65;
+        }
+
+        /* Two-col layout */
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .feat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fi {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .fi-bullet {
+            width: 36px;
+            height: 36px;
+            border-radius: 2px;
+            background: var(--orange-l);
+            border: 1px solid rgba(234, 88, 12, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .fi strong {
+            font-size: 0.95rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .fi p {
+            color: var(--sub);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .facility-photo {
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .facility-photo img {
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 2px solid var(--border);
+            overflow: hidden;
+            margin-top: 3rem;
+        }
+
+        .plan {
+            padding: 2.5rem;
+            border-right: 1.5px solid var(--border);
+        }
+
+        .plan:last-child {
+            border-right: none;
+        }
+
+        .plan.pop {
+            background: var(--orange);
+            border-color: var(--orange);
+            position: relative;
+        }
+
+        .plan-tier {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .plan.pop .plan-tier {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .plan-size {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .plan.pop .plan-size {
+            color: #fff;
+        }
+
+        .plan-price {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--sub);
+            margin-bottom: 0.75rem;
+        }
+
+        .plan.pop .plan-price {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .plan-desc {
+            color: var(--sub);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            border-top: 1px solid var(--border);
+            padding-top: 0.75rem;
+        }
+
+        .plan.pop .plan-desc {
+            color: rgba(255, 255, 255, 0.7);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--border);
+            color: var(--text);
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .plan.pop .plan-btn {
+            background: #fff;
+            border-color: #fff;
+            color: var(--orange-d);
+        }
+
+        .plan-btn:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: #fff;
+        }
+
+        .plan.pop .plan-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .plan-feats {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .plan-feats li {
+            font-size: 0.83rem;
+            color: var(--sub);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan.pop .plan-feats li {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .plan-feats li::before {
+            content: '→';
+            color: var(--orange);
+            font-weight: 800;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .plan.pop .plan-feats li::before {
+            color: var(--yellow);
+        }
+
+        /* Testimonials */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tc-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            padding: 2rem;
+        }
+
+        .tc-card p {
+            color: var(--sub);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-style: italic;
+            border-left: 3px solid var(--orange);
+            padding-left: 1rem;
+        }
+
+        .ta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .av {
+            width: 44px;
+            height: 44px;
+            background: var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #fff;
+            flex-shrink: 0;
+            border-radius: 2px;
+        }
+
+        .an {
+            font-weight: 800;
+            font-size: 0.9rem;
+        }
+
+        .ar {
+            color: var(--muted);
+            font-size: 0.775rem;
+        }
+
+        /* Clients strip */
+        .clients-strip {
+            background: var(--bg);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .clients-strip p {
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .clients-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .ci {
+            color: var(--border);
+            font-size: 0.85rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+
+        /* CTA */
+        .cta-wrap {
+            background: var(--steel);
+            padding: 5.5rem 5%;
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .cta-wrap h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .cta-wrap h2 em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .cta-wrap p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-top: 0.75rem;
+        }
+
+        .cta-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            text-align: center;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-orange:hover {
+            background: var(--orange-d);
+        }
+
+        .btn-frame {
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .btn-frame:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #0C0A09;
+            padding: 3.5rem 5% 1.5rem;
+        }
+
+        .ft {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .fb-logo {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .fb-logo span {
+            color: var(--orange);
+        }
+
+        .ft .fb p {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.82rem;
+            max-width: 220px;
+            line-height: 1.7;
+        }
+
+        .fl h5 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 0.9rem;
+        }
+
+        .fl ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .fl ul li a {
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .fl ul li a:hover {
+            color: var(--orange);
+        }
+
+        .fb2 {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .fb2 p {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.78rem;
+        }
+
+        .fleg {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .fleg a {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.78rem;
+            text-decoration: none;
+        }
+
+        .fleg a:hover {
+            color: var(--orange);
+        }
+
+        @media (max-width: 1000px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .hero-left {
+                padding-top: 100px;
+            }
+
+            .svc-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .grid2 {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ── SCROLL REVEAL ── */
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal:nth-child(2) { transition-delay:.1s; }
+        .reveal:nth-child(3) { transition-delay:.2s; }
+        .reveal:nth-child(4) { transition-delay:.3s; }
+        .reveal:nth-child(5) { transition-delay:.4s; }
+        .reveal:nth-child(6) { transition-delay:.5s; }
+        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Iron<span>Ridge</span></div>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#facility">Facility</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-left">
+            <div class="hero-tag">📦 Commercial Warehouse Solutions</div>
+            <h1>Storage That<br /><em>Scales</em> With<br />Your Business</h1>
+            <p>Iron Ridge offers flexible, secure warehouse space from 500 to 50,000+ sq ft — with the logistics muscle
+                to power your operations every single day.</p>
+            <div class="btns">
+                <a href="#contact" class="btn-o">Get a Free Quote</a>
+                <a href="#facility" class="btn-light">Tour the Facility</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="sv" data-count="1.2" data-suffix="M" data-decimals="1">1.2M</div>
+                    <div class="sl">Sq Ft Available</div>
+                </div>
+                <div>
+                    <div class="sv" data-count="600" data-suffix="+">600+</div>
+                    <div class="sl">Active Clients</div>
+                </div>
+                <div>
+                    <div class="sv" data-count="99.8" data-suffix="%" data-decimals="1">99.8%</div>
+                    <div class="sl">Availability SLA</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&auto=format&fit=crop&q=80"
+                alt="Iron Ridge warehouse interior" />
+        </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span>24/7 SECURITY</span><span class="sep">·</span><span>CLIMATE CONTROLLED</span><span
+                class="sep">·</span><span>DOCK-HIGH ACCESS</span><span class="sep">·</span><span>FLEXIBLE
+                LEASES</span><span class="sep">·</span><span>REAL-TIME WMS</span><span
+                class="sep">·</span><span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span><span>LEED
+                CERTIFIED</span><span class="sep">·</span>
+            <span>24/7 SECURITY</span><span class="sep">·</span><span>CLIMATE CONTROLLED</span><span
+                class="sep">·</span><span>DOCK-HIGH ACCESS</span><span class="sep">·</span><span>FLEXIBLE
+                LEASES</span><span class="sep">·</span><span>REAL-TIME WMS</span><span
+                class="sep">·</span><span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span><span>LEED
+                CERTIFIED</span><span class="sep">·</span>
+        </div>
+    </div>
+
+    <!-- CERTS -->
+    <div class="certs-strip">
+        <div class="cert-row">
+            <div class="cert-item">
+                <div class="cert-icon">🔒</div>
+                <h4>24/7 Security</h4>
+                <p>Biometric access, CCTV</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🌡️</div>
+                <h4>Climate Control</h4>
+                <p>32°F to -10°F cold storage</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🚛</div>
+                <h4>40+ Loading Docks</h4>
+                <p>Grade-level &amp; dock-high</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">🌿</div>
+                <h4>LEED Certified</h4>
+                <p>Solar-powered operations</p>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">📜</div>
+                <h4>Flexible Terms</h4>
+                <p>Month-to-month available</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="sec bg-alt">
+        <div class="sec-wrapper">
+            <div class="sec-label">Our Services</div>
+            <h2 class="sh">Everything You Need<br />Under One Roof</h2>
+            <div class="svc-grid">
+                <div class="svc-card reveal">
+                    <div class="svc-num">01</div>
+                    <h3>General Warehousing</h3>
+                    <p>Flexible bulk storage with pallet racking, wide aisles, and dock-high access for efficient
+                        loading.</p>
+                </div>
+                <div class="svc-card reveal">
+                    <div class="svc-num">02</div>
+                    <h3>Cold Storage</h3>
+                    <p>State-of-the-art temperature-controlled units for food, pharma, and perishables — down to -10°F.
+                    </p>
+                </div>
+                <div class="svc-card reveal">
+                    <div class="svc-num">03</div>
+                    <h3>E-commerce Fulfillment</h3>
+                    <p>Pick, pack, and ship — your entire order pipeline handled so you can focus on growth.</p>
+                </div>
+                <div class="svc-card reveal">
+                    <div class="svc-num">04</div>
+                    <h3>Cross-Docking</h3>
+                    <p>Minimal dwell time, streamlined inbound-to-outbound logistics for time-sensitive supply chains.
+                    </p>
+                </div>
+                <div class="svc-card reveal">
+                    <div class="svc-num">05</div>
+                    <h3>Kitting &amp; Rework</h3>
+                    <p>On-site assembly, repackaging, and labeling tailored to your product requirements.</p>
+                </div>
+                <div class="svc-card reveal">
+                    <div class="svc-num">06</div>
+                    <h3>Inventory Management</h3>
+                    <p>Full WMS integration with real-time bin tracking, dashboards, and cycle count programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACILITY -->
+    <section id="facility" class="sec">
+        <div class="sec-wrapper">
+            <div class="grid2">
+                <div>
+                    <div class="sec-label">Our Facility</div>
+                    <h2 class="sh">Built for the Demands of <em>Modern Logistics</em></h2>
+                    <p class="subtext">1.2M sq ft of purpose-built warehousing, minutes from I-95 and three major ports.
+                    </p>
+                    <div class="feat-list">
+                        <div class="fi">
+                            <div class="fi-bullet">📍</div>
+                            <div><strong>Strategic Location</strong>
+                                <p>Minutes from I-95 and 3 major ports — reducing last-mile costs and transit times.</p>
+                            </div>
+                        </div>
+                        <div class="fi">
+                            <div class="fi-bullet">🏗️</div>
+                            <div><strong>30-Foot Clear Height</strong>
+                                <p>Selective and drive-in racking systems for maximum density and operational
+                                    flexibility.</p>
+                            </div>
+                        </div>
+                        <div class="fi">
+                            <div class="fi-bullet">🚨</div>
+                            <div><strong>Advanced Security</strong>
+                                <p>200+ CCTV cameras, perimeter fencing, biometric entry, and uniformed guards 24/7.</p>
+                            </div>
+                        </div>
+                        <div class="fi">
+                            <div class="fi-bullet">♻️</div>
+                            <div><strong>LEED Certified</strong>
+                                <p>Solar panels, LED lighting throughout, and rainwater recollection — sustainable by
+                                    design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="facility-photo">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80"
+                        alt="Warehouse aisles" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="sec bg-alt">
+        <div class="sec-wrapper tc">
+            <div class="sec-label">Transparent Pricing</div>
+            <h2 class="sh">No Hidden Fees. <em>Ever.</em></h2>
+            <p class="subtext" style="max-width:460px;margin:0 auto;">All plans include 24/7 security, dock access, and
+                WMS portal. Scale up or down with 30 days' notice.</p>
+            <div class="pricing-grid">
+                <div class="plan reveal">
+                    <div class="plan-tier">Starter</div>
+                    <div class="plan-size">500 – 2,000 sq ft</div>
+                    <div class="plan-price">From $1.20 / sq ft / mo</div>
+                    <div class="plan-desc">Ideal for small businesses, e-comm sellers, and seasonal overflow.</div>
+                    <a href="#contact" class="plan-btn">Get a Quote</a>
+                    <ul class="plan-feats">
+                        <li>Month-to-month lease</li>
+                        <li>2 dock doors included</li>
+                        <li>WMS portal access</li>
+                        <li>24/7 CCTV monitoring</li>
+                    </ul>
+                </div>
+                <div class="plan pop reveal">
+                    <div class="plan-tier">Business</div>
+                    <div class="plan-size">2,000 – 20,000 sq ft</div>
+                    <div class="plan-price">From $0.85 / sq ft / mo</div>
+                    <div class="plan-desc">For growing companies needing dedicated space and fulfillment support.</div>
+                    <a href="#contact" class="plan-btn">Get a Quote</a>
+                    <ul class="plan-feats">
+                        <li>6-month+ lease terms</li>
+                        <li>Dedicated loading area</li>
+                        <li>Pick &amp; pack services</li>
+                        <li>Advanced WMS + API</li>
+                        <li>Account manager included</li>
+                    </ul>
+                </div>
+                <div class="plan reveal">
+                    <div class="plan-tier">Enterprise</div>
+                    <div class="plan-size">20,000+ sq ft</div>
+                    <div class="plan-price">Custom Pricing</div>
+                    <div class="plan-desc">Full dedicated facilities, custom racking, and comprehensive 3PL services.
+                    </div>
+                    <a href="#contact" class="plan-btn">Contact Us</a>
+                    <ul class="plan-feats">
+                        <li>Dedicated building option</li>
+                        <li>Custom racking design</li>
+                        <li>Full 3PL services</li>
+                        <li>Cold storage available</li>
+                        <li>SLA-backed availability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="sec">
+        <div class="sec-wrapper">
+            <div class="sec-label">Client Stories</div>
+            <h2 class="sh">600+ Businesses Trust<br /><em>Iron Ridge</em> Every Day</h2>
+            <div class="testi-grid">
+                <div class="tc-card reveal">
+                    <p>"We moved our 3PL operation to Iron Ridge two years ago. Immaculate facility, responsive team,
+                        and our order accuracy went from 96% to 99.8%. Wouldn't go back."</p>
+                    <div class="ta">
+                        <div class="av">BK</div>
+                        <div>
+                            <div class="an">Brian Kelsey</div>
+                            <div class="ar">VP Logistics, Summit Supply Co.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc-card reveal">
+                    <p>"As a fast-growing DTC brand, we needed storage that could scale fast. Iron Ridge's flexible
+                        leasing let us go from 2,000 to 15,000 sq ft in 6 months — no interruption to fulfillment."</p>
+                    <div class="ta">
+                        <div class="av">CR</div>
+                        <div>
+                            <div class="an">Carmen Rivera</div>
+                            <div class="ar">COO, NovaGoods Inc.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <div class="clients-strip">
+        <p>Trusted by businesses across every industry</p>
+        <div class="clients-row">
+            <span class="ci">SUMMIT SUPPLY</span>
+            <span class="ci">NOVAGOODS</span>
+            <span class="ci">PEAK PHARMA</span>
+            <span class="ci">RIDGELINE FOODS</span>
+            <span class="ci">COAST AUTO</span>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-wrap">
+        <div class="cta-inner">
+            <div>
+                <h2>Ready for Storage That <em>Works?</em></h2>
+                <p>Tell us your requirements and we'll have a custom quote on your desk within 24 hours — no obligation,
+                    no sales pressure.</p>
+            </div>
+            <div class="cta-right">
+                <a href="#" class="btn-orange">Get My Free Quote</a>
+                <a href="#" class="btn-frame">Call (855) 466-7434</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="ft">
+            <div class="fb">
+                <div class="fb-logo">Iron<span>Ridge</span></div>
+                <p>Flexible, secure commercial warehouse and storage for businesses of all sizes — across the region.
+                </p>
+            </div>
+            <div class="fl">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="#">General Warehousing</a></li>
+                    <li><a href="#">Cold Storage</a></li>
+                    <li><a href="#">E-comm Fulfillment</a></li>
+                    <li><a href="#">Cross-Docking</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Facility</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Certifications</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="#">1400 Commerce Pkwy, NJ</a></li>
+                    <li><a href="#">(855) 466-7434</a></li>
+                    <li><a href="#">info@ironridgestorage.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb2">
+            <p>© 2025 Iron Ridge Storage Solutions, LLC. All rights reserved.</p>
+            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Scroll Reveal ──
+        const revealObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+        // ── Animated Counters ──
+        function animateCount(el) {
+            const target = parseFloat(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            const decimals = parseInt(el.dataset.decimals || '0');
+            const duration = 1800;
+            const start = performance.now();
+            (function step(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - p, 4);
+                el.textContent = (target * ease).toFixed(decimals) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            })(start);
+        }
+        const countObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+        // ── Nav scroll effect ──
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,.15)' : '';
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
