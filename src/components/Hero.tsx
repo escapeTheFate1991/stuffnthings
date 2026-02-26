@@ -80,44 +80,45 @@ function FloatingElements() {
   const offset = useParallax(15)
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-      {/* Speed badge */}
+      {/* Lighthouse Performance badge */}
       <div
         className="absolute top-[18%] left-[8%] animate-float hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.5}px, ${offset.y * 0.5}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">⚡</span>
+          <span className="text-2xl">🚀</span>
           <div>
-            <div className="text-xs text-slate-400">PageSpeed</div>
-            <div className="text-lg font-bold text-brand-cyan">98/100</div>
+            <div className="text-xs text-slate-400">Lighthouse Perf</div>
+            <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
           </div>
         </div>
       </div>
 
-      {/* Code snippet */}
+      {/* Core Web Vitals snippet */}
       <div
         className="absolute top-[25%] right-[6%] animate-float-delayed hidden lg:block"
         style={{ transform: `translate(${offset.x * -0.3}px, ${offset.y * -0.3}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 font-mono text-xs">
-          <span className="text-brand-purple">const</span>{' '}
-          <span className="text-brand-cyan">speed</span>{' '}
-          <span className="text-slate-400">=</span>{' '}
-          <span className="text-brand-green">&quot;blazing&quot;</span>
-          <span className="text-slate-500">;</span>
+          <span className="text-brand-purple">LCP</span>{' '}
+          <span className="text-slate-400">&lt;</span>{' '}
+          <span className="text-brand-green">1.2s</span>
+          <span className="text-slate-500"> · </span>
+          <span className="text-brand-purple">CLS</span>{' '}
+          <span className="text-brand-cyan">0.00</span>
         </div>
       </div>
 
-      {/* Conversion badge */}
+      {/* Accessibility badge */}
       <div
         className="absolute bottom-[22%] left-[10%] animate-float-slow hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.4}px, ${offset.y * 0.4}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">📈</span>
+          <span className="text-2xl">♿</span>
           <div>
-            <div className="text-xs text-slate-400">Conversions</div>
-            <div className="text-lg font-bold text-brand-green">+127%</div>
+            <div className="text-xs text-slate-400">Accessibility</div>
+            <div className="text-lg font-bold text-brand-green">100 / 100</div>
           </div>
         </div>
       </div>
@@ -130,7 +131,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <div className="w-3 h-3 bg-brand-green rounded-full animate-pulse" />
           <div>
-            <div className="text-xs text-slate-400">Uptime</div>
+            <div className="text-xs text-slate-400">Uptime SLA</div>
             <div className="text-lg font-bold text-white">99.9%</div>
           </div>
         </div>
@@ -181,29 +182,29 @@ export default function Hero() {
         <div className="hero-reveal reveal mb-8">
           <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/20">
             <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
-            Website-as-a-Service — Build · Ship · Grow
+            Now accepting new clients — Free site audit included
           </span>
         </div>
 
-        {/* Main heading with kinetic type */}
+        {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">High-Performance</span>
+            <span className="gradient-text inline-block">Your Website Should</span>
             <br />
-            <span className="text-white inline-block">Digital Presence.</span>
+            <span className="text-white inline-block">Work as Hard as You Do.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300/80 mb-8 tracking-tight">
-            Zero Technical Friction.
+            Most don&apos;t. We fix that.
           </p>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We build, optimize, and manage stunning websites that load in under a second,
-            convert visitors into customers, and grow your business on autopilot.
+            We design, engineer, and actively manage high-performance websites for ambitious businesses —
+            so yours loads fast, ranks high, and keeps getting better every single month.
           </p>
         </div>
 
@@ -213,7 +214,7 @@ export default function Hero() {
             onClick={handleCTAClick}
             className="btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
           >
-            Get Your Free Friction Audit
+            See What Your Site Is Leaving Behind
             <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -222,7 +223,7 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn btn-secondary text-lg px-10 py-5"
           >
-            See Our Work
+            Explore Our Work
           </button>
         </div>
 
@@ -230,15 +231,15 @@ export default function Hero() {
         <div className="hero-reveal reveal flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-500">
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            No upfront costs
+            No contracts or upfront costs
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            48-hour audit turnaround
+            Audit delivered in 48 hours
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            Actionable insights
+            95+ Lighthouse score, guaranteed
           </span>
         </div>
       </div>

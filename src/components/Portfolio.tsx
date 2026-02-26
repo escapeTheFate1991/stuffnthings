@@ -5,7 +5,7 @@ import { useScrollReveal, useTilt } from '@/lib/hooks'
 
 const categories = ['All', 'Consulting', 'SaaS', 'Day Care', 'Hotel', 'E-commerce', 'Warehouse']
 
-const THUMB = 'https://image.thum.io/get/width/600/crop/350'
+const THUMB = 'https://image.thum.io/get/width/600/crop/350/wait/10'
 const PORTFOLIO = 'https://escapethefate1991.github.io/stuffnthings/portfolio'
 
 const projects = [
