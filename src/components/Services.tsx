@@ -88,7 +88,7 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" ref={sectionRef} className="py-28 md:py-36 relative overflow-hidden">
+    <section id="services" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
