@@ -80,7 +80,7 @@ function FloatingElements() {
   const offset = useParallax(15)
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-      {/* Lighthouse Performance badge */}
+      {/* Lighthouse Performance badge — scores are for this site */}
       <div
         className="absolute top-[18%] left-[8%] animate-float hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.5}px, ${offset.y * 0.5}px)` }}
@@ -88,7 +88,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <span className="text-2xl">🚀</span>
           <div>
-            <div className="text-xs text-slate-400">Lighthouse Perf</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">This site · Lighthouse Perf</div>
             <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
           </div>
         </div>
@@ -100,6 +100,7 @@ function FloatingElements() {
         style={{ transform: `translate(${offset.x * -0.3}px, ${offset.y * -0.3}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 font-mono text-xs">
+          <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1 font-sans">This site · Core Web Vitals</div>
           <span className="text-brand-purple">LCP</span>{' '}
           <span className="text-slate-400">&lt;</span>{' '}
           <span className="text-brand-green">1.2s</span>
@@ -117,7 +118,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <span className="text-2xl">♿</span>
           <div>
-            <div className="text-xs text-slate-400">Accessibility</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">This site · Accessibility</div>
             <div className="text-lg font-bold text-brand-green">100 / 100</div>
           </div>
         </div>
@@ -131,7 +132,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <div className="w-3 h-3 bg-brand-green rounded-full animate-pulse" />
           <div>
-            <div className="text-xs text-slate-400">Uptime SLA</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Uptime SLA</div>
             <div className="text-lg font-bold text-white">99.9%</div>
           </div>
         </div>
@@ -221,7 +222,7 @@ export default function Hero() {
           </button>
           <button
             onClick={handleWorkClick}
-            className="btn btn-secondary text-lg px-10 py-5"
+            className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
             Explore Our Work
           </button>
@@ -244,10 +245,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — icon only, no text */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center gap-2 text-slate-600 animate-bounce-subtle">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Scroll</span>
+        <div className="flex flex-col items-center text-slate-600 animate-bounce-subtle">
           <div className="w-5 h-8 border border-slate-700 rounded-full flex justify-center pt-1.5">
             <div className="w-1 h-2 bg-slate-600 rounded-full animate-pulse" />
           </div>

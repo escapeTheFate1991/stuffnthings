@@ -150,7 +150,7 @@ export default function Portfolio() {
   const handleFilter = useCallback((cat: string) => setActiveFilter(cat), [])
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-28 md:py-36 relative overflow-hidden">
+    <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
 
@@ -159,13 +159,14 @@ export default function Portfolio() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Our</span>{' '}
-              <span className="gradient-text">Work</span>
+              <span className="text-white">Sample</span>{' '}
+              <span className="gradient-text">Builds</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Real projects. Real results. Every site we build becomes a case study in performance and conversion optimization.
+              Template demos built to our full production standard — real Lighthouse scores, real code.
+              These are the kinds of sites your clients will be comparing you to.
             </p>
           </div>
         </div>

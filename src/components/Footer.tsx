@@ -18,9 +18,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
-            <p className="text-slate-400 max-w-md leading-relaxed mb-6">
+            <p className="text-slate-400 max-w-md leading-relaxed mb-3">
               High-Performance Digital Presence. Zero Technical Friction.
               We build, optimize, and maintain your entire digital presence so you can focus on growth.
+            </p>
+            <p className="text-slate-600 text-sm mb-6">
+              Built by Eddy — independent studio, founding clients welcome.
             </p>
             <div className="flex items-center gap-3 text-slate-500 text-sm">
               <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
@@ -62,11 +65,9 @@ export default function Footer() {
           <p className="text-sm text-slate-600">
             © {new Date().getFullYear()} Stuff N Things. All rights reserved.
           </p>
-          <div className="flex items-center gap-8 text-sm text-slate-600">
-            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Privacy</a>
-            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Terms</a>
-            <a href="#" className="hover:text-brand-cyan transition-colors duration-300">Sitemap</a>
-          </div>
+          <p className="text-sm text-slate-700">
+            Crafted with care · 95+ Lighthouse guaranteed
+          </p>
         </div>
       </div>
     </footer>

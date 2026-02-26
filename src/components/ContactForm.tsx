@@ -60,7 +60,7 @@ export default function ContactForm() {
   const filledCount = Object.values(formData).filter(Boolean).length
 
   return (
-    <section id="contact" ref={sectionRef} className="py-28 md:py-36 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
       {/* Background accents */}
       <div className="absolute top-[20%] left-[-5%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.03] blur-[100px]" />

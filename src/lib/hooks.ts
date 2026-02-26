@@ -40,48 +40,50 @@ export function useCountUp<T extends HTMLElement = HTMLDivElement>(
   end: number,
   duration = 2000,
   startOnView = true
-): { ref: RefObject<T>; value: number; started: boolean } {
+): { ref: RefObject<T>; value: number } {
   const ref = useRef<T>(null) as RefObject<T>
   const [value, setValue] = useState(0)
-  const [started, setStarted] = useState(false)
+  // Use a ref (not state) so starting the animation does NOT cause the effect
+  // to tear down and recreate the IntersectionObserver mid-flight.
+  const startedRef = useRef(false)
 
   useEffect(() => {
+    startedRef.current = false   // reset if `end` / `duration` changes
+
+    function animateCount() {
+      const startTime = performance.now()
+      const step = (currentTime: number) => {
+        const elapsed = currentTime - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setValue(Math.round(eased * end))
+        if (progress < 1) requestAnimationFrame(step)
+      }
+      requestAnimationFrame(step)
+    }
+
     if (!startOnView) {
-      // Animate immediately
       animateCount()
       return
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
-          setStarted(true)
+        if (entry.isIntersecting && !startedRef.current) {
+          startedRef.current = true
           animateCount()
           observer.disconnect()
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }   // low threshold — fires as soon as element is barely visible
     )
 
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [end, duration, startOnView, started])
+  }, [end, duration, startOnView])
 
-  function animateCount() {
-    const startTime = performance.now()
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / duration, 1)
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setValue(Math.round(eased * end))
-      if (progress < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  }
-
-  return { ref, value, started }
+  return { ref, value }
 }
 
 /* ─── 3D Tilt Effect ─── */

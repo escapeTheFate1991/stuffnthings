@@ -2,17 +2,7 @@
 
 import { useScrollReveal, useCountUp } from '@/lib/hooks'
 
-/* ── Avatar ── */
-function Avatar({ name, gradient }: { name: string; gradient: string }) {
-  const initials = name.split(' ').map((n) => n[0]).join('')
-  return (
-    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white font-bold text-lg flex-shrink-0 shadow-lg`}>
-      {initials}
-    </div>
-  )
-}
-
-/* ── Stat ── */
+/* ── Animated Stat ── */
 function Stat({ end, suffix, label, icon }: { end: number; suffix: string; label: string; icon: string }) {
   const { ref, value } = useCountUp(end, 2200)
   return (
@@ -24,25 +14,33 @@ function Stat({ end, suffix, label, icon }: { end: number; suffix: string; label
   )
 }
 
-/* ── Logo Marquee ── */
-function LogoMarquee() {
-  const logos = [
-    'TechFlow', 'Meridian', 'CloudSync', 'Pinnacle', 'Elevate',
-    'VitalCare', 'NovaTech', 'Horizon', 'Apex', 'Radiant',
+/* ── Tech Stack Marquee (honest: these are the tools we actually use) ── */
+function TechMarquee() {
+  const stack = [
+    { name: 'Next.js', icon: '▲' },
+    { name: 'React', icon: '⚛' },
+    { name: 'TypeScript', icon: 'TS' },
+    { name: 'Tailwind CSS', icon: '🎨' },
+    { name: 'Vercel', icon: '▲' },
+    { name: 'Lighthouse', icon: '🔦' },
+    { name: 'Core Web Vitals', icon: '📊' },
+    { name: 'WCAG 2.1 AA', icon: '♿' },
+    { name: 'Structured Data', icon: '🗂' },
+    { name: 'GitHub Actions', icon: '⚙️' },
   ]
-  const doubled = [...logos, ...logos]
+  const doubled = [...stack, ...stack]
 
   return (
     <div className="relative overflow-hidden py-8 mb-16">
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10" />
       <div className="flex animate-marquee whitespace-nowrap">
-        {doubled.map((name, i) => (
-          <div key={i} className="mx-8 flex items-center gap-2 text-slate-600 hover:text-slate-400 transition-colors duration-300">
+        {doubled.map((item, i) => (
+          <div key={i} className="mx-8 flex items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors duration-300">
             <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/50 flex items-center justify-center text-xs font-bold">
-              {name[0]}
+              {item.icon}
             </div>
-            <span className="text-lg font-semibold tracking-tight">{name}</span>
+            <span className="text-sm font-semibold tracking-tight">{item.name}</span>
           </div>
         ))}
       </div>
@@ -50,42 +48,66 @@ function LogoMarquee() {
   )
 }
 
-const testimonials = [
+/* ── Build Standard Card ── */
+function StandardCard({
+  icon, title, commitment, proof, gradient,
+}: {
+  icon: string; title: string; commitment: string; proof: string; gradient: string
+}) {
+  return (
+    <div className="relative group h-full">
+      <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
+      <div className="card relative h-full flex flex-col">
+        <div className="text-4xl mb-4">{icon}</div>
+        <h4 className={`text-xl font-bold mb-3 bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>{title}</h4>
+        <p className="text-slate-300 leading-relaxed flex-1 mb-6">{commitment}</p>
+        <div className="bg-brand-green/5 border border-brand-green/15 rounded-xl p-3">
+          <p className="text-brand-green font-semibold text-sm font-mono">{proof}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const standards = [
   {
-    name: 'Sarah Chen',
-    title: 'Head of Operations, TechFlow Solutions',
-    quote: "We'd been living with a slow, outdated site for two years. The team rebuilt it properly — mobile-first, clean architecture, no shortcuts. Our Lighthouse score went from 54 to 97. We finally feel confident sending clients to our URL.",
-    result: 'Lighthouse: 54 → 97 · LCP: 4.2s → 0.9s',
+    icon: '🚀',
+    title: '95+ Performance. Every Build.',
+    commitment:
+      "We don't ship a site that scores below 95 on Google Lighthouse Performance. Not 94. That threshold is our baseline, not our ceiling — and it's verifiable the moment the site goes live.",
+    proof: 'Target: Lighthouse Perf ≥ 95 · LCP < 1.5s · CLS = 0.00',
     gradient: 'from-brand-cyan to-blue-500',
   },
   {
-    name: 'Marcus Rodriguez',
-    title: 'Founder, Elevate Digital',
-    quote: "What stood out was that they treated our website like infrastructure, not a design project. They identified three critical performance bottlenecks in the first week that our previous agency had never flagged. It's been maintained proactively ever since.",
-    result: 'Perf: 61 → 96 · Accessibility: 78 → 100',
+    icon: '♿',
+    title: 'Accessibility Is Not Optional.',
+    commitment:
+      "Every site we build targets a Lighthouse Accessibility score of 100. WCAG 2.1 AA compliance is baked into our process — semantic HTML, correct ARIA roles, proper contrast ratios — from the first commit, not as an afterthought.",
+    proof: 'Target: Accessibility = 100 · WCAG 2.1 AA',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
-    name: 'Jennifer Liu',
-    title: 'Director of Marketing, Pinnacle Consulting',
-    quote: "The audit they delivered before we even signed a contract was more thorough than anything we'd received from vendors we'd paid. That set the tone — every recommendation has been clear, prioritized, and actually implemented.",
-    result: 'SEO: 72 → 100 · CLS: 0.24 → 0.00',
+    icon: '📡',
+    title: 'SEO Architecture from Day One.',
+    commitment:
+      "Clean semantic structure, correct heading hierarchy, structured data where applicable, meta strategy aligned to your keywords. We build for search engines the same way we build for humans — with intention, not plugins.",
+    proof: 'Target: SEO = 100 · Structured data · Zero crawl errors',
     gradient: 'from-brand-green to-emerald-400',
   },
 ]
 
 const stats = [
-  { end: 95, suffix: '+', label: 'Avg Lighthouse Performance', icon: '🚀' },
-  { end: 100, suffix: '', label: 'Accessibility Score Target', icon: '♿' },
+  { end: 95, suffix: '+', label: 'Lighthouse Perf — our floor', icon: '🚀' },
+  { end: 100, suffix: '', label: 'Accessibility — our target', icon: '♿' },
   { end: 99, suffix: '.9%', label: 'Uptime SLA', icon: '🔧' },
-  { end: 100, suffix: '', label: 'SEO Score Target', icon: '📡' },
+  { end: 100, suffix: '', label: 'SEO Score — our standard', icon: '📡' },
 ]
 
 export default function SocialProof() {
   const sectionRef = useScrollReveal<HTMLElement>()
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-28 md:py-36 relative overflow-hidden">
+    <section id="testimonials" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,25 +115,25 @@ export default function SocialProof() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">The scores speak</span>
+              <span className="gradient-text">Built to a</span>
               <br />
-              <span className="text-white">for themselves.</span>
+              <span className="text-white">verifiable standard.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Every site we deliver is measured against the same standard Google uses to rank your competition.
-              Here&apos;s what that looks like in practice.
+              We&apos;re a new studio — which means founding-client pricing, direct access to the builder,
+              and standards we set publicly so you can hold us to them.
             </p>
           </div>
         </div>
 
-        {/* Logo Marquee */}
+        {/* Tech stack marquee */}
         <div className="reveal">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-slate-600 font-medium mb-4">
-            Trusted by teams that take their web presence seriously
+            Built with
           </p>
-          <LogoMarquee />
+          <TechMarquee />
         </div>
 
         {/* Stats */}
@@ -123,36 +145,11 @@ export default function SocialProof() {
           ))}
         </div>
 
-        {/* Testimonials */}
+        {/* Build Standards Cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
+          {standards.map((s, i) => (
             <div key={i} className={`reveal stagger-${i + 1}`}>
-              <div className="relative group h-full">
-                {/* Gradient border glow on hover */}
-                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${t.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
-                <div className="card relative h-full flex flex-col">
-                  <div className="flex items-center gap-4 mb-5">
-                    <Avatar name={t.name} gradient={t.gradient} />
-                    <div>
-                      <h4 className="text-white font-semibold">{t.name}</h4>
-                      <p className="text-slate-500 text-sm">{t.title}</p>
-                    </div>
-                  </div>
-
-                  {/* Quote */}
-                  <div className={`text-3xl font-serif bg-gradient-to-r ${t.gradient} bg-clip-text text-transparent leading-none mb-3`}>
-                    &ldquo;
-                  </div>
-                  <blockquote className="text-slate-300 mb-6 leading-relaxed flex-1">
-                    {t.quote}
-                  </blockquote>
-
-                  {/* Result badge */}
-                  <div className="bg-brand-green/5 border border-brand-green/15 rounded-xl p-3">
-                    <p className="text-brand-green font-semibold text-sm">{t.result}</p>
-                  </div>
-                </div>
-              </div>
+              <StandardCard {...s} />
             </div>
           ))}
         </div>
