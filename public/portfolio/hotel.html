@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Bellevue Grand Hotel | Timeless Luxury, Unforgettable Stays</title>
+    <meta name="description"
+        content="The Bellevue Grand is a 5-star boutique hotel offering impeccable accommodations, world-class dining, and curated experiences in the heart of the city." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --dark: #0A0A0A;
+            --warm: #1A1410;
+            --gold: #B8975A;
+            --gold-l: #D4B07A;
+            --cream: #F5F0E8;
+            --text: #1A1410;
+            --muted: #6B5E4E;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, .92);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 76px;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: .05em;
+        }
+
+        .logo em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, .6);
+            text-decoration: none;
+            font-size: .8rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            border: 1px solid rgba(184, 151, 90, .5);
+            color: var(--gold) !important;
+            padding: .5rem 1.4rem;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .3) 0%, rgba(0, 0, 0, .5) 60%, rgba(0, 0, 0, .7) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-tag {
+            color: var(--gold);
+            font-size: .72rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.05;
+            letter-spacing: .02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-l);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, .75);
+            font-size: 1.05rem;
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-g {
+            background: var(--gold);
+            color: var(--dark);
+            padding: .85rem 2.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: .85rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            transition: all .25s;
+        }
+
+        .btn-g:hover {
+            background: var(--gold-l);
+        }
+
+        .btn-ghost {
+            border: 1px solid rgba(255, 255, 255, .4);
+            color: #fff;
+            padding: .85rem 2.25rem;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: .85rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            transition: all .25s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, .5);
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .scroll-arrow::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: rgba(255, 255, 255, .3);
+        }
+
+        .strip {
+            background: var(--cream);
+            padding: 3rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(184, 151, 90, .15);
+        }
+
+        .strip-item {
+            text-align: center;
+        }
+
+        .strip-item .n {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .strip-item p {
+            color: var(--muted);
+            font-size: .8rem;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-top: .2rem;
+        }
+
+        section.sec {
+            padding: 6rem 5%;
+        }
+
+        .sec-line {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 1.25rem;
+        }
+
+        .sec-tag {
+            font-size: .7rem;
+            color: var(--gold);
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 3.5rem);
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1rem;
+            letter-spacing: .02em;
+            line-height: 1.1;
+        }
+
+        h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .subtext {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .tc {
+            text-align: center;
+        }
+
+        .bg-cream {
+            background: var(--cream);
+        }
+
+        .bg-dark {
+            background: var(--dark);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .room-card {
+            border: 1px solid rgba(184, 151, 90, .15);
+            transition: all .3s;
+            overflow: hidden;
+        }
+
+        .room-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .12);
+        }
+
+        .room-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .room-card:hover .room-img img {
+            transform: scale(1.05);
+        }
+
+        .room-body {
+            padding: 1.75rem;
+        }
+
+        .room-type {
+            font-size: .68rem;
+            color: var(--gold);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .6rem;
+        }
+
+        .room-body h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: .5rem;
+        }
+
+        .room-body p {
+            color: var(--muted);
+            font-size: .875rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .room-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .price-val span {
+            font-size: .75rem;
+            font-weight: 400;
+            color: var(--muted);
+        }
+
+        .room-btn {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: .5rem 1.25rem;
+            font-size: .75rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .room-btn:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .exp-item {
+            position: relative;
+            height: 360px;
+            overflow: hidden;
+        }
+
+        .exp-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s;
+        }
+
+        .exp-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .exp-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, .7) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .exp-overlay h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: .3rem;
+        }
+
+        .exp-overlay p {
+            color: rgba(255, 255, 255, .7);
+            font-size: .85rem;
+        }
+
+        .amenities {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .am-item {
+            text-align: center;
+        }
+
+        .am-icon {
+            font-size: 1.8rem;
+            margin-bottom: .75rem;
+        }
+
+        .am-item h4 {
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: .25rem;
+        }
+
+        .am-item p {
+            color: rgba(255, 255, 255, .5);
+            font-size: .78rem;
+        }
+
+        .testi-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tc-card {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(184, 151, 90, .12);
+            padding: 2rem;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: .9rem;
+            margin-bottom: 1rem;
+            letter-spacing: .1em;
+        }
+
+        .tc-card p {
+            color: rgba(255, 255, 255, .6);
+            font-size: .9rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .ta {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .av {
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: .8rem;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .an {
+            font-weight: 600;
+            font-size: .85rem;
+            color: #fff;
+        }
+
+        .ar {
+            color: rgba(255, 255, 255, .4);
+            font-size: .775rem;
+        }
+
+        .cta-wrap {
+            text-align: center;
+            padding: 6rem 5%;
+            background: var(--warm);
+            border-top: 1px solid rgba(184, 151, 90, .15);
+        }
+
+        .cta-wrap h2 {
+            color: var(--white);
+            font-size: clamp(2rem, 3.5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-wrap .subtext {
+            color: rgba(255, 255, 255, .55);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background: var(--dark);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(184, 151, 90, .1);
+        }
+
+        .ft {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .fb-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: .5rem;
+        }
+
+        .fb-logo em {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        .ft .fb p {
+            color: rgba(255, 255, 255, .4);
+            font-size: .82rem;
+            max-width: 220px;
+            line-height: 1.7;
+        }
+
+        .fl h5 {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .fl ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+        }
+
+        .fl ul li a {
+            color: rgba(255, 255, 255, .4);
+            text-decoration: none;
+            font-size: .85rem;
+            transition: color .2s;
+        }
+
+        .fl ul li a:hover {
+            color: var(--gold);
+        }
+
+        .fb2 {
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .fb2 p {
+            color: rgba(255, 255, 255, .2);
+            font-size: .78rem;
+        }
+
+        .fleg {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .fleg a {
+            color: rgba(255, 255, 255, .2);
+            font-size: .78rem;
+            text-decoration: none;
+        }
+
+        .fleg a:hover {
+            color: var(--gold);
+        }
+
+        @media(max-width:900px) {
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .amenities {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* ── SCROLL REVEAL ── */
+        .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal:nth-child(2) { transition-delay:.12s; }
+        .reveal:nth-child(3) { transition-delay:.24s; }
+        /* ── HERO PARALLAX ── */
+        .hero img { will-change:transform; transition:transform .1s linear; }
+        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">THE <em>BELLEVUE</em> GRAND</div>
+        <ul>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#reserve" class="nav-cta">Reserve Now</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&auto=format&fit=crop&q=80"
+            alt="The Bellevue Grand Hotel" />
+        <div class="hero-overlay">
+            <div class="hero-tag">✦ Five-Star Boutique Hotel</div>
+            <div class="hero-line"></div>
+            <h1>Where Luxury<br />Feels Like <em>Home</em></h1>
+            <p>86 meticulously appointed rooms, a Michelin-starred restaurant, and personalized service that turns every
+                stay into a cherished memory.</p>
+            <div class="hero-btns">
+                <a href="#reserve" class="btn-g">Reserve Your Stay</a>
+                <a href="#rooms" class="btn-ghost">Explore Rooms</a>
+            </div>
+        </div>
+        <div class="scroll-arrow">Discover</div>
+    </div>
+
+    <div class="strip">
+        <div class="strip-item">
+            <div class="n" data-count="86">86</div>
+            <p>Elegant Rooms &amp; Suites</p>
+        </div>
+        <div class="strip-item">
+            <div class="n">1★</div>
+            <p>Michelin-Star Restaurant</p>
+        </div>
+        <div class="strip-item">
+            <div class="n">24/7</div>
+            <p>Concierge Service</p>
+        </div>
+        <div class="strip-item">
+            <div class="n" data-count="4.9" data-suffix="★" data-decimals="1">4.9★</div>
+            <p>Guest Review Score</p>
+        </div>
+    </div>
+
+    <section id="rooms" class="sec bg-cream tc">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="sec-line"></div>
+            <div class="sec-tag">Accommodations</div>
+            <h2>Rooms <em>Designed</em> for Discerning Guests</h2>
+            <div class="rooms-grid">
+                <div class="room-card reveal">
+                    <div class="room-img"><img
+                            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&auto=format&fit=crop&q=80"
+                            alt="Deluxe Room" /></div>
+                    <div class="room-body">
+                        <div class="room-type">Standard</div>
+                        <h3>Deluxe City Room</h3>
+                        <p>35 m² of refined comfort with king bed, marble en-suite, and floor-to-ceiling city views.</p>
+                        <div class="room-price"><span class="price-val">$320 <span>/ night</span></span><a
+                                href="#reserve" class="room-btn">Book Now</a></div>
+                    </div>
+                </div>
+                <div class="room-card reveal">
+                    <div class="room-img"><img
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&auto=format&fit=crop&q=80"
+                            alt="Junior Suite" /></div>
+                    <div class="room-body">
+                        <div class="room-type">Suite</div>
+                        <h3>Junior Suite</h3>
+                        <p>55 m² featuring a separate living area, walk-in rain shower, and Nespresso station.</p>
+                        <div class="room-price"><span class="price-val">$580 <span>/ night</span></span><a
+                                href="#reserve" class="room-btn">Book Now</a></div>
+                    </div>
+                </div>
+                <div class="room-card reveal">
+                    <div class="room-img"><img
+                            src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&auto=format&fit=crop&q=80"
+                            alt="Penthouse Suite" /></div>
+                    <div class="room-body">
+                        <div class="room-type">Penthouse</div>
+                        <h3>Grand Penthouse</h3>
+                        <p>180 m² two-level suite with private terrace, hot tub, butler service, and panoramic skyline
+                            views.</p>
+                        <div class="room-price"><span class="price-val">$1,850 <span>/ night</span></span><a
+                                href="#reserve" class="room-btn">Book Now</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="sec tc">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="sec-line"></div>
+            <div class="sec-tag">Experiences</div>
+            <h2>Beyond the Room — <em>Curated</em> Moments</h2>
+            <div class="exp-grid">
+                <div class="exp-item"><img
+                        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop&q=80"
+                        alt="Fine dining" />
+                    <div class="exp-overlay">
+                        <h3>La Maison Restaurant</h3>
+                        <p>Michelin-starred tasting menus by Chef Antoine Moreau</p>
+                    </div>
+                </div>
+                <div class="exp-item"><img
+                        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&auto=format&fit=crop&q=80"
+                        alt="Spa" />
+                    <div class="exp-overlay">
+                        <h3>The Bellevue Spa</h3>
+                        <p>8 treatment rooms, heated pool, and sauna suite</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="sec bg-dark tc">
+        <div style="max-width:900px;margin:0 auto;">
+            <div class="sec-line"></div>
+            <div class="sec-tag" style="color:var(--gold);">Amenities</div>
+            <h2 style="color:var(--white);">Everything You <em>Need</em> &amp; More</h2>
+            <div class="amenities">
+                <div class="am-item">
+                    <div class="am-icon">🍽️</div>
+                    <h4 style="color:#fff;">Fine Dining</h4>
+                    <p>Breakfast, lunch &amp; dinner service</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🏊</div>
+                    <h4 style="color:#fff;">Heated Pool</h4>
+                    <p>Rooftop pool open year-round</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🧖</div>
+                    <h4 style="color:#fff;">Full Spa</h4>
+                    <p>Massage, facials &amp; bodywork</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🚗</div>
+                    <h4 style="color:#fff;">Valet Parking</h4>
+                    <p>Complimentary for all guests</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">💼</div>
+                    <h4 style="color:#fff;">Business Center</h4>
+                    <p>Private suites &amp; AV equipment</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🐾</div>
+                    <h4 style="color:#fff;">Pet Friendly</h4>
+                    <p>Pets welcome in select rooms</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">📶</div>
+                    <h4 style="color:#fff;">Fiber Wi-Fi</h4>
+                    <p>Complimentary 1Gbps throughout</p>
+                </div>
+                <div class="am-item">
+                    <div class="am-icon">🧳</div>
+                    <h4 style="color:#fff;">Concierge</h4>
+                    <p>24/7 personalised service</p>
+                </div>
+            </div>
+            <div class="testi-row" style="margin-top:4rem;">
+                <div class="tc-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"The most remarkable hotel stay of my life. The staff remembered every detail from our
+                        reservation and exceeded every expectation. La Maison alone is worth the trip."</p>
+                    <div class="ta">
+                        <div class="av">CE</div>
+                        <div>
+                            <div class="an">Catherine Ellroy</div>
+                            <div class="ar">Travel &amp; Leisure Magazine</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"We celebrated our anniversary here and were blown away by the thoughtful touches — champagne on
+                        arrival, a private dining setup, flower petals on the bed. Pure magic."</p>
+                    <div class="ta">
+                        <div class="av">TP</div>
+                        <div>
+                            <div class="an">Thomas &amp; Priya Holloway</div>
+                            <div class="ar">Guests, Penthouse Suite</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reserve" class="cta-wrap">
+        <div class="sec-line"></div>
+        <h2>Your Exceptional Stay <em>Awaits</em></h2>
+        <p class="subtext">Reserve online for our best available rates, or call our reservations team for personalized
+            assistance.</p>
+        <div class="cta-row">
+            <a href="#" class="btn-g">Reserve Your Room</a>
+            <a href="#" class="btn-ghost">Call +1 (800) 555-8820</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ft">
+            <div class="fb">
+                <div class="fb-logo">THE <em>BELLEVUE</em> GRAND</div>
+                <p>A landmark of refined hospitality in the heart of the city since 1923.</p>
+            </div>
+            <div class="fl">
+                <h5>Stay</h5>
+                <ul>
+                    <li><a href="#">Rooms &amp; Suites</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="#">Check Availability</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Experience</h5>
+                <ul>
+                    <li><a href="#">La Maison Restaurant</a></li>
+                    <li><a href="#">The Spa</a></li>
+                    <li><a href="#">Events &amp; Weddings</a></li>
+                    <li><a href="#">City Experiences</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="#">14 Grand Promenade, NY</a></li>
+                    <li><a href="#">+1 (800) 555-8820</a></li>
+                    <li><a href="#">reservations@bellevuegrand.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb2">
+            <p>© 2025 The Bellevue Grand Hotel. All rights reserved.</p>
+            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Scroll Reveal ──
+        const revealObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+        // ── Animated Counters ──
+        function animateCount(el) {
+            const target = parseFloat(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            const decimals = parseInt(el.dataset.decimals || '0');
+            const duration = 1800;
+            const start = performance.now();
+            (function step(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - p, 4);
+                el.textContent = (target * ease).toFixed(decimals) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            })(start);
+        }
+        const countObs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+        // ── Hero Parallax ──
+        const heroImg = document.querySelector('.hero img');
+        if (heroImg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            window.addEventListener('scroll', () => {
+                heroImg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+            }, { passive: true });
+        }
+
+        // ── Nav scroll effect ──
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.background = window.scrollY > 60 ? 'rgba(10,10,10,.97)' : '';
+        }, { passive: true });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowSync — Project Management Made Simple</title>
+    <meta name="description"
+        content="FlowSync is the AI-powered project management platform that helps modern teams ship faster with less stress." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --bg: #F7F5FF;
+            --surface: #FFFFFF;
+            --indigo: #4F46E5;
+            --indigo-d: #4338CA;
+            --indigo-l: #EEF2FF;
+            --violet: #7C3AED;
+            --green: #10B981;
+            --amber: #F59E0B;
+            --rose: #F43F5E;
+            --text: #111827;
+            --sub: #374151;
+            --muted: #9CA3AF;
+            --border: #E5E7EB;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 68px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--indigo), var(--violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        .nav-logo-text {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--sub);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--indigo);
+        }
+
+        .nav-cta {
+            background: var(--indigo);
+            color: #fff !important;
+            padding: 0.55rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 700 !important;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--indigo-d) !important;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 120px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--indigo-l);
+            color: var(--indigo);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.75rem;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 5.5vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--text);
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero h1 mark {
+            background: linear-gradient(135deg, var(--indigo), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            color: var(--sub);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-primary {
+            background: var(--indigo);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--indigo-d);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-ghost {
+            background: #fff;
+            color: var(--text);
+            border: 1.5px solid var(--border);
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--indigo);
+            color: var(--indigo);
+        }
+
+        .hero-note {
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .hero-note span {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* Product screenshot */
+        .hero-screenshot {
+            margin: 3.5rem auto 0;
+            max-width: 1000px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(79, 70, 229, 0.15), 0 0 0 1px var(--border);
+        }
+
+        .screenshot-bar {
+            background: #F9FAFB;
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dot-r {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FCA5A5;
+        }
+
+        .dot-y {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #FCD34D;
+        }
+
+        .dot-g {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #6EE7B7;
+        }
+
+        .screenshot-content img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── LOGOS ── */
+        .logos-strip {
+            background: #fff;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2.5rem 5%;
+            text-align: center;
+        }
+
+        .logos-strip p {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .logo-name {
+            color: #D1D5DB;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── SECTIONS ── */
+        section.sec {
+            padding: 5.5rem 5%;
+        }
+
+        .sec-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .sec-eyebrow {
+            display: inline-block;
+            background: var(--indigo-l);
+            color: var(--indigo);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        h2.sh {
+            font-size: clamp(1.9rem, 3vw, 2.9rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .subtext {
+            color: var(--sub);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .tc {
+            text-align: center;
+        }
+
+        .bg-white {
+            background: #fff;
+        }
+
+        /* Features */
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feat-card {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.25s;
+        }
+
+        .feat-card:hover {
+            border-color: rgba(79, 70, 229, 0.35);
+            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .feat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .fi-a {
+            background: #EEF2FF;
+        }
+
+        .fi-b {
+            background: #D1FAE5;
+        }
+
+        .fi-c {
+            background: #FEF3C7;
+        }
+
+        .fi-d {
+            background: #FCE7F3;
+        }
+
+        .fi-e {
+            background: #E0E7FF;
+        }
+
+        .fi-f {
+            background: #F3E8FF;
+        }
+
+        .feat-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feat-card p {
+            color: var(--sub);
+            font-size: 0.875rem;
+            line-height: 1.65;
+        }
+
+        /* Social proof row */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .metric {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-n {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--indigo);
+            letter-spacing: -0.04em;
+        }
+
+        .metric-l {
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .plan {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            padding: 2rem;
+        }
+
+        .plan.pop {
+            background: var(--indigo);
+            border-color: var(--indigo);
+            position: relative;
+        }
+
+        .pop-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--amber);
+            color: var(--text);
+            font-size: 0.68rem;
+            font-weight: 800;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            white-space: nowrap;
+            letter-spacing: 0.04em;
+        }
+
+        .plan-tier {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .plan.pop .plan-tier {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .plan-price {
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            color: var(--text);
+        }
+
+        .plan.pop .plan-price {
+            color: #fff;
+        }
+
+        .plan-price sub {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--muted);
+            vertical-align: middle;
+        }
+
+        .plan.pop .plan-price sub {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .plan-desc {
+            color: var(--sub);
+            font-size: 0.85rem;
+            margin: 0.5rem 0 1.5rem;
+            line-height: 1.6;
+        }
+
+        .plan.pop .plan-desc {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s;
+            border: 1.5px solid var(--border);
+            color: var(--text);
+            background: #fff;
+        }
+
+        .plan.pop .plan-btn {
+            background: #fff;
+            color: var(--indigo);
+            border-color: #fff;
+        }
+
+        .plan-btn:hover {
+            background: var(--indigo);
+            border-color: var(--indigo);
+            color: #fff;
+        }
+
+        .plan.pop .plan-btn:hover {
+            opacity: 0.9;
+        }
+
+        .plan-feats {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .plan-feats li {
+            font-size: 0.85rem;
+            color: var(--sub);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan.pop .plan-feats li {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .plan-feats li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 800;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .plan.pop .plan-feats li::before {
+            color: #6EE7B7;
+        }
+
+        /* Testimonials */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tc-card {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+        }
+
+        .stars {
+            color: var(--amber);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .tc-card p {
+            color: var(--sub);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .ta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .av {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--indigo), var(--violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .an {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .ar {
+            color: var(--muted);
+            font-size: 0.775rem;
+        }
+
+        /* CTA */
+        .cta-wrap {
+            background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .cta-wrap h2 {
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-wrap .subtext {
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--indigo);
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-wout {
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-wout:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            padding: 3.5rem 5% 1.5rem;
+        }
+
+        .ft {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .ft .fb .nav-logo-text {
+            color: #fff;
+            font-size: 1.15rem;
+        }
+
+        .ft .fb p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.82rem;
+            max-width: 220px;
+            line-height: 1.7;
+            margin-top: 0.5rem;
+        }
+
+        .fl h5 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 0.9rem;
+        }
+
+        .fl ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .fl ul li a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .fl ul li a:hover {
+            color: #fff;
+        }
+
+        .fb2 {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .fb2 p {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.78rem;
+        }
+
+        .fleg {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .fleg a {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.78rem;
+            text-decoration: none;
+        }
+
+        .fleg a:hover {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 900px) {
+
+            .feat-grid,
+            .pricing-grid,
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal:nth-child(2) { transition-delay: 0.08s; }
+        .reveal:nth-child(3) { transition-delay: 0.16s; }
+        .reveal:nth-child(4) { transition-delay: 0.24s; }
+        .reveal:nth-child(5) { transition-delay: 0.32s; }
+        .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+        /* ── GRADIENT ORBS ── */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.28;
+            animation: floatOrb 9s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 520px; height: 520px; background: radial-gradient(circle, #4F46E5, transparent); top: -80px; right: -60px; }
+        .orb-2 { width: 380px; height: 380px; background: radial-gradient(circle, #7C3AED, transparent); bottom: 60px; left: -40px; animation-delay: -4.5s; }
+        .orb-3 { width: 260px; height: 260px; background: radial-gradient(circle, #10B981, transparent); top: 30%; right: 25%; animation-delay: -2s; opacity: 0.15; }
+        @keyframes floatOrb {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-22px) scale(1.04); }
+        }
+
+        /* ── FLOATING UI CARDS ── */
+        .float-card {
+            position: absolute;
+            background: #fff;
+            border-radius: 14px;
+            padding: 10px 16px;
+            box-shadow: 0 8px 32px rgba(79,70,229,0.14), 0 0 0 1px rgba(79,70,229,0.08);
+            animation: floatCard 6s ease-in-out infinite;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .float-card-1 { bottom: 18%; right: 6%; animation-delay: 0s; }
+        .float-card-2 { bottom: 35%; left: 4%;  animation-delay: -3s; }
+        .float-card .fc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-9px); }
+        }
+
+        /* ── TICKER / MARQUEE ── */
+        .ticker-wrap {
+            overflow: hidden;
+            background: var(--indigo);
+            padding: 0.6rem 0;
+        }
+        .ticker-track {
+            display: flex;
+            gap: 3.5rem;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-item { color: rgba(255,255,255,0.85); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
+        .ticker-item::before { content: '✦'; color: rgba(255,255,255,0.4); margin-right: 0.5rem; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">
+            <div class="nav-logo-icon">F</div>
+            <span class="nav-logo-text">FlowSync</span>
+        </div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#cta">Sign In</a></li>
+            <li><a href="#cta" class="nav-cta">Start Free Trial</a></li>
+        </ul>
+    </nav>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap" style="margin-top:68px;">
+        <div class="ticker-track">
+            <span class="ticker-item">Free 14-day trial</span>
+            <span class="ticker-item">No credit card required</span>
+            <span class="ticker-item">12,000+ teams onboarded</span>
+            <span class="ticker-item">SOC 2 Type II certified</span>
+            <span class="ticker-item">600+ integrations</span>
+            <span class="ticker-item">4.8★ on G2</span>
+            <span class="ticker-item">98.9% uptime SLA</span>
+            <span class="ticker-item">Cancel anytime</span>
+            <!-- duplicate for seamless loop -->
+            <span class="ticker-item">Free 14-day trial</span>
+            <span class="ticker-item">No credit card required</span>
+            <span class="ticker-item">12,000+ teams onboarded</span>
+            <span class="ticker-item">SOC 2 Type II certified</span>
+            <span class="ticker-item">600+ integrations</span>
+            <span class="ticker-item">4.8★ on G2</span>
+            <span class="ticker-item">98.9% uptime SLA</span>
+            <span class="ticker-item">Cancel anytime</span>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero" style="margin-top:0;">
+        <!-- Gradient orbs -->
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-orb orb-3"></div>
+        <!-- Floating UI notification cards -->
+        <div class="float-card float-card-1"><span class="fc-dot" style="background:#10B981;"></span> Sprint completed — 3.2× faster 🚀</div>
+        <div class="float-card float-card-2"><span class="fc-dot" style="background:#4F46E5;"></span> AI: 12 tasks auto-assigned ✦</div>
+        <div class="badge" style="position:relative;z-index:1;"><span class="badge-dot"></span> AI Task Intelligence just launched →</div>
+        <h1>The Project Management Tool<br />Your Team Will <mark>Actually Use</mark></h1>
+        <p class="hero-sub">FlowSync unifies tasks, timelines, and team communication in one beautifully simple
+            workspace — powered by AI that gets out of your way.</p>
+        <div class="hero-actions">
+            <a href="#cta" class="btn-primary">Start for free — no card needed</a>
+            <a href="#features" class="btn-ghost">▶ Watch 2-min demo</a>
+        </div>
+        <p class="hero-note"><span>✓</span> Free forever plan &nbsp;·&nbsp; <span>✓</span> Setup in under 5 minutes
+            &nbsp;·&nbsp; <span>✓</span> No credit card</p>
+        <div class="hero-screenshot">
+            <div class="screenshot-bar">
+                <div class="dot-r"></div>
+                <div class="dot-y"></div>
+                <div class="dot-g"></div>
+                <div style="margin-left:1rem;background:#E5E7EB;border-radius:4px;height:20px;flex:1;max-width:260px;">
+                </div>
+            </div>
+            <div class="screenshot-content">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&auto=format&fit=crop&q=80"
+                    alt="FlowSync app dashboard" />
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="logos-strip">
+        <p>Trusted by 12,000+ teams at companies like</p>
+        <div class="logo-row">
+            <span class="logo-name">ACME CORP</span>
+            <span class="logo-name">VERTEX</span>
+            <span class="logo-name">PRISM LABS</span>
+            <span class="logo-name">NOVA</span>
+            <span class="logo-name">ORBIT MEDIA</span>
+            <span class="logo-name">APEX</span>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section id="features" class="sec">
+        <div class="sec-wrapper tc">
+            <div class="sec-eyebrow">Features</div>
+            <h2 class="sh">Built for Teams Who Actually Ship</h2>
+            <p class="subtext" style="max-width:500px;margin:0 auto;">Powerful enough for enterprise. Simple enough for
+                a two-person startup.</p>
+            <div class="feat-grid">
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-a">🤖</div>
+                    <h3>AI Task Suggestions</h3>
+                    <p>FlowSync learns your team's patterns and surfaces what needs attention — before you even ask.</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-b">📋</div>
+                    <h3>Unified Boards & Timelines</h3>
+                    <p>Switch between Kanban, list, timeline, and calendar — all in sync, all in one tab.</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-c">⚡</div>
+                    <h3>No-Code Automations</h3>
+                    <p>Eliminate repetitive work with drag-and-drop rules that run 24/7 in the background.</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-d">📊</div>
+                    <h3>Live Analytics</h3>
+                    <p>Spot bottlenecks and delivery risk in real time — without waiting for a weekly standup.</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-e">🔗</div>
+                    <h3>600+ Integrations</h3>
+                    <p>GitHub, Slack, Figma, Salesforce — FlowSync plugs into the tools your team already uses.</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon fi-f">🔒</div>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>SOC 2 Type II, SSO, SAML, and role-based permissions. Your data stays yours.</p>
+                </div>
+            </div>
+            <div class="metrics-row">
+                <div class="metric reveal">
+                    <div class="metric-n" data-count="12" data-suffix="K+">12K+</div>
+                    <div class="metric-l">Teams Onboarded</div>
+                </div>
+                <div class="metric reveal">
+                    <div class="metric-n" data-count="98.9" data-suffix="%" data-decimals="1">98.9%</div>
+                    <div class="metric-l">Uptime SLA</div>
+                </div>
+                <div class="metric reveal">
+                    <div class="metric-n" data-count="4.8" data-suffix="★" data-decimals="1">4.8★</div>
+                    <div class="metric-l">G2 Rating</div>
+                </div>
+                <div class="metric reveal">
+                    <div class="metric-n" data-count="3.2" data-suffix="×" data-decimals="1">3.2×</div>
+                    <div class="metric-l">Faster Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="sec bg-white">
+        <div class="sec-wrapper tc">
+            <div class="sec-eyebrow">Pricing</div>
+            <h2 class="sh">Simple Pricing. No Surprises.</h2>
+            <p class="subtext" style="max-width:440px;margin:0 auto;">Start free, upgrade when you're ready. All plans
+                include a 14-day trial of Pro features.</p>
+            <div class="pricing-grid">
+                <div class="plan">
+                    <div class="plan-tier">Free</div>
+                    <div class="plan-price">$0<sub>/mo</sub></div>
+                    <div class="plan-desc">Great for freelancers and teams just getting started.</div>
+                    <a href="#cta" class="plan-btn">Get Started Free</a>
+                    <ul class="plan-feats">
+                        <li>Up to 5 users</li>
+                        <li>3 active projects</li>
+                        <li>Basic boards &amp; lists</li>
+                        <li>5 GB storage</li>
+                        <li>Email support</li>
+                    </ul>
+                </div>
+                <div class="plan pop">
+                    <div class="pop-badge">⭐ MOST POPULAR</div>
+                    <div class="plan-tier">Pro</div>
+                    <div class="plan-price">$18<sub>/user/mo</sub></div>
+                    <div class="plan-desc">For growing teams that need power and flexibility.</div>
+                    <a href="#cta" class="plan-btn">Start Free Trial</a>
+                    <ul class="plan-feats">
+                        <li>Unlimited users</li>
+                        <li>Unlimited projects</li>
+                        <li>AI Task Intelligence</li>
+                        <li>Advanced automations</li>
+                        <li>500+ integrations</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="plan">
+                    <div class="plan-tier">Enterprise</div>
+                    <div class="plan-price">Custom</div>
+                    <div class="plan-desc">For organizations with advanced security and compliance needs.</div>
+                    <a href="#cta" class="plan-btn">Contact Sales</a>
+                    <ul class="plan-feats">
+                        <li>Everything in Pro</li>
+                        <li>SSO &amp; SAML</li>
+                        <li>Dedicated CSM</li>
+                        <li>SLA guarantee</li>
+                        <li>Custom contracts</li>
+                        <li>On-premise option</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="sec">
+        <div class="sec-wrapper tc">
+            <div class="sec-eyebrow">Reviews</div>
+            <h2 class="sh">Loved by Teams Everywhere</h2>
+            <div class="testi-grid">
+                <div class="tc-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"FlowSync is the first PM tool where my entire team logs in without being asked. The AI
+                        suggestions save us hours every single week."</p>
+                    <div class="ta">
+                        <div class="av">RK</div>
+                        <div>
+                            <div class="an">Rachel Kim</div>
+                            <div class="ar">Head of Product, Vertex AI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"We replaced 5 tools with FlowSync. Project delivery rate went up 40% in Q1 and onboarding new
+                        hires is now a breeze."</p>
+                    <div class="ta">
+                        <div class="av">MT</div>
+                        <div>
+                            <div class="an">Marco Torres</div>
+                            <div class="ar">CTO, Prism Labs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc-card reveal">
+                    <div class="stars">★★★★★</div>
+                    <p>"The automation builder is a game-changer. What used to take a coordinator full-time is now
+                        handled overnight by FlowSync."</p>
+                    <div class="ta">
+                        <div class="av">AB</div>
+                        <div>
+                            <div class="an">Amanda Brooks</div>
+                            <div class="ar">VP Operations, Apex Ventures</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-wrap">
+        <h2>Ready to Move Faster?</h2>
+        <p class="subtext">Join 12,000+ teams already using FlowSync. Free to start — upgrade when you're ready.</p>
+        <div class="cta-row">
+            <a href="#" class="btn-white">Start Free — No Card Required</a>
+            <a href="#" class="btn-wout">Schedule a Demo</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="ft">
+            <div class="fb">
+                <div class="nav-logo">
+                    <div class="nav-logo-icon">F</div>
+                    <span class="nav-logo-text">FlowSync</span>
+                </div>
+                <p>The modern project management platform for teams that ship.</p>
+            </div>
+            <div class="fl">
+                <h5>Product</h5>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Integrations</a></li>
+                    <li><a href="#">Changelog</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="fl">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Status</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">API Docs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fb2">
+            <p>© 2025 FlowSync, Inc. All rights reserved.</p>
+            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a><a
+                    href="#">Cookies</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Scroll Reveal ──
+        const revealObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+        // ── Animated Counters ──
+        function animateCount(el) {
+            const target = parseFloat(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            const decimals = parseInt(el.dataset.decimals || '0');
+            const duration = 1800;
+            const start = performance.now();
+            (function step(now) {
+                const p = Math.min((now - start) / duration, 1);
+                const ease = 1 - Math.pow(1 - p, 4);
+                el.textContent = (target * ease).toFixed(decimals) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+            })(start);
+        }
+        const countObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+        // ── Nav scroll effect ──
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,.08)' : '';
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
