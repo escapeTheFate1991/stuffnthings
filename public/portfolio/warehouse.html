@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
     <style>
         *,
@@ -22,17 +22,16 @@
         }
 
         :root {
+            --primary-dark: #0C1220;
+            --secondary: #1A2744;
+            --accent: #00D4AA;
+            --accent-warm: #FF6B35;
+            --background: #F8FAFB;
+            --text-light: #E8EDF5;
+            --text-dark: #1A1A2E;
+            --muted: #64748B;
+            --border: #1E293B;
             --white: #FFFFFF;
-            --bg: #F8F7F4;
-            --orange: #EA580C;
-            --orange-l: #FFF7ED;
-            --orange-d: #C2410C;
-            --yellow: #FDE68A;
-            --text: #1C1917;
-            --sub: #44403C;
-            --muted: #78716C;
-            --border: #E7E5E4;
-            --steel: #292524;
         }
 
         html {
@@ -40,783 +39,1030 @@
         }
 
         body {
-            font-family: 'Barlow', sans-serif;
-            background: var(--white);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* ── NAV ── */
+        /* Subtle background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ── NAVIGATION ── */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: var(--steel);
+            z-index: 1000;
+            background: rgba(12, 18, 32, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 170, 0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 5%;
-            height: 68px;
+            height: 72px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.scrolled {
+            background: rgba(12, 18, 32, 0.95);
+            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
             letter-spacing: -0.02em;
         }
 
         .logo span {
-            color: var(--orange);
+            color: var(--accent);
         }
 
         nav ul {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(232, 237, 245, 0.7);
             text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
-            transition: color 0.2s;
-            letter-spacing: 0.02em;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.01em;
+            cursor: pointer;
         }
 
         nav a:hover {
-            color: #fff;
+            color: var(--accent);
         }
 
         .nav-cta {
-            background: var(--orange);
-            color: #fff !important;
-            padding: 0.55rem 1.4rem;
-            border-radius: 4px;
-            font-weight: 700 !important;
+            background: linear-gradient(135deg, var(--accent), #00B8A1);
+            color: var(--white) !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: all 0.3s;
         }
 
         .nav-cta:hover {
-            background: var(--orange-d) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.25);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-light);
+            transition: all 0.3s;
         }
 
         /* ── HERO ── */
         .hero {
             min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&auto=format&fit=crop&q=80') center/cover;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(12, 18, 32, 0.95) 0%, rgba(12, 18, 32, 0.7) 50%, rgba(12, 18, 32, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .hero-left {
-            background: var(--steel);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 120px 5% 60px 6%;
+            padding-top: 100px;
         }
 
         .hero-tag {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(234, 88, 12, 0.5);
-            color: var(--orange);
-            padding: 0.35rem 0.9rem;
-            border-radius: 3px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+            gap: 0.75rem;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             width: fit-content;
-            background: rgba(234, 88, 12, 0.08);
+            background: rgba(0, 212, 170, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .hero-left h1 {
-            font-size: clamp(2.8rem, 4.5vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.0;
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
             letter-spacing: -0.03em;
-            color: #fff;
+            color: var(--text-light);
             margin-bottom: 1.5rem;
         }
 
-        .hero-left h1 em {
-            font-style: italic;
-            color: var(--orange);
+        .hero-left h1 .accent {
+            background: linear-gradient(135deg, var(--accent), #00F5D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
         }
 
         .hero-left p {
-            color: rgba(255, 255, 255, 0.65);
-            font-size: 1.05rem;
+            color: rgba(232, 237, 245, 0.8);
+            font-size: 1.1rem;
             line-height: 1.7;
-            margin-bottom: 2.5rem;
-            max-width: 440px;
-        }
-
-        .btns {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
             margin-bottom: 3rem;
+            max-width: 480px;
         }
 
-        .btn-o {
-            background: var(--orange);
-            color: #fff;
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            letter-spacing: 0.02em;
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
         }
 
-        .btn-o:hover {
-            background: var(--orange-d);
-        }
-
-        .btn-light {
-            border: 1.5px solid rgba(255, 255, 255, 0.25);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #00B8A1);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            border: none;
         }
 
-        .btn-light:hover {
-            border-color: rgba(255, 255, 255, 0.6);
-            color: #fff;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid rgba(232, 237, 245, 0.3);
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 212, 170, 0.05);
         }
 
         .hero-stats {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             flex-wrap: wrap;
         }
 
-        .sv {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--orange);
-            line-height: 1;
+        .stat-item {
+            text-align: left;
         }
 
-        .sl {
-            color: rgba(255, 255, 255, 0.45);
-            font-size: 0.72rem;
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+        }
+
+        .stat-label {
+            color: rgba(232, 237, 245, 0.6);
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 4px;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
         }
 
-        .hero-right {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-right img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-right::after {
-            content: '';
+        /* Floating particles animation */
+        .particles {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, var(--steel) 0%, transparent 30%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
         }
 
         /* ── TICKER ── */
         .ticker {
-            background: var(--orange);
-            padding: 0.75rem 0;
+            background: var(--secondary);
+            padding: 1rem 0;
             overflow: hidden;
+            border-top: 1px solid rgba(0, 212, 170, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 170, 0.1);
         }
 
         .ticker-inner {
             display: flex;
-            gap: 3rem;
-            animation: ticker 25s linear infinite;
+            gap: 4rem;
+            animation: ticker 30s linear infinite;
             white-space: nowrap;
         }
 
         .ticker-inner span {
-            color: #fff;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             flex-shrink: 0;
         }
 
         .ticker-inner .sep {
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(0, 212, 170, 0.4);
         }
 
         @keyframes ticker {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         /* ── SECTIONS ── */
         section.sec {
-            padding: 5.5rem 5%;
+            padding: 6rem 5%;
+            position: relative;
         }
 
         .sec-wrapper {
-            max-width: 1150px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .sec-label {
-            font-size: 0.72rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
         }
 
-        h2.sh {
-            font-size: clamp(2rem, 3.2vw, 3rem);
-            font-weight: 800;
+        h2.section-heading {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 600;
             letter-spacing: -0.02em;
-            color: var(--text);
-            margin-bottom: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
             line-height: 1.1;
         }
 
-        h2.sh em {
-            font-style: italic;
-            color: var(--orange);
+        h2.section-heading .accent {
+            background: linear-gradient(135deg, var(--accent), #00F5D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtext {
-            color: var(--sub);
-            font-size: 1rem;
+            color: rgba(232, 237, 245, 0.7);
+            font-size: 1.1rem;
             line-height: 1.7;
         }
 
-        .tc {
+        .text-center {
             text-align: center;
         }
 
-        .bg-alt {
-            background: var(--bg);
+        /* Trust bar with certifications */
+        .trust-bar {
+            background: var(--secondary);
+            padding: 3rem 5%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
-        /* Certifications strip */
-        .certs-strip {
-            border-top: 2px solid var(--border);
-            border-bottom: 2px solid var(--border);
-            background: var(--white);
-            padding: 2.5rem 5%;
-        }
-
-        .cert-row {
+        .cert-grid {
             display: flex;
             justify-content: center;
             gap: 4rem;
             flex-wrap: wrap;
             align-items: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .cert-item {
             text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            background: rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+        }
+
+        .cert-item:hover {
+            background: rgba(0, 212, 170, 0.1);
+            transform: translateY(-4px);
         }
 
         .cert-icon {
-            font-size: 2rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
         }
 
         .cert-item h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
         }
 
         .cert-item p {
             color: var(--muted);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }
 
         /* Services */
-        .svc-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5px;
-            margin-top: 3rem;
-            background: var(--border);
-            border: 1.5px solid var(--border);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
         }
 
-        .svc-card {
-            background: var(--white);
-            padding: 2rem;
-            transition: all 0.25s;
+        .service-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: transparent;
+            transition: all 0.3s;
         }
 
-        .svc-card:hover {
-            background: var(--orange-l);
+        .service-card:hover::before {
+            background: linear-gradient(180deg, var(--accent), #00B8A1);
         }
 
-        .svc-num {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--border);
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 170, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.1);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(0, 212, 170, 0.1);
             line-height: 1;
-            margin-bottom: 0.75rem;
+            z-index: 1;
         }
 
-        .svc-card h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--text);
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            z-index: 2;
+            position: relative;
         }
 
-        .svc-card p {
-            color: var(--sub);
-            font-size: 0.875rem;
-            line-height: 1.65;
+        .service-card p {
+            color: rgba(232, 237, 245, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            z-index: 2;
+            position: relative;
         }
 
-        /* Two-col layout */
-        .grid2 {
+        /* Facility section */
+        .facility-section {
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facility-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=1400&auto=format&fit=crop&q=80') center/cover;
+            z-index: 1;
+            filter: brightness(0.3);
+        }
+
+        .facility-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(12, 18, 32, 0.9) 0%, rgba(26, 39, 68, 0.8) 100%);
+            z-index: 2;
+        }
+
+        .facility-content {
+            position: relative;
+            z-index: 3;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
             align-items: center;
         }
 
-        .feat-list {
+        .feature-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
-        .fi {
+        .feature-item {
             display: flex;
-            gap: 1.25rem;
+            gap: 1.5rem;
             align-items: flex-start;
         }
 
-        .fi-bullet {
-            width: 36px;
-            height: 36px;
-            border-radius: 2px;
-            background: var(--orange-l);
-            border: 1px solid rgba(234, 88, 12, 0.2);
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
-        .fi strong {
-            font-size: 0.95rem;
-            font-weight: 800;
+        .feature-item strong {
+            font-size: 1rem;
+            font-weight: 600;
             display: block;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
         }
 
-        .fi p {
-            color: var(--sub);
-            font-size: 0.875rem;
+        .feature-item p {
+            color: rgba(232, 237, 245, 0.7);
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        .facility-photo {
-            border-radius: 0;
-            overflow: hidden;
-        }
-
-        .facility-photo img {
-            width: 100%;
-            height: 460px;
-            object-fit: cover;
-        }
-
-        /* Pricing */
-        .pricing-grid {
+        .facility-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            border: 2px solid var(--border);
-            overflow: hidden;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
             margin-top: 3rem;
         }
 
-        .plan {
-            padding: 2.5rem;
-            border-right: 1.5px solid var(--border);
+        .facility-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s;
         }
 
-        .plan:last-child {
-            border-right: none;
+        .facility-stat:hover {
+            background: rgba(0, 212, 170, 0.1);
+            transform: translateY(-2px);
         }
 
-        .plan.pop {
-            background: var(--orange);
-            border-color: var(--orange);
-            position: relative;
-        }
-
-        .plan-tier {
-            font-size: 0.72rem;
+        .facility-stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
-            letter-spacing: 0.12em;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .facility-stat-label {
+            color: rgba(232, 237, 245, 0.6);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+        }
+
+        /* Pricing section */
+        .pricing-section {
+            background: var(--secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: rgba(12, 18, 32, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pricing-card.popular {
+            background: rgba(0, 212, 170, 0.05);
+            border: 2px solid var(--accent);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), #00B8A1);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 170, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 212, 170, 0.1);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .pricing-tier {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--muted);
-            margin-bottom: 0.6rem;
+            margin-bottom: 1rem;
         }
 
-        .plan.pop .plan-tier {
-            color: rgba(255, 255, 255, 0.6);
+        .pricing-card.popular .pricing-tier {
+            color: var(--accent);
         }
 
-        .plan-size {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: var(--text);
-            margin-bottom: 0.2rem;
+        .pricing-size {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
         }
 
-        .plan.pop .plan-size {
-            color: #fff;
-        }
-
-        .plan-price {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--sub);
-            margin-bottom: 0.75rem;
-        }
-
-        .plan.pop .plan-price {
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        .plan-desc {
-            color: var(--sub);
-            font-size: 0.85rem;
+        .pricing-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: rgba(232, 237, 245, 0.7);
             margin-bottom: 1.5rem;
+        }
+
+        .pricing-desc {
+            color: rgba(232, 237, 245, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
             border-top: 1px solid var(--border);
-            padding-top: 0.75rem;
+            padding-top: 1.5rem;
         }
 
-        .plan.pop .plan-desc {
-            color: rgba(255, 255, 255, 0.7);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .plan-btn {
+        .pricing-btn {
             display: block;
             text-align: center;
-            padding: 0.8rem;
-            border-radius: 3px;
-            font-weight: 700;
-            font-size: 0.875rem;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             border: 2px solid var(--border);
-            color: var(--text);
-            transition: all 0.2s;
-            letter-spacing: 0.02em;
+            color: var(--text-light);
+            transition: all 0.3s;
+            background: transparent;
         }
 
-        .plan.pop .plan-btn {
-            background: #fff;
-            border-color: #fff;
-            color: var(--orange-d);
+        .pricing-card.popular .pricing-btn {
+            background: linear-gradient(135deg, var(--accent), #00B8A1);
+            border-color: var(--accent);
+            color: var(--white);
         }
 
-        .plan-btn:hover {
-            background: var(--orange);
-            border-color: var(--orange);
-            color: #fff;
+        .pricing-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
-        .plan.pop .plan-btn:hover {
-            background: rgba(255, 255, 255, 0.9);
+        .pricing-card.popular .pricing-btn:hover {
+            background: linear-gradient(135deg, #00B8A1, var(--accent));
         }
 
-        .plan-feats {
+        .pricing-features {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.55rem;
+            gap: 0.75rem;
         }
 
-        .plan-feats li {
-            font-size: 0.83rem;
-            color: var(--sub);
+        .pricing-features li {
+            font-size: 0.9rem;
+            color: rgba(232, 237, 245, 0.7);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
-        .plan.pop .plan-feats li {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .plan-feats li::before {
-            content: '→';
-            color: var(--orange);
-            font-weight: 800;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-
-        .plan.pop .plan-feats li::before {
-            color: var(--yellow);
+        .pricing-features .check-icon {
+            color: var(--accent);
         }
 
         /* Testimonials */
-        .testi-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
-        .tc-card {
-            background: var(--white);
-            border: 2px solid var(--border);
-            padding: 2rem;
+        .testimonial-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s;
         }
 
-        .tc-card p {
-            color: var(--sub);
-            font-size: 0.9rem;
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-size: 3rem;
+            color: var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(0, 212, 170, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.1);
+        }
+
+        .testimonial-card p {
+            color: rgba(232, 237, 245, 0.8);
+            font-size: 1rem;
             line-height: 1.7;
-            margin-bottom: 1.25rem;
+            margin-bottom: 2rem;
             font-style: italic;
-            border-left: 3px solid var(--orange);
-            padding-left: 1rem;
+            padding-top: 1rem;
         }
 
-        .ta {
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
-        .av {
-            width: 44px;
-            height: 44px;
-            background: var(--steel);
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 0.85rem;
-            color: #fff;
-            flex-shrink: 0;
-            border-radius: 2px;
-        }
-
-        .an {
-            font-weight: 800;
-            font-size: 0.9rem;
-        }
-
-        .ar {
-            color: var(--muted);
-            font-size: 0.775rem;
-        }
-
-        /* Clients strip */
-        .clients-strip {
-            background: var(--bg);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .clients-strip p {
-            color: var(--muted);
-            font-size: 0.75rem;
             font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--white);
+            flex-shrink: 0;
+            border-radius: 12px;
+        }
+
+        .author-info .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .author-info .role {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-stars {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        /* Clients marquee */
+        .clients-section {
+            background: var(--primary-dark);
+            padding: 3rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .clients-section p {
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .clients-row {
+        .clients-marquee {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .ci {
-            color: var(--border);
-            font-size: 0.85rem;
-            font-weight: 900;
-            letter-spacing: 0.05em;
-        }
-
-        /* CTA */
-        .cta-wrap {
-            background: var(--steel);
-            padding: 5.5rem 5%;
-        }
-
-        .cta-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .cta-wrap h2 {
-            font-size: clamp(2rem, 3vw, 3rem);
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.1;
-        }
-
-        .cta-wrap h2 em {
-            font-style: italic;
-            color: var(--orange);
-        }
-
-        .cta-wrap p {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-top: 0.75rem;
-        }
-
-        .cta-right {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        .btn-orange {
-            background: var(--orange);
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            font-weight: 800;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            text-align: center;
-            transition: all 0.2s;
+            gap: 4rem;
+            animation: marquee 25s linear infinite;
             white-space: nowrap;
         }
 
-        .btn-orange:hover {
-            background: var(--orange-d);
-        }
-
-        .btn-frame {
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 0.9rem 2rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
+        .client-logo {
+            color: rgba(232, 237, 245, 0.3);
             font-size: 0.9rem;
-            text-align: center;
-            transition: all 0.2s;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+            flex-shrink: 0;
         }
 
-        .btn-frame:hover {
-            border-color: rgba(255, 255, 255, 0.6);
-            color: #fff;
+        .client-logo:hover {
+            color: var(--accent);
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 700;
+            color: var(--text-light);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section h2 .accent {
+            background: linear-gradient(135deg, var(--accent), #00F5D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            color: rgba(232, 237, 245, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-badge {
+            position: absolute;
+            top: -1rem;
+            right: 2rem;
+            background: var(--accent-warm);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Footer */
         footer {
-            background: #0C0A09;
-            padding: 3.5rem 5% 1.5rem;
+            background: var(--primary-dark);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--border);
+            position: relative;
         }
 
-        .ft {
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .footer-content {
             display: flex;
             justify-content: space-between;
-            gap: 2rem;
+            gap: 3rem;
             flex-wrap: wrap;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .fb-logo {
-            font-size: 1.15rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 0.5rem;
+        .footer-brand {
+            max-width: 280px;
         }
 
-        .fb-logo span {
-            color: var(--orange);
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
 
-        .ft .fb p {
-            color: rgba(255, 255, 255, 0.35);
-            font-size: 0.82rem;
-            max-width: 220px;
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            color: rgba(232, 237, 245, 0.5);
+            font-size: 0.9rem;
             line-height: 1.7;
         }
 
-        .fl h5 {
-            font-size: 0.65rem;
-            font-weight: 700;
+        .footer-links h5 {
+            font-size: 0.7rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.3);
-            margin-bottom: 0.9rem;
+            color: rgba(232, 237, 245, 0.4);
+            margin-bottom: 1rem;
         }
 
-        .fl ul {
+        .footer-links ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.55rem;
+            gap: 0.75rem;
         }
 
-        .fl ul li a {
-            color: rgba(255, 255, 255, 0.45);
+        .footer-links ul li a {
+            color: rgba(232, 237, 245, 0.6);
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
-        .fl ul li a:hover {
-            color: var(--orange);
+        .footer-links ul li a:hover {
+            color: var(--accent);
         }
 
-        .fb2 {
-            padding-top: 1.5rem;
+        .footer-bottom {
+            padding-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -824,76 +1070,124 @@
             gap: 1rem;
         }
 
-        .fb2 p {
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.78rem;
+        .footer-bottom p {
+            color: rgba(232, 237, 245, 0.3);
+            font-size: 0.8rem;
         }
 
-        .fleg {
+        .footer-legal {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
-        .fleg a {
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.78rem;
+        .footer-legal a {
+            color: rgba(232, 237, 245, 0.3);
+            font-size: 0.8rem;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .fleg a:hover {
-            color: var(--orange);
+        .footer-legal a:hover {
+            color: var(--accent);
         }
 
-        @media (max-width: 1000px) {
-            .hero {
-                grid-template-columns: 1fr;
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .reveal:nth-child(4) { transition-delay: 0.3s; }
+        .reveal:nth-child(5) { transition-delay: 0.4s; }
+        .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+        /* Focus states */
+        *:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
+        }
 
-            .hero-right {
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .facility-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
                 display: none;
             }
 
-            .hero-left {
-                padding-top: 100px;
+            .mobile-toggle {
+                display: flex;
             }
 
-            .svc-grid {
-                grid-template-columns: 1fr;
-                gap: 0;
+            .hero-stats {
+                justify-content: center;
             }
 
-            .grid2 {
-                grid-template-columns: 1fr;
+            .cert-grid {
+                gap: 2rem;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testi-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta-inner {
+            .testimonials-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
-        /* ── SCROLL REVEAL ── */
-        .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal:nth-child(2) { transition-delay:.1s; }
-        .reveal:nth-child(3) { transition-delay:.2s; }
-        .reveal:nth-child(4) { transition-delay:.3s; }
-        .reveal:nth-child(5) { transition-delay:.4s; }
-        .reveal:nth-child(6) { transition-delay:.5s; }
-        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+        @media (max-width: 375px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- NAV -->
-    <nav>
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="logo">Iron<span>Ridge</span></div>
         <ul>
             <li><a href="#services">Services</a></li>
@@ -901,123 +1195,167 @@
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
         </ul>
+        <button class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
-    <!-- HERO -->
-    <div class="hero">
-        <div class="hero-left">
-            <div class="hero-tag">📦 Commercial Warehouse Solutions</div>
-            <h1>Storage That<br /><em>Scales</em> With<br />Your Business</h1>
-            <p>Iron Ridge offers flexible, secure warehouse space from 500 to 50,000+ sq ft — with the logistics muscle
-                to power your operations every single day.</p>
-            <div class="btns">
-                <a href="#contact" class="btn-o">Get a Free Quote</a>
-                <a href="#facility" class="btn-light">Tour the Facility</a>
-            </div>
-            <div class="hero-stats">
-                <div>
-                    <div class="sv" data-count="1.2" data-suffix="M" data-decimals="1">1.2M</div>
-                    <div class="sl">Sq Ft Available</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles">
+            <!-- Particles generated by JS -->
+        </div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    </svg>
+                    Commercial Warehouse Solutions
                 </div>
-                <div>
-                    <div class="sv" data-count="600" data-suffix="+">600+</div>
-                    <div class="sl">Active Clients</div>
+                <h1>Storage That<br /><span class="accent">Scales</span> With<br />Your Business</h1>
+                <p>Iron Ridge offers flexible, secure warehouse space from 500 to 50,000+ sq ft — with the logistics muscle to power your operations every single day.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Get a Free Quote</a>
+                    <a href="#facility" class="btn-secondary">Tour the Facility</a>
                 </div>
-                <div>
-                    <div class="sv" data-count="99.8" data-suffix="%" data-decimals="1">99.8%</div>
-                    <div class="sl">Availability SLA</div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="1.2" data-suffix="M" data-decimals="1">1.2M</div>
+                        <div class="stat-label">Sq Ft Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="600" data-suffix="+">600+</div>
+                        <div class="stat-label">Active Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" data-count="99.8" data-suffix="%" data-decimals="1">99.8%</div>
+                        <div class="stat-label">Availability SLA</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="hero-right">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1000&auto=format&fit=crop&q=80"
-                alt="Iron Ridge warehouse interior" />
-        </div>
-    </div>
+    </section>
 
-    <!-- TICKER -->
+    <!-- Ticker -->
     <div class="ticker">
         <div class="ticker-inner">
-            <span>24/7 SECURITY</span><span class="sep">·</span><span>CLIMATE CONTROLLED</span><span
-                class="sep">·</span><span>DOCK-HIGH ACCESS</span><span class="sep">·</span><span>FLEXIBLE
-                LEASES</span><span class="sep">·</span><span>REAL-TIME WMS</span><span
-                class="sep">·</span><span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span><span>LEED
-                CERTIFIED</span><span class="sep">·</span>
-            <span>24/7 SECURITY</span><span class="sep">·</span><span>CLIMATE CONTROLLED</span><span
-                class="sep">·</span><span>DOCK-HIGH ACCESS</span><span class="sep">·</span><span>FLEXIBLE
-                LEASES</span><span class="sep">·</span><span>REAL-TIME WMS</span><span
-                class="sep">·</span><span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span><span>LEED
-                CERTIFIED</span><span class="sep">·</span>
+            <span>24/7 SECURITY</span><span class="sep">·</span>
+            <span>CLIMATE CONTROLLED</span><span class="sep">·</span>
+            <span>DOCK-HIGH ACCESS</span><span class="sep">·</span>
+            <span>FLEXIBLE LEASES</span><span class="sep">·</span>
+            <span>REAL-TIME WMS</span><span class="sep">·</span>
+            <span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span>
+            <span>LEED CERTIFIED</span><span class="sep">·</span>
+            <span>24/7 SECURITY</span><span class="sep">·</span>
+            <span>CLIMATE CONTROLLED</span><span class="sep">·</span>
+            <span>DOCK-HIGH ACCESS</span><span class="sep">·</span>
+            <span>FLEXIBLE LEASES</span><span class="sep">·</span>
+            <span>REAL-TIME WMS</span><span class="sep">·</span>
+            <span>E-COMMERCE FULFILLMENT</span><span class="sep">·</span>
+            <span>LEED CERTIFIED</span><span class="sep">·</span>
         </div>
     </div>
 
-    <!-- CERTS -->
-    <div class="certs-strip">
-        <div class="cert-row">
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="cert-grid">
             <div class="cert-item">
-                <div class="cert-icon">🔒</div>
+                <div class="cert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <circle cx="12" cy="16" r="1"></circle>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
                 <h4>24/7 Security</h4>
                 <p>Biometric access, CCTV</p>
             </div>
             <div class="cert-item">
-                <div class="cert-icon">🌡️</div>
+                <div class="cert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                        <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+                    </svg>
+                </div>
                 <h4>Climate Control</h4>
                 <p>32°F to -10°F cold storage</p>
             </div>
             <div class="cert-item">
-                <div class="cert-icon">🚛</div>
+                <div class="cert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                        <rect x="1" y="3" width="15" height="13"></rect>
+                        <polygon points="16,8 20,8 23,11 23,16 16,16 16,8"></polygon>
+                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                    </svg>
+                </div>
                 <h4>40+ Loading Docks</h4>
-                <p>Grade-level &amp; dock-high</p>
+                <p>Grade-level & dock-high</p>
             </div>
             <div class="cert-item">
-                <div class="cert-icon">🌿</div>
+                <div class="cert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                        <path d="M7 20h10"></path>
+                        <path d="M10 20c0-1.5.8-2.8 2-3.4"></path>
+                        <path d="M14 20c0-1.5-.8-2.8-2-3.4"></path>
+                        <path d="M9 9h6"></path>
+                        <path d="M12 2v7"></path>
+                        <path d="M8 21l8-11"></path>
+                    </svg>
+                </div>
                 <h4>LEED Certified</h4>
                 <p>Solar-powered operations</p>
             </div>
             <div class="cert-item">
-                <div class="cert-icon">📜</div>
+                <div class="cert-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                        <polyline points="14,2 14,8 20,8"></polyline>
+                    </svg>
+                </div>
                 <h4>Flexible Terms</h4>
                 <p>Month-to-month available</p>
             </div>
         </div>
     </div>
 
-    <!-- SERVICES -->
-    <section id="services" class="sec bg-alt">
+    <!-- Services Section -->
+    <section id="services" class="sec">
         <div class="sec-wrapper">
-            <div class="sec-label">Our Services</div>
-            <h2 class="sh">Everything You Need<br />Under One Roof</h2>
-            <div class="svc-grid">
-                <div class="svc-card reveal">
-                    <div class="svc-num">01</div>
+            <div class="text-center">
+                <div class="sec-label">Our Services</div>
+                <h2 class="section-heading">Everything You Need<br />Under <span class="accent">One Roof</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-number">01</div>
                     <h3>General Warehousing</h3>
-                    <p>Flexible bulk storage with pallet racking, wide aisles, and dock-high access for efficient
-                        loading.</p>
+                    <p>Flexible bulk storage with pallet racking, wide aisles, and dock-high access for efficient loading.</p>
                 </div>
-                <div class="svc-card reveal">
-                    <div class="svc-num">02</div>
+                <div class="service-card reveal">
+                    <div class="service-number">02</div>
                     <h3>Cold Storage</h3>
-                    <p>State-of-the-art temperature-controlled units for food, pharma, and perishables — down to -10°F.
-                    </p>
+                    <p>State-of-the-art temperature-controlled units for food, pharma, and perishables — down to -10°F.</p>
                 </div>
-                <div class="svc-card reveal">
-                    <div class="svc-num">03</div>
+                <div class="service-card reveal">
+                    <div class="service-number">03</div>
                     <h3>E-commerce Fulfillment</h3>
                     <p>Pick, pack, and ship — your entire order pipeline handled so you can focus on growth.</p>
                 </div>
-                <div class="svc-card reveal">
-                    <div class="svc-num">04</div>
+                <div class="service-card reveal">
+                    <div class="service-number">04</div>
                     <h3>Cross-Docking</h3>
-                    <p>Minimal dwell time, streamlined inbound-to-outbound logistics for time-sensitive supply chains.
-                    </p>
+                    <p>Minimal dwell time, streamlined inbound-to-outbound logistics for time-sensitive supply chains.</p>
                 </div>
-                <div class="svc-card reveal">
-                    <div class="svc-num">05</div>
-                    <h3>Kitting &amp; Rework</h3>
+                <div class="service-card reveal">
+                    <div class="service-number">05</div>
+                    <h3>Kitting & Rework</h3>
                     <p>On-site assembly, repackaging, and labeling tailored to your product requirements.</p>
                 </div>
-                <div class="svc-card reveal">
-                    <div class="svc-num">06</div>
+                <div class="service-card reveal">
+                    <div class="service-number">06</div>
                     <h3>Inventory Management</h3>
                     <p>Full WMS integration with real-time bin tracking, dashboards, and cycle count programs.</p>
                 </div>
@@ -1025,174 +1363,323 @@
         </div>
     </section>
 
-    <!-- FACILITY -->
-    <section id="facility" class="sec">
+    <!-- Facility Section -->
+    <section id="facility" class="sec facility-section">
         <div class="sec-wrapper">
-            <div class="grid2">
+            <div class="facility-content">
                 <div>
                     <div class="sec-label">Our Facility</div>
-                    <h2 class="sh">Built for the Demands of <em>Modern Logistics</em></h2>
-                    <p class="subtext">1.2M sq ft of purpose-built warehousing, minutes from I-95 and three major ports.
-                    </p>
-                    <div class="feat-list">
-                        <div class="fi">
-                            <div class="fi-bullet">📍</div>
-                            <div><strong>Strategic Location</strong>
+                    <h2 class="section-heading">Built for the Demands of <span class="accent">Modern Logistics</span></h2>
+                    <p class="subtext">1.2M sq ft of purpose-built warehousing, minutes from I-95 and three major ports.</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                                    <pin x="12" y="2" r="3"></pin>
+                                    <path d="M12 2v20"></path>
+                                    <circle cx="12" cy="12" r="7"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Strategic Location</strong>
                                 <p>Minutes from I-95 and 3 major ports — reducing last-mile costs and transit times.</p>
                             </div>
                         </div>
-                        <div class="fi">
-                            <div class="fi-bullet">🏗️</div>
-                            <div><strong>30-Foot Clear Height</strong>
-                                <p>Selective and drive-in racking systems for maximum density and operational
-                                    flexibility.</p>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+                                    <path d="M10 6h4"></path>
+                                    <path d="M10 10h4"></path>
+                                    <path d="M10 14h4"></path>
+                                    <path d="M10 18h4"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>30-Foot Clear Height</strong>
+                                <p>Selective and drive-in racking systems for maximum density and operational flexibility.</p>
                             </div>
                         </div>
-                        <div class="fi">
-                            <div class="fi-bullet">🚨</div>
-                            <div><strong>Advanced Security</strong>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    <path d="M9 12l2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>Advanced Security</strong>
                                 <p>200+ CCTV cameras, perimeter fencing, biometric entry, and uniformed guards 24/7.</p>
                             </div>
                         </div>
-                        <div class="fi">
-                            <div class="fi-bullet">♻️</div>
-                            <div><strong>LEED Certified</strong>
-                                <p>Solar panels, LED lighting throughout, and rainwater recollection — sustainable by
-                                    design.</p>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                                    <path d="M3 6h18l-1.5 9H4.5L3 6Z"></path>
+                                    <path d="M20 4H4"></path>
+                                    <circle cx="7" cy="20" r="1"></circle>
+                                    <circle cx="17" cy="20" r="1"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <strong>LEED Certified</strong>
+                                <p>Solar panels, LED lighting throughout, and rainwater recollection — sustainable by design.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="facility-photo">
-                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&auto=format&fit=crop&q=80"
-                        alt="Warehouse aisles" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section id="pricing" class="sec bg-alt">
-        <div class="sec-wrapper tc">
-            <div class="sec-label">Transparent Pricing</div>
-            <h2 class="sh">No Hidden Fees. <em>Ever.</em></h2>
-            <p class="subtext" style="max-width:460px;margin:0 auto;">All plans include 24/7 security, dock access, and
-                WMS portal. Scale up or down with 30 days' notice.</p>
-            <div class="pricing-grid">
-                <div class="plan reveal">
-                    <div class="plan-tier">Starter</div>
-                    <div class="plan-size">500 – 2,000 sq ft</div>
-                    <div class="plan-price">From $1.20 / sq ft / mo</div>
-                    <div class="plan-desc">Ideal for small businesses, e-comm sellers, and seasonal overflow.</div>
-                    <a href="#contact" class="plan-btn">Get a Quote</a>
-                    <ul class="plan-feats">
-                        <li>Month-to-month lease</li>
-                        <li>2 dock doors included</li>
-                        <li>WMS portal access</li>
-                        <li>24/7 CCTV monitoring</li>
-                    </ul>
-                </div>
-                <div class="plan pop reveal">
-                    <div class="plan-tier">Business</div>
-                    <div class="plan-size">2,000 – 20,000 sq ft</div>
-                    <div class="plan-price">From $0.85 / sq ft / mo</div>
-                    <div class="plan-desc">For growing companies needing dedicated space and fulfillment support.</div>
-                    <a href="#contact" class="plan-btn">Get a Quote</a>
-                    <ul class="plan-feats">
-                        <li>6-month+ lease terms</li>
-                        <li>Dedicated loading area</li>
-                        <li>Pick &amp; pack services</li>
-                        <li>Advanced WMS + API</li>
-                        <li>Account manager included</li>
-                    </ul>
-                </div>
-                <div class="plan reveal">
-                    <div class="plan-tier">Enterprise</div>
-                    <div class="plan-size">20,000+ sq ft</div>
-                    <div class="plan-price">Custom Pricing</div>
-                    <div class="plan-desc">Full dedicated facilities, custom racking, and comprehensive 3PL services.
+                <div class="facility-stats">
+                    <div class="facility-stat">
+                        <div class="facility-stat-value">1.2M</div>
+                        <div class="facility-stat-label">Square Feet</div>
                     </div>
-                    <a href="#contact" class="plan-btn">Contact Us</a>
-                    <ul class="plan-feats">
-                        <li>Dedicated building option</li>
-                        <li>Custom racking design</li>
-                        <li>Full 3PL services</li>
-                        <li>Cold storage available</li>
-                        <li>SLA-backed availability</li>
+                    <div class="facility-stat">
+                        <div class="facility-stat-value">40+</div>
+                        <div class="facility-stat-label">Loading Docks</div>
+                    </div>
+                    <div class="facility-stat">
+                        <div class="facility-stat-value">30ft</div>
+                        <div class="facility-stat-label">Clear Height</div>
+                    </div>
+                    <div class="facility-stat">
+                        <div class="facility-stat-value">24/7</div>
+                        <div class="facility-stat-label">Security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="sec pricing-section">
+        <div class="sec-wrapper">
+            <div class="text-center">
+                <div class="sec-label">Transparent Pricing</div>
+                <h2 class="section-heading">No Hidden Fees. <span class="accent">Ever.</span></h2>
+                <p class="subtext">All plans include 24/7 security, dock access, and WMS portal. Scale up or down with 30 days' notice.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="pricing-tier">Starter</div>
+                    <div class="pricing-size">500 – 2,000 sq ft</div>
+                    <div class="pricing-price">From $1.20 / sq ft / mo</div>
+                    <div class="pricing-desc">Ideal for small businesses, e-comm sellers, and seasonal overflow.</div>
+                    <a href="#contact" class="pricing-btn">Get a Quote</a>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Month-to-month lease
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            2 dock doors included
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            WMS portal access
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            24/7 CCTV monitoring
+                        </li>
+                    </ul>
+                </div>
+                <div class="pricing-card popular reveal">
+                    <div class="pricing-tier">Business</div>
+                    <div class="pricing-size">2,000 – 20,000 sq ft</div>
+                    <div class="pricing-price">From $0.85 / sq ft / mo</div>
+                    <div class="pricing-desc">For growing companies needing dedicated space and fulfillment support.</div>
+                    <a href="#contact" class="pricing-btn">Get a Quote</a>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            6-month+ lease terms
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Dedicated loading area
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Pick & pack services
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Advanced WMS + API
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Account manager included
+                        </li>
+                    </ul>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-size">20,000+ sq ft</div>
+                    <div class="pricing-price">Custom Pricing</div>
+                    <div class="pricing-desc">Full dedicated facilities, custom racking, and comprehensive 3PL services.</div>
+                    <a href="#contact" class="pricing-btn">Contact Us</a>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Dedicated building option
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Custom racking design
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Full 3PL services
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Cold storage available
+                        </li>
+                        <li>
+                            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            SLA-backed availability
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- Testimonials Section -->
     <section class="sec">
         <div class="sec-wrapper">
             <div class="sec-label">Client Stories</div>
-            <h2 class="sh">600+ Businesses Trust<br /><em>Iron Ridge</em> Every Day</h2>
-            <div class="testi-grid">
-                <div class="tc-card reveal">
-                    <p>"We moved our 3PL operation to Iron Ridge two years ago. Immaculate facility, responsive team,
-                        and our order accuracy went from 96% to 99.8%. Wouldn't go back."</p>
-                    <div class="ta">
-                        <div class="av">BK</div>
-                        <div>
-                            <div class="an">Brian Kelsey</div>
-                            <div class="ar">VP Logistics, Summit Supply Co.</div>
+            <h2 class="section-heading">600+ Businesses Trust<br /><span class="accent">Iron Ridge</span> Every Day</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p>"We moved our 3PL operation to Iron Ridge two years ago. Immaculate facility, responsive team, and our order accuracy went from 96% to 99.8%. Wouldn't go back."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">BK</div>
+                        <div class="author-info">
+                            <div class="name">Brian Kelsey</div>
+                            <div class="role">VP Logistics, Summit Supply Co.</div>
                         </div>
                     </div>
+                    <div class="testimonial-stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                    </div>
                 </div>
-                <div class="tc-card reveal">
-                    <p>"As a fast-growing DTC brand, we needed storage that could scale fast. Iron Ridge's flexible
-                        leasing let us go from 2,000 to 15,000 sq ft in 6 months — no interruption to fulfillment."</p>
-                    <div class="ta">
-                        <div class="av">CR</div>
-                        <div>
-                            <div class="an">Carmen Rivera</div>
-                            <div class="ar">COO, NovaGoods Inc.</div>
+                <div class="testimonial-card reveal">
+                    <p>"As a fast-growing DTC brand, we needed storage that could scale fast. Iron Ridge's flexible leasing let us go from 2,000 to 15,000 sq ft in 6 months — no interruption to fulfillment."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CR</div>
+                        <div class="author-info">
+                            <div class="name">Carmen Rivera</div>
+                            <div class="role">COO, NovaGoods Inc.</div>
                         </div>
+                    </div>
+                    <div class="testimonial-stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#00D4AA" stroke="#00D4AA" stroke-width="1">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"></polygon>
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CLIENTS -->
-    <div class="clients-strip">
+    <!-- Clients Section -->
+    <div class="clients-section">
         <p>Trusted by businesses across every industry</p>
-        <div class="clients-row">
-            <span class="ci">SUMMIT SUPPLY</span>
-            <span class="ci">NOVAGOODS</span>
-            <span class="ci">PEAK PHARMA</span>
-            <span class="ci">RIDGELINE FOODS</span>
-            <span class="ci">COAST AUTO</span>
+        <div class="clients-marquee">
+            <span class="client-logo">SUMMIT SUPPLY</span>
+            <span class="client-logo">NOVAGOODS</span>
+            <span class="client-logo">PEAK PHARMA</span>
+            <span class="client-logo">RIDGELINE FOODS</span>
+            <span class="client-logo">COAST AUTO</span>
+            <span class="client-logo">SUMMIT SUPPLY</span>
+            <span class="client-logo">NOVAGOODS</span>
+            <span class="client-logo">PEAK PHARMA</span>
+            <span class="client-logo">RIDGELINE FOODS</span>
+            <span class="client-logo">COAST AUTO</span>
         </div>
     </div>
 
-    <!-- CTA -->
-    <section id="contact" class="cta-wrap">
-        <div class="cta-inner">
-            <div>
-                <h2>Ready for Storage That <em>Works?</em></h2>
-                <p>Tell us your requirements and we'll have a custom quote on your desk within 24 hours — no obligation,
-                    no sales pressure.</p>
-            </div>
-            <div class="cta-right">
-                <a href="#" class="btn-orange">Get My Free Quote</a>
-                <a href="#" class="btn-frame">Call (855) 466-7434</a>
+    <!-- CTA Section -->
+    <section id="contact" class="sec cta-section">
+        <div class="sec-wrapper">
+            <div class="cta-content">
+                <div class="cta-badge">Quotes delivered within 24 hours</div>
+                <h2>Ready for Storage That <span class="accent">Works?</span></h2>
+                <p>Tell us your requirements and we'll have a custom quote on your desk within 24 hours — no obligation, no sales pressure.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">Get My Free Quote</a>
+                    <a href="#" class="btn-secondary">Call (855) 466-7434</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <div class="ft">
-            <div class="fb">
-                <div class="fb-logo">Iron<span>Ridge</span></div>
-                <p>Flexible, secure commercial warehouse and storage for businesses of all sizes — across the region.
-                </p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Iron<span>Ridge</span></div>
+                <p>Flexible, secure commercial warehouse and storage for businesses of all sizes — across the region.</p>
             </div>
-            <div class="fl">
+            <div class="footer-links">
                 <h5>Services</h5>
                 <ul>
                     <li><a href="#">General Warehousing</a></li>
@@ -1201,7 +1688,7 @@
                     <li><a href="#">Cross-Docking</a></li>
                 </ul>
             </div>
-            <div class="fl">
+            <div class="footer-links">
                 <h5>Company</h5>
                 <ul>
                     <li><a href="#">About Us</a></li>
@@ -1210,7 +1697,7 @@
                     <li><a href="#">Certifications</a></li>
                 </ul>
             </div>
-            <div class="fl">
+            <div class="footer-links">
                 <h5>Contact</h5>
                 <ul>
                     <li><a href="#">1400 Commerce Pkwy, NJ</a></li>
@@ -1219,43 +1706,117 @@
                 </ul>
             </div>
         </div>
-        <div class="fb2">
+        <div class="footer-bottom">
             <p>© 2025 Iron Ridge Storage Solutions, LLC. All rights reserved.</p>
-            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+            <div class="footer-legal">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // ── Scroll Reveal ──
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-        }, { threshold: 0.08 });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        // Scroll reveal animations
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
 
-        // ── Animated Counters ──
-        function animateCount(el) {
-            const target = parseFloat(el.dataset.count);
-            const suffix = el.dataset.suffix || '';
-            const decimals = parseInt(el.dataset.decimals || '0');
-            const duration = 1800;
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Animated counters
+        function animateCounter(element) {
+            const target = parseFloat(element.dataset.count);
+            const suffix = element.dataset.suffix || '';
+            const decimals = parseInt(element.dataset.decimals || '0');
+            const duration = 2000;
             const start = performance.now();
-            (function step(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const ease = 1 - Math.pow(1 - p, 4);
-                el.textContent = (target * ease).toFixed(decimals) + suffix;
-                if (p < 1) requestAnimationFrame(step);
-            })(start);
+            
+            function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = target * easeOut;
+                element.textContent = current.toFixed(decimals) + suffix;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            requestAnimationFrame(step);
         }
-        const countObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-        // ── Nav scroll effect ──
-        const nav = document.querySelector('nav');
+        const counterObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
         window.addEventListener('scroll', () => {
-            nav.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,.15)' : '';
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScrollY = scrollY;
         }, { passive: true });
+
+        // Generate floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add cursor pointer to clickable elements
+        document.querySelectorAll('button, a, .service-card, .pricing-card, .testimonial-card').forEach(el => {
+            el.style.cursor = 'pointer';
+        });
     </script>
 </body>
 
