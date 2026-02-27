@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meridian Home | Premium Home Goods & Décor</title>
+    <title>Meridian Home | Premium Home Goods & Sustainable Design</title>
     <meta name="description"
-        content="Meridian Home is your destination for curated, sustainably-sourced home goods, furniture, and décor that transform your space into a sanctuary." />
+        content="Discover beautiful, sustainable home goods that transform your space into a sanctuary. Premium décor, furniture, and accessories with free shipping." />
+    <meta name="theme-color" content="#A8A29E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <style>
         *,
@@ -22,14 +23,33 @@
         }
 
         :root {
-            --bg: #FAFAF8;
-            --dark: #1C1917;
-            --rust: #C2410C;
-            --terr: #EA580C;
-            --warm: #FEF3C7;
-            --stone: #78716C;
-            --cream: #F5F0E8;
-            --white: #FFFFFF;
+            /* Earth tone palette for sustainability feel */
+            --primary-olive: #6B7A4A;
+            --secondary-cream: #F5F1E8;
+            --tertiary-charcoal: #2C2C2E;
+            --accent-terracotta: #D2691E;
+            --warm-white: #FEFDFB;
+            --warm-beige: #F0EBE1;
+            --soft-sage: #9CAF88;
+            --deep-brown: #3C3A38;
+            --light-stone: #A8A29E;
+            --forest-green: #1F2E1A;
+
+            /* Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing */
+            --container: min(100% - 2rem, 1400px);
+            --section-padding: clamp(3rem, 8vw, 6rem);
+            --grid-gap: clamp(1rem, 2.5vw, 2rem);
+
+            /* Effects */
+            --shadow-subtle: 0 1px 3px rgba(60, 58, 56, 0.1), 0 1px 2px rgba(60, 58, 56, 0.06);
+            --shadow-medium: 0 4px 6px rgba(60, 58, 56, 0.05), 0 2px 4px rgba(60, 58, 56, 0.08);
+            --shadow-large: 0 10px 15px rgba(60, 58, 56, 0.1), 0 4px 6px rgba(60, 58, 56, 0.05);
+            --border-radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -37,1005 +57,2112 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--dark);
+            font-family: var(--font-body);
+            background: var(--warm-white);
+            color: var(--tertiary-charcoal);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        nav {
+        /* Typography Scale */
+        .text-h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .text-h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .text-h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .text-h4 {
+            font-family: var(--font-body);
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .text-body {
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.6;
+            color: var(--light-stone);
+        }
+
+        .text-small {
+            font-size: clamp(0.75rem, 1vw, 0.875rem);
+            line-height: 1.5;
+            color: var(--light-stone);
+        }
+
+        /* Focus and Accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--primary-olive);
+            outline-offset: 2px;
+            border-radius: var(--border-radius);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Container */
+        .container {
+            width: var(--container);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ── NAVIGATION ── */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(250, 250, 248, .95);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0, 0, 0, .08);
+            z-index: 1000;
+            background: rgba(254, 253, 251, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(168, 162, 158, 0.15);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(254, 253, 251, 0.98);
+            border-bottom: 1px solid rgba(168, 162, 158, 0.2);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 5%;
-            height: 70px;
+            padding: 1rem 0;
+            min-height: 72px;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--dark);
+        .nav__brand {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--tertiary-charcoal);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: var(--transition);
+            cursor: pointer;
         }
 
-        .logo span {
-            color: var(--rust);
+        .nav__brand:hover {
+            color: var(--primary-olive);
         }
 
-        .nav-mid {
+        .nav__links {
             display: flex;
-            gap: 2rem;
+            align-items: center;
+            gap: 2.5rem;
             list-style: none;
         }
 
-        .nav-mid li a {
-            color: var(--stone);
+        .nav__link {
+            color: var(--light-stone);
             text-decoration: none;
-            font-size: .875rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color .2s;
-        }
-
-        .nav-mid li a:hover {
-            color: var(--rust);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .nav-search {
-            color: var(--stone);
-            font-size: 1.1rem;
+            transition: var(--transition);
             cursor: pointer;
-        }
-
-        .nav-cart {
-            background: var(--rust);
-            color: #fff;
-            padding: .5rem 1.25rem;
-            font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            min-height: 100vh;
-        }
-
-        .hero-left {
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-left img {
+        .nav__link:hover {
+            color: var(--primary-olive);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-olive);
+            transition: var(--transition);
+        }
+
+        .nav__link:hover::after {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        .hero-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 120px 5% 60px 6%;
-            background: var(--cream);
-        }
-
-        .hero-tag {
-            font-size: .7rem;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: var(--rust);
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-right h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 4vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.1;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-right h1 em {
-            font-style: italic;
-            color: var(--rust);
-        }
-
-        .hero-right p {
-            color: var(--stone);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            max-width: 420px;
-        }
-
-        .btn-rust {
-            background: var(--rust);
-            color: #fff;
-            padding: .9rem 2.25rem;
-            font-size: .875rem;
-            font-weight: 600;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-            transition: all .2s;
-        }
-
-        .btn-rust:hover {
-            background: var(--terr);
-        }
-
-        .btn-out {
-            border: 1.5px solid var(--dark);
-            color: var(--dark);
-            padding: .9rem 2.25rem;
-            font-size: .875rem;
-            font-weight: 600;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-            transition: all .2s;
-        }
-
-        .btn-out:hover {
-            background: var(--dark);
-            color: #fff;
-        }
-
-        .hero-badges {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .hb {
-            font-size: .78rem;
-            color: var(--stone);
+        .nav__actions {
             display: flex;
             align-items: center;
-            gap: .35rem;
+            gap: 1.5rem;
         }
 
-        .hb::before {
-            content: '✓';
-            color: var(--rust);
-            font-weight: 700;
+        .nav__icon {
+            color: var(--light-stone);
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
         }
 
-        .marquee-wrap {
-            background: var(--dark);
-            padding: 1rem 0;
-            overflow: hidden;
+        .nav__icon:hover {
+            color: var(--primary-olive);
+            background: var(--secondary-cream);
         }
 
-        .marquee {
-            display: flex;
-            gap: 3rem;
-            animation: marquee 25s linear infinite;
-            white-space: nowrap;
+        .nav__cart {
+            position: relative;
         }
 
-        .marquee span {
-            color: rgba(255, 255, 255, .4);
-            font-size: .75rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            font-weight: 500;
-            flex-shrink: 0;
-        }
-
-        .marquee span.dot {
-            color: var(--rust);
-            font-size: 1rem;
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        section.sec {
-            padding: 5.5rem 5%;
-        }
-
-        .sec-label {
-            font-size: .7rem;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: var(--rust);
-            margin-bottom: 1rem;
-        }
-
-        h2.sh {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.9rem, 3vw, 3rem);
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        h2.sh em {
-            font-style: italic;
-            color: var(--rust);
-        }
-
-        .subtext {
-            color: var(--stone);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .tc {
+        .nav__cart-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent-terracotta);
+            color: var(--warm-white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 50px;
+            min-width: 18px;
             text-align: center;
+            line-height: 1.2;
         }
 
-        .bg-cream {
-            background: var(--cream);
-        }
-
-        .prods-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .prod {
-            transition: all .3s;
-        }
-
-        .prod:hover {
-            transform: translateY(-4px);
-        }
-
-        .prod-img {
-            position: relative;
-            height: 280px;
-            overflow: hidden;
-            background: #f0ebe3;
-            margin-bottom: 1rem;
-        }
-
-        .prod-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .5s;
-        }
-
-        .prod:hover .prod-img img {
-            transform: scale(1.05);
-        }
-
-        .prod-tag {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--rust);
-            color: #fff;
-            font-size: .65rem;
-            font-weight: 700;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            padding: .25rem .65rem;
-        }
-
-        .prod-wish {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 34px;
-            height: 34px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            cursor: pointer;
+        /* Mobile Navigation */
+        .nav__mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
             border: none;
-            transition: all .2s;
-        }
-
-        .prod-wish:hover {
-            background: var(--rust);
-        }
-
-        .prod-cat {
-            font-size: .7rem;
-            color: var(--stone);
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            margin-bottom: .3rem;
-        }
-
-        .prod-name {
-            font-size: .95rem;
-            font-weight: 600;
-            margin-bottom: .4rem;
-        }
-
-        .prod-price {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-
-        .prod-price .cur {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .prod-price .was {
-            font-size: .85rem;
-            color: var(--stone);
-            text-decoration: line-through;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 1rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 500px;
-        }
-
-        .col-item {
-            position: relative;
-            overflow: hidden;
+            padding: 8px;
             cursor: pointer;
         }
 
-        .col-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .5s;
+        .nav__mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--tertiary-charcoal);
+            transition: var(--transition);
+            border-radius: 2px;
         }
 
-        .col-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .col-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, transparent 50%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-        }
-
-        .col-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: .25rem;
-        }
-
-        .col-link {
-            font-size: .75rem;
-            color: rgba(255, 255, 255, .7);
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        .col-link:hover {
-            color: #fff;
-        }
-
-        .why-row {
+        /* ── HERO SECTION ── */
+        .hero {
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 72px;
         }
 
-        .why-item {
-            text-align: center;
-            padding: 2rem 1.25rem;
-            background: #fff;
+        .hero__content {
+            padding: var(--section-padding) 0;
+            padding-left: 5%;
+            z-index: 2;
         }
 
-        .why-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(156, 175, 136, 0.1);
+            color: var(--primary-olive);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(156, 175, 136, 0.2);
         }
 
-        .why-item h3 {
-            font-size: .95rem;
-            font-weight: 700;
-            margin-bottom: .4rem;
+        .hero__badge svg {
+            width: 16px;
+            height: 16px;
         }
 
-        .why-item p {
-            color: var(--stone);
-            font-size: .83rem;
+        .hero__title {
+            margin-bottom: 1.5rem;
+            color: var(--tertiary-charcoal);
+        }
+
+        .hero__description {
+            font-size: 1.125rem;
+            color: var(--light-stone);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
             line-height: 1.6;
         }
 
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .rev-card {
-            background: #fff;
-            padding: 1.75rem;
-        }
-
-        .stars {
-            color: #F59E0B;
-            font-size: .9rem;
-            margin-bottom: .75rem;
-        }
-
-        .rev-card p {
-            color: var(--stone);
-            font-size: .875rem;
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            font-style: italic;
-        }
-
-        .ta {
+        .hero__cta {
             display: flex;
             align-items: center;
-            gap: .75rem;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
-        .av {
-            width: 40px;
-            height: 40px;
-            background: var(--rust);
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: .8rem;
-            color: #fff;
-        }
-
-        .an {
-            font-weight: 700;
-            font-size: .85rem;
-        }
-
-        .ar {
-            color: var(--stone);
-            font-size: .775rem;
-        }
-
-        .cta-wrap {
-            background: var(--dark);
-            text-align: center;
-            padding: 6rem 5%;
-        }
-
-        .cta-wrap h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 3vw, 3.2rem);
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-
-        .cta-wrap h2 em {
-            font-style: italic;
-            color: var(--terr);
-        }
-
-        .cta-wrap .subtext {
-            color: rgba(255, 255, 255, .55);
-            max-width: 440px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 0;
-            max-width: 420px;
-            margin: 0 auto;
-        }
-
-        .email-form input {
-            flex: 1;
-            background: rgba(255, 255, 255, .08);
-            border: 1px solid rgba(255, 255, 255, .15);
-            border-right: none;
-            color: #fff;
-            padding: .9rem 1.25rem;
-            font-size: .9rem;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .email-form input::placeholder {
-            color: rgba(255, 255, 255, .4);
-        }
-
-        .email-form button {
-            background: var(--rust);
-            color: #fff;
-            padding: .9rem 1.5rem;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
             border: none;
-            font-size: .8rem;
-            font-weight: 700;
-            letter-spacing: .06em;
-            text-transform: uppercase;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
             cursor: pointer;
-            transition: background .2s;
+            transition: var(--transition);
             white-space: nowrap;
         }
 
-        .email-form button:hover {
-            background: var(--terr);
+        .btn--primary {
+            background: var(--primary-olive);
+            color: var(--warm-white);
+            box-shadow: var(--shadow-medium);
         }
 
-        footer {
-            background: #111;
-            padding: 3.5rem 5% 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, .06);
+        .btn--primary:hover {
+            background: var(--forest-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
         }
 
-        .ft {
+        .btn--secondary {
+            background: transparent;
+            color: var(--tertiary-charcoal);
+            border: 2px solid var(--light-stone);
+        }
+
+        .btn--secondary:hover {
+            background: var(--secondary-cream);
+            border-color: var(--primary-olive);
+            color: var(--primary-olive);
+        }
+
+        .hero__testimonial {
             display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--warm-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(168, 162, 158, 0.1);
         }
 
-        .fb-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: .5rem;
+        .hero__testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
-        .fb-logo span {
-            color: var(--terr);
+        .hero__testimonial-text {
+            font-size: 0.875rem;
+            color: var(--light-stone);
+            font-style: italic;
         }
 
-        .ft .fb p {
-            color: rgba(255, 255, 255, .4);
-            font-size: .82rem;
-            max-width: 220px;
-            line-height: 1.7;
+        .hero__testimonial-author {
+            font-size: 0.75rem;
+            color: var(--primary-olive);
+            font-weight: 600;
+            margin-top: 0.25rem;
         }
 
-        .fl h5 {
-            font-size: .65rem;
-            font-weight: 700;
-            letter-spacing: .12em;
+        .hero__image {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 8s ease-out;
+        }
+
+        .hero__image:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(107, 122, 74, 0.1) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
+        }
+
+        /* ── TRUST BAR ── */
+        .trust-bar {
+            background: var(--secondary-cream);
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(168, 162, 158, 0.1);
+        }
+
+        .trust-bar__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--grid-gap);
+            align-items: center;
+        }
+
+        .trust-bar__item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .trust-bar__icon {
+            width: 48px;
+            height: 48px;
+            padding: 12px;
+            background: var(--warm-white);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .trust-bar__icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-olive);
+        }
+
+        .trust-bar__text h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--tertiary-charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-bar__text p {
+            font-size: 0.75rem;
+            color: var(--light-stone);
+        }
+
+        /* ── CATEGORY SHOWCASE ── */
+        .categories {
+            padding: var(--section-padding) 0;
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section__subtitle {
+            color: var(--primary-olive);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .35);
             margin-bottom: 1rem;
         }
 
-        .fl ul {
-            list-style: none;
+        .section__title {
+            margin-bottom: 1rem;
+        }
+
+        .section__description {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            color: var(--light-stone);
+        }
+
+        .categories__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--grid-gap);
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            transition: var(--transition);
+            cursor: pointer;
+            background: var(--light-stone);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .category-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .category-card:hover .category-card__image {
+            transform: scale(1.1);
+        }
+
+        .category-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(44, 44, 46, 0.1) 50%,
+                rgba(44, 44, 46, 0.7) 100%
+            );
             display: flex;
             flex-direction: column;
-            gap: .6rem;
+            justify-content: flex-end;
+            padding: 2rem;
         }
 
-        .fl ul li a {
-            color: rgba(255, 255, 255, .45);
-            text-decoration: none;
-            font-size: .85rem;
-            transition: color .2s;
+        .category-card__title {
+            color: var(--warm-white);
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
-        .fl ul li a:hover {
-            color: var(--terr);
+        .category-card__description {
+            color: rgba(254, 253, 251, 0.8);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
 
-        .fb2 {
-            padding-top: 1.5rem;
+        .category-card__cta {
+            color: var(--warm-white);
+            font-size: 0.875rem;
+            font-weight: 600;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .category-card__cta:hover {
             gap: 1rem;
         }
 
-        .fb2 p {
-            color: rgba(255, 255, 255, .2);
-            font-size: .78rem;
+        .category-card__cta svg {
+            width: 16px;
+            height: 16px;
+            transition: var(--transition);
         }
 
-        .fleg {
+        /* ── FEATURED PRODUCTS ── */
+        .featured {
+            padding: var(--section-padding) 0;
+            background: var(--warm-beige);
+        }
+
+        .products__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--grid-gap);
+        }
+
+        .product-card {
+            background: var(--warm-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(168, 162, 158, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .product-card__image-container {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .product-card__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-card__image {
+            transform: scale(1.05);
+        }
+
+        .product-card__badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-terracotta);
+            color: var(--warm-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-card__wishlist {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(254, 253, 251, 0.9);
+            border: none;
+            border-radius: 50%;
             display: flex;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
-        .fleg a {
-            color: rgba(255, 255, 255, .2);
-            font-size: .78rem;
+        .product-card__wishlist:hover {
+            background: var(--warm-white);
+            transform: scale(1.1);
+        }
+
+        .product-card__wishlist svg {
+            width: 20px;
+            height: 20px;
+            color: var(--light-stone);
+            transition: var(--transition);
+        }
+
+        .product-card__wishlist:hover svg {
+            color: var(--accent-terracotta);
+        }
+
+        .product-card__content {
+            padding: 1.5rem;
+        }
+
+        .product-card__category {
+            color: var(--primary-olive);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card__title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--tertiary-charcoal);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .product-card__description {
+            font-size: 0.875rem;
+            color: var(--light-stone);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-card__price {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--tertiary-charcoal);
+        }
+
+        .product-card__rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-card__stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .product-card__stars svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-terracotta);
+        }
+
+        .product-card__review-count {
+            font-size: 0.75rem;
+            color: var(--light-stone);
+        }
+
+        /* ── SUSTAINABILITY STORY ── */
+        .sustainability {
+            padding: var(--section-padding) 0;
+        }
+
+        .sustainability__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sustainability__content {
+            padding-right: 2rem;
+        }
+
+        .sustainability__features {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sustainability__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .sustainability__feature-icon {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+            background: rgba(156, 175, 136, 0.1);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.25rem;
+        }
+
+        .sustainability__feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-olive);
+        }
+
+        .sustainability__feature-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--tertiary-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .sustainability__feature-content p {
+            font-size: 0.875rem;
+            color: var(--light-stone);
+            line-height: 1.5;
+        }
+
+        .sustainability__image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .sustainability__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testimonials {
+            padding: var(--section-padding) 0;
+            background: var(--secondary-cream);
+        }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--grid-gap);
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--warm-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(168, 162, 158, 0.1);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card__content {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--light-stone);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-card__author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-card__avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-card__info h5 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--tertiary-charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-card__info p {
+            font-size: 0.75rem;
+            color: var(--light-stone);
+        }
+
+        .testimonial-card__rating {
+            display: flex;
+            gap: 2px;
+            margin-top: 0.5rem;
+        }
+
+        .testimonial-card__rating svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-terracotta);
+        }
+
+        /* ── CTA SECTION ── */
+        .cta-section {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--primary-olive) 0%, var(--forest-green) 100%);
+            text-align: center;
+            color: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NCwyNTMsMjUxLDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=') repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .cta-section__content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section__title {
+            color: var(--warm-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section__description {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-section__form {
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section__input {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            background: var(--warm-white);
+            color: var(--tertiary-charcoal);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .cta-section__input::placeholder {
+            color: var(--light-stone);
+        }
+
+        .cta-section__submit {
+            background: var(--accent-terracotta);
+            color: var(--warm-white);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .cta-section__submit:hover {
+            background: #B8581A;
+            transform: translateY(-2px);
+        }
+
+        .cta-section__note {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--tertiary-charcoal);
+            color: var(--warm-white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer__content {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer__brand {
+            max-width: 320px;
+        }
+
+        .footer__logo {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--warm-white);
+        }
+
+        .footer__description {
+            color: rgba(254, 253, 251, 0.7);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer__social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(254, 253, 251, 0.1);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-white);
+            transition: var(--transition);
             text-decoration: none;
         }
 
-        .fleg a:hover {
-            color: var(--terr);
+        .footer__social-link:hover {
+            background: var(--primary-olive);
+            transform: translateY(-2px);
         }
 
-        @media(max-width:1000px) {
+        .footer__social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer__section h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--warm-white);
+        }
+
+        .footer__links {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .footer__links a {
+            color: rgba(254, 253, 251, 0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+
+        .footer__links a:hover {
+            color: var(--warm-white);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(254, 253, 251, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: rgba(254, 253, 251, 0.7);
+        }
+
+        .footer__payment {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer__payment span {
+            font-size: 0.75rem;
+        }
+
+        .footer__payment-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .footer__payment-icon {
+            width: 32px;
+            height: 20px;
+            background: var(--warm-white);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+            color: var(--tertiary-charcoal);
+            font-weight: bold;
+        }
+
+        /* ── RESPONSIVE DESIGN ── */
+        @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
+                min-height: auto;
             }
 
-            .prods-grid {
+            .hero__content {
+                order: 2;
+                padding: 3rem 5% 4rem;
+            }
+
+            .hero__image {
+                order: 1;
+                height: 60vh;
+            }
+
+            .sustainability__container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .sustainability__content {
+                padding-right: 0;
+            }
+
+            .footer__content {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .collections-grid {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .why-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .review-grid {
-                grid-template-columns: 1fr;
+            .footer__brand {
+                grid-column: 1 / -1;
+                max-width: none;
             }
         }
-        /* ── SCROLL REVEAL ── */
-        .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1); }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal:nth-child(2) { transition-delay:.1s; }
-        .reveal:nth-child(3) { transition-delay:.2s; }
-        .reveal:nth-child(4) { transition-delay:.3s; }
-        /* ── STATS BAR ── */
-        .stats-bar { display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; background:var(--dark); color:#fff; padding:2rem 5%; }
-        .stat-item { text-align:center; }
-        .stat-n { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--terr); }
-        .stat-l { font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:.25rem; }
-        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+        @media (max-width: 768px) {
+            .nav__links {
+                display: none;
+            }
+
+            .nav__mobile-toggle {
+                display: flex;
+            }
+
+            .hero__content {
+                padding: 2rem 1rem 3rem;
+                text-align: center;
+            }
+
+            .hero__description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .section__title {
+                font-size: 1.6rem;
+            }
+
+            .hero__cta {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .trust-bar__grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .trust-bar__item {
+                justify-content: center;
+                text-align: center;
+                border-bottom: 1px solid rgba(168, 162, 158, 0.1);
+                padding: 1.5rem 1rem;
+            }
+
+            .trust-bar__item:last-child {
+                border-bottom: none;
+            }
+
+            .categories__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products__grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .testimonials__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section__form {
+                flex-direction: column;
+                max-width: none;
+            }
+
+            .footer__content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer__bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .nav {
+                padding: 0.75rem 0;
+            }
+
+            .hero__content {
+                padding: 1.5rem 0.75rem 2rem;
+            }
+
+            .product-card__content {
+                padding: 1rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Intersection Observer triggered animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-on-scroll.delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .animate-on-scroll.delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .animate-on-scroll.delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-olive: #2E4A1F;
+                --secondary-cream: #F0F0F0;
+                --tertiary-charcoal: #000000;
+                --light-stone: #666666;
+                --warm-white: #FFFFFF;
+            }
+
+            .btn--primary {
+                border: 2px solid var(--tertiary-charcoal);
+            }
+
+            .category-card__overlay {
+                background: linear-gradient(
+                    180deg,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.9) 100%
+                );
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .header,
+            .nav__mobile-toggle,
+            .hero__cta,
+            .cta-section,
+            .footer {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 0;
+            }
+
+            .btn {
+                border: 1px solid black;
+                background: white;
+                color: black;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__brand" aria-label="Meridian Home - Return to homepage">
+                    Meridian Home
+                </a>
+                
+                <ul class="nav__links" role="navigation" aria-label="Main navigation">
+                    <li><a href="#collections" class="nav__link">Collections</a></li>
+                    <li><a href="#furniture" class="nav__link">Furniture</a></li>
+                    <li><a href="#decor" class="nav__link">Décor</a></li>
+                    <li><a href="#sustainability" class="nav__link">Our Story</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
 
-    <nav>
-        <div class="logo">Meridian <span>Home</span></div>
-        <ul class="nav-mid">
-            <li><a href="#new">New Arrivals</a></li>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-            <span class="nav-search">🔍</span>
-            <a href="#" class="nav-cart">Cart (0)</a>
-        </div>
-    </nav>
+                <div class="nav__actions">
+                    <button class="nav__icon" aria-label="Search products" title="Search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </button>
+                    <button class="nav__icon" aria-label="View account" title="Account">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </button>
+                    <button class="nav__icon nav__cart" aria-label="Shopping cart" title="Cart">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="8" cy="21" r="1"/>
+                            <circle cx="19" cy="21" r="1"/>
+                            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+                        </svg>
+                        <span class="nav__cart-count" aria-label="2 items in cart">2</span>
+                    </button>
+                </div>
 
-    <div class="hero">
-        <div class="hero-left">
-            <img src="https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=1000&auto=format&fit=crop&q=80"
-                alt="Beautiful home interior" />
+                <button class="nav__mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
         </div>
-        <div class="hero-right">
-            <div class="hero-tag">New Autumn Collection 2024</div>
-            <h1>Your Home.<br /><em>Your Story.</em></h1>
-            <p>Premium, sustainably-sourced home goods and décor — thoughtfully designed to bring warmth, character, and
-                beauty to every room.</p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                <a href="#new" class="btn-rust">Shop New Arrivals</a>
-                <a href="#collections" class="btn-out">View Collections</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+            <div class="hero__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Sustainably Sourced
             </div>
-            <div class="hero-badges">
-                <span class="hb">Free shipping over $80</span>
-                <span class="hb">30-day returns</span>
-                <span class="hb">Sustainably sourced</span>
+            
+            <h1 id="hero-title" class="text-h1 hero__title">
+                Transform Your Space Into a Sanctuary
+            </h1>
+            
+            <p class="hero__description">
+                Discover thoughtfully curated home goods that blend timeless design with sustainable craftsmanship. 
+                Every piece tells a story of quality, beauty, and environmental responsibility.
+            </p>
+
+            <div class="hero__cta">
+                <a href="#collections" class="btn btn--primary">
+                    Shop Collections
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
+                <a href="#quiz" class="btn btn--secondary">Take Style Quiz</a>
+            </div>
+
+            <div class="hero__testimonial animate-on-scroll delay-2">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=96&h=96&auto=format&fit=crop&q=80" 
+                     alt="Sarah Chen" class="hero__testimonial-avatar" width="48" height="48">
+                <div>
+                    <p class="hero__testimonial-text">
+                        "Meridian Home helped me create the perfect reading nook. The quality and attention to detail is unmatched."
+                    </p>
+                    <p class="hero__testimonial-author">Sarah C., Interior Designer</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="marquee-wrap">
-        <div class="marquee">
-            <span>NEW AUTUMN ARRIVALS</span><span class="dot">✦</span><span>FREE SHIPPING OVER $80</span><span
-                class="dot">✦</span><span>SUSTAINABLY SOURCED</span><span class="dot">✦</span><span>30-DAY
-                RETURNS</span><span class="dot">✦</span><span>NEW AUTUMN ARRIVALS</span><span
-                class="dot">✦</span><span>FREE SHIPPING OVER $80</span><span class="dot">✦</span><span>SUSTAINABLY
-                SOURCED</span><span class="dot">✦</span><span>30-DAY RETURNS</span><span class="dot">✦</span>
+        <div class="hero__image">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80" 
+                 alt="Beautifully designed living room with sustainable furniture and warm lighting" 
+                 width="800" height="1000" loading="eager">
         </div>
-    </div>
+    </section>
 
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <div class="stat-n" data-count="80" data-suffix="K+">80K+</div>
-            <div class="stat-l">Happy Customers</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-n" data-count="3200" data-suffix="+">3,200+</div>
-            <div class="stat-l">5-Star Reviews</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-n" data-count="4.8" data-suffix="★" data-decimals="1">4.8★</div>
-            <div class="stat-l">Average Rating</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-n" data-count="30" data-suffix="-Day">30-Day</div>
-            <div class="stat-l">Free Returns</div>
-        </div>
-    </div>
-
-    <section id="new" class="sec">
-        <div style="max-width:1200px;margin:0 auto;text-align:center;">
-            <div class="sec-label">Just Dropped</div>
-            <h2 class="sh">New <em>Arrivals</em></h2>
-            <div class="prods-grid">
-                <div class="prod reveal">
-                    <div class="prod-img"><img
-                            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80"
-                            alt="Sofa" /><span class="prod-tag">New</span><button class="prod-wish">♡</button></div>
-                    <div class="prod-cat">Living Room</div>
-                    <div class="prod-name">Lena Linen Sofa</div>
-                    <div class="prod-price"><span class="cur">$1,290</span></div>
-                </div>
-                <div class="prod reveal">
-                    <div class="prod-img"><img
-                            src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&auto=format&fit=crop&q=80"
-                            alt="Lamp" /><span class="prod-tag">Sale</span><button class="prod-wish">♡</button></div>
-                    <div class="prod-cat">Lighting</div>
-                    <div class="prod-name">Arc Floor Lamp</div>
-                    <div class="prod-price"><span class="cur">$189</span><span class="was">$249</span></div>
-                </div>
-                <div class="prod reveal">
-                    <div class="prod-img"><img
-                            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=80"
-                            alt="Table" /><button class="prod-wish">♡</button></div>
-                    <div class="prod-cat">Dining</div>
-                    <div class="prod-name">Walnut Dining Table</div>
-                    <div class="prod-price"><span class="cur">$875</span></div>
-                </div>
-                <div class="prod reveal">
-                    <div class="prod-img"><img
-                            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80"
-                            alt="Rug" /><span class="prod-tag">Bestseller</span><button class="prod-wish">♡</button>
+    <!-- Trust Bar -->
+    <section class="trust-bar" aria-label="Our guarantees">
+        <div class="container">
+            <div class="trust-bar__grid">
+                <div class="trust-bar__item animate-on-scroll">
+                    <div class="trust-bar__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
                     </div>
-                    <div class="prod-cat">Textiles</div>
-                    <div class="prod-name">Boucle Accent Rug</div>
-                    <div class="prod-price"><span class="cur">$320</span></div>
+                    <div class="trust-bar__text">
+                        <h4>Free Shipping</h4>
+                        <p>On orders over $150</p>
+                    </div>
+                </div>
+
+                <div class="trust-bar__item animate-on-scroll delay-1">
+                    <div class="trust-bar__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                            <path d="M21 3v5h-5"/>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                            <path d="M8 16H3v5"/>
+                        </svg>
+                    </div>
+                    <div class="trust-bar__text">
+                        <h4>30-Day Returns</h4>
+                        <p>Hassle-free exchanges</p>
+                    </div>
+                </div>
+
+                <div class="trust-bar__item animate-on-scroll delay-2">
+                    <div class="trust-bar__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="m9 12 2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="trust-bar__text">
+                        <h4>Quality Guarantee</h4>
+                        <p>Lifetime craftsmanship warranty</p>
+                    </div>
+                </div>
+
+                <div class="trust-bar__item animate-on-scroll delay-3">
+                    <div class="trust-bar__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="trust-bar__text">
+                        <h4>4.9/5 Rating</h4>
+                        <p>From 2,500+ reviews</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="collections" class="sec bg-cream">
-        <div style="max-width:1200px;margin:0 auto;text-align:center;">
-            <div class="sec-label">Shop by Vibe</div>
-            <h2 class="sh">Our <em>Collections</em></h2>
-            <div class="collections-grid">
-                <div class="col-item"><img
-                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&auto=format&fit=crop&q=80"
-                        alt="Modern Organic" />
-                    <div class="col-overlay">
-                        <div class="col-name">Modern Organic</div><a href="#" class="col-link">Shop Collection →</a>
+    <!-- Categories Section -->
+    <section id="collections" class="categories">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <p class="section__subtitle">Collections</p>
+                <h2 class="text-h2 section__title">Curated for Every Space</h2>
+                <p class="section__description">
+                    Explore our thoughtfully organized collections, each designed to help you create spaces that reflect your unique style and values.
+                </p>
+            </div>
+
+            <div class="categories__grid">
+                <article class="category-card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80" 
+                         alt="Modern living room with sustainable furniture" 
+                         class="category-card__image" width="600" height="750" loading="lazy">
+                    <div class="category-card__overlay">
+                        <h3 class="category-card__title">Living Spaces</h3>
+                        <p class="category-card__description">Comfortable seating, coffee tables, and accent pieces for gathering spaces.</p>
+                        <a href="#living" class="category-card__cta">
+                            Explore Collection
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
                     </div>
-                </div>
-                <div class="col-item"><img
-                        src="https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=600&auto=format&fit=crop&q=80"
-                        alt="Japandi" />
-                    <div class="col-overlay">
-                        <div class="col-name">Japandi</div><a href="#" class="col-link">Shop Collection →</a>
+                </article>
+
+                <article class="category-card animate-on-scroll delay-1">
+                    <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600&auto=format&fit=crop&q=80" 
+                         alt="Serene bedroom with natural materials" 
+                         class="category-card__image" width="600" height="750" loading="lazy">
+                    <div class="category-card__overlay">
+                        <h3 class="category-card__title">Bedroom Sanctuary</h3>
+                        <p class="category-card__description">Create a peaceful retreat with organic bedding and mindful furniture.</p>
+                        <a href="#bedroom" class="category-card__cta">
+                            Explore Collection
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
                     </div>
-                </div>
-                <div class="col-item"><img
-                        src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=600&auto=format&fit=crop&q=80"
-                        alt="Coastal" />
-                    <div class="col-overlay">
-                        <div class="col-name">Coastal Living</div><a href="#" class="col-link">Shop Collection →</a>
+                </article>
+
+                <article class="category-card animate-on-scroll delay-2">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop&q=80" 
+                         alt="Modern kitchen with sustainable materials" 
+                         class="category-card__image" width="600" height="750" loading="lazy">
+                    <div class="category-card__overlay">
+                        <h3 class="category-card__title">Kitchen & Dining</h3>
+                        <p class="category-card__description">Sustainable dinnerware, cookware, and dining furniture for mindful meals.</p>
+                        <a href="#kitchen" class="category-card__cta">
+                            Explore Collection
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+                        </a>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section id="about" class="sec">
-        <div class="tc" style="max-width:900px;margin:0 auto;">
-            <div class="sec-label">Why Meridian</div>
-            <h2 class="sh">Crafted With <em>Intent</em>, Built to Last</h2>
-            <div class="why-row">
-                <div class="why-item reveal">
-                    <div class="why-icon">🌿</div>
-                    <h3>Sustainably Sourced</h3>
-                    <p>Every material is responsibly sourced from certified suppliers and artisan partners.</p>
-                </div>
-                <div class="why-item reveal">
-                    <div class="why-icon">🚚</div>
-                    <h3>Free Delivery</h3>
-                    <p>Free standard shipping on all orders over $80. White-glove delivery available.</p>
-                </div>
-                <div class="why-item reveal">
-                    <div class="why-icon">↩️</div>
-                    <h3>30-Day Returns</h3>
-                    <p>Not in love? Return it hassle-free within 30 days — no questions asked.</p>
-                </div>
-                <div class="why-item reveal">
-                    <div class="why-icon">🛡️</div>
-                    <h3>Quality Guarantee</h3>
-                    <p>2-year quality guarantee on all furniture and structural products.</p>
-                </div>
+    <!-- Featured Products -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <p class="section__subtitle">Featured</p>
+                <h2 class="text-h2 section__title">Bestselling Pieces</h2>
+                <p class="section__description">
+                    Discover why these pieces are customer favorites, combining beautiful design with sustainable materials.
+                </p>
+            </div>
+
+            <div class="products__grid">
+                <article class="product-card animate-on-scroll">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?w=400&auto=format&fit=crop&q=80" 
+                             alt="Handcrafted wooden coffee table" 
+                             class="product-card__image" width="400" height="400" loading="lazy">
+                        <span class="product-card__badge">Bestseller</span>
+                        <button class="product-card__wishlist" aria-label="Add to wishlist" title="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-card__content">
+                        <p class="product-card__category">Living Room</p>
+                        <h3 class="product-card__title">Reclaimed Oak Coffee Table</h3>
+                        <p class="product-card__description">Handcrafted from reclaimed oak with natural edge details and sustainable finish.</p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">$485</span>
+                            <div class="product-card__rating">
+                                <div class="product-card__stars" aria-label="4.9 out of 5 stars">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="product-card__review-count">(127)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card animate-on-scroll delay-1">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&auto=format&fit=crop&q=80" 
+                             alt="Organic cotton throw pillow" 
+                             class="product-card__image" width="400" height="400" loading="lazy">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist" title="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-card__content">
+                        <p class="product-card__category">Textiles</p>
+                        <h3 class="product-card__title">Organic Cotton Throw Pillow</h3>
+                        <p class="product-card__description">Soft organic cotton with natural dye patterns. Machine washable.</p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">$68</span>
+                            <div class="product-card__rating">
+                                <div class="product-card__stars" aria-label="4.8 out of 5 stars">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="product-card__review-count">(89)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card animate-on-scroll delay-2">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&auto=format&fit=crop&q=80" 
+                             alt="Sustainable bamboo storage basket" 
+                             class="product-card__image" width="400" height="400" loading="lazy">
+                        <span class="product-card__badge">New</span>
+                        <button class="product-card__wishlist" aria-label="Add to wishlist" title="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-card__content">
+                        <p class="product-card__category">Storage</p>
+                        <h3 class="product-card__title">Bamboo Storage Basket Set</h3>
+                        <p class="product-card__description">Three-piece set of handwoven bamboo baskets with natural finish.</p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">$125</span>
+                            <div class="product-card__rating">
+                                <div class="product-card__stars" aria-label="4.9 out of 5 stars">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="product-card__review-count">(43)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card animate-on-scroll delay-3">
+                    <div class="product-card__image-container">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&auto=format&fit=crop&q=80" 
+                             alt="Handmade ceramic dinnerware set" 
+                             class="product-card__image" width="400" height="400" loading="lazy">
+                        <button class="product-card__wishlist" aria-label="Add to wishlist" title="Add to wishlist">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-card__content">
+                        <p class="product-card__category">Dining</p>
+                        <h3 class="product-card__title">Artisan Ceramic Dinnerware</h3>
+                        <p class="product-card__description">Four-piece place setting in natural earth tones. Dishwasher safe.</p>
+                        <div class="product-card__footer">
+                            <span class="product-card__price">$98</span>
+                            <div class="product-card__rating">
+                                <div class="product-card__stars" aria-label="4.7 out of 5 stars">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="product-card__review-count">(62)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="sec bg-cream tc">
-        <div style="max-width:1100px;margin:0 auto;">
-            <div class="sec-label">Customer Love</div>
-            <h2 class="sh"><em>4.8 Stars</em> Across 3,200+ Reviews</h2>
-            <div class="review-grid">
-                <div class="rev-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>"The Lena sofa is even more beautiful in person. It arrived perfectly packaged, assembly was a
-                        breeze, and it's already the centerpiece of our living room. 10/10."</p>
-                    <div class="ta">
-                        <div class="av">NP</div>
-                        <div>
-                            <div class="an">Natalie Pierce</div>
-                            <div class="ar">Verified Buyer · Lena Linen Sofa</div>
+    <!-- Sustainability Story -->
+    <section id="sustainability" class="sustainability">
+        <div class="container">
+            <div class="sustainability__container">
+                <div class="sustainability__content animate-on-scroll">
+                    <p class="section__subtitle">Our Story</p>
+                    <h2 class="text-h2">Crafted with Purpose</h2>
+                    <p class="text-body" style="margin-bottom: 2rem;">
+                        Every piece in our collection is thoughtfully selected to meet our strict sustainability standards. 
+                        We work directly with artisans who share our commitment to environmental responsibility and fair labor practices.
+                    </p>
+
+                    <div class="sustainability__features">
+                        <div class="sustainability__feature">
+                            <div class="sustainability__feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <div class="sustainability__feature-content">
+                                <h4>Sustainable Materials</h4>
+                                <p>We source only FSC-certified wood, organic textiles, and recycled materials from responsible suppliers.</p>
+                            </div>
+                        </div>
+
+                        <div class="sustainability__feature">
+                            <div class="sustainability__feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                            </div>
+                            <div class="sustainability__feature-content">
+                                <h4>Ethical Production</h4>
+                                <p>All our partners meet fair labor standards and provide safe working conditions for their artisans.</p>
+                            </div>
+                        </div>
+
+                        <div class="sustainability__feature">
+                            <div class="sustainability__feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                                    <path d="M21 3v5h-5"/>
+                                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                                    <path d="M8 16H3v5"/>
+                                </svg>
+                            </div>
+                            <div class="sustainability__feature-content">
+                                <h4>Carbon Neutral</h4>
+                                <p>We offset 110% of our shipping emissions and use sustainable packaging materials.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="rev-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>"I've ordered from several online home stores and Meridian is on another level. The quality of
-                        the walnut table is stunning — feels like it cost three times what I paid."</p>
-                    <div class="ta">
-                        <div class="av">SM</div>
-                        <div>
-                            <div class="an">Sam Morales</div>
-                            <div class="ar">Verified Buyer · Walnut Dining Table</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rev-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>"Fast shipping, gorgeous packaging, and the rug is absolutely perfect. Love that they're
-                        committed to sustainability too — makes the purchase feel even better."</p>
-                    <div class="ta">
-                        <div class="av">AK</div>
-                        <div>
-                            <div class="an">Aisha Kamara</div>
-                            <div class="ar">Verified Buyer · Boucle Accent Rug</div>
-                        </div>
-                    </div>
+
+                <div class="sustainability__image animate-on-scroll delay-2">
+                    <img src="https://images.unsplash.com/photo-1542601098-3adb3b8c4d3b?w=600&auto=format&fit=crop&q=80" 
+                         alt="Artisan crafting wooden furniture in sustainable workshop" 
+                         width="600" height="750" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="cta-wrap">
-        <div class="sec-label" style="color:var(--terr);">Newsletter</div>
-        <h2>Get <em>15% Off</em> Your First Order</h2>
-        <p class="subtext">Join 80,000+ subscribers for new arrivals, style inspiration, and exclusive discounts.</p>
-        <div class="email-form">
-            <input type="email" placeholder="Enter your email" />
-            <button type="button">Subscribe</button>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section__header animate-on-scroll">
+                <p class="section__subtitle">Reviews</p>
+                <h2 class="text-h2 section__title">What Our Customers Say</h2>
+                <p class="section__description">
+                    Real stories from customers who have transformed their homes with our sustainable pieces.
+                </p>
+            </div>
+
+            <div class="testimonials__grid">
+                <article class="testimonial-card animate-on-scroll">
+                    <p class="testimonial-card__content">
+                        "I've been searching for furniture that aligns with my values for years. Meridian Home exceeded all my expectations with their beautiful, sustainable pieces and exceptional customer service."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&auto=format&fit=crop&q=80" 
+                             alt="Maria Rodriguez" class="testimonial-card__avatar" width="48" height="48" loading="lazy">
+                        <div class="testimonial-card__info">
+                            <h5>Maria Rodriguez</h5>
+                            <p>Interior Designer, Seattle</p>
+                            <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card animate-on-scroll delay-1">
+                    <p class="testimonial-card__content">
+                        "The reclaimed oak coffee table is absolutely stunning. You can feel the quality in every detail, and knowing it's sustainably made makes it even more special."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&h=96&auto=format&fit=crop&q=80" 
+                             alt="David Kim" class="testimonial-card__avatar" width="48" height="48" loading="lazy">
+                        <div class="testimonial-card__info">
+                            <h5>David Kim</h5>
+                            <p>Architect, Portland</p>
+                            <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card animate-on-scroll delay-2">
+                    <p class="testimonial-card__content">
+                        "From the first order to ongoing customer support, Meridian Home has been exceptional. The bamboo storage baskets are both beautiful and functional."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b890?w=96&h=96&auto=format&fit=crop&q=80" 
+                             alt="Sarah Chen" class="testimonial-card__avatar" width="48" height="48" loading="lazy">
+                        <div class="testimonial-card__info">
+                            <h5>Sarah Chen</h5>
+                            <p>Writer, San Francisco</p>
+                            <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="ft">
-            <div class="fb">
-                <div class="fb-logo">Meridian <span>Home</span></div>
-                <p>Thoughtfully curated home goods for the modern, conscious home.</p>
-            </div>
-            <div class="fl">
-                <h5>Shop</h5>
-                <ul>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Living Room</a></li>
-                    <li><a href="#">Bedroom</a></li>
-                    <li><a href="#">Dining</a></li>
-                    <li><a href="#">Sale</a></li>
-                </ul>
-            </div>
-            <div class="fl">
-                <h5>Company</h5>
-                <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                </ul>
-            </div>
-            <div class="fl">
-                <h5>Help</h5>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Track Order</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+    <!-- CTA Section -->
+    <section id="newsletter" class="cta-section">
+        <div class="container">
+            <div class="cta-section__content animate-on-scroll">
+                <h2 class="text-h2 cta-section__title">Stay Connected</h2>
+                <p class="cta-section__description">
+                    Be the first to discover new collections, sustainability stories, and exclusive offers for conscious living.
+                </p>
+                <form class="cta-section__form" aria-label="Newsletter subscription">
+                    <input type="email" class="cta-section__input" placeholder="Enter your email address" 
+                           required aria-label="Email address">
+                    <button type="submit" class="cta-section__submit">Subscribe</button>
+                </form>
+                <p class="cta-section__note">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
             </div>
         </div>
-        <div class="fb2">
-            <p>© 2025 Meridian Home, Inc. All rights reserved.</p>
-            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a><a
-                    href="#">Sitemap</a></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">Meridian Home</h3>
+                    <p class="footer__description">
+                        Creating beautiful, sustainable spaces that honor both craftsmanship and environmental responsibility.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link" aria-label="Follow us on Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Follow us on Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer__social-link" aria-label="Follow us on Pinterest">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12.013C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="#living">Living Room</a></li>
+                        <li><a href="#bedroom">Bedroom</a></li>
+                        <li><a href="#kitchen">Kitchen & Dining</a></li>
+                        <li><a href="#decor">Décor & Accessories</a></li>
+                        <li><a href="#sale">Sale Items</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Support</h4>
+                    <ul class="footer__links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#shipping">Shipping Info</a></li>
+                        <li><a href="#returns">Returns & Exchanges</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#track">Track Your Order</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4>Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#press">Press</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Meridian Home. All rights reserved.</p>
+                <div class="footer__payment">
+                    <span>Secure payments</span>
+                    <div class="footer__payment-icons">
+                        <div class="footer__payment-icon">VISA</div>
+                        <div class="footer__payment-icon">MC</div>
+                        <div class="footer__payment-icon">AMEX</div>
+                        <div class="footer__payment-icon">PYPL</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // ── Scroll Reveal ──
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
 
-        // ── Animated Counters ──
-        function animateCount(el) {
-            const target = parseFloat(el.dataset.count);
-            const suffix = el.dataset.suffix || '';
-            const decimals = parseInt(el.dataset.decimals || '0');
-            const duration = 1800;
-            const start = performance.now();
-            (function step(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const ease = 1 - Math.pow(1 - p, 4);
-                const val = (target * ease).toFixed(decimals);
-                el.textContent = decimals === 0 ? Number(val).toLocaleString() + suffix : val + suffix;
-                if (p < 1) requestAnimationFrame(step);
-            })(start);
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollY = currentScrollY;
         }
-        const countObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-        // ── Nav scroll shadow ──
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            nav.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,.08)' : '';
-        }, { passive: true });
+        window.addEventListener('scroll', updateHeader, { passive: true });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.nav__mobile-toggle');
+        const navLinks = document.querySelector('.nav__links');
+
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', () => {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                navLinks.style.display = isExpanded ? 'none' : 'flex';
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.cta-section__form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                
+                if (email) {
+                    // Here you would typically send to your newsletter service
+                    alert('Thank you for subscribing! We\'ll be in touch soon.');
+                    this.reset();
+                }
+            });
+        }
+
+        // Wishlist functionality
+        document.querySelectorAll('.product-card__wishlist').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const icon = this.querySelector('svg');
+                const isLiked = icon.getAttribute('fill') !== 'none';
+                
+                if (isLiked) {
+                    icon.setAttribute('fill', 'none');
+                    this.setAttribute('aria-label', 'Add to wishlist');
+                } else {
+                    icon.setAttribute('fill', 'currentColor');
+                    this.setAttribute('aria-label', 'Remove from wishlist');
+                }
+            });
+        });
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close mobile menu if open
+                const mobileToggle = document.querySelector('.nav__mobile-toggle');
+                const navLinks = document.querySelector('.nav__links');
+                
+                if (mobileToggle && navLinks && navLinks.style.display === 'flex') {
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.style.display = 'none';
+                }
+            }
+        });
+
+        // Preload critical images
+        const criticalImages = [
+            'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80'
+        ];
+
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        // Performance: Defer non-critical animations
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                // Additional smooth animations can be added here
+                document.body.classList.add('loaded');
+            });
+        }
     </script>
 </body>
 

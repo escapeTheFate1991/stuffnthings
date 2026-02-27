@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunshine Sprouts Day Care | Where Little Ones Grow</title>
+    <title>Sunshine Sprouts Day Care | Premier Early Learning Center</title>
     <meta name="description"
-        content="Sunshine Sprouts Day Care provides a safe, nurturing, and stimulating environment where children aged 6 weeks to 5 years thrive every day." />
+        content="Sunshine Sprouts provides exceptional early childhood education for ages 6 weeks to 5 years. Licensed, NAEYC accredited, with 11 locations nearby. Schedule your tour today." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <style>
         *,
@@ -22,897 +22,2192 @@
         }
 
         :root {
-            --peach: #FFF0E6;
-            --orange: #F97316;
-            --yellow: #FCD34D;
-            --sky: #E0F2FE;
-            --teal: #0EA5E9;
-            --green: #22C55E;
-            --purple: #8B5CF6;
-            --text: #1E293B;
-            --muted: #64748B;
-            --white: #FFFFFF;
+            /* Primary Colors - Warm, Primary-Forward */
+            --primary-red: #C8232C;
+            --primary-orange: #F47920;
+            --primary-blue: #2A6EBB;
+            
+            /* Supporting Colors */
+            --accent-yellow: #FFD23F;
+            --soft-pink: #FFE8EA;
+            --soft-blue: #E6F3FF;
+            --soft-orange: #FFF3E8;
+            --warm-white: #FEFEFE;
+            
+            /* Neutral Colors */
+            --text-primary: #1A1A2E;
+            --text-secondary: #4A5568;
+            --text-muted: #718096;
+            --border-light: #E2E8F0;
+            --background: #FFFFFF;
+            
+            /* Glassmorphism Colors */
+            --glass-white: rgba(255, 255, 255, 0.25);
+            --glass-blue: rgba(42, 110, 187, 0.1);
+            --glass-red: rgba(200, 35, 44, 0.1);
+            --glass-orange: rgba(244, 121, 32, 0.1);
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(26, 26, 46, 0.05);
+            --shadow-md: 0 4px 12px rgba(26, 26, 46, 0.08);
+            --shadow-lg: 0 8px 25px rgba(26, 26, 46, 0.12);
+            --shadow-xl: 0 16px 40px rgba(26, 26, 46, 0.15);
+            
+            /* Typography */
+            --font-heading: 'Nunito Sans', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+            
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --space-4xl: 6rem;
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Breakpoints */
+            --bp-sm: 576px;
+            --bp-md: 768px;
+            --bp-lg: 1024px;
+            --bp-xl: 1440px;
         }
 
+        /* ── ACCESSIBILITY & REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ── GLOBAL STYLES ── */
         html {
             scroll-behavior: smooth;
+            font-size: 100%;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--soft-pink) 50%, var(--soft-blue) 100%);
             overflow-x: hidden;
+            position: relative;
         }
 
-        nav {
+        /* Subtle animated background pattern */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, .95);
-            backdrop-filter: blur(16px);
-            border-bottom: 2px solid var(--yellow);
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--glass-orange) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, var(--glass-blue) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--glass-red) 0%, transparent 50%);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* ── NAVIGATION ── */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(200, 35, 44, 0.1);
+            transition: all var(--transition-smooth);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(200, 35, 44, 0.2);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 5%;
-            height: 70px;
+            padding: var(--space-md) var(--space-xl);
         }
 
         .logo {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: var(--orange);
             display: flex;
             align-items: center;
-            gap: .4rem;
-        }
-
-        .logo .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--yellow);
-            display: inline-block;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--muted);
+            gap: var(--space-sm);
+            font-family: var(--font-heading);
+            font-size: 1.375rem;
+            font-weight: 800;
+            color: var(--primary-red);
             text-decoration: none;
-            font-size: .875rem;
-            font-weight: 600;
-            transition: color .2s;
+            transition: transform var(--transition-fast);
         }
 
-        nav a:hover {
-            color: var(--orange);
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-yellow));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: var(--primary-red);
+        }
+
+        .nav-link:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-orange));
+            transition: width var(--transition-smooth);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .nav-cta {
-            background: var(--orange) !important;
-            color: var(--white) !important;
-            padding: .55rem 1.4rem;
-            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            color: white !important;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-fast);
         }
 
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 35, 44, 0.25);
+        }
+
+        .nav-cta:hover::before {
+            left: 100%;
+        }
+
+        .nav-cta:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            padding: var(--space-sm);
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all var(--transition-fast);
+            transform-origin: center;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* ── HERO SECTION ── */
         .hero {
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            display: flex;
             align-items: center;
-            padding: 110px 5% 60px;
+            position: relative;
+            overflow: hidden;
+            padding: 120px var(--space-xl) var(--space-4xl);
+        }
+
+        .hero-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
         }
 
-        .hero-tag {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: .5rem;
-            background: var(--peach);
-            color: var(--orange);
-            padding: .4rem .9rem;
-            border-radius: 50px;
-            font-size: .75rem;
+            gap: var(--space-sm);
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--primary-blue);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xl);
+            position: relative;
+            overflow: hidden;
         }
 
-        h1 {
-            font-family: 'Nunito', sans-serif;
-            font-size: clamp(2.4rem, 4vw, 3.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--text);
-            margin-bottom: 1.25rem;
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(42, 110, 187, 0.1), transparent);
+            transition: left 2s ease-in-out;
+            animation: shimmer 3s ease-in-out infinite;
         }
 
-        h1 span {
-            color: var(--orange);
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
-        .hero p {
-            color: var(--muted);
-            font-size: 1.05rem;
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 2.5rem;
+            margin-bottom: var(--space-2xl);
+            max-width: 520px;
         }
 
-        .btns {
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
             flex-wrap: wrap;
         }
 
-        .btn-o {
-            background: var(--orange);
-            color: var(--white);
-            padding: .9rem 2rem;
-            border-radius: 50px;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            color: white;
+            padding: var(--space-lg) var(--space-2xl);
+            border-radius: var(--radius-full);
             font-weight: 700;
             text-decoration: none;
-            transition: transform .2s, box-shadow .2s;
-            box-shadow: 0 4px 20px rgba(249, 115, 22, .3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
         }
 
-        .btn-o:hover {
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-orange), var(--accent-yellow));
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(200, 35, 44, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: calc(var(--space-lg) - 2px) calc(var(--space-2xl) - 2px);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, .4);
+            box-shadow: 0 8px 25px rgba(42, 110, 187, 0.25);
         }
 
-        .btn-outline {
-            border: 2px solid var(--orange);
-            color: var(--orange);
-            padding: .9rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all .2s;
+        .btn-secondary:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
         }
 
-        .btn-outline:hover {
-            background: var(--peach);
-        }
-
-        .badges {
+        .hero-badges {
             display: flex;
-            gap: 1rem;
-            margin-top: 2.5rem;
+            gap: var(--space-md);
             flex-wrap: wrap;
         }
 
-        .badge {
-            background: var(--sky);
-            color: var(--teal);
-            padding: .4rem .9rem;
-            border-radius: 50px;
-            font-size: .75rem;
-            font-weight: 700;
+        .trust-badge {
+            background: var(--glass-blue);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(42, 110, 187, 0.2);
+            color: var(--primary-blue);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            background: linear-gradient(135deg, var(--soft-orange), var(--soft-pink));
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(200, 35, 44, 0.1),
+                rgba(244, 121, 32, 0.1),
+                rgba(42, 110, 187, 0.1)
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating elements around hero image */
+        .hero-float {
+            position: absolute;
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-md);
+            animation: float-gentle 6s ease-in-out infinite;
+        }
+
+        .hero-float-1 {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .hero-float-2 {
+            bottom: 20%;
+            left: -8%;
+            animation-delay: -2s;
+        }
+
+        .hero-float-3 {
+            top: 50%;
+            right: -15%;
+            animation-delay: -4s;
+        }
+
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .float-content {
             display: flex;
             align-items: center;
-            gap: .3rem;
+            gap: var(--space-sm);
+            white-space: nowrap;
         }
 
-        .hero-img {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, .12);
+        .float-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
         }
 
-        .hero-img img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
+        .float-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
-        .wavy {
-            background: linear-gradient(180deg, var(--white), var(--peach));
-            padding: 4rem 5%;
+        /* ── STATS SECTION ── */
+        .stats-section {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
 
-        .wavy-inner {
+        .stats-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+            gap: var(--space-xl);
         }
 
-        .num-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 1.75rem 1.5rem;
+        .stat-card {
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
-        }
-
-        .num-card .n {
-            font-family: 'Nunito', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--orange);
-        }
-
-        .num-card p {
-            color: var(--muted);
-            font-size: .85rem;
-            margin-top: .25rem;
-        }
-
-        section.sec {
-            padding: 5rem 5%;
-        }
-
-        .sec-tag {
-            display: inline-block;
-            background: var(--peach);
-            color: var(--orange);
-            padding: .3rem .8rem;
-            border-radius: 50px;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-family: 'Nunito', sans-serif;
-            font-size: clamp(1.9rem, 3vw, 2.7rem);
-            font-weight: 900;
-            color: var(--text);
-            margin-bottom: 1rem;
-        }
-
-        h2 span {
-            color: var(--orange);
-        }
-
-        .subtext {
-            color: var(--muted);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .tc {
-            text-align: center;
-        }
-
-        .bg-peach {
-            background: var(--peach);
-        }
-
-        .grid3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .prog-card {
-            background: var(--white);
-            border-radius: 20px;
+            background: var(--background);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, .07);
-            transition: transform .3s;
+            transition: transform var(--transition-smooth);
         }
 
-        .prog-card:hover {
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--primary-blue));
+        }
+
+        .stat-card:hover {
             transform: translateY(-5px);
         }
 
-        .prog-img {
-            height: 180px;
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* ── LOCATION AWARENESS ── */
+        .location-banner {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            text-align: center;
+            position: relative;
             overflow: hidden;
+        }
+
+        .location-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .location-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .location-text {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .location-count {
+            background: var(--glass-white);
+            color: var(--primary-blue);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ── PROGRAMS SECTION ── */
+        .programs-section {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--background);
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--soft-orange);
+            color: var(--primary-orange);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .program-card {
+            background: var(--background);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--glass-red), var(--glass-orange), var(--glass-blue));
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+            z-index: 1;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-card:hover::before {
+            opacity: 1;
+        }
+
+        .program-card:focus-within {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+        }
+
+        .program-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--soft-orange), var(--soft-pink));
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-smooth);
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-age-badge {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: var(--primary-red);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .program-content {
+            padding: var(--space-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .program-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .program-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+        }
+
+        .program-feature {
+            background: var(--soft-blue);
+            color: var(--primary-blue);
+            padding: 4px var(--space-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .program-cta {
+            color: var(--primary-red);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            transition: all var(--transition-fast);
+        }
+
+        .program-cta:hover {
+            gap: var(--space-sm);
+        }
+
+        .program-cta:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* ── WHY CHOOSE US SECTION ── */
+        .why-section {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--soft-pink);
             position: relative;
         }
 
-        .prog-img img {
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .why-content {
+            position: relative;
+        }
+
+        .why-list {
+            margin-top: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .why-item {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--background);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-smooth);
+        }
+
+        .why-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange), var(--primary-blue));
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        .why-icon-inner {
+            background: var(--background);
+            border-radius: inherit;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-text h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .why-text p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .why-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .why-image {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            background: linear-gradient(135deg, var(--soft-blue), var(--soft-orange));
+        }
+
+        .why-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .prog-age {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--orange);
-            color: #fff;
-            font-size: .7rem;
-            font-weight: 700;
-            padding: .3rem .7rem;
-            border-radius: 20px;
+        /* ── TESTIMONIALS SECTION ── */
+        .testimonials-section {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--background);
         }
 
-        .prog-body {
-            padding: 1.5rem;
-        }
-
-        .prog-body h3 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: .4rem;
-        }
-
-        .prog-body p {
-            color: var(--muted);
-            font-size: .875rem;
-            line-height: 1.6;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1200px;
+        .testimonials-container {
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .why-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .wi {
-            display: flex;
-            gap: 1.25rem;
-            align-items: flex-start;
-        }
-
-        .wi-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .wi-icon.o {
-            background: rgba(249, 115, 22, .12);
-        }
-
-        .wi-icon.b {
-            background: rgba(14, 165, 233, .12);
-        }
-
-        .wi-icon.g {
-            background: rgba(34, 197, 94, .12);
-        }
-
-        .wi-icon.p {
-            background: rgba(139, 92, 246, .12);
-        }
-
-        .wi strong {
-            font-weight: 700;
-            display: block;
-            margin-bottom: .2rem;
-        }
-
-        .wi p {
-            color: var(--muted);
-            font-size: .875rem;
-            line-height: 1.6;
-        }
-
-        .why-photo {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, .1);
-        }
-
-        .why-photo img {
-            width: 100%;
-            height: 420px;
-            object-fit: cover;
-        }
-
-        .testi-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
         }
 
-        .tc-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .07);
+        .testimonial-card {
+            background: var(--background);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-orange), var(--primary-blue));
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
         .stars {
-            color: #F59E0B;
-            font-size: .95rem;
-            margin-bottom: 1rem;
+            display: flex;
+            gap: 2px;
+            margin-bottom: var(--space-md);
+            color: var(--accent-yellow);
+            font-size: 1.125rem;
         }
 
-        .tc-card p {
-            color: var(--muted);
-            font-size: .9rem;
+        .testimonial-text {
+            color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 1.25rem;
+            margin-bottom: var(--space-lg);
             font-style: italic;
+            font-size: 1rem;
         }
 
-        .ta {
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: .75rem;
+            gap: var(--space-md);
         }
 
-        .av {
-            width: 44px;
-            height: 44px;
+        .author-avatar {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: .85rem;
-            color: #fff;
-            flex-shrink: 0;
-        }
-
-        .av.o {
-            background: var(--orange);
-        }
-
-        .av.b {
-            background: var(--teal);
-        }
-
-        .an {
             font-weight: 700;
-            font-size: .875rem;
+            font-size: 1rem;
         }
 
-        .ar {
-            color: var(--muted);
-            font-size: .775rem;
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            font-size: 0.9rem;
         }
 
-        .cta-wrap {
-            background: linear-gradient(135deg, var(--orange), #F97316, #EC4899);
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ── CTA SECTION ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            color: white;
+            padding: var(--space-4xl) var(--space-xl);
             text-align: center;
-            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta-wrap h2 {
-            color: #fff;
-            font-size: clamp(2rem, 3vw, 3rem);
-            margin-bottom: 1rem;
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.03) 15deg,
+                transparent 30deg
+            );
+            animation: rotate-slow 40s linear infinite;
         }
 
-        .cta-wrap .subtext {
-            color: rgba(255, 255, 255, .85);
-            max-width: 480px;
-            margin: 0 auto 2.5rem;
+        @keyframes rotate-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .cta-row {
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-2xl);
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: var(--space-lg);
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn-white {
-            background: #fff;
-            color: var(--orange);
-            padding: .9rem 2rem;
-            border-radius: 50px;
-            font-weight: 800;
+            background: white;
+            color: var(--primary-red);
+            padding: var(--space-lg) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 700;
             text-decoration: none;
-            transition: transform .2s;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
         }
 
         .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-white {
+            border: 2px solid white;
+            color: white;
+            padding: calc(var(--space-lg) - 2px) calc(var(--space-2xl) - 2px);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-fast);
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: var(--primary-red);
             transform: translateY(-2px);
         }
 
-        .btn-wout {
-            border: 2px solid rgba(255, 255, 255, .7);
-            color: #fff;
-            padding: .9rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all .2s;
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: var(--space-4xl) var(--space-xl) var(--space-xl);
         }
 
-        .btn-wout:hover {
-            background: rgba(255, 255, 255, .15);
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        footer {
-            background: #1E293B;
-            color: #fff;
-            padding: 3rem 5% 1.5rem;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-3xl);
         }
 
-        .ft {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        .footer-brand h3 {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
         }
 
-        .fb-logo {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: var(--yellow);
-            margin-bottom: .5rem;
-        }
-
-        .ft .fb p {
-            color: rgba(255, 255, 255, .5);
-            font-size: .82rem;
-            max-width: 220px;
+        .footer-brand p {
+            opacity: 0.8;
             line-height: 1.6;
+            margin-bottom: var(--space-lg);
         }
 
-        .fl h5 {
-            font-size: .72rem;
+        .footer-contact p {
+            margin-bottom: var(--space-xs);
+            opacity: 0.9;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: .1em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .4);
-            margin-bottom: .9rem;
+            margin-bottom: var(--space-md);
+            opacity: 0.7;
         }
 
-        .fl ul {
+        .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: .55rem;
+            gap: var(--space-sm);
         }
 
-        .fl ul li a {
-            color: rgba(255, 255, 255, .5);
+        .footer-links a {
+            color: white;
             text-decoration: none;
-            font-size: .85rem;
-            transition: color .2s;
+            opacity: 0.8;
+            transition: opacity var(--transition-fast);
+            font-size: 0.9rem;
         }
 
-        .fl ul li a:hover {
-            color: var(--yellow);
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-yellow);
         }
 
-        .fb2 {
-            padding-top: 1.5rem;
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-lg);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: var(--space-lg);
         }
 
-        .fb2 p {
-            color: rgba(255, 255, 255, .25);
-            font-size: .78rem;
+        .footer-copyright {
+            opacity: 0.6;
+            font-size: 0.8rem;
         }
 
-        .fleg {
+        .footer-legal {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--space-lg);
         }
 
-        .fleg a {
-            color: rgba(255, 255, 255, .25);
-            font-size: .78rem;
+        .footer-legal a {
+            color: white;
             text-decoration: none;
+            opacity: 0.6;
+            font-size: 0.8rem;
+            transition: opacity var(--transition-fast);
         }
 
-        .fleg a:hover {
-            color: var(--yellow);
+        .footer-legal a:hover {
+            opacity: 1;
         }
 
-        @media(max-width:900px) {
+        /* ── RESPONSIVE DESIGN ── */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .why-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
 
-            .hero,
-            .why-grid {
+            .hero-visual {
+                order: -1;
+                height: 400px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .programs-grid {
                 grid-template-columns: 1fr;
             }
 
-            .grid3,
-            .wavy-inner,
-            .testi-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                gap: var(--space-lg);
             }
         }
-        /* ── SCROLL REVEAL ── */
-        .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal:nth-child(2) { transition-delay:.1s; }
-        .reveal:nth-child(3) { transition-delay:.2s; }
-        /* ── FLOATING SHAPES ── */
-        .shape { position:absolute; border-radius:50%; pointer-events:none; z-index:0; animation:bop 7s ease-in-out infinite; }
-        .shape-1 { width:120px; height:120px; background:var(--yellow); opacity:.25; top:10%; right:8%; animation-delay:0s; }
-        .shape-2 { width:80px;  height:80px;  background:var(--orange); opacity:.18; top:60%; left:5%;  animation-delay:-3.5s; }
-        .shape-3 { width:60px;  height:60px;  background:var(--teal);   opacity:.2;  bottom:15%; right:20%; animation-delay:-5s; }
-        @keyframes bop { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-14px) rotate(6deg)} }
-        @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px var(--space-md) var(--space-2xl);
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 0;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-badge {
+                margin: 0 auto;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .location-content {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .nav-container {
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            .hero {
+                padding: 90px var(--space-sm) var(--space-xl);
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-container,
+            .testimonials-container,
+            .cta-container {
+                padding: 0 var(--space-sm);
+            }
+        }
+
+        /* ── UTILITY CLASSES ── */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-slow);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── ANIMATION DELAYS ── */
+        .reveal:nth-child(2) { transition-delay: 100ms; }
+        .reveal:nth-child(3) { transition-delay: 200ms; }
+        .reveal:nth-child(4) { transition-delay: 300ms; }
+        .reveal:nth-child(5) { transition-delay: 400ms; }
+        .reveal:nth-child(6) { transition-delay: 500ms; }
     </style>
 </head>
 
 <body>
+    <!-- ── HEADER ── -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="Sunshine Sprouts Day Care Home">
+                <div class="logo-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3L13.09 8.26L18 9L13.09 9.74L12 15L10.91 9.74L6 9L10.91 8.26L12 3Z" fill="white"/>
+                        <path d="M19 12L20.09 17.26L25 18L20.09 18.74L19 24L17.91 18.74L13 18L17.91 17.26L19 12Z" fill="white" opacity="0.6"/>
+                        <path d="M5 12L6.09 17.26L11 18L6.09 18.74L5 24L3.91 18.74L-1 18L3.91 17.26L5 12Z" fill="white" opacity="0.4"/>
+                    </svg>
+                </div>
+                Sunshine Sprouts
+            </a>
 
-    <nav>
-        <div class="logo"><span class="dot"></span>Sunshine Sprouts</div>
-        <ul>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#testimonials">Families</a></li>
-            <li><a href="#contact" class="nav-cta">Schedule a Tour</a></li>
-        </ul>
-    </nav>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#why-us" class="nav-link">About Us</a></li>
+                    <li><a href="#testimonials" class="nav-link">Families</a></li>
+                    <li>
+                        <button class="nav-cta" onclick="scrollToSection('cta')" aria-label="Schedule a tour at Sunshine Sprouts">
+                            <span>Find a Center Near You</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
 
-    <div class="hero" style="position:relative;overflow:hidden;">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div style="position:relative;z-index:1;">
-            <div class="hero-tag">🌟 Licensed & NAEYC Accredited</div>
-            <h1>Where Little Ones <span>Learn, Laugh</span> & Blossom</h1>
-            <p>Sunshine Sprouts provides a warm, nurturing environment where children aged 6 weeks to 5 years develop
-                the skills, confidence, and joy to thrive.</p>
-            <div class="btns">
-                <a href="#contact" class="btn-o">Schedule a Free Tour</a>
-                <a href="#programs" class="btn-outline">View Programs</a>
-            </div>
-            <div class="badges">
-                <span class="badge">✓ Licensed &amp; Insured</span>
-                <span class="badge">✓ NAEYC Accredited</span>
-                <span class="badge">✓ CPR-Certified Staff</span>
-            </div>
-        </div></div>
-        <div class="hero-img" style="position:relative;z-index:1;">
-            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&auto=format&fit=crop&q=80"
-                alt="Happy children playing" />
+            <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ── LOCATION AWARENESS BANNER ── -->
+    <div class="location-banner">
+        <div class="location-content">
+            <span class="location-text">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; margin-right: 8px;">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                Trusted by families with
+            </span>
+            <span class="location-count" id="locationCount">11 centers nearby</span>
+            <span class="location-text">— Find yours today!</span>
         </div>
     </div>
 
-    <div class="wavy">
-        <div class="wavy-inner">
-            <div class="num-card">
-                <div class="n" data-count="250" data-suffix="+">250+</div>
-                <p>Happy Children Enrolled</p>
-            </div>
-            <div class="num-card">
-                <div class="n" data-count="18">18</div>
-                <p>Years in the Community</p>
-            </div>
-            <div class="num-card">
-                <div class="n">1:4</div>
-                <p>Staff-to-Infant Ratio</p>
-            </div>
-            <div class="num-card">
-                <div class="n" data-count="98" data-suffix="%">98%</div>
-                <p>Parent Satisfaction Rate</p>
-            </div>
-        </div>
-    </div>
+    <!-- ── HERO SECTION ── -->
+    <section class="hero" id="hero" role="banner">
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- What is this? (0-3s) -->
+                <div class="hero-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    Licensed & NAEYC Accredited
+                </div>
 
-    <section id="programs" class="sec bg-peach tc">
-        <div style="max-width:1100px;margin:0 auto;">
-            <div class="sec-tag">🎨 Our Programs</div>
-            <h2>Age-Appropriate Programs for <span>Every Stage</span></h2>
-            <div class="grid3">
-                <div class="prog-card reveal">
-                    <div class="prog-img"><img
-                            src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80"
-                            alt="Infant care" /><span class="prog-age">6 wks – 18 mos</span></div>
-                    <div class="prog-body">
-                        <h3>Infant Care</h3>
-                        <p>Individualized nurturing in a calm, safe environment. Daily updates keep you connected every
-                            step of the way.</p>
+                <h1 class="hero-title">
+                    Where Little Ones <span class="highlight">Learn, Laugh</span> & Blossom Every Day
+                </h1>
+
+                <p class="hero-description">
+                    Sunshine Sprouts provides exceptional early childhood education in a warm, nurturing environment where children aged 6 weeks to 5 years develop the skills, confidence, and joy they need to thrive.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('cta')" aria-label="Schedule a free tour at Sunshine Sprouts">
+                        <span>Schedule a Free Tour</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                        </svg>
+                    </button>
+                    <a href="#programs" class="btn-secondary">
+                        <span>View Programs</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Is it for me? + Why trust? (3-30s) -->
+                <div class="hero-badges">
+                    <div class="trust-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        Licensed & Insured
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        NAEYC Accredited
+                    </div>
+                    <div class="trust-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        18 Years Experience
                     </div>
                 </div>
-                <div class="prog-card reveal">
-                    <div class="prog-img"><img
-                            src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&auto=format&fit=crop&q=80"
-                            alt="Toddlers" /><span class="prog-age">18 mos – 3 yrs</span></div>
-                    <div class="prog-body">
-                        <h3>Toddler World</h3>
-                        <p>Structured play, music, movement, and early language development for curious, energetic
-                            toddlers.</p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&auto=format&fit=crop&q=80" 
+                         alt="Happy, diverse children engaged in learning activities at Sunshine Sprouts Day Care" 
+                         loading="eager" />
+                </div>
+
+                <!-- Floating trust elements -->
+                <div class="hero-float hero-float-1">
+                    <div class="float-content">
+                        <div class="float-icon" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow));">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="float-text">98% Parent Satisfaction</div>
                     </div>
                 </div>
-                <div class="prog-card reveal">
-                    <div class="prog-img"><img
-                            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&auto=format&fit=crop&q=80"
-                            alt="Preschool" /><span class="prog-age">3 – 5 yrs</span></div>
-                    <div class="prog-body">
-                        <h3>PreK Academy</h3>
-                        <p>School-readiness curriculum covering literacy, math, science, art, and social-emotional
-                            learning.</p>
+
+                <div class="hero-float hero-float-2">
+                    <div class="float-content">
+                        <div class="float-icon" style="background: linear-gradient(135deg, var(--primary-orange), var(--primary-red));">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h3v4h2v-7.5c0-.83.67-1.5 1.5-1.5S12 9.67 12 10.5V11h2.5l1.5 7H14l-1.19-5H11v5H4z"/>
+                            </svg>
+                        </div>
+                        <div class="float-text">1:4 Teacher Ratio</div>
+                    </div>
+                </div>
+
+                <div class="hero-float hero-float-3">
+                    <div class="float-content">
+                        <div class="float-icon" style="background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div class="float-text">CPR Certified Staff</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="sec">
-        <div class="why-grid">
-            <div>
-                <div class="sec-tag">Why Families Choose Us</div>
-                <h2>A Place Your Child Will <span>Love</span> Every Day</h2>
+    <!-- ── STATS SECTION ── -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card reveal">
+                <div class="stat-number" data-count="250">0</div>
+                <div class="stat-label">Happy Children<br>Enrolled Daily</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number" data-count="18">0</div>
+                <div class="stat-label">Years Serving<br>Our Community</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number">1:4</div>
+                <div class="stat-label">Staff-to-Infant<br>Ratio Standard</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number" data-count="98">0</div>
+                <div class="stat-label">Parent Satisfaction<br>Rate Achieved</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROGRAMS SECTION ── -->
+    <section class="programs-section" id="programs">
+        <div class="programs-container">
+            <div class="section-header">
+                <!-- Is it for me? (3-10s) -->
+                <div class="section-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                    </svg>
+                    Age-Appropriate Programs
+                </div>
+                <h2 class="section-title">
+                    Designed for <span class="highlight">Every Stage</span> of Early Development
+                </h2>
+                <p class="section-description">
+                    From gentle infant care to school-readiness preparation, our research-based curriculum supports your child's natural development at every milestone.
+                </p>
+            </div>
+
+            <!-- How does it work? (30-60s) -->
+            <div class="programs-grid">
+                <div class="program-card reveal">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80" 
+                             alt="Nurturing infant care at Sunshine Sprouts" 
+                             loading="lazy" />
+                        <div class="program-age-badge">6 weeks – 18 months</div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Tender Beginnings Infant Care</h3>
+                        <p class="program-description">
+                            Individualized nurturing in a calm, secure environment with loving caregivers who understand your baby's unique needs and rhythms.
+                        </p>
+                        <div class="program-features">
+                            <span class="program-feature">Daily Reports</span>
+                            <span class="program-feature">Flexible Feeding</span>
+                            <span class="program-feature">Tummy Time</span>
+                            <span class="program-feature">Sensory Play</span>
+                        </div>
+                        <a href="#cta" class="program-cta">
+                            Learn More
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="program-card reveal">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&auto=format&fit=crop&q=80" 
+                             alt="Active toddlers exploring and learning together" 
+                             loading="lazy" />
+                        <div class="program-age-badge">18 months – 3 years</div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Discovery World for Toddlers</h3>
+                        <p class="program-description">
+                            Structured play, music, movement, and early language development designed for curious, energetic toddlers ready to explore.
+                        </p>
+                        <div class="program-features">
+                            <span class="program-feature">Art & Music</span>
+                            <span class="program-feature">Motor Skills</span>
+                            <span class="program-feature">Language Rich</span>
+                            <span class="program-feature">Social Play</span>
+                        </div>
+                        <a href="#cta" class="program-cta">
+                            Learn More
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="program-card reveal">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&auto=format&fit=crop&q=80" 
+                             alt="Preschoolers engaged in learning activities and school preparation" 
+                             loading="lazy" />
+                        <div class="program-age-badge">3 – 5 years</div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">PreK Academy</h3>
+                        <p class="program-description">
+                            Comprehensive school-readiness curriculum covering literacy, mathematics, science, creative arts, and social-emotional learning.
+                        </p>
+                        <div class="program-features">
+                            <span class="program-feature">Pre-Reading</span>
+                            <span class="program-feature">Math Concepts</span>
+                            <span class="program-feature">Science Exploration</span>
+                            <span class="program-feature">Kindergarten Prep</span>
+                        </div>
+                        <a href="#cta" class="program-cta">
+                            Learn More
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── WHY CHOOSE US SECTION ── -->
+    <section class="why-section" id="why-us">
+        <div class="why-container">
+            <div class="why-content">
+                <!-- Why should I trust them? + What makes it different? (10-90s) -->
+                <div class="section-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Why Families Choose Us
+                </div>
+                <h2 class="section-title">
+                    A Place Your Child Will <span class="highlight">Love</span> to Learn & Grow
+                </h2>
+                <p class="section-description">
+                    We go beyond childcare to create an environment where every child feels valued, supported, and excited about learning.
+                </p>
+
                 <div class="why-list">
-                    <div class="wi">
-                        <div class="wi-icon o">🛡️</div>
-                        <div><strong>Safety First</strong>
-                            <p>Keycard-secured facility, daily health screenings, and security cameras throughout every
-                                classroom.</p>
+                    <div class="why-item reveal">
+                        <div class="why-icon">
+                            <div class="why-icon-inner">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary-red)">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h3>Safety & Security First</h3>
+                            <p>Keycard-secured facility, daily health screenings, security cameras in every classroom, and comprehensive background checks for all staff members.</p>
                         </div>
                     </div>
-                    <div class="wi">
-                        <div class="wi-icon b">🎓</div>
-                        <div><strong>Certified Educators</strong>
-                            <p>All teachers hold ECE degrees and 20+ hours of annual professional development.</p>
-                        </div>
-                    </div>
-                    <div class="wi">
-                        <div class="wi-icon g">🥦</div>
-                        <div><strong>Healthy Meals Included</strong>
-                            <p>Chef-prepared, nutritionist-approved breakfast, lunch, and two snacks daily — no extra
-                                cost.</p>
-                        </div>
-                    </div>
-                    <div class="wi">
-                        <div class="wi-icon p">📱</div>
-                        <div><strong>Real-Time Parent App</strong>
-                            <p>Receive photos, milestone updates, and daily reports directly to your phone throughout
-                                the day.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="why-photo">
-                <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=800&auto=format&fit=crop&q=80"
-                    alt="Children in classroom" />
-            </div>
-        </div>
-    </section>
 
-    <section id="testimonials" class="sec bg-peach tc">
-        <div style="max-width:900px;margin:0 auto;">
-            <div class="sec-tag">💛 Family Stories</div>
-            <h2>Trusted by <span>Hundreds of Families</span></h2>
-            <div class="testi-grid">
-                <div class="tc-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>"Leaving my daughter for the first time was terrifying — until we found Sunshine Sprouts. The
-                        teachers send photos throughout the day and she comes home happy and exhausted. We're so
-                        grateful."</p>
-                    <div class="ta">
-                        <div class="av o">JR</div>
-                        <div>
-                            <div class="an">Jennifer Rodriguez</div>
-                            <div class="ar">Parent of Isla, age 2</div>
+                    <div class="why-item reveal">
+                        <div class="why-icon">
+                            <div class="why-icon-inner">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary-orange)">
+                                    <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h3>Certified Early Educators</h3>
+                            <p>All teachers hold Early Childhood Education degrees with ongoing professional development and specialized training in child development.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item reveal">
+                        <div class="why-icon">
+                            <div class="why-icon-inner">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--primary-blue)">
+                                    <path d="M18.06 23H19.72C20.56 22.38 21.25 21.81 21.86 21.24C20.84 20.65 20.2 19.79 20.2 18.8C20.2 17.57 21.2 16.56 22.43 16.56C22.5 16.56 22.58 16.58 22.64 16.59C22.88 15.74 23.01 14.86 23.01 13.95C23.01 7.8 18.21 2.99 12.06 2.99S1.11 7.8 1.11 13.95 5.91 24.9 12.06 24.9C14.23 24.9 16.26 24.32 18.06 23M16 11.86C16 8.1 13.06 5 9.5 5S3 8.1 3 11.86C3 14.46 4.45 16.73 6.5 18.09V11.86C6.5 10.01 8.07 8.5 10 8.5S13.5 10.01 13.5 11.86V18.09C15.55 16.73 17 14.46 17 11.86Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h3>Nutritious Meals Included</h3>
+                            <p>Chef-prepared, nutritionist-approved breakfast, lunch, and two healthy snacks daily — all included with no additional cost to families.</p>
+                        </div>
+                    </div>
+
+                    <div class="why-item reveal">
+                        <div class="why-icon">
+                            <div class="why-icon-inner">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent-yellow)">
+                                    <path d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h3>Real-Time Parent App</h3>
+                            <p>Receive photos, milestone updates, daily reports, and communicate directly with teachers through our secure parent portal throughout the day.</p>
                         </div>
                     </div>
                 </div>
-                <div class="tc-card reveal">
-                    <div class="stars">★★★★★</div>
-                    <p>"The PreK Academy prepared our son so well that his kindergarten teacher was amazed. He was
-                        already reading sight words and had a love of learning that we attribute completely to Sunshine
-                        Sprouts."</p>
-                    <div class="ta">
-                        <div class="av b">DL</div>
-                        <div>
-                            <div class="an">David &amp; Laura Chen</div>
-                            <div class="ar">Parents of Marcus, age 5</div>
-                        </div>
-                    </div>
+            </div>
+
+            <div class="why-visual">
+                <div class="why-image">
+                    <img src="https://images.unsplash.com/photo-1544776527-6ca0ac4b9325?w=800&auto=format&fit=crop&q=80" 
+                         alt="Children and teachers engaged in learning activities at Sunshine Sprouts" 
+                         loading="lazy" />
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="cta-wrap">
-        <div class="sec-tag" style="background:rgba(255,255,255,.2);color:#fff;">🌈 Get Started</div>
-        <h2>Come See the <span
-                style="text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);">Magic</span> for Yourself
-        </h2>
-        <p class="subtext">Tours are available Monday–Friday, 9am–4pm. Spots fill fast — schedule yours today!</p>
-        <div class="cta-row">
-            <a href="#" class="btn-white">Schedule a Free Tour →</a>
-            <a href="#" class="btn-wout">Call Us: (555) 234-5678</a>
+    <!-- ── TESTIMONIALS SECTION ── -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    Family Stories
+                </div>
+                <h2 class="section-title">
+                    Trusted by <span class="highlight">Hundreds</span> of Local Families
+                </h2>
+                <p class="section-description">
+                    Read what parents have to say about their experience with Sunshine Sprouts and how we've helped their children thrive.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Leaving my daughter for the first time was absolutely terrifying — until we found Sunshine Sprouts. The teachers send photos and updates throughout the day, and she comes home happy, exhausted from learning, and excited about tomorrow. We couldn't be more grateful."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));">JR</div>
+                        <div class="author-info">
+                            <h4>Jennifer Rodriguez</h4>
+                            <p>Parent of Isla, age 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <div class="stars">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "The PreK Academy prepared our son so incredibly well that his kindergarten teacher was amazed on the first day. He was already reading sight words and had developed such a genuine love of learning that we attribute completely to the amazing team at Sunshine Sprouts."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow));">DC</div>
+                        <div class="author-info">
+                            <h4>David & Laura Chen</h4>
+                            <p>Parents of Marcus, age 5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="ft">
-            <div class="fb">
-                <div class="fb-logo">☀️ Sunshine Sprouts</div>
-                <p>Nurturing little minds and big hearts in Aurora, CO since 2006.</p>
+    <!-- ── CTA SECTION ── -->
+    <section class="cta-section" id="cta">
+        <div class="cta-container">
+            <!-- What do I do next? (90s+) -->
+            <div class="section-badge" style="background: rgba(255,255,255,0.25); color: white; border-color: rgba(255,255,255,0.3);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Get Started Today
             </div>
-            <div class="fl">
-                <h5>Programs</h5>
-                <ul>
-                    <li><a href="#">Infant Care</a></li>
-                    <li><a href="#">Toddler World</a></li>
-                    <li><a href="#">PreK Academy</a></li>
-                    <li><a href="#">Summer Camp</a></li>
-                </ul>
-            </div>
-            <div class="fl">
-                <h5>Info</h5>
-                <ul>
-                    <li><a href="#">Tuition &amp; Rates</a></li>
-                    <li><a href="#">Enrollment</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Parent Portal</a></li>
-                </ul>
-            </div>
-            <div class="fl">
-                <h5>Contact</h5>
-                <ul>
-                    <li><a href="#">1240 Maple Grove Dr, Aurora, CO</a></li>
-                    <li><a href="#">(555) 234-5678</a></li>
-                    <li><a href="#">hello@sunshinesprouts.com</a></li>
-                    <li><a href="#">Mon–Fri 6:30am–6pm</a></li>
-                </ul>
+            <h2 class="cta-title">
+                Come See the Magic for Yourself
+            </h2>
+            <p class="cta-description">
+                Tours available Monday–Friday, 9:00 AM–4:00 PM. Enrollment spots fill quickly — secure your child's place in our caring community today!
+            </p>
+            <div class="cta-buttons">
+                <button class="btn-white" onclick="scheduletour()" aria-label="Schedule a free tour at your nearest Sunshine Sprouts location">
+                    Find Your Center & Schedule Tour
+                </button>
+                <button class="btn-outline-white" onclick="callUs()" aria-label="Call Sunshine Sprouts at (555) 234-5678">
+                    Call Us: (555) 234-5678
+                </button>
             </div>
         </div>
-        <div class="fb2">
-            <p>© 2025 Sunshine Sprouts Day Care. All rights reserved.</p>
-            <div class="fleg"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Sunshine Sprouts Day Care</h3>
+                    <p>
+                        Nurturing little minds and big hearts in our community since 2006. Licensed, accredited, and committed to providing exceptional early childhood education.
+                    </p>
+                    <div class="footer-contact">
+                        <p><strong>Main Office:</strong> 1240 Maple Grove Dr, Aurora, CO 80012</p>
+                        <p><strong>Phone:</strong> (555) 234-5678</p>
+                        <p><strong>Email:</strong> hello@sunshinesprouts.com</p>
+                        <p><strong>Hours:</strong> Monday–Friday, 6:30 AM–6:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programs">Infant Care (6 weeks–18 months)</a></li>
+                        <li><a href="#programs">Toddler World (18 months–3 years)</a></li>
+                        <li><a href="#programs">PreK Academy (3–5 years)</a></li>
+                        <li><a href="#programs">Summer Enrichment</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="#cta">Tuition & Enrollment</a></li>
+                        <li><a href="#why-us">Our Teaching Team</a></li>
+                        <li><a href="#testimonials">Parent Portal</a></li>
+                        <li><a href="#cta">Schedule a Tour</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#testimonials">Parent Testimonials</a></li>
+                        <li><a href="#why-us">Safety & Policies</a></li>
+                        <li><a href="#cta">Find Locations</a></li>
+                        <li><a href="#cta">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2025 Sunshine Sprouts Day Care. All rights reserved.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+                    <a href="#" aria-label="Terms of Service">Terms of Service</a>
+                    <a href="#" aria-label="Accessibility Statement">Accessibility</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        const revealObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        // ── SCROLL REVEAL ANIMATION ── 
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        function animateCount(el) {
-            const target = parseFloat(el.dataset.count);
-            const suffix = el.dataset.suffix || '';
-            const decimals = parseInt(el.dataset.decimals || '0');
-            const duration = 1800;
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ── HEADER SCROLL EFFECT ──
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // ── NUMBER COUNTER ANIMATION ──
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.count);
+            const duration = 2000;
             const start = performance.now();
-            (function step(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const ease = 1 - Math.pow(1 - p, 4);
-                el.textContent = (target * ease).toFixed(decimals) + suffix;
-                if (p < 1) requestAnimationFrame(step);
-            })(start);
+            
+            function update(timestamp) {
+                const elapsed = timestamp - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.floor(target * easeOutQuart);
+                
+                element.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            requestAnimationFrame(update);
         }
-        const countObs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); } });
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.dataset.count) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
         }, { threshold: 0.5 });
-        document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+        document.querySelectorAll('[data-count]').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // ── GEOLOCATION FOR PROXIMITY PERSONALIZATION ──
+        function updateLocationCount() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // In a real implementation, this would query a backend API
+                        // For demo purposes, we'll simulate based on common urban densities
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        
+                        // Simulate center count based on coordinates
+                        // Real implementation would use Google Places API or similar
+                        const simulatedCount = Math.floor(Math.random() * 15) + 8; // 8-23 centers
+                        const locationElement = document.getElementById('locationCount');
+                        if (locationElement) {
+                            locationElement.textContent = `${simulatedCount} centers nearby`;
+                        }
+                    },
+                    (error) => {
+                        // Fallback to default if geolocation fails
+                        console.log('Geolocation not available, using default');
+                    },
+                    { timeout: 5000, maximumAge: 300000 }
+                );
+            }
+        }
+
+        // Update location on page load
+        document.addEventListener('DOMContentLoaded', updateLocationCount);
+
+        // ── SMOOTH SCROLLING ──
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = element.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // ── MOBILE MENU TOGGLE ──
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // ── CTA INTERACTIONS ──
+        function scheduletour() {
+            // In a real implementation, this would:
+            // 1. Use geolocation to find nearest centers
+            // 2. Open a booking widget or redirect to scheduling page
+            // 3. Track conversion analytics
+            
+            alert('🎉 Thank you for your interest! Our scheduling system would open here with locations near you.');
+            
+            // Analytics tracking would go here
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'schedule_tour_clicked', {
+                    event_category: 'CTA',
+                    event_label: 'Main CTA'
+                });
+            }
+        }
+
+        function callUs() {
+            // For mobile devices, this could initiate a phone call
+            if (navigator.userAgent.match(/(iPhone|iPod|Android|BlackBerry)/)) {
+                window.location.href = 'tel:+15552345678';
+            } else {
+                alert('📞 Call us at (555) 234-5678\n\nOur friendly team is available Monday-Friday, 9:00 AM - 4:00 PM to answer questions and schedule your tour!');
+            }
+            
+            // Analytics tracking
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'phone_number_clicked', {
+                    event_category: 'CTA',
+                    event_label: 'Phone CTA'
+                });
+            }
+        }
+
+        // ── KEYBOARD NAVIGATION SUPPORT ──
+        document.addEventListener('keydown', (e) => {
+            // Allow Enter key to trigger buttons and links
+            if (e.key === 'Enter') {
+                const activeElement = document.activeElement;
+                if (activeElement && (activeElement.tagName === 'BUTTON' || activeElement.classList.contains('nav-cta'))) {
+                    activeElement.click();
+                }
+            }
+            
+            // ESC key to close mobile menu
+            if (e.key === 'Escape') {
+                mobileToggle.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // ── PERFORMANCE OPTIMIZATION ──
+        // Lazy load images that are not above the fold
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        } else {
+            // Fallback for browsers that don't support native lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+            document.head.appendChild(script);
+        }
+
+        // ── ACCESSIBILITY ENHANCEMENTS ──
+        // Add skip link functionality
+        const skipLink = document.createElement('a');
+        skipLink.href = '#hero';
+        skipLink.textContent = 'Skip to main content';
+        skipLink.className = 'sr-only';
+        skipLink.style.cssText = `
+            position: fixed;
+            top: -100px;
+            left: 20px;
+            background: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            z-index: 9999;
+            transition: top 0.3s;
+        `;
+        
+        skipLink.addEventListener('focus', () => {
+            skipLink.style.top = '20px';
+        });
+        
+        skipLink.addEventListener('blur', () => {
+            skipLink.style.top = '-100px';
+        });
+        
+        document.body.insertBefore(skipLink, document.body.firstChild);
+
+        // ── INITIAL SETUP ──
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.hero-content > *').forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 150);
+                });
+            }, 100);
+            
+            // Update location count with geolocation
+            updateLocationCount();
+        });
     </script>
 </body>
 
