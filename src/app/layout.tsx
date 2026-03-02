@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Stuff N Things' }],
   openGraph: {
     title: 'Stuff N Things — High-Performance Web Partnerships',
-    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and keep improving month over month.',
+    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and maintain peak performance month over month.',
     url: 'https://stuffnthings.io',
     siteName: 'Stuff N Things',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Stuff N Things — High-Performance Web Partnerships',
-    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and keep improving month over month.',
+    description: 'We engineer and actively manage websites built to score 95+ on Lighthouse, pass Core Web Vitals, and maintain peak performance month over month.',
   },
   robots: { index: true, follow: true },
 }

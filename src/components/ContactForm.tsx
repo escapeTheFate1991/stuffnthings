@@ -29,8 +29,8 @@ const benefits = [
   },
   {
     icon: '🔒',
-    title: 'It\u2019s Yours. No Strings.',
-    text: 'The report is yours whether you hire us or not. No follow-up calls you didn\u2019t ask for. No pressure. The work speaks for itself.',
+    title: 'Zero Pressure. Guaranteed.',
+    text: 'No follow-up calls you didn\u2019t ask for. No hard sell. We\u2019ll send you the report and let the work speak for itself.',
   },
 ]
 
@@ -102,8 +102,8 @@ export default function ContactForm() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most sites have 3–5 issues that are costing real money. We&apos;ll find them,
-              explain them in plain English, and show you exactly how to fix them — whether you hire us or not.
+              Most sites have 3–5 issues that are quietly costing real money. We&apos;ll find them,
+              explain them in plain English, and show you exactly what they&apos;re costing — no obligation.
             </p>
           </div>
         </div>

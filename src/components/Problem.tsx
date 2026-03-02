@@ -116,7 +116,7 @@ export default function Problem() {
               </h3>
               <p className="text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
                 That&apos;s what we do. Design, development, performance, security — we handle it all, ongoing.
-                No project end date. No final invoice and radio silence. Just a site that keeps getting better.
+                No project end date. No final invoice and radio silence. Just a site that stays fast, secure, and performing at its best.
               </p>
               <button onClick={handleScroll} className="btn btn-primary text-lg px-8 py-4">
                 See how it works →
