@@ -88,7 +88,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <span className="text-2xl">🚀</span>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">This site · Lighthouse Perf</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Our site · Lighthouse Perf</div>
             <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
           </div>
         </div>
@@ -100,7 +100,7 @@ function FloatingElements() {
         style={{ transform: `translate(${offset.x * -0.3}px, ${offset.y * -0.3}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 font-mono text-xs">
-          <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1 font-sans">This site · Core Web Vitals</div>
+          <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1 font-sans">Our site · Core Web Vitals</div>
           <span className="text-brand-purple">LCP</span>{' '}
           <span className="text-slate-400">&lt;</span>{' '}
           <span className="text-brand-green">1.2s</span>
@@ -118,7 +118,7 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <span className="text-2xl">♿</span>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">This site · Accessibility</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Our site · Accessibility</div>
             <div className="text-lg font-bold text-brand-green">100 / 100</div>
           </div>
         </div>
@@ -183,29 +183,29 @@ export default function Hero() {
         <div className="hero-reveal reveal mb-8">
           <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/20">
             <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
-            Now accepting new clients — Free site audit included
+            Now accepting new clients — Free friction audit included
           </span>
         </div>
 
         {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">Your Website Should</span>
+            <span className="gradient-text inline-block">We Become</span>
             <br />
-            <span className="text-white inline-block">Work as Hard as You Do.</span>
+            <span className="text-white inline-block">Your Web Team.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300/80 mb-8 tracking-tight">
-            Most don&apos;t. We fix that.
+            The one you never had to hire.
           </p>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We design, engineer, and actively manage high-performance websites for ambitious businesses —
-            so yours loads fast, ranks high, and keeps getting better every single month.
+            Design, engineering, performance, security, strategy — we handle everything web so you can focus on your business. 
+            Your website improves every month instead of slowly degrading.
           </p>
         </div>
 
@@ -215,7 +215,7 @@ export default function Hero() {
             onClick={handleCTAClick}
             className="btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
           >
-            See What Your Site Is Leaving Behind
+            Get Your Free Friction Audit
             <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -224,7 +224,7 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
-            Explore Our Work
+            See Our Standards
           </button>
         </div>
 
@@ -232,15 +232,15 @@ export default function Hero() {
         <div className="hero-reveal reveal flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-500">
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            No contracts or upfront costs
+            No contracts • No upfront costs
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            Audit delivered in 48 hours
+            Friction audit in 48 hours
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            95+ Lighthouse score, guaranteed
+            Verifiable performance metrics
           </span>
         </div>
       </div>

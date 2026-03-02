@@ -8,7 +8,7 @@ const services = [
     name: 'Essentials',
     price: '$299',
     period: '/month',
-    description: 'A professionally engineered foundation — built to perform, not just look good.',
+    description: 'Foundation web team for consultants and local services.',
     features: [
       'Mobile-first design & development',
       'Core Web Vitals optimized build',
@@ -20,7 +20,7 @@ const services = [
       '1 content or design update per month',
     ],
     popular: false,
-    cta: 'Start with Essentials',
+    cta: 'Get Your Web Team',
     ideal: 'Consultants, local services, professional practices',
     accent: 'from-slate-500 to-slate-400',
     iconBg: 'bg-slate-700/50',
@@ -30,7 +30,7 @@ const services = [
     price: '$599',
     priceRange: '–$899',
     period: '/month',
-    description: 'Full-stack partnership for businesses ready to scale their digital infrastructure.',
+    description: 'Full-stack web team for scaling businesses.',
     features: [
       'Everything in Essentials, plus:',
       'Advanced technical SEO & structured data',
@@ -43,7 +43,7 @@ const services = [
       'A/B testing & UX experimentation',
     ],
     popular: true,
-    cta: 'Start Growing',
+    cta: 'Get Your Full Team',
     ideal: 'Growing businesses, online stores, B2B companies',
     accent: 'from-brand-cyan to-brand-purple',
     iconBg: 'bg-brand-cyan/10',
@@ -53,7 +53,7 @@ const services = [
     price: '$1,200',
     priceRange: '+',
     period: '/month',
-    description: 'A dedicated engineering partner for organizations where web performance is mission-critical.',
+    description: 'Dedicated web team for mission-critical platforms.',
     features: [
       'Everything in Growth Partner, plus:',
       'Custom web application development',
@@ -66,7 +66,7 @@ const services = [
       'Executive-level analytics & reporting dashboards',
     ],
     popular: false,
-    cta: 'Let\'s Talk Enterprise',
+    cta: 'Get Your Dedicated Team',
     ideal: 'Established brands, high-traffic platforms, enterprises',
     accent: 'from-brand-purple to-brand-coral',
     iconBg: 'bg-brand-purple/10',
@@ -77,7 +77,7 @@ const guarantees = [
   { icon: '🚀', label: '95+ Lighthouse Score' },
   { icon: '⚡', label: 'Sub-1.5s LCP Target' },
   { icon: '🔒', label: 'Enterprise-Grade Security' },
-  { icon: '🔄', label: 'Proactive Monthly Optimization' },
+  { icon: '📈', label: 'Gets Better Every Month' },
 ]
 
 export default function Services() {
@@ -100,13 +100,13 @@ export default function Services() {
             <h2 className="section-heading mb-6">
               <span className="gradient-text">Choose Your</span>
               <br />
-              <span className="text-white">Partnership Level</span>
+              <span className="text-white">Web Team Size</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Every engagement is a long-term partnership — not a one-time project.
-              Each tier includes active optimization, monitoring, and support. No lock-in contracts. No surprise invoices.
+              Monthly subscriptions. No contracts. No upfront costs. Every tier includes active optimization, 
+              monitoring, and continuous improvement — because websites are living systems, not projects.
             </p>
           </div>
         </div>
