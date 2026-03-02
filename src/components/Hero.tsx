@@ -192,15 +192,15 @@ export default function Hero() {
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
             <span className="gradient-text inline-block">Your Website</span>
             <br />
-            <span className="text-white inline-block">Should Get Better</span>
+            <span className="text-white inline-block">Should Never</span>
             <br />
-            <span className="text-white inline-block">Every Month.</span>
+            <span className="text-white inline-block">Fall Behind.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300/80 mb-8 tracking-tight">
-            Not slowly fall apart after launch.
+            We keep it fast, secure, and performing at its peak.
           </p>
         </div>
 

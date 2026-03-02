@@ -53,7 +53,7 @@ const steps = [
     title: 'We Stay & Improve',
     subtitle: 'This is where most agencies disappear. We don\u2019t.',
     description:
-      'After launch, we keep going. Performance monitoring, security patches, design updates, SEO tweaks — every month, your site gets a little better. You never have to think about it.',
+      'After launch, we keep going. Performance monitoring, security patches, design updates, SEO tweaks — we make sure your site stays at peak performance. You never have to think about it.',
     timeline: 'Ongoing',
     deliverables: [
       'Continuous performance monitoring',

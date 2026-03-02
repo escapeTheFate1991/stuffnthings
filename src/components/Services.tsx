@@ -77,7 +77,7 @@ const guarantees = [
   { icon: '🚀', label: '95+ Lighthouse Score' },
   { icon: '⚡', label: 'Sub-1.5s LCP Target' },
   { icon: '🔒', label: 'Enterprise-Grade Security' },
-  { icon: '📈', label: 'Improves Every Month' },
+  { icon: '📈', label: 'Peak Performance, Maintained' },
 ]
 
 export default function Services() {
