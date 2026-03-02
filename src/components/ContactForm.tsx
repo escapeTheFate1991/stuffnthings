@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
 import emailjs from '@emailjs/browser'
 
-const EMAILJS_SERVICE_ID = 'service_gwt4xvc'
+const EMAILJS_SERVICE_ID = 'service_wlkod83'
 const EMAILJS_TEMPLATE_ID = 'template_k4i21rc'
 const EMAILJS_PUBLIC_KEY = 'f3K57-eWieF0Fpm6N'
 
@@ -15,7 +15,7 @@ const benefits = [
   {
     icon: '🔍',
     title: 'Full Lighthouse Diagnostic',
-    text: 'Your web team runs a structured audit across Performance, Accessibility, Best Practices, and SEO — and explains every score in plain language.',
+    text: 'Performance, accessibility, SEO, best practices — we test everything and explain every score in plain language. No jargon.',
   },
   {
     icon: '⚡',
@@ -25,12 +25,12 @@ const benefits = [
   {
     icon: '📊',
     title: 'Prioritized Action Plan',
-    text: 'Not a list of generic tips — a sequenced technical roadmap with estimated impact for each recommendation.',
+    text: 'Not generic tips. A ranked list of what to fix first, what it\u2019ll cost, and how much it\u2019ll move the needle.',
   },
   {
     icon: '🔒',
-    title: 'No Obligation. No Sales Pressure.',
-    text: 'The audit is yours, regardless of whether you work with us. We believe the work should speak for itself.',
+    title: 'It\u2019s Yours. No Strings.',
+    text: 'The report is yours whether you hire us or not. No follow-up calls you didn\u2019t ask for. No pressure. The work speaks for itself.',
   },
 ]
 
@@ -102,8 +102,8 @@ export default function ContactForm() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most sites have three to five critical issues that are measurable, fixable, and being ignored.
-              Your web team will find them, document them, and show you exactly what it would take to resolve each one.
+              Most sites have 3–5 issues that are costing real money. We&apos;ll find them,
+              explain them in plain English, and show you exactly how to fix them — whether you hire us or not.
             </p>
           </div>
         </div>
@@ -241,11 +241,11 @@ export default function ContactForm() {
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                What Your Web Team Analyzes
+                What We Actually Look At
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                This isn&apos;t a traffic-light report with no context. Every finding comes with a technical explanation,
-                a severity rating, and a concrete next step — whether you work with us or not.
+                Not a traffic-light PDF with no context. Every finding comes with a clear explanation,
+                a severity rating, and a concrete fix — whether you work with us or not.
               </p>
             </div>
 
