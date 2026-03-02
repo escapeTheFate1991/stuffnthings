@@ -1,0 +1,31 @@
+# Stuff N Things LLC
+> Web performance agency that designs, builds, and actively manages high-performance websites for small businesses and professional services.
+
+## About
+Stuff N Things is a Website-as-a-Service (WaaS) company based in Claymont, Delaware. We handle everything web — design, development, hosting, SEO, security, and ongoing optimization — so business owners can focus on running their business.
+
+## Services
+- **Web Design & Development**: Custom-built websites using Next.js and Tailwind CSS, optimized for speed and conversion
+- **Website Management**: Ongoing maintenance, content updates, security patches, and performance monitoring
+- **Technical SEO**: Core Web Vitals optimization, schema markup, sitemap management, and search ranking improvement
+- **Performance Optimization**: 95+ Lighthouse scores, sub-1.5s Largest Contentful Paint, image and code optimization
+- **Website-as-a-Service**: Monthly partnership model — we become your full web team
+
+## Pricing
+- Foundation: $299/month — professional website with hosting, SSL, and monthly maintenance
+- Operational: $599-899/month — full management with SEO, content updates, and optimization
+- Growth: $1,200+/month — complete web team with strategy, A/B testing, and conversion optimization
+
+## Contact
+- Website: https://stuffnthings.io
+- Email: info@stuffnthings.io
+- Address: 2093 Philadelphia Pike, Claymont, DE 19703
+
+## Industries Served
+Consulting, SaaS, Child Care, Hospitality, E-commerce, Warehousing & Logistics, Medical, Legal, Real Estate, Professional Services
+
+## Key Differentiators
+- Every site scores 95+ on Google Lighthouse
+- Monthly partnership model, not one-time projects
+- Full-stack team (design, dev, SEO, content) for less than one junior hire
+- Free friction audit for prospective clients

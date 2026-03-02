@@ -41,6 +41,84 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+
+        {/* JSON-LD: Organization + LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': ['Organization', 'LocalBusiness'],
+              name: 'Stuff N Things LLC',
+              url: 'https://stuffnthings.io',
+              logo: 'https://stuffnthings.io/app-icon-1024.png',
+              description: 'Web performance agency that designs, builds, and actively manages high-performance websites for small businesses and professional services. Monthly partnerships starting at $299/mo.',
+              email: 'info@stuffnthings.io',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '2093 Philadelphia Pike',
+                addressLocality: 'Claymont',
+                addressRegion: 'DE',
+                postalCode: '19703',
+                addressCountry: 'US',
+              },
+              sameAs: [],
+              priceRange: '$$',
+              areaServed: { '@type': 'Country', name: 'United States' },
+              serviceType: [
+                'Web Design',
+                'Web Development',
+                'Website Management',
+                'Technical SEO',
+                'Website Performance Optimization',
+                'Website-as-a-Service',
+              ],
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Web Services',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    name: 'Foundation Plan',
+                    description: 'Professional website with hosting, SSL, and monthly maintenance',
+                    price: '299',
+                    priceCurrency: 'USD',
+                    priceSpecification: { '@type': 'UnitPriceSpecification', price: '299', priceCurrency: 'USD', unitText: 'MONTH' },
+                  },
+                  {
+                    '@type': 'Offer',
+                    name: 'Operational Plan',
+                    description: 'Full website management with SEO, content updates, and performance optimization',
+                    price: '599',
+                    priceCurrency: 'USD',
+                    priceSpecification: { '@type': 'UnitPriceSpecification', price: '599', priceCurrency: 'USD', unitText: 'MONTH' },
+                  },
+                  {
+                    '@type': 'Offer',
+                    name: 'Growth Plan',
+                    description: 'Complete web team with strategy, A/B testing, conversion optimization, and priority support',
+                    price: '1200',
+                    priceCurrency: 'USD',
+                    priceSpecification: { '@type': 'UnitPriceSpecification', price: '1200', priceCurrency: 'USD', unitText: 'MONTH' },
+                  },
+                ],
+              },
+            }),
+          }}
+        />
+        {/* JSON-LD: WebSite with SearchAction */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Stuff N Things',
+              url: 'https://stuffnthings.io',
+              publisher: { '@type': 'Organization', name: 'Stuff N Things LLC' },
+            }),
+          }}
+        />
       </head>
       <body className="bg-slate-950 text-white antialiased font-sans selection:bg-brand-cyan/30 selection:text-white">
         {children}
