@@ -74,7 +74,7 @@ const standards = [
     icon: '🚀',
     title: '95+ Performance. Every Build.',
     commitment:
-      "Your web team doesn't ship a site that scores below 95 on Google Lighthouse Performance. Not 94. That threshold is our baseline, not our ceiling — and it's verifiable the moment the site goes live.",
+      "We don't ship anything below 95 on Google Lighthouse. That's not a goal — it's a rule. You can verify it yourself the day the site goes live. Open DevTools, run the audit, see the number.",
     proof: 'Target: Lighthouse Perf ≥ 95 · LCP < 1.5s · CLS = 0.00',
     gradient: 'from-brand-cyan to-blue-500',
   },
@@ -82,7 +82,7 @@ const standards = [
     icon: '♿',
     title: 'Accessibility Is Not Optional.',
     commitment:
-      "Every site your web team builds targets a Lighthouse Accessibility score of 100. WCAG 2.1 AA compliance is baked into our process — semantic HTML, correct ARIA roles, proper contrast ratios — from the first commit, not as an afterthought.",
+      "Accessibility isn't a checkbox we tick at the end. It's built into every page from the first line of code — semantic HTML, proper ARIA labels, contrast ratios that actually pass. We target a perfect 100.",
     proof: 'Target: Accessibility = 100 · WCAG 2.1 AA',
     gradient: 'from-brand-purple to-pink-500',
   },
@@ -90,7 +90,7 @@ const standards = [
     icon: '📡',
     title: 'SEO Architecture from Day One.',
     commitment:
-      "Clean semantic structure, correct heading hierarchy, structured data where applicable, meta strategy aligned to your keywords. Your web team builds for search engines the same way we build for humans — with intention, not plugins.",
+      "Clean structure, correct headings, structured data, meta strategy built around your actual keywords. Search engines see what humans see — a site built with intention, not cobbled together with plugins.",
     proof: 'Target: SEO = 100 · Structured data · Zero crawl errors',
     gradient: 'from-brand-green to-emerald-400',
   },
@@ -115,15 +115,15 @@ export default function SocialProof() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Your Web Team</span>
+              <span className="gradient-text">Don&apos;t Take</span>
               <br />
-              <span className="text-white">delivers verifiable results.</span>
+              <span className="text-white">Our Word For It. Measure It.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              We set our standards publicly so you can measure our performance. 
-              Every site your web team builds meets these benchmarks — verifiably, measurably, consistently.
+              Every site we build hits these numbers. Not sometimes — every time.
+              Run Lighthouse yourself. The scores are public. That&apos;s the point.
             </p>
           </div>
         </div>

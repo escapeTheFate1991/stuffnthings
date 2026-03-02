@@ -190,22 +190,24 @@ export default function Hero() {
         {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">We Become</span>
+            <span className="gradient-text inline-block">Your Website</span>
             <br />
-            <span className="text-white inline-block">Your Web Team.</span>
+            <span className="text-white inline-block">Should Get Better</span>
+            <br />
+            <span className="text-white inline-block">Every Month.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300/80 mb-8 tracking-tight">
-            The one you never had to hire.
+            Not slowly fall apart after launch.
           </p>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Design, engineering, performance, security, strategy — we handle everything web so you can focus on your business. 
-            Your website improves every month instead of slowly degrading.
+            We handle the design, the code, the speed, the security — all of it, ongoing.
+            Think of us as the web department you never had to hire.
           </p>
         </div>
 
@@ -232,7 +234,7 @@ export default function Hero() {
         <div className="hero-reveal reveal flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-500">
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            No contracts • No upfront costs
+            No contracts · Cancel anytime
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
@@ -240,7 +242,7 @@ export default function Hero() {
           </span>
           <span className="flex items-center gap-2">
             <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            Verifiable performance metrics
+            Every score is verifiable
           </span>
         </div>
       </div>

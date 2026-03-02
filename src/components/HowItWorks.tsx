@@ -7,9 +7,9 @@ const steps = [
   {
     number: '01',
     title: 'Free Friction Audit',
-    subtitle: 'Your web team diagnoses every issue',
+    subtitle: 'We find what\u2019s costing you customers',
     description:
-      'Your web team performs a comprehensive analysis of your current website, identifying performance bottlenecks, conversion killers, and missed opportunities. You receive a detailed report with actionable insights within 48 hours.',
+      'We run your site through our full diagnostic — speed, mobile experience, SEO, accessibility, conversion paths. Within 48 hours, you get a plain-English report showing exactly what\u2019s broken and what to fix first. No charge, no commitment.',
     timeline: '48 hours',
     deliverables: [
       'Performance analysis & speed test',
@@ -28,10 +28,10 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Your Team Builds & Launches',
-    subtitle: 'From strategy to live site',
+    title: 'We Build & Launch',
+    subtitle: 'From blueprint to live in 2–4 weeks',
     description:
-      'Based on the audit findings, your web team designs and builds your high-performance website from the ground up. Every element is optimized for speed, conversions, and user experience.',
+      'Based on the audit, we design and build your site from scratch — optimized for speed, search, and conversions. You see progress along the way and approve before anything goes live.',
     timeline: '2-4 weeks',
     deliverables: [
       'Custom website design & development',
@@ -50,10 +50,10 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Your Team Stays & Optimizes',
-    subtitle: 'Continuous improvement, not abandonment',
+    title: 'We Stay & Improve',
+    subtitle: 'This is where most agencies disappear. We don\u2019t.',
     description:
-      'Your website is never finished. Your web team continuously monitors, optimizes, and improves your site so it gets better every month, not worse. This is the difference between a project and a partnership.',
+      'After launch, we keep going. Performance monitoring, security patches, design updates, SEO tweaks — every month, your site gets a little better. You never have to think about it.',
     timeline: 'Ongoing',
     deliverables: [
       'Continuous performance monitoring',
@@ -94,8 +94,7 @@ export default function HowItWorks() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              From broken to brilliant in three steps.
-              We handle the complexity. You see the results.
+              Three steps. No jargon. You tell us what&apos;s broken, we fix it and keep it running.
             </p>
           </div>
         </div>
@@ -172,11 +171,10 @@ export default function HowItWorks() {
             <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-brand-purple/10 to-brand-green/5" />
             <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Get Your Web Team?
+                Curious What&apos;s Wrong With Your Site?
               </h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                The first step costs nothing. Get your free friction audit and see
-                exactly how your web team will improve your site's performance.
+                The audit is free. Takes 48 hours. You get a full report — and it&apos;s yours whether you work with us or not.
               </p>
               <button onClick={handleCTAClick} className="btn btn-primary text-lg px-10 py-5">
                 Get Your Free Friction Audit

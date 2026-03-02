@@ -8,7 +8,7 @@ const services = [
     name: 'Essentials',
     price: '$299',
     period: '/month',
-    description: 'Foundation web team for consultants and local services.',
+    description: 'Everything a small business needs to look sharp online.',
     features: [
       'Mobile-first design & development',
       'Core Web Vitals optimized build',
@@ -20,7 +20,7 @@ const services = [
       '1 content or design update per month',
     ],
     popular: false,
-    cta: 'Get Your Web Team',
+    cta: 'Start Here',
     ideal: 'Consultants, local services, professional practices',
     accent: 'from-slate-500 to-slate-400',
     iconBg: 'bg-slate-700/50',
@@ -30,7 +30,7 @@ const services = [
     price: '$599',
     priceRange: '–$899',
     period: '/month',
-    description: 'Full-stack web team for scaling businesses.',
+    description: 'For businesses ready to grow. We handle everything.',
     features: [
       'Everything in Essentials, plus:',
       'Advanced technical SEO & structured data',
@@ -43,7 +43,7 @@ const services = [
       'A/B testing & UX experimentation',
     ],
     popular: true,
-    cta: 'Get Your Full Team',
+    cta: 'Get Started',
     ideal: 'Growing businesses, online stores, B2B companies',
     accent: 'from-brand-cyan to-brand-purple',
     iconBg: 'bg-brand-cyan/10',
@@ -53,7 +53,7 @@ const services = [
     price: '$1,200',
     priceRange: '+',
     period: '/month',
-    description: 'Dedicated web team for mission-critical platforms.',
+    description: 'A dedicated team for platforms that can\u2019t afford downtime.',
     features: [
       'Everything in Growth Partner, plus:',
       'Custom web application development',
@@ -66,7 +66,7 @@ const services = [
       'Executive-level analytics & reporting dashboards',
     ],
     popular: false,
-    cta: 'Get Your Dedicated Team',
+    cta: 'Talk to Us',
     ideal: 'Established brands, high-traffic platforms, enterprises',
     accent: 'from-brand-purple to-brand-coral',
     iconBg: 'bg-brand-purple/10',
@@ -77,7 +77,7 @@ const guarantees = [
   { icon: '🚀', label: '95+ Lighthouse Score' },
   { icon: '⚡', label: 'Sub-1.5s LCP Target' },
   { icon: '🔒', label: 'Enterprise-Grade Security' },
-  { icon: '📈', label: 'Gets Better Every Month' },
+  { icon: '📈', label: 'Improves Every Month' },
 ]
 
 export default function Services() {
@@ -98,15 +98,15 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Choose Your</span>
+              <span className="gradient-text">Simple Pricing.</span>
               <br />
-              <span className="text-white">Web Team Size</span>
+              <span className="text-white">No Surprises.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Monthly subscriptions. No contracts. No upfront costs. Every tier includes active optimization, 
-              monitoring, and continuous improvement — because websites are living systems, not projects.
+              Monthly. Cancel anytime. Every plan includes ongoing optimization, monitoring, and support —
+              because a website isn&apos;t a one-time project. It&apos;s a living thing that needs care.
             </p>
           </div>
         </div>
