@@ -1,7 +1,7 @@
 export default function Footer() {
   const navItems = [
-    { label: 'Problem', href: '#problem' },
-    { label: 'Process', href: '#how-it-works' },
+    { label: 'Why Us', href: '#problem' },
+    { label: 'How It Works', href: '#how-it-works' },
     { label: 'Results', href: '#testimonials' },
     { label: 'Pricing', href: '#services' },
     { label: 'Portfolio', href: '#portfolio' },

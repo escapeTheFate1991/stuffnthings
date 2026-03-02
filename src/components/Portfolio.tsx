@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import { useScrollReveal, useTilt } from '@/lib/hooks'
 
-const categories = ['All', 'Consulting', 'SaaS', 'Day Care', 'Hotel', 'E-commerce', 'Warehouse']
+const categories = ['All', 'Consulting', 'SaaS', 'Child Care', 'Hospitality', 'E-commerce', 'Warehouse']
 
 const THUMB = 'https://image.thum.io/get/width/600/crop/350/wait/10'
 const PORTFOLIO = 'https://escapethefate1991.github.io/stuffnthings/portfolio'
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: 'Sunshine Sprouts Day Care',
-    category: 'Day Care',
+    category: 'Child Care',
     description: 'Warm, trust-first childcare site with program galleries, parent testimonials, and a tour-booking widget that turns visits into enrolments.',
     results: { Perf: '96', Access: '100', SEO: '97' },
     gradient: 'from-orange-500 to-yellow-400',
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     title: 'The Bellevue Grand Hotel',
-    category: 'Hotel',
+    category: 'Hospitality',
     description: '5-star boutique hotel site with immersive room galleries, dining and spa experiences, and a booking engine that shortens the path to reservation.',
     results: { Perf: '95', Access: '98', SEO: '97' },
     gradient: 'from-yellow-700 to-yellow-500',
