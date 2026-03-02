@@ -1,23 +1,22 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { useScrollReveal, useTilt } from '@/lib/hooks'
 
 const categories = ['All', 'Consulting', 'SaaS', 'Child Care', 'Hospitality', 'E-commerce', 'Warehouse']
 
-const THUMB = 'https://image.thum.io/get/width/800/crop/500/wait/10'
-const PORTFOLIO = 'https://escapethefate1991.github.io/stuffnthings/portfolio'
+const SCREENSHOTS = '/portfolio/screenshots'
 
 const projects = [
   {
     title: 'Pinnacle Strategy Group',
     category: 'Consulting',
     description: 'Authoritative consulting site featuring executive case studies, team credentials, and a trust-first design that positions expertise before the ask.',
-    results: { Performance: '97', Accessibility: '100', SEO: '98', 'Best Practices': '100' },
+    results: { Speed: '97', Uptime: '99.9%', SEO: '98', 'CTR': '6.8%' },
     gradient: 'from-yellow-600 to-yellow-400',
     mockupAccent: 'bg-yellow-600/20',
     href: '/portfolio/consulting.html',
-    image: `${THUMB}/${PORTFOLIO}/consulting.html`,
+    image: `${SCREENSHOTS}/consulting.jpg`,
     before: {
       headline: 'Generic template site with no clear value proposition',
       issues: [
@@ -46,11 +45,11 @@ const projects = [
     title: 'FlowSync',
     category: 'SaaS',
     description: 'Full-featured SaaS landing page with animated feature cards, tiered pricing, and a frictionless trial sign-up flow optimised for qualified leads.',
-    results: { Performance: '98', Accessibility: '100', SEO: '99', 'Best Practices': '100' },
+    results: { Speed: '98', Uptime: '99.9%', SEO: '99', 'CTR': '7.2%' },
     gradient: 'from-brand-cyan to-brand-purple',
     mockupAccent: 'bg-brand-cyan/20',
     href: '/portfolio/saas.html',
-    image: `${THUMB}/${PORTFOLIO}/saas.html`,
+    image: `${SCREENSHOTS}/saas.jpg`,
     before: {
       headline: 'Feature-heavy page with no clear conversion path',
       issues: [
@@ -79,11 +78,11 @@ const projects = [
     title: 'Sunshine Sprouts Day Care',
     category: 'Child Care',
     description: 'Warm, trust-first childcare site with program galleries, parent testimonials, and a tour-booking widget that turns visits into enrolments.',
-    results: { Performance: '96', Accessibility: '100', SEO: '97', 'Best Practices': '100' },
+    results: { Speed: '96', Uptime: '99.9%', SEO: '97', 'CTR': '5.4%' },
     gradient: 'from-orange-500 to-yellow-400',
     mockupAccent: 'bg-orange-500/20',
     href: '/portfolio/daycare.html',
-    image: `${THUMB}/${PORTFOLIO}/daycare.html`,
+    image: `${SCREENSHOTS}/daycare.jpg`,
     before: {
       headline: 'Outdated site that didn\'t reflect the quality of care',
       issues: [
@@ -96,10 +95,10 @@ const projects = [
     after: {
       headline: 'Warm, inviting design that builds parent confidence',
       improvements: [
-        'Real facility photos with bright, welcoming color palette',
-        'Parent testimonials front and center — named, specific, emotional',
-        'Program cards with age ranges, schedules, and photo galleries',
-        'Online tour booking widget — 3 clicks from landing to scheduled visit',
+        'Bright, welcoming color palette with playful gradients that feel safe and joyful',
+        'Trust signals above the fold — Licensed, NAEYC Accredited, 98% parent satisfaction',
+        'Program cards organized by age range (infant, toddler, PreK) with curriculum details',
+        'Staff-to-child ratios, certifications, and safety features prominently displayed',
       ],
     },
     useCases: [
@@ -111,12 +110,12 @@ const projects = [
   {
     title: 'The Bellevue Grand Hotel',
     category: 'Hospitality',
-    description: '5-star boutique hotel site with immersive room galleries, dining and spa experiences, and a booking engine that shortens the path to reservation.',
-    results: { Performance: '95', Accessibility: '98', SEO: '97', 'Best Practices': '100' },
+    description: '5-star boutique hotel site with tiered room experiences, Michelin-starred dining and spa sections, and guest testimonials that sell the feeling before the room.',
+    results: { Speed: '95', Uptime: '99.8%', SEO: '97', 'CTR': '4.9%' },
     gradient: 'from-yellow-700 to-yellow-500',
     mockupAccent: 'bg-yellow-700/20',
     href: '/portfolio/hotel.html',
-    image: `${THUMB}/${PORTFOLIO}/hotel.html`,
+    image: `${SCREENSHOTS}/hotel.jpg`,
     before: {
       headline: 'Booking engine buried under layers of generic content',
       issues: [
@@ -129,10 +128,10 @@ const projects = [
     after: {
       headline: 'Immersive experience site that sells the feeling, not the room',
       improvements: [
-        'Hero video showing the property experience — pool, dining, sunset views',
-        'Persistent booking widget accessible from any page in one click',
-        'Room pages designed as experiences — lifestyle photos, story-driven copy',
-        'Dedicated dining and spa sections that drive on-property revenue',
+        'Cinematic hero image with "Where Luxury Feels Like Home" — emotion over information',
+        'Booking widget visible on the hero — check-in, check-out, guests, one click to reserve',
+        'Room tiers presented as experiences (Deluxe, Suite, Penthouse) with lifestyle copy',
+        'Dedicated La Maison restaurant and Bellevue Spa sections that drive on-property revenue',
       ],
     },
     useCases: [
@@ -144,12 +143,12 @@ const projects = [
   {
     title: 'Meridian Home',
     category: 'E-commerce',
-    description: 'Premium home goods store with an editorial product grid, curated collections mosaic, verified reviews, and a high-converting newsletter capture.',
-    results: { Performance: '94', Accessibility: '96', SEO: '98', 'Best Practices': '100' },
+    description: 'Premium home goods store with curated room collections, sustainability storytelling, designer testimonials, and product cards that justify premium pricing.',
+    results: { Speed: '94', Uptime: '99.7%', SEO: '98', 'CTR': '5.1%' },
     gradient: 'from-brand-coral to-red-600',
     mockupAccent: 'bg-brand-coral/20',
     href: '/portfolio/ecommerce.html',
-    image: `${THUMB}/${PORTFOLIO}/ecommerce.html`,
+    image: `${SCREENSHOTS}/ecommerce.jpg`,
     before: {
       headline: 'Product-heavy grid with no story or brand identity',
       issues: [
@@ -162,10 +161,10 @@ const projects = [
     after: {
       headline: 'Editorial shopping experience that builds brand desire',
       improvements: [
-        'Curated collections with editorial photography — lifestyle over product shots',
-        'Brand story woven throughout — "designed for how you actually live"',
-        'Trust bar at checkout: free shipping, easy returns, secure payment',
-        'Newsletter capture at scroll depth 50% with a 10% incentive — not a popup',
+        'Curated collections by room (Living, Bedroom, Kitchen) — easy to browse by intent',
+        'Brand story woven throughout — sustainability, craftsmanship, and ethical sourcing',
+        'Named customer testimonials from designers and architects — aspirational social proof',
+        'Product cards with material details and sustainability callouts that justify premium pricing',
       ],
     },
     useCases: [
@@ -178,11 +177,11 @@ const projects = [
     title: 'Iron Ridge Storage',
     category: 'Warehouse',
     description: 'B2B logistics site showcasing facility scale, tiered service plans, transparent pricing, and a lead-gen contact form built for enterprise buyers.',
-    results: { Performance: '97', Accessibility: '100', SEO: '99', 'Best Practices': '100' },
+    results: { Speed: '97', Uptime: '99.9%', SEO: '99', 'CTR': '6.3%' },
     gradient: 'from-blue-600 to-brand-cyan',
     mockupAccent: 'bg-blue-600/20',
     href: '/portfolio/warehouse.html',
-    image: `${THUMB}/${PORTFOLIO}/warehouse.html`,
+    image: `${SCREENSHOTS}/warehouse.jpg`,
     before: {
       headline: 'Brochure site that read like a PDF, not a business',
       issues: [
@@ -210,9 +209,9 @@ const projects = [
 ]
 
 /* ── Small Card (All view) ── */
-function ProjectCard({ project }: { project: (typeof projects)[0] }) {
+function ProjectCard({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
   return (
-    <a href={project.href} target="_blank" rel="noopener noreferrer" className="block group cursor-pointer no-underline">
+    <div onClick={() => onSelect(project.category)} className="block group cursor-pointer no-underline">
       <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors hover:scale-[1.02] transition-transform duration-300">
         <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
@@ -245,58 +244,73 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           </span>
           <h3 className="text-xl font-bold text-white mt-2 mb-2 font-display">{project.title}</h3>
           <span className={`text-xs font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent flex items-center gap-1 mt-3`}>
-              View Live Example →
+              View Case Study →
             </span>
         </div>
       </div>
-    </a>
+    </div>
   )
 }
 
 /* ── Full-width Case Study View ── */
-function CaseStudyView({ project }: { project: (typeof projects)[0] }) {
-  return (
-    <div className="reveal">
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        {/* Left — Website screenshot in browser frame */}
-        <div className="space-y-4">
-          <div className={`relative rounded-2xl ${project.mockupAccent} overflow-hidden border border-slate-700/50`}>
-            <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5`} />
-            <div className="relative">
-              {/* Browser chrome */}
-              <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50">
-                <div className="w-3 h-3 rounded-full bg-red-400/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-                <div className="w-3 h-3 rounded-full bg-green-400/60" />
-                <div className="ml-3 flex-1 h-5 rounded-md bg-slate-700/50 flex items-center px-3">
-                  <span className="text-[10px] text-slate-500 truncate">{project.href}</span>
-                </div>
-              </div>
-              {/* Screenshot */}
-              <a href={project.href} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.image}
-                  alt={`${project.title} website`}
-                  loading="lazy"
-                  className="w-full object-cover object-top hover:opacity-95 transition"
-                  style={{ maxHeight: '500px' }}
-                />
-              </a>
-            </div>
-          </div>
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white font-semibold text-sm hover:opacity-90 transition shadow-lg`}
-          >
-            View Live Preview
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-          </a>
-        </div>
+function CaseStudyColumns({ project }: { project: (typeof projects)[0] }) {
+  const rightRef = useRef<HTMLDivElement>(null)
+  const [rightH, setRightH] = useState<number>(0)
 
-        {/* Right — Metrics + Before/After + Use Cases */}
+  useEffect(() => {
+    if (!rightRef.current) return
+    const ro = new ResizeObserver(([entry]) => setRightH(entry.contentRect.height))
+    ro.observe(rightRef.current)
+    return () => ro.disconnect()
+  }, [])
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-10 items-start">
+      {/* Left — browser frame cropped to right column height */}
+      <div className="flex flex-col" style={rightH ? { height: rightH } : undefined}>
+        <div className={`relative rounded-2xl ${project.mockupAccent} overflow-hidden border border-slate-700/50 flex-1 min-h-0`}>
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5`} />
+          <div className="relative h-full flex flex-col">
+            <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50 flex-shrink-0">
+              <div className="w-3 h-3 rounded-full bg-red-400/60" />
+              <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+              <div className="w-3 h-3 rounded-full bg-green-400/60" />
+              <div className="ml-3 flex-1 h-5 rounded-md bg-slate-700/50 flex items-center px-3">
+                <span className="text-[10px] text-slate-500 truncate">{project.href}</span>
+              </div>
+            </div>
+            <a href={project.href} target="_blank" rel="noopener noreferrer" className="block flex-1 min-h-0 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.image}
+                alt={`${project.title} website`}
+                loading="lazy"
+                className="w-full object-cover object-top hover:opacity-95 transition"
+              />
+            </a>
+          </div>
+        </div>
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-xl bg-gradient-to-r ${project.gradient} text-white font-semibold text-sm hover:opacity-90 transition shadow-lg flex-shrink-0`}
+        >
+          View Live Preview
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
+      </div>
+
+      {/* Right — measured to set left column height */}
+      <div ref={rightRef}>
+        <CaseStudyRight project={project} />
+      </div>
+    </div>
+  )
+}
+
+function CaseStudyRight({ project }: { project: (typeof projects)[0] }) {
+  return (
         <div className="space-y-8">
           {/* Title */}
           <div>
@@ -366,8 +380,6 @@ function CaseStudyView({ project }: { project: (typeof projects)[0] }) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   )
 }
 
@@ -424,13 +436,13 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, i) => (
                 <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} onSelect={handleFilter} />
                 </div>
               ))}
             </div>
           ) : (
             <div className="animate-fade-in">
-              <CaseStudyView project={filtered[0]} />
+              <CaseStudyColumns project={filtered[0]} />
             </div>
           )}
         </div>
