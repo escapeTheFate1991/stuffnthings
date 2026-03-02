@@ -137,7 +137,7 @@ export default function Services() {
 
                 {/* Plan name & price */}
                 <div className="text-center mb-8">
-                  <h3 className="text-xl font-bold text-white mb-4">{service.name}</h3>
+                  <h3 className="text-xl font-bold text-white mb-4 font-display">{service.name}</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-3">
                     <span className={`text-5xl font-black bg-gradient-to-r ${service.accent} bg-clip-text text-transparent`}>
                       {service.price}
