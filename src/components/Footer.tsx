@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              We're your web team — the entire web department you never had to hire.
+              We&apos;re your web team — the entire web department you never had to hire.
               Design, engineering, performance, SEO, security, updates, strategy. All ongoing.
             </p>
             <p className="text-slate-600 text-sm mb-6">
@@ -63,11 +63,15 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-slate-800/50 mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-600">
-            © {new Date().getFullYear()} Stuff N Things. All rights reserved.
+            © {new Date().getFullYear()} Stuff N Things LLC. All rights reserved.
           </p>
-          <p className="text-sm text-slate-700">
-            Crafted with care · 95+ Lighthouse guaranteed
-          </p>
+          <div className="flex items-center gap-4 text-sm text-slate-600">
+            <a href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <span className="text-slate-800">·</span>
+            <a href="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</a>
+            <span className="text-slate-800">·</span>
+            <a href="/deletion" className="hover:text-slate-400 transition-colors">Data Deletion</a>
+          </div>
         </div>
       </div>
     </footer>
