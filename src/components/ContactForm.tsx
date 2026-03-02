@@ -2,12 +2,8 @@
 
 import { useState } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
-import emailjs from '@emailjs/browser'
 
-const EMAILJS_SERVICE_ID = 'service_wlkod83'
-const EMAILJS_TEMPLATE_ID = 'template_73toiyd'
-const EMAILJS_AUTOREPLY_ID = 'template_tpg1n6c'
-const EMAILJS_PUBLIC_KEY = 'f3K57-eWieF0Fpm6N'
+const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || 'https://api.stuffnthings.io'
 
 const inputClass =
   'w-full px-5 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 transition-all duration-300 hover:border-slate-600/50'
@@ -60,20 +56,13 @@ export default function ContactForm() {
     setError('')
 
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        business_name: formData.businessName,
-        website_url: formData.websiteUrl,
-        phone: formData.phone,
-        message: formData.message,
-      }
-
-      // Send lead notification to us + auto-reply to customer
-      await Promise.all([
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY),
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_ID, templateParams, EMAILJS_PUBLIC_KEY),
-      ])
+      const res = await fetch(`${CONTACT_API}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Request failed')
       setIsSubmitting(false)
       setIsSubmitted(true)
       setTimeout(() => {
@@ -82,8 +71,7 @@ export default function ContactForm() {
       }, 5000)
     } catch (err: any) {
       setIsSubmitting(false)
-      setError('Something went wrong. Please email us directly at info@stuffnthings.io')
-      // error already surfaced in UI
+      setError(err.message || 'Something went wrong. Please email us directly at info@stuffnthings.io')
     }
   }
 
