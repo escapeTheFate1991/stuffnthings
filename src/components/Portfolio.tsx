@@ -211,12 +211,9 @@ const projects = [
 
 /* ── Small Card (All view) ── */
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
-  const { ref, handlers } = useTilt<HTMLDivElement>(6)
-
   return (
     <a href={project.href} target="_blank" rel="noopener noreferrer" className="block group cursor-pointer no-underline">
-      <div ref={ref} {...handlers}>
-      <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors">
+      <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors hover:scale-[1.02] transition-transform duration-300">
         <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
           <div className="absolute inset-4 rounded-lg bg-slate-900/90 border border-slate-700/50 overflow-hidden flex flex-col">
@@ -251,7 +248,6 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               View Live Example →
             </span>
         </div>
-      </div>
       </div>
     </a>
   )
