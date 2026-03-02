@@ -2,6 +2,11 @@
 
 import { useState } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE_ID = 'service_gwt4xvc'
+const EMAILJS_TEMPLATE_ID = 'template_k4i21rc'
+const EMAILJS_PUBLIC_KEY = 'f3K57-eWieF0Fpm6N'
 
 const inputClass =
   'w-full px-5 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 transition-all duration-300 hover:border-slate-600/50'
@@ -44,17 +49,36 @@ export default function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const [error, setError] = useState('')
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setTimeout(() => {
+    setError('')
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formData.name,
+          businessName: formData.businessName,
+          websiteUrl: formData.websiteUrl,
+          phone: formData.phone,
+        },
+        EMAILJS_PUBLIC_KEY,
+      )
       setIsSubmitting(false)
       setIsSubmitted(true)
       setTimeout(() => {
         setIsSubmitted(false)
         setFormData({ name: '', businessName: '', websiteUrl: '', phone: '' })
-      }, 4000)
-    }, 1200)
+      }, 5000)
+    } catch (err: any) {
+      setIsSubmitting(false)
+      setError('Something went wrong. Please email us directly at info@stuffnthings.io')
+      console.error('EmailJS error:', err)
+    }
   }
 
   const filledCount = Object.values(formData).filter(Boolean).length
@@ -188,6 +212,9 @@ export default function ContactForm() {
                       )}
                     </button>
 
+                    {error && (
+                      <p className="text-xs text-red-400 text-center">{error}</p>
+                    )}
                     <p className="text-xs text-slate-600 text-center">
                       No spam, ever. We&apos;ll contact you within 24 hours.
                     </p>
