@@ -77,7 +77,7 @@ export default function ContactForm() {
     } catch (err: any) {
       setIsSubmitting(false)
       setError('Something went wrong. Please email us directly at info@stuffnthings.io')
-      console.error('EmailJS error:', err)
+      // error already surfaced in UI
     }
   }
 

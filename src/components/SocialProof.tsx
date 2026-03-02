@@ -59,7 +59,7 @@ function StandardCard({
       <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
       <div className="card relative h-full flex flex-col">
         <div className="text-4xl mb-4">{icon}</div>
-        <h4 className={`text-xl font-bold mb-3 bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>{title}</h4>
+        <h4 className={`text-xl font-bold mb-3 font-display bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>{title}</h4>
         <p className="text-slate-300 leading-relaxed flex-1 mb-6">{commitment}</p>
         <div className="bg-brand-green/5 border border-brand-green/15 rounded-xl p-3">
           <p className="text-brand-green font-semibold text-sm font-mono">{proof}</p>

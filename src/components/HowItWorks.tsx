@@ -132,7 +132,7 @@ export default function HowItWorks() {
                       {step.number}
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{step.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">{step.title}</h3>
                     <p className={`text-lg font-medium mb-4 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
                       {step.subtitle}
                     </p>

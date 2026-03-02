@@ -21,10 +21,10 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#problem', label: 'Problem' },
-    { href: '#services', label: 'Services' },
-    { href: '#portfolio', label: 'Portfolio' },
     { href: '#how-it-works', label: 'Process' },
     { href: '#testimonials', label: 'Results' },
+    { href: '#services', label: 'Pricing' },
+    { href: '#portfolio', label: 'Portfolio' },
     { href: '#contact', label: 'Contact' },
   ]
 
