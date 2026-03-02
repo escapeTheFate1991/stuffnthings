@@ -105,8 +105,8 @@ export default function Services() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Monthly. Cancel anytime. Every plan includes ongoing optimization, monitoring, and support —
-              because a website isn&apos;t a one-time project. It&apos;s a living thing that needs care.
+              A full-time web team costs $25K+ a month. An agency project runs $15-50K and they disappear after.
+              We give you the team without the overhead — and we never leave.
             </p>
           </div>
         </div>

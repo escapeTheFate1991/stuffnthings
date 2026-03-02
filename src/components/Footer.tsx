@@ -19,11 +19,11 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              We&apos;re your web team — the entire web department you never had to hire.
-              Design, engineering, performance, SEO, security, updates, strategy. All ongoing.
+              We design, build, and maintain high-performance websites — so you never have to think about yours again.
+              Speed. Security. SEO. All handled, all ongoing.
             </p>
             <p className="text-slate-600 text-sm mb-6">
-              Built by Eddy — independent studio, founding clients welcome.
+              Independent studio. Founding clients welcome.
             </p>
             <div className="flex items-center gap-3 text-slate-500 text-sm">
               <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
