@@ -74,7 +74,7 @@ const standards = [
     icon: '🚀',
     title: '95+ Performance. Every Build.',
     commitment:
-      "We don't ship a site that scores below 95 on Google Lighthouse Performance. Not 94. That threshold is our baseline, not our ceiling — and it's verifiable the moment the site goes live.",
+      "Your web team doesn't ship a site that scores below 95 on Google Lighthouse Performance. Not 94. That threshold is our baseline, not our ceiling — and it's verifiable the moment the site goes live.",
     proof: 'Target: Lighthouse Perf ≥ 95 · LCP < 1.5s · CLS = 0.00',
     gradient: 'from-brand-cyan to-blue-500',
   },
@@ -82,7 +82,7 @@ const standards = [
     icon: '♿',
     title: 'Accessibility Is Not Optional.',
     commitment:
-      "Every site we build targets a Lighthouse Accessibility score of 100. WCAG 2.1 AA compliance is baked into our process — semantic HTML, correct ARIA roles, proper contrast ratios — from the first commit, not as an afterthought.",
+      "Every site your web team builds targets a Lighthouse Accessibility score of 100. WCAG 2.1 AA compliance is baked into our process — semantic HTML, correct ARIA roles, proper contrast ratios — from the first commit, not as an afterthought.",
     proof: 'Target: Accessibility = 100 · WCAG 2.1 AA',
     gradient: 'from-brand-purple to-pink-500',
   },
@@ -90,7 +90,7 @@ const standards = [
     icon: '📡',
     title: 'SEO Architecture from Day One.',
     commitment:
-      "Clean semantic structure, correct heading hierarchy, structured data where applicable, meta strategy aligned to your keywords. We build for search engines the same way we build for humans — with intention, not plugins.",
+      "Clean semantic structure, correct heading hierarchy, structured data where applicable, meta strategy aligned to your keywords. Your web team builds for search engines the same way we build for humans — with intention, not plugins.",
     proof: 'Target: SEO = 100 · Structured data · Zero crawl errors',
     gradient: 'from-brand-green to-emerald-400',
   },
@@ -115,15 +115,15 @@ export default function SocialProof() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Built to a</span>
+              <span className="gradient-text">Your Web Team</span>
               <br />
-              <span className="text-white">verifiable standard.</span>
+              <span className="text-white">delivers verifiable results.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              We&apos;re a new studio — which means founding-client pricing, direct access to the builder,
-              and standards we set publicly so you can hold us to them.
+              We set our standards publicly so you can measure our performance. 
+              Every site your web team builds meets these benchmarks — verifiably, measurably, consistently.
             </p>
           </div>
         </div>

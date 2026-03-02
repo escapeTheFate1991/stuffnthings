@@ -19,8 +19,8 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              High-Performance Digital Presence. Zero Technical Friction.
-              We build, optimize, and maintain your entire digital presence so you can focus on growth.
+              We're your web team — the entire web department you never had to hire.
+              Design, engineering, performance, SEO, security, updates, strategy. All ongoing.
             </p>
             <p className="text-slate-600 text-sm mb-6">
               Built by Eddy — independent studio, founding clients welcome.

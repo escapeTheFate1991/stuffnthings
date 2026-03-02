@@ -159,14 +159,14 @@ export default function Portfolio() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Sample</span>{' '}
-              <span className="gradient-text">Builds</span>
+              <span className="text-white">Built to Our</span>{' '}
+              <span className="gradient-text">Standards</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Template demos built to our full production standard — real Lighthouse scores, real code.
-              These are the kinds of sites your clients will be comparing you to.
+              Real sites built to our production standards — verifiable Lighthouse scores, measurable performance.
+              This is the quality your web team delivers, every time.
             </p>
           </div>
         </div>

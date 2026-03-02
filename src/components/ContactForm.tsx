@@ -10,7 +10,7 @@ const benefits = [
   {
     icon: '🔍',
     title: 'Full Lighthouse Diagnostic',
-    text: 'We run a structured audit across Performance, Accessibility, Best Practices, and SEO — and explain every score in plain language.',
+    text: 'Your web team runs a structured audit across Performance, Accessibility, Best Practices, and SEO — and explains every score in plain language.',
   },
   {
     icon: '⚡',
@@ -73,13 +73,13 @@ export default function ContactForm() {
             <h2 className="section-heading mb-6">
               <span className="text-white">Get a Free</span>
               <br />
-              <span className="gradient-text">Technical Site Audit</span>
+              <span className="gradient-text">Friction Audit</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
               Most sites have three to five critical issues that are measurable, fixable, and being ignored.
-              We&apos;ll find them, document them, and show you exactly what it would take to resolve each one.
+              Your web team will find them, document them, and show you exactly what it would take to resolve each one.
             </p>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function ContactForm() {
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                What the Audit Covers
+                What Your Web Team Analyzes
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 This isn&apos;t a traffic-light report with no context. Every finding comes with a technical explanation,

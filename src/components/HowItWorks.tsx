@@ -7,9 +7,9 @@ const steps = [
   {
     number: '01',
     title: 'Free Friction Audit',
-    subtitle: 'We analyze what\'s broken',
+    subtitle: 'Your web team diagnoses every issue',
     description:
-      'Our team performs a comprehensive analysis of your current website, identifying performance bottlenecks, conversion killers, and missed opportunities. You\'ll receive a detailed report with actionable insights within 48 hours.',
+      'Your web team performs a comprehensive analysis of your current website, identifying performance bottlenecks, conversion killers, and missed opportunities. You receive a detailed report with actionable insights within 48 hours.',
     timeline: '48 hours',
     deliverables: [
       'Performance analysis & speed test',
@@ -28,10 +28,10 @@ const steps = [
   },
   {
     number: '02',
-    title: 'We Build & Launch',
+    title: 'Your Team Builds & Launches',
     subtitle: 'From strategy to live site',
     description:
-      'Based on the audit findings, we design and build your high-performance website from the ground up. Every element is optimized for speed, conversions, and user experience.',
+      'Based on the audit findings, your web team designs and builds your high-performance website from the ground up. Every element is optimized for speed, conversions, and user experience.',
     timeline: '2-4 weeks',
     deliverables: [
       'Custom website design & development',
@@ -50,10 +50,10 @@ const steps = [
   },
   {
     number: '03',
-    title: 'We Manage Everything',
-    subtitle: 'Ongoing optimization & support',
+    title: 'Your Team Stays & Optimizes',
+    subtitle: 'Continuous improvement, not abandonment',
     description:
-      'Your website is never \'done.\' We continuously monitor, optimize, and improve your site\'s performance so your website gets better over time, not worse.',
+      'Your website is never finished. Your web team continuously monitors, optimizes, and improves your site so it gets better every month, not worse. This is the difference between a project and a partnership.',
     timeline: 'Ongoing',
     deliverables: [
       'Continuous performance monitoring',
@@ -94,8 +94,8 @@ export default function HowItWorks() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              From broken to brilliant in three simple steps.
-              We handle all the technical complexity while you see the results.
+              From broken to brilliant in three steps.
+              We handle the complexity. You see the results.
             </p>
           </div>
         </div>
@@ -172,14 +172,14 @@ export default function HowItWorks() {
             <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-brand-purple/10 to-brand-green/5" />
             <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Transform Your Digital Presence?
+                Ready to Get Your Web Team?
               </h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                The first step costs nothing. Get your free friction audit and discover
-                exactly what&apos;s holding your website back from peak performance.
+                The first step costs nothing. Get your free friction audit and see
+                exactly how your web team will improve your site's performance.
               </p>
               <button onClick={handleCTAClick} className="btn btn-primary text-lg px-10 py-5">
-                Start Your Free Audit Today
+                Get Your Free Friction Audit
                 <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
