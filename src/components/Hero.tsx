@@ -230,20 +230,29 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Trust bar */}
-        <div className="hero-reveal reveal flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-500">
-          <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            No contracts · Cancel anytime
-          </span>
-          <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            Friction audit in 48 hours
-          </span>
-          <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/></svg>
-            Every score is verifiable
-          </span>
+        {/* Trust bar — pre-emptive objection handling (Warby Parker pattern) */}
+        <div className="hero-reveal reveal">
+          <div className="glass rounded-2xl border border-slate-700/30 px-6 py-4 inline-flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            <span className="flex items-center gap-2 text-sm text-slate-400">
+              <span className="w-2 h-2 bg-brand-green rounded-full" />
+              No contracts
+            </span>
+            <span className="hidden md:block w-px h-4 bg-slate-700" />
+            <span className="flex items-center gap-2 text-sm text-slate-400">
+              <span className="w-2 h-2 bg-brand-green rounded-full" />
+              Cancel anytime
+            </span>
+            <span className="hidden md:block w-px h-4 bg-slate-700" />
+            <span className="flex items-center gap-2 text-sm text-slate-400">
+              <span className="w-2 h-2 bg-brand-green rounded-full" />
+              48-hour audit turnaround
+            </span>
+            <span className="hidden md:block w-px h-4 bg-slate-700" />
+            <span className="flex items-center gap-2 text-sm text-slate-400">
+              <span className="w-2 h-2 bg-brand-green rounded-full" />
+              Every score is verifiable
+            </span>
+          </div>
         </div>
       </div>
 
