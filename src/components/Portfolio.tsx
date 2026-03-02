@@ -210,11 +210,12 @@ const projects = [
 ]
 
 /* ── Small Card (All view) ── */
-function ProjectCard({ project, onClick }: { project: (typeof projects)[0]; onClick: () => void }) {
+function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   const { ref, handlers } = useTilt<HTMLDivElement>(6)
 
   return (
-    <div ref={ref} {...handlers} className="group cursor-pointer" onClick={onClick}>
+    <a href={project.href} target="_blank" rel="noopener noreferrer" className="block group cursor-pointer no-underline">
+      <div ref={ref} {...handlers}>
       <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors">
         <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
@@ -246,10 +247,13 @@ function ProjectCard({ project, onClick }: { project: (typeof projects)[0]; onCl
             {project.category}
           </span>
           <h3 className="text-xl font-bold text-white mt-2 mb-2 font-display">{project.title}</h3>
-          <p className="text-sm text-slate-400 leading-relaxed">{project.description}</p>
+          <span className={`text-xs font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent flex items-center gap-1 mt-3`}>
+              View Live Example →
+            </span>
         </div>
       </div>
-    </div>
+      </div>
+    </a>
   )
 }
 
@@ -419,17 +423,21 @@ export default function Portfolio() {
         </div>
 
         {/* Content — Grid (All) or Case Study (filtered) */}
-        {activeFilter === 'All' ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filtered.map((project, i) => (
-              <div key={project.title} className={`reveal stagger-${Math.min(i + 1, 6)}`}>
-                <ProjectCard project={project} onClick={() => setActiveFilter(project.category)} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <CaseStudyView project={filtered[0]} />
-        )}
+        <div key={activeFilter}>
+          {activeFilter === 'All' ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, i) => (
+                <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="animate-fade-in">
+              <CaseStudyView project={filtered[0]} />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )
