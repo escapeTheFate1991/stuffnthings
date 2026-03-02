@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
 
-const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || 'https://api.stuffnthings.io'
+const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || 'https://stuffnthings-contact.stuffnthings.workers.dev'
 
 const inputClass =
   'w-full px-5 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 transition-all duration-300 hover:border-slate-600/50'
