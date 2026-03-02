@@ -5,7 +5,8 @@ import { useScrollReveal } from '@/lib/hooks'
 import emailjs from '@emailjs/browser'
 
 const EMAILJS_SERVICE_ID = 'service_wlkod83'
-const EMAILJS_TEMPLATE_ID = 'template_k4i21rc'
+const EMAILJS_TEMPLATE_ID = 'template_73toiyd'
+const EMAILJS_AUTOREPLY_ID = 'template_tpg1n6c'
 const EMAILJS_PUBLIC_KEY = 'f3K57-eWieF0Fpm6N'
 
 const inputClass =
@@ -38,14 +39,16 @@ export default function ContactForm() {
   const sectionRef = useScrollReveal<HTMLElement>()
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     businessName: '',
     websiteUrl: '',
     phone: '',
+    message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
@@ -57,22 +60,25 @@ export default function ContactForm() {
     setError('')
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          businessName: formData.businessName,
-          websiteUrl: formData.websiteUrl,
-          phone: formData.phone,
-        },
-        EMAILJS_PUBLIC_KEY,
-      )
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        business_name: formData.businessName,
+        website_url: formData.websiteUrl,
+        phone: formData.phone,
+        message: formData.message,
+      }
+
+      // Send lead notification to us + auto-reply to customer
+      await Promise.all([
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_ID, templateParams, EMAILJS_PUBLIC_KEY),
+      ])
       setIsSubmitting(false)
       setIsSubmitted(true)
       setTimeout(() => {
         setIsSubmitted(false)
-        setFormData({ name: '', businessName: '', websiteUrl: '', phone: '' })
+        setFormData({ name: '', email: '', businessName: '', websiteUrl: '', phone: '', message: '' })
       }, 5000)
     } catch (err: any) {
       setIsSubmitting(false)
@@ -147,6 +153,22 @@ export default function ContactForm() {
                     </div>
 
                     <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className={inputClass}
+                        placeholder="jane@acme.com"
+                      />
+                    </div>
+
+                    <div>
                       <label htmlFor="businessName" className="block text-sm font-medium text-slate-300 mb-2">
                         Business Name
                       </label>
@@ -191,6 +213,21 @@ export default function ContactForm() {
                         required
                         className={inputClass}
                         placeholder="(555) 123-4567"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+                        Message <span className="text-slate-600">(optional)</span>
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={3}
+                        className={`${inputClass} resize-none`}
+                        placeholder="Tell us about your project or what you need help with..."
                       />
                     </div>
 
