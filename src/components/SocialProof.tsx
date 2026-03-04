@@ -23,12 +23,12 @@ function TechMarquee() {
     { name: 'Perplexity', icon: '🔍' },
     { name: 'OpenClaw', icon: '🐾' },
     { name: 'Ollama', icon: '🦙' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'React', icon: '⚛' },
     { name: 'GitHub', icon: '🐙' },
     { name: 'Cloudflare', icon: '☁️' },
     { name: 'n8n', icon: '⚡' },
-    { name: 'Hummingbot', icon: '🐝' },
+    { name: 'Zapier', icon: '🔗' },
+    { name: 'Notion', icon: '📝' },
+    { name: 'Stripe', icon: '💳' },
   ]
   const doubled = [...stack, ...stack]
 
