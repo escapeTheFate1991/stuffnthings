@@ -24,7 +24,7 @@ function TechMarquee() {
     { name: 'Vercel', icon: '▲' },
     { name: 'Lighthouse', icon: '🔦' },
     { name: 'Core Web Vitals', icon: '📊' },
-    { name: 'WCAG 2.1 AA', icon: '♿' },
+    { name: 'AI Automation', icon: '🤖' },
     { name: 'Structured Data', icon: '🗂' },
     { name: 'GitHub Actions', icon: '⚙️' },
   ]
@@ -79,11 +79,11 @@ const standards = [
     gradient: 'from-brand-cyan to-blue-500',
   },
   {
-    icon: '♿',
-    title: 'Accessibility Is Not Optional.',
+    icon: '🤖',
+    title: 'AI That Actually Does the Work.',
     commitment:
-      "Accessibility isn't a checkbox we tick at the end. It's built into every page from the first line of code — semantic HTML, proper ARIA labels, contrast ratios that actually pass. We target a perfect 100.",
-    proof: 'Target: Accessibility = 100 · WCAG 2.1 AA',
+      "We don't just build your site and hand you a login. Our AI generates content, captures leads, monitors performance, and automates your workflows — so your web presence grows while you focus on your business.",
+    proof: 'Included: AI Content · Lead Capture · Competitive Intel · Automation',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
@@ -98,7 +98,7 @@ const standards = [
 
 const stats = [
   { end: 95, suffix: '+', label: 'Lighthouse Perf — our floor', icon: '🚀' },
-  { end: 100, suffix: '', label: 'Accessibility — our target', icon: '♿' },
+  { end: 6, suffix: '+', label: 'AI automations per site', icon: '🤖' },
   { end: 99, suffix: '.9%', label: 'Uptime SLA', icon: '🔧' },
   { end: 100, suffix: '', label: 'SEO Score — our standard', icon: '📡' },
 ]
@@ -171,7 +171,7 @@ export default function SocialProof() {
                 gradient: "from-brand-cyan to-blue-500",
               },
               {
-                quote: "Our old agency delivered a site and vanished. These guys rebuilt it, and now they actually maintain it. First time I haven\u2019t had to worry about the website in 8 years.",
+                quote: "The AI automation alone replaced two part-time hires. Content goes out on schedule, leads get followed up instantly, and I get a weekly report I actually understand. It's like having a marketing team built into the website.",
                 name: "Marcus Chen",
                 role: "Founder, Summit Legal Advisors",
                 avatar: "MC",

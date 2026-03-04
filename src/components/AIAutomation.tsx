@@ -108,12 +108,12 @@ export default function AIAutomation() {
         <div className="reveal text-center">
           <div className="glass rounded-2xl border border-slate-700/30 p-10 md:p-14 max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-              This Isn&apos;t Extra. It&apos;s <span className="gradient-text">Built In.</span>
+              AI That <span className="gradient-text">Scales With You.</span>
             </h3>
             <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Every partnership includes AI automation at no additional cost.
-              While other agencies charge $200-500/month for basic scheduling tools,
-              we bake intelligence into your entire web operation.
+              Every plan includes AI-powered lead capture and performance monitoring.
+              Move up and unlock content generation, competitive intelligence, social automation,
+              and custom AI agents — capabilities that replace $200-500/month in tools and part-time hires.
             </p>
             <button
               onClick={handleCTAClick}
