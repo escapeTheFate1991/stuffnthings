@@ -6,39 +6,21 @@ import { useScrollReveal } from '@/lib/hooks'
 const capabilities = [
   {
     icon: '🤖',
-    title: 'AI Content Engine',
-    description: 'We generate on-brand social posts, blog drafts, and ad copy tuned to your voice — then schedule them automatically across every platform.',
+    title: 'AI Content Generation',
+    description: 'We generate on-brand social posts, blog drafts, and ad copy tuned to your voice — then schedule them automatically. Your content writes itself while you focus on running your business.',
     tag: 'Content',
-  },
-  {
-    icon: '📊',
-    title: 'Competitive Intelligence',
-    description: 'Our AI scans your competitors\u2019 top-performing content — hooks, formats, posting times — and turns those insights into your content strategy.',
-    tag: 'Strategy',
   },
   {
     icon: '🎯',
     title: 'Smart Lead Capture',
-    description: 'AI-powered forms and chat that qualify visitors in real-time, route hot leads to your inbox instantly, and follow up automatically if they go cold.',
+    description: 'AI-powered forms that qualify visitors in real-time, route hot leads to your inbox instantly, and follow up automatically if they go cold. No lead falls through the cracks.',
     tag: 'Leads',
   },
   {
-    icon: '⚡',
-    title: 'Performance Autopilot',
-    description: 'Continuous monitoring of speed, SEO, and uptime. When something drifts, our systems detect it and fix it — often before you even notice.',
-    tag: 'Speed',
-  },
-  {
     icon: '📈',
-    title: 'Analytics That Think',
-    description: 'Not just dashboards — AI that reads your data, spots trends, and tells you what to do next. Weekly insights delivered, no analyst required.',
-    tag: 'Insights',
-  },
-  {
-    icon: '🔄',
-    title: 'Workflow Automation',
-    description: 'CRM updates, email sequences, appointment booking, review requests — we wire up the repetitive stuff so your team focuses on closing.',
-    tag: 'Automation',
+    title: 'Performance Monitoring',
+    description: 'Continuous monitoring of speed, SEO, and uptime. When something drifts, our systems detect it and fix it — often before you even notice. Monthly reports show exactly what\u2019s working.',
+    tag: 'Monitoring',
   },
 ]
 
@@ -75,14 +57,14 @@ export default function AIAutomation() {
           <div className="reveal stagger-2">
             <p className="section-subtext">
               Most agencies build your site and disappear. We embed AI into every layer —
-              content creation, lead capture, competitive analysis, and performance monitoring —
+              content creation, lead capture, and performance monitoring —
               so your web presence gets smarter every week, not stale.
             </p>
           </div>
         </div>
 
-        {/* Capabilities Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        {/* Capabilities Grid — 3 cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {capabilities.map((cap, index) => (
             <div key={index} className={`reveal stagger-${index + 1}`}>
               <div className="group relative bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-500 h-full">
@@ -108,12 +90,12 @@ export default function AIAutomation() {
         <div className="reveal text-center">
           <div className="glass rounded-2xl border border-slate-700/30 p-10 md:p-14 max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-              AI That <span className="gradient-text">Scales With You.</span>
+              AI That <span className="gradient-text">Works While You Sleep.</span>
             </h3>
             <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Every plan includes AI-powered lead capture and performance monitoring.
-              Move up and unlock content generation, competitive intelligence, social automation,
-              and custom AI agents — capabilities that replace $200-500/month in tools and part-time hires.
+              Content goes out on schedule. Leads get captured automatically.
+              Performance stays at peak. You get a monthly report showing exactly what happened —
+              no login required.
             </p>
             <button
               onClick={handleCTAClick}

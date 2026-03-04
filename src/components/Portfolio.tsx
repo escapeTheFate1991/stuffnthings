@@ -403,13 +403,14 @@ export default function Portfolio() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">See the</span>{' '}
-              <span className="gradient-text">Work</span>
+              <span className="text-white">Our Build</span>{' '}
+              <span className="gradient-text">Standard</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Real sites. Real scores. Click any project to see the full case study — before, after, and the numbers that matter.
+              Every site is built to the same production standard — optimized, fast, and conversion-ready.
+              Click any project to see the before/after analysis and live Lighthouse scores.
             </p>
           </div>
         </div>

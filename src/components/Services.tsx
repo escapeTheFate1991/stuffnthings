@@ -3,81 +3,22 @@
 import { useCallback } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
 
-const services = [
-  {
-    name: 'Essentials',
-    price: '$299',
-    period: '/month',
-    description: 'Everything a small business needs to look sharp online.',
-    features: [
-      'Mobile-first design & development',
-      'Core Web Vitals optimized build',
-      'On-page SEO architecture',
-      'AI-powered lead capture & smart forms',
-      'SSL, security hardening & uptime monitoring',
-      'Monthly Lighthouse performance report',
-      'AI performance monitoring & auto-alerts',
-      'Email support with 48-hour response SLA',
-    ],
-    popular: false,
-    cta: 'Start Here',
-    ideal: 'Consultants, local services, professional practices',
-    accent: 'from-slate-500 to-slate-400',
-    iconBg: 'bg-slate-700/50',
-  },
-  {
-    name: 'Growth Partner',
-    price: '$599',
-    priceRange: '–$899',
-    period: '/month',
-    description: 'For businesses ready to grow. We handle everything.',
-    features: [
-      'Everything in Essentials, plus:',
-      'AI content generation & social scheduling',
-      'Competitive intelligence — scan top creators',
-      'AI analytics & weekly insight reports',
-      'CRM, marketing stack & workflow automation',
-      'Monthly strategy & performance review call',
-      'Unlimited content updates & design revisions',
-      'Priority support with 24-hour response SLA',
-      'A/B testing & conversion optimization',
-    ],
-    popular: true,
-    cta: 'Get Started',
-    ideal: 'Growing businesses, online stores, B2B companies',
-    accent: 'from-brand-cyan to-brand-purple',
-    iconBg: 'bg-brand-cyan/10',
-  },
-  {
-    name: 'Enterprise',
-    price: '$1,200',
-    priceRange: '+',
-    period: '/month',
-    description: 'A dedicated team for platforms that can\u2019t afford downtime.',
-    features: [
-      'Everything in Growth Partner, plus:',
-      'Full AI content engine — posts, scripts, ads',
-      'Custom AI agents for your business workflows',
-      'Multi-platform social automation & posting',
-      'Dedicated account manager & AI engineer',
-      'Weekly strategy, roadmap & optimization calls',
-      'Priority development queue (no ticket backlogs)',
-      '24/7 AI monitoring & incident auto-response',
-      'Executive dashboards with predictive insights',
-    ],
-    popular: false,
-    cta: 'Talk to Us',
-    ideal: 'Established brands, high-traffic platforms, enterprises',
-    accent: 'from-brand-purple to-brand-coral',
-    iconBg: 'bg-brand-purple/10',
-  },
+const features = [
+  'Custom website — designed, built, and deployed',
+  'AI-powered lead capture & smart forms',
+  'AI content generation (4–8 posts/month)',
+  'Performance monitoring & auto-alerts',
+  'Hosting, SSL, security hardening & uptime monitoring',
+  'Monthly performance report with actionable insights',
+  'On-page SEO architecture & Core Web Vitals optimization',
+  'Email support with 48-hour response SLA',
 ]
 
 const guarantees = [
   { icon: '🚀', label: '95+ Lighthouse Score' },
   { icon: '🤖', label: 'AI Automation Included' },
   { icon: '🔒', label: 'Enterprise-Grade Security' },
-  { icon: '📈', label: 'Gets Smarter Every Week' },
+  { icon: '📈', label: 'Monthly Performance Reports' },
 ]
 
 export default function Services() {
@@ -98,95 +39,88 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Simple Pricing.</span>
+              <span className="gradient-text">One Plan.</span>
               <br />
-              <span className="text-white">No Surprises.</span>
+              <span className="text-white">Everything Included.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              A full-time web team costs $25K+ a month. An agency project runs $15-50K and they disappear after.
+              A full-time web team costs $25K+ a month. An agency project runs $15–50K and they disappear after.
               We give you the team without the overhead — and we never leave.
             </p>
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`reveal stagger-${index + 1} ${service.popular ? 'lg:-mt-4 lg:mb-[-16px]' : ''}`}
-            >
-              <div
-                className={`relative rounded-2xl transition-all duration-500 group ${
-                  service.popular
-                    ? 'bg-slate-800/80 border-2 border-brand-cyan/30 shadow-2xl shadow-brand-cyan/10 hover:shadow-brand-cyan/20 hover:border-brand-cyan/50'
-                    : 'bg-slate-800/40 border border-slate-700/50 hover:border-slate-600/50 hover:shadow-xl'
-                } p-8 lg:p-10`}
-              >
-                {/* Popular badge */}
-                {service.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
-                      <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+        {/* Single Pricing Card */}
+        <div className="max-w-2xl mx-auto reveal">
+          <div className="relative rounded-2xl bg-slate-800/80 border-2 border-brand-cyan/30 shadow-2xl shadow-brand-cyan/10 hover:shadow-brand-cyan/20 hover:border-brand-cyan/50 transition-all duration-500 p-8 lg:p-12">
+            {/* Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
+                <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                AI Web Operations Partner
+              </span>
+            </div>
 
-                {/* Plan name & price */}
-                <div className="text-center mb-8">
-                  <h3 className="text-xl font-bold text-white mb-4 font-display">{service.name}</h3>
-                  <div className="flex items-baseline justify-center gap-1 mb-3">
-                    <span className={`text-5xl font-black bg-gradient-to-r ${service.accent} bg-clip-text text-transparent`}>
-                      {service.price}
-                    </span>
-                    {service.priceRange && (
-                      <span className={`text-2xl font-bold bg-gradient-to-r ${service.accent} bg-clip-text text-transparent`}>
-                        {service.priceRange}
-                      </span>
-                    )}
-                    <span className="text-slate-500 text-sm ml-1">{service.period}</span>
-                  </div>
-                  <p className="text-slate-400 text-sm">{service.description}</p>
+            <div className="text-center mb-10">
+              {/* Setup fee */}
+              <div className="mb-6">
+                <div className="flex items-baseline justify-center gap-1 mb-1">
+                  <span className="text-5xl md:text-6xl font-black bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">
+                    $497
+                  </span>
+                  <span className="text-slate-500 text-sm ml-1">/month</span>
                 </div>
+                <p className="text-slate-400 text-sm">+ $1,997 one-time setup fee</p>
+              </div>
 
-                {/* Features */}
-                <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, fi) => (
-                    <li key={fi} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className={`text-sm ${feature.includes('Everything in') ? 'text-brand-cyan font-semibold' : 'text-slate-300'}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              <p className="text-slate-300 text-lg leading-relaxed max-w-md mx-auto">
+                Your website updates itself. Your content writes itself. Your leads get captured automatically.
+                You get a report every month showing what&apos;s working.
+              </p>
+            </div>
 
-                {/* Ideal for */}
-                <div className="border-t border-slate-700/50 pt-5 mb-6">
-                  <p className="text-brand-green/80 text-xs font-medium text-center tracking-wide uppercase">
-                    Ideal for: {service.ideal}
-                  </p>
+            {/* Features */}
+            <ul className="space-y-3 mb-10">
+              {features.map((feature, fi) => (
+                <li key={fi} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-sm text-slate-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* What it replaces */}
+            <div className="border-t border-slate-700/50 pt-6 mb-8">
+              <p className="text-xs text-slate-500 text-center mb-3 uppercase tracking-wider font-medium">What this replaces</p>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="glass rounded-xl p-3">
+                  <div className="text-lg font-bold text-red-400 line-through">$25K+</div>
+                  <div className="text-[10px] text-slate-500 mt-1">In-house team /mo</div>
                 </div>
-
-                {/* CTA */}
-                <button
-                  onClick={handleCTAClick}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                    service.popular
-                      ? 'btn btn-primary !rounded-xl'
-                      : 'btn btn-secondary !rounded-xl'
-                  }`}
-                >
-                  {service.cta}
-                </button>
+                <div className="glass rounded-xl p-3">
+                  <div className="text-lg font-bold text-red-400 line-through">$15–50K</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Agency project</div>
+                </div>
+                <div className="glass rounded-xl p-3">
+                  <div className="text-lg font-bold text-red-400 line-through">$200–500</div>
+                  <div className="text-[10px] text-slate-500 mt-1">SaaS tools /mo</div>
+                </div>
               </div>
             </div>
-          ))}
+
+            {/* CTA */}
+            <button
+              onClick={handleCTAClick}
+              className="w-full btn btn-primary !rounded-xl !py-5 text-lg"
+            >
+              Start With a Free Audit
+            </button>
+            <p className="text-xs text-slate-600 text-center mt-3">No contracts. Cancel anytime.</p>
+          </div>
         </div>
 
         {/* Guarantees */}

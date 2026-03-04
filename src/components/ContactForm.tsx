@@ -302,7 +302,7 @@ export default function ContactForm() {
                   <div className="text-xs text-slate-400 mt-1">LCP (Largest Contentful Paint)</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">6+</div>
+                  <div className="text-2xl font-bold gradient-text">3</div>
                   <div className="text-xs text-slate-400 mt-1">AI Automations Per Site</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">

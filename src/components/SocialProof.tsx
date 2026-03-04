@@ -14,42 +14,6 @@ function Stat({ end, suffix, label, icon }: { end: number; suffix: string; label
   )
 }
 
-/* ── Tech Stack Marquee (honest: these are the tools we actually use) ── */
-function TechMarquee() {
-  const stack = [
-    { name: 'Claude', icon: '🧠' },
-    { name: 'OpenAI', icon: '🤖' },
-    { name: 'Gemini', icon: '✨' },
-    { name: 'Perplexity', icon: '🔍' },
-    { name: 'OpenClaw', icon: '🐾' },
-    { name: 'Ollama', icon: '🦙' },
-    { name: 'GitHub', icon: '🐙' },
-    { name: 'Cloudflare', icon: '☁️' },
-    { name: 'n8n', icon: '⚡' },
-    { name: 'Zapier', icon: '🔗' },
-    { name: 'Notion', icon: '📝' },
-    { name: 'Stripe', icon: '💳' },
-  ]
-  const doubled = [...stack, ...stack]
-
-  return (
-    <div className="relative overflow-hidden py-8 mb-16">
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-950 to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-950 to-transparent z-10" />
-      <div className="flex animate-marquee whitespace-nowrap">
-        {doubled.map((item, i) => (
-          <div key={i} className="mx-8 flex items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors duration-300">
-            <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700/50 flex items-center justify-center text-xs font-bold">
-              {item.icon}
-            </div>
-            <span className="text-sm font-semibold tracking-tight">{item.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 /* ── Build Standard Card ── */
 function StandardCard({
   icon, title, commitment, proof, gradient,
@@ -84,8 +48,8 @@ const standards = [
     icon: '🤖',
     title: 'AI That Actually Does the Work.',
     commitment:
-      "We don't just build your site and hand you a login. Our AI generates content, captures leads, monitors performance, and automates your workflows — so your web presence grows while you focus on your business.",
-    proof: 'Included: AI Content · Lead Capture · Competitive Intel · Automation',
+      "We don't just build your site and hand you a login. Our AI generates content, captures leads, and monitors performance — so your web presence grows while you focus on your business.",
+    proof: 'Included: AI Content · Lead Capture · Performance Monitoring',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
@@ -100,7 +64,7 @@ const standards = [
 
 const stats = [
   { end: 95, suffix: '+', label: 'Lighthouse Perf — our floor', icon: '🚀' },
-  { end: 6, suffix: '+', label: 'AI automations per site', icon: '🤖' },
+  { end: 3, suffix: '', label: 'AI automations per site', icon: '🤖' },
   { end: 99, suffix: '.9%', label: 'Uptime SLA', icon: '🔧' },
   { end: 100, suffix: '', label: 'SEO Score — our standard', icon: '📡' },
 ]
@@ -130,14 +94,6 @@ export default function SocialProof() {
           </div>
         </div>
 
-        {/* Tech stack marquee */}
-        <div className="reveal">
-          <p className="text-center text-xs uppercase tracking-[0.2em] text-slate-600 font-medium mb-4">
-            Powered by
-          </p>
-          <TechMarquee />
-        </div>
-
         {/* Stats */}
         <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((s, i) => (
@@ -154,60 +110,6 @@ export default function SocialProof() {
               <StandardCard {...s} />
             </div>
           ))}
-        </div>
-
-        {/* Testimonials — personal proof layer */}
-        <div className="mt-20">
-          <div className="reveal">
-            <p className="text-center text-xs uppercase tracking-[0.2em] text-slate-600 font-medium mb-10">
-              What Our Partners Say
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "We went from a 43 Lighthouse score to 97 in three weeks. Our bounce rate dropped 40% and leads doubled the first month.",
-                name: "Rachel Torres",
-                role: "Owner, Bright Path Wellness",
-                avatar: "RT",
-                gradient: "from-brand-cyan to-blue-500",
-              },
-              {
-                quote: "The AI automation alone replaced two part-time hires. Content goes out on schedule, leads get followed up instantly, and I get a weekly report I actually understand. It's like having a marketing team built into the website.",
-                name: "Marcus Chen",
-                role: "Founder, Summit Legal Advisors",
-                avatar: "MC",
-                gradient: "from-brand-purple to-pink-500",
-              },
-              {
-                quote: "The free audit alone was worth more than what our last agency charged for a full project. Showed us exactly what was costing us conversions.",
-                name: "Jennifer Walsh",
-                role: "Director, Keystone Property Group",
-                avatar: "JW",
-                gradient: "from-brand-green to-emerald-400",
-              },
-            ].map((t, i) => (
-              <div key={i} className={`reveal stagger-${i + 1}`}>
-                <div className="card h-full flex flex-col">
-                  <div className="flex-1 mb-6">
-                    <svg className="w-8 h-8 text-slate-700 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/>
-                    </svg>
-                    <p className="text-slate-300 leading-relaxed italic">&ldquo;{t.quote}&rdquo;</p>
-                  </div>
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-800/50">
-                    <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-sm font-bold`}>
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold text-sm">{t.name}</p>
-                      <p className="text-slate-500 text-xs">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
