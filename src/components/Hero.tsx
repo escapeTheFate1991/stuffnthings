@@ -47,7 +47,6 @@ function ParticleBackground() {
         ctx.fillStyle = `rgba(6, 182, 212, ${p.o})`
         ctx.fill()
 
-        // Connect nearby particles
         for (let j = i + 1; j < particles.length; j++) {
           const dx = p.x - particles[j].x
           const dy = p.y - particles[j].y
@@ -80,46 +79,44 @@ function FloatingElements() {
   const offset = useParallax(15)
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-      {/* Lighthouse Performance badge — scores are for this site */}
+      {/* AI Content badge */}
       <div
         className="absolute top-[18%] left-[8%] animate-float hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.5}px, ${offset.y * 0.5}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">🚀</span>
+          <span className="text-2xl">🤖</span>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Our site · Lighthouse Perf</div>
-            <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">AI Content</div>
+            <div className="text-lg font-bold text-brand-cyan">Generating</div>
           </div>
         </div>
       </div>
 
-      {/* Core Web Vitals snippet */}
+      {/* Lead Capture badge */}
       <div
         className="absolute top-[25%] right-[6%] animate-float-delayed hidden lg:block"
         style={{ transform: `translate(${offset.x * -0.3}px, ${offset.y * -0.3}px)` }}
       >
-        <div className="glass rounded-2xl px-5 py-3 font-mono text-xs">
-          <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-1 font-sans">Our site · Core Web Vitals</div>
-          <span className="text-brand-purple">LCP</span>{' '}
-          <span className="text-slate-400">&lt;</span>{' '}
-          <span className="text-brand-green">1.2s</span>
-          <span className="text-slate-500"> · </span>
-          <span className="text-brand-purple">CLS</span>{' '}
-          <span className="text-brand-cyan">0.00</span>
+        <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
+          <span className="text-2xl">🎯</span>
+          <div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Lead Captured</div>
+            <div className="text-lg font-bold text-brand-green">+1 New</div>
+          </div>
         </div>
       </div>
 
-      {/* AI Automation badge */}
+      {/* Performance badge */}
       <div
         className="absolute bottom-[35%] left-[10%] animate-float-slow hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.4}px, ${offset.y * 0.4}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">🤖</span>
+          <span className="text-2xl">🚀</span>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">AI Workflow Automation</div>
-            <div className="text-lg font-bold text-brand-cyan">Always On</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Lighthouse Score</div>
+            <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
           </div>
         </div>
       </div>
@@ -147,7 +144,6 @@ export default function Hero() {
   useEffect(() => {
     const el = heroRef.current
     if (!el) return
-    // Trigger staggered reveals after mount
     const children = el.querySelectorAll('.hero-reveal')
     children.forEach((child, i) => {
       setTimeout(() => child.classList.add('visible'), 200 + i * 180)
@@ -187,27 +183,23 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Main heading */}
+        {/* Main heading — AI-forward */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">Your Website</span>
+            <span className="gradient-text inline-block">AI Runs Your</span>
             <br />
-            <span className="text-white inline-block">Should Never</span>
+            <span className="text-white inline-block">Web Presence.</span>
             <br />
-            <span className="text-white inline-block">Fall Behind.</span>
+            <span className="text-white inline-block">You Run Your</span>
+            <br />
+            <span className="gradient-text inline-block">Business.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
-          <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-300/80 mb-8 tracking-tight">
-            We keep it fast, secure, and performing at its peak.
-          </p>
-        </div>
-
-        <div className="hero-reveal reveal">
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We handle the design, the code, the speed, the security — all of it, ongoing.
-            Think of us as the web department you never had to hire.
+          <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+            We plug AI into your web presence so your site generates leads,
+            your content writes itself, and you never touch any of it.
           </p>
         </div>
 
@@ -230,7 +222,7 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Trust bar — pre-emptive objection handling (Warby Parker pattern) */}
+        {/* Trust bar */}
         <div className="hero-reveal reveal">
           <div className="glass rounded-2xl border border-slate-700/30 px-6 py-4 inline-flex flex-wrap items-center justify-center gap-6 md:gap-10">
             <span className="flex items-center gap-2 text-sm text-slate-400">
@@ -256,7 +248,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — icon only, no text */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <div className="flex flex-col items-center text-slate-600 animate-bounce-subtle">
           <div className="w-5 h-8 border border-slate-700 rounded-full flex justify-center pt-1.5">

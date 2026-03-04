@@ -20,12 +20,12 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
+    { href: '#ai', label: 'AI' },
     { href: '#problem', label: 'Why Us' },
     { href: '#how-it-works', label: 'How It Works' },
-    { href: '#ai', label: 'AI' },
     { href: '#testimonials', label: 'Results' },
     { href: '#services', label: 'Pricing' },
-    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#portfolio', label: 'Our Work' },
     { href: '#contact', label: 'Contact' },
   ]
 
