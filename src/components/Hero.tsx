@@ -210,7 +210,7 @@ export default function Hero() {
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We build fast, high-performing websites — then plug in AI that writes your content,
+            We build fast, high-performing websites — then plug in AI that automates your workflows,
             captures your leads, and keeps everything running. You don&apos;t lift a finger.
           </p>
         </div>

@@ -6,7 +6,7 @@ import { useScrollReveal } from '@/lib/hooks'
 const features = [
   'Custom website — designed, built, and deployed',
   'AI-powered lead capture & smart forms',
-  'AI content generation (4–8 posts/month)',
+  'AI workflow automation & task routing',
   'Performance monitoring & auto-alerts',
   'Hosting, SSL, security hardening & uptime monitoring',
   'Monthly performance report with clear insights',
@@ -104,7 +104,7 @@ export default function Services() {
               </div>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-md mx-auto">
-                Your site updates itself. Your content writes itself. Your leads get captured automatically.
+                Your site updates itself. Your workflows run themselves. Your leads get captured automatically.
                 You get a report every month showing what&apos;s working.
               </p>
             </div>
