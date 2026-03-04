@@ -17,16 +17,18 @@ function Stat({ end, suffix, label, icon }: { end: number; suffix: string; label
 /* ── Tech Stack Marquee (honest: these are the tools we actually use) ── */
 function TechMarquee() {
   const stack = [
+    { name: 'Claude', icon: '🧠' },
+    { name: 'OpenAI', icon: '🤖' },
+    { name: 'Gemini', icon: '✨' },
+    { name: 'Perplexity', icon: '🔍' },
+    { name: 'OpenClaw', icon: '🐾' },
+    { name: 'Ollama', icon: '🦙' },
     { name: 'Next.js', icon: '▲' },
     { name: 'React', icon: '⚛' },
-    { name: 'TypeScript', icon: 'TS' },
-    { name: 'Tailwind CSS', icon: '🎨' },
-    { name: 'Vercel', icon: '▲' },
-    { name: 'Lighthouse', icon: '🔦' },
-    { name: 'Core Web Vitals', icon: '📊' },
-    { name: 'AI Automation', icon: '🤖' },
-    { name: 'Structured Data', icon: '🗂' },
-    { name: 'GitHub Actions', icon: '⚙️' },
+    { name: 'GitHub', icon: '🐙' },
+    { name: 'Cloudflare', icon: '☁️' },
+    { name: 'n8n', icon: '⚡' },
+    { name: 'Hummingbot', icon: '🐝' },
   ]
   const doubled = [...stack, ...stack]
 
@@ -131,7 +133,7 @@ export default function SocialProof() {
         {/* Tech stack marquee */}
         <div className="reveal">
           <p className="text-center text-xs uppercase tracking-[0.2em] text-slate-600 font-medium mb-4">
-            Built with
+            Powered by
           </p>
           <TechMarquee />
         </div>
