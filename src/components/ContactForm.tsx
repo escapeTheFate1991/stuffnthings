@@ -10,24 +10,40 @@ const inputClass =
 
 const benefits = [
   {
-    icon: '🔍',
-    title: 'Full Lighthouse Diagnostic',
-    text: 'Performance, SEO, conversion paths, AI automation potential — we test everything and explain every opportunity in plain language. No jargon.',
+    icon: (
+      <svg className="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+    ),
+    title: 'Full Site Diagnostic',
+    text: 'Performance, SEO, conversion paths, AI automation potential — we test everything and explain every finding in plain language.',
   },
   {
-    icon: '⚡',
+    icon: (
+      <svg className="w-6 h-6 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    ),
     title: 'Core Web Vitals Breakdown',
-    text: 'We identify your LCP, CLS, and INP readings and map each one back to the specific code or infrastructure causing the issue.',
+    text: 'We identify your LCP, CLS, and INP scores and trace each one back to the specific code or infrastructure causing the problem.',
   },
   {
-    icon: '📊',
-    title: 'Prioritized Action Plan',
-    text: 'Not generic tips. A ranked list of what to fix first, what it\u2019ll cost, and how much it\u2019ll move the needle.',
+    icon: (
+      <svg className="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082" />
+      </svg>
+    ),
+    title: 'AI Automation Opportunities',
+    text: 'We scan your site for areas where AI can automate tasks — content, lead capture, customer interactions — and show you exactly how much time and money it saves.',
   },
   {
-    icon: '🔒',
+    icon: (
+      <svg className="w-6 h-6 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
     title: 'Zero Pressure. Guaranteed.',
-    text: 'No follow-up calls you didn\u2019t ask for. No hard sell. We\u2019ll send you the report and let the work speak for itself.',
+    text: 'No follow-up calls you didn\'t ask for. No hard sell. We send you the report and let the work speak for itself.',
   },
 ]
 
@@ -89,15 +105,15 @@ export default function ContactForm() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Get a Free</span>
+              <span className="text-white">Get Your Free</span>
               <br />
-              <span className="gradient-text">Friction Audit</span>
+              <span className="gradient-text">Site Audit</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most sites have 3–5 issues that are quietly costing real money. We&apos;ll find them,
-              explain them in plain English, and show you exactly what they&apos;re costing — no obligation.
+              Most sites have 3–5 issues quietly costing real money. We&apos;ll find them,
+              explain them in plain English, and show you what to fix first — no obligation.
             </p>
           </div>
         </div>
@@ -233,7 +249,7 @@ export default function ContactForm() {
                           Analyzing...
                         </span>
                       ) : (
-                        'Get My Free Friction Audit →'
+                        'Get My Free Site Audit →'
                       )}
                     </button>
 
@@ -241,7 +257,7 @@ export default function ContactForm() {
                       <p className="text-xs text-red-400 text-center">{error}</p>
                     )}
                     <p className="text-xs text-slate-600 text-center">
-                      No spam, ever. We&apos;ll contact you within 24 hours.
+                      No spam, ever. We&apos;ll reach out within 24 hours.
                     </p>
                   </form>
                 ) : (
@@ -253,8 +269,7 @@ export default function ContactForm() {
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-3">You&apos;re All Set!</h3>
                     <p className="text-slate-400 max-w-sm mx-auto">
-                      Our team will reach out within 24 hours to schedule your
-                      comprehensive free friction audit.
+                      We&apos;ll reach out within 24 hours to kick off your free site audit.
                     </p>
                   </div>
                 )}
@@ -269,7 +284,7 @@ export default function ContactForm() {
                 What We Actually Look At
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Not a traffic-light PDF with no context. Every finding comes with a clear explanation,
+                Not a traffic-light PDF with zero context. Every finding comes with an explanation,
                 a severity rating, and a concrete fix — whether you work with us or not.
               </p>
             </div>
@@ -277,7 +292,7 @@ export default function ContactForm() {
             <div className="space-y-6 mb-10">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-4 group cursor-default">
-                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center text-xl flex-shrink-0 group-hover:scale-110 group-hover:border-brand-cyan/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:border-brand-cyan/30 transition-all duration-300">
                     {b.icon}
                   </div>
                   <div>
@@ -290,7 +305,10 @@ export default function ContactForm() {
 
             <div className="glass rounded-2xl p-6 border border-brand-green/10">
               <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
-                <span className="text-lg">📋</span> What We Measure
+                <svg className="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                </svg>
+                What We Measure
               </h4>
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">

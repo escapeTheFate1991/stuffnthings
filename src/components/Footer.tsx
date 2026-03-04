@@ -19,11 +19,10 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              We design, build, and maintain high-performance websites — so you never have to think about yours again.
-              Speed. Security. SEO. All handled, all ongoing.
+              We design, build, and run high-performance websites powered by AI — so you can focus on your business, not your site.
             </p>
             <p className="text-slate-600 text-sm mb-6">
-              Independent studio. Founding clients welcome.
+              Independent studio. Founding partners welcome.
             </p>
             <div className="flex items-center gap-3 text-slate-500 text-sm">
               <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
@@ -52,7 +51,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Get Started</h4>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              Free friction audit — complete website analysis delivered in 48 hours. No strings attached.
+              Free site audit — full analysis delivered in 48 hours. No strings attached.
             </p>
             <a href="#contact" className="btn btn-primary text-sm !px-6 !py-3 inline-block">
               Get Free Audit →

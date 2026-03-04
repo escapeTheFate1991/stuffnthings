@@ -79,16 +79,20 @@ function FloatingElements() {
   const offset = useParallax(15)
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
-      {/* AI Content badge */}
+      {/* AI Workflow Automation badge */}
       <div
-        className="absolute top-[18%] left-[8%] animate-float hidden lg:block"
+        className="absolute top-[15%] left-[6%] animate-float hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.5}px, ${offset.y * 0.5}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">🤖</span>
+          <div className="w-8 h-8 rounded-lg bg-brand-cyan/20 flex items-center justify-center">
+            <svg className="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+            </svg>
+          </div>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">AI Content</div>
-            <div className="text-lg font-bold text-brand-cyan">Generating</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">AI Workflow</div>
+            <div className="text-lg font-bold text-brand-cyan">Automating</div>
           </div>
         </div>
       </div>
@@ -99,7 +103,11 @@ function FloatingElements() {
         style={{ transform: `translate(${offset.x * -0.3}px, ${offset.y * -0.3}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">🎯</span>
+          <div className="w-8 h-8 rounded-lg bg-brand-green/20 flex items-center justify-center">
+            <svg className="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+          </div>
           <div>
             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Lead Captured</div>
             <div className="text-lg font-bold text-brand-green">+1 New</div>
@@ -113,7 +121,11 @@ function FloatingElements() {
         style={{ transform: `translate(${offset.x * 0.4}px, ${offset.y * 0.4}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">🚀</span>
+          <div className="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center">
+            <svg className="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+          </div>
           <div>
             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Lighthouse Score</div>
             <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
@@ -179,27 +191,27 @@ export default function Hero() {
         <div className="hero-reveal reveal mb-8">
           <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/20">
             <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
-            Now accepting new clients — Free friction audit included
+            Now accepting new partners — Free site audit included
           </span>
         </div>
 
-        {/* Main heading — AI-forward */}
+        {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">AI Runs Your</span>
+            <span className="gradient-text inline-block">Run Your</span>
             <br />
-            <span className="text-white inline-block">Web Presence.</span>
+            <span className="text-white inline-block">Business.</span>
             <br />
-            <span className="text-white inline-block">You Run Your</span>
+            <span className="text-white inline-block">Let AI Handle</span>
             <br />
-            <span className="gradient-text inline-block">Business.</span>
+            <span className="gradient-text inline-block">the Rest.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We plug AI into your web presence so your site generates leads,
-            your content writes itself, and you never touch any of it.
+            We build fast, high-performing websites — then plug in AI that writes your content,
+            captures your leads, and keeps everything running. You don&apos;t lift a finger.
           </p>
         </div>
 
@@ -209,7 +221,7 @@ export default function Hero() {
             onClick={handleCTAClick}
             className="btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
           >
-            Get Your Free Friction Audit
+            Get Your Free Site Audit
             <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -218,7 +230,7 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
-            See Our Standards
+            See Our Work
           </button>
         </div>
 
