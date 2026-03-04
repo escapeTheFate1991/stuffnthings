@@ -58,8 +58,8 @@ const standards = [
     ),
     title: 'AI That Does Real Work.',
     commitment:
-      "We don't just hand you a login and wish you luck. Our AI writes your content, qualifies your leads, and monitors your performance — so things keep moving even when you're not looking.",
-    proof: 'Included: AI Content · Lead Capture · Performance Monitoring',
+      "We don't just hand you a login and wish you luck. Our AI automates your workflows, qualifies your leads, and monitors your performance — so things keep moving even when you're not looking.",
+    proof: 'Included: AI Workflows · Lead Capture · Performance Monitoring',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
