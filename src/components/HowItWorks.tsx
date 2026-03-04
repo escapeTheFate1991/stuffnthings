@@ -6,17 +6,17 @@ import { useScrollReveal } from '@/lib/hooks'
 const steps = [
   {
     number: '01',
-    title: 'Free Friction Audit',
+    title: 'Free Site Audit',
     subtitle: 'We find what\u2019s costing you customers',
     description:
-      'We run your site through our full diagnostic — speed, mobile experience, SEO, conversion paths, and AI automation opportunities. Within 48 hours, you get a plain-English report showing exactly what\u2019s broken, what to fix first, and where AI can start working for you. No charge, no commitment.',
+      'We run your site through a full diagnostic — speed, mobile experience, SEO, conversion paths, and AI automation opportunities. In 48 hours you get a plain-English report showing what\u2019s broken, what to fix first, and exactly where AI can start saving you time and money. Free. No strings.',
     timeline: '48 hours',
     deliverables: [
-      'Performance analysis & speed test',
-      'Mobile optimization review',
-      'SEO & technical audit',
-      'Conversion optimization assessment',
-      'Detailed improvement roadmap',
+      'Performance & speed analysis',
+      'Mobile experience review',
+      'SEO & technical health check',
+      'AI automation opportunity scan',
+      'Prioritized improvement roadmap',
     ],
     color: 'from-brand-cyan to-blue-500',
     glowColor: 'shadow-brand-cyan/20',
@@ -29,16 +29,16 @@ const steps = [
   {
     number: '02',
     title: 'We Build & Launch',
-    subtitle: 'From blueprint to live in 2–4 weeks',
+    subtitle: 'Blueprint to live in 2–4 weeks',
     description:
-      'Based on the audit, we design and build your site from scratch — optimized for speed, search, and conversions. You see progress along the way and approve before anything goes live.',
+      'Based on the audit, we design and build your site from scratch — fast, search-optimized, and ready to convert. You see progress along the way and approve everything before it goes live.',
     timeline: '2-4 weeks',
     deliverables: [
-      'Custom website design & development',
+      'Custom design & development',
       'Performance optimization',
       'SEO implementation',
-      'Mobile-first responsive design',
-      'Testing & quality assurance',
+      'Mobile-first responsive build',
+      'AI integrations configured',
     ],
     color: 'from-brand-purple to-pink-500',
     glowColor: 'shadow-brand-purple/20',
@@ -53,12 +53,12 @@ const steps = [
     title: 'We Stay & Improve',
     subtitle: 'This is where most agencies disappear. We don\u2019t.',
     description:
-      'After launch, we keep going. Performance monitoring, security patches, design updates, SEO tweaks — we make sure your site stays at peak performance. You never have to think about it.',
+      'After launch, we keep going. Monitoring, security patches, design updates, SEO tweaks, AI tuning — your site stays at peak performance and you never have to think about it.',
     timeline: 'Ongoing',
     deliverables: [
       'Continuous performance monitoring',
-      'Regular security updates',
-      'A/B testing & optimization',
+      'Security updates & patching',
+      'A/B testing & conversion optimization',
       'Monthly reporting & insights',
       'Unlimited updates & support',
     ],
@@ -171,13 +171,13 @@ export default function HowItWorks() {
             <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-brand-purple/10 to-brand-green/5" />
             <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Curious What&apos;s Wrong With Your Site?
+                Curious What&apos;s Holding Your Site Back?
               </h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                 The audit is free. Takes 48 hours. You get a full report — and it&apos;s yours whether you work with us or not.
               </p>
               <button onClick={handleCTAClick} className="btn btn-primary text-lg px-10 py-5">
-                Get Your Free Friction Audit
+                Get Your Free Site Audit
                 <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

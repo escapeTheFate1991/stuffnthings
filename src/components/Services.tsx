@@ -9,16 +9,44 @@ const features = [
   'AI content generation (4–8 posts/month)',
   'Performance monitoring & auto-alerts',
   'Hosting, SSL, security hardening & uptime monitoring',
-  'Monthly performance report with actionable insights',
+  'Monthly performance report with clear insights',
   'On-page SEO architecture & Core Web Vitals optimization',
   'Email support with 48-hour response SLA',
 ]
 
 const guarantees = [
-  { icon: '🚀', label: '95+ Lighthouse Score' },
-  { icon: '🤖', label: 'AI Automation Included' },
-  { icon: '🔒', label: 'Enterprise-Grade Security' },
-  { icon: '📈', label: 'Monthly Performance Reports' },
+  {
+    icon: (
+      <svg className="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      </svg>
+    ),
+    label: '95+ Lighthouse Score',
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082" />
+      </svg>
+    ),
+    label: 'AI Automation Included',
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+    label: 'Enterprise-Grade Security',
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
+    label: 'Monthly Performance Reports',
+  },
 ]
 
 export default function Services() {
@@ -46,8 +74,8 @@ export default function Services() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              A full-time web team costs $25K+ a month. An agency project runs $15–50K and they disappear after.
-              We give you the team without the overhead — and we never leave.
+              A full-time web team costs $25K+ a month. An agency charges $15–50K and disappears after launch.
+              We give you the team without the overhead — and we stick around.
             </p>
           </div>
         </div>
@@ -59,7 +87,7 @@ export default function Services() {
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
               <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
                 <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                AI Web Operations Partner
+                Your AI-Powered Web Team
               </span>
             </div>
 
@@ -72,11 +100,11 @@ export default function Services() {
                   </span>
                   <span className="text-slate-500 text-sm ml-1">/month</span>
                 </div>
-                <p className="text-slate-400 text-sm">+ $1,997 one-time setup fee</p>
+                <p className="text-slate-400 text-sm">+ $1,997 one-time setup</p>
               </div>
 
               <p className="text-slate-300 text-lg leading-relaxed max-w-md mx-auto">
-                Your website updates itself. Your content writes itself. Your leads get captured automatically.
+                Your site updates itself. Your content writes itself. Your leads get captured automatically.
                 You get a report every month showing what&apos;s working.
               </p>
             </div>
@@ -130,7 +158,9 @@ export default function Services() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {guarantees.map((g, i) => (
                 <div key={i} className="text-center group cursor-default">
-                  <div className="text-2xl mb-2 group-hover:scale-125 transition-transform duration-300">{g.icon}</div>
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center group-hover:scale-125 group-hover:border-brand-cyan/30 transition-all duration-300">
+                    {g.icon}
+                  </div>
                   <p className="text-slate-300 text-sm font-medium">{g.label}</p>
                 </div>
               ))}
