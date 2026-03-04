@@ -22,6 +22,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '#problem', label: 'Why Us' },
     { href: '#how-it-works', label: 'How It Works' },
+    { href: '#ai', label: 'AI' },
     { href: '#testimonials', label: 'Results' },
     { href: '#services', label: 'Pricing' },
     { href: '#portfolio', label: 'Portfolio' },

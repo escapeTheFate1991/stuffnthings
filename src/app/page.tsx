@@ -3,6 +3,7 @@ import Problem from '@/components/Problem'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import HowItWorks from '@/components/HowItWorks'
+import AIAutomation from '@/components/AIAutomation'
 import SocialProof from '@/components/SocialProof'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Problem />
         <HowItWorks />
+        <AIAutomation />
         <SocialProof />
         <Services />
         <Portfolio />
