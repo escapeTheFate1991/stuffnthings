@@ -110,16 +110,16 @@ function FloatingElements() {
         </div>
       </div>
 
-      {/* Accessibility badge */}
+      {/* AI Automation badge */}
       <div
-        className="absolute bottom-[22%] left-[10%] animate-float-slow hidden lg:block"
+        className="absolute bottom-[35%] left-[10%] animate-float-slow hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.4}px, ${offset.y * 0.4}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <span className="text-2xl">♿</span>
+          <span className="text-2xl">🤖</span>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Our site · Accessibility</div>
-            <div className="text-lg font-bold text-brand-green">100 / 100</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">AI Workflow Automation</div>
+            <div className="text-lg font-bold text-brand-cyan">Always On</div>
           </div>
         </div>
       </div>
