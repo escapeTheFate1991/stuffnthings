@@ -12,7 +12,7 @@ const benefits = [
   {
     icon: '🔍',
     title: 'Full Lighthouse Diagnostic',
-    text: 'Performance, accessibility, SEO, best practices — we test everything and explain every score in plain language. No jargon.',
+    text: 'Performance, SEO, conversion paths, AI automation potential — we test everything and explain every opportunity in plain language. No jargon.',
   },
   {
     icon: '⚡',
@@ -302,8 +302,8 @@ export default function ContactForm() {
                   <div className="text-xs text-slate-400 mt-1">LCP (Largest Contentful Paint)</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
-                  <div className="text-2xl font-bold gradient-text">100</div>
-                  <div className="text-xs text-slate-400 mt-1">Accessibility Score Goal</div>
+                  <div className="text-2xl font-bold gradient-text">6+</div>
+                  <div className="text-xs text-slate-400 mt-1">AI Automations Per Site</div>
                 </div>
                 <div className="text-center p-3 rounded-xl bg-slate-800/50">
                   <div className="text-2xl font-bold gradient-text">0.00</div>

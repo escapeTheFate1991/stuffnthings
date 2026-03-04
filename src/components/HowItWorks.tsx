@@ -9,7 +9,7 @@ const steps = [
     title: 'Free Friction Audit',
     subtitle: 'We find what\u2019s costing you customers',
     description:
-      'We run your site through our full diagnostic — speed, mobile experience, SEO, accessibility, conversion paths. Within 48 hours, you get a plain-English report showing exactly what\u2019s broken and what to fix first. No charge, no commitment.',
+      'We run your site through our full diagnostic — speed, mobile experience, SEO, conversion paths, and AI automation opportunities. Within 48 hours, you get a plain-English report showing exactly what\u2019s broken, what to fix first, and where AI can start working for you. No charge, no commitment.',
     timeline: '48 hours',
     deliverables: [
       'Performance analysis & speed test',
