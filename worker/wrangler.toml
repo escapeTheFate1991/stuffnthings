@@ -5,3 +5,10 @@ compatibility_date = "2024-01-01"
 [vars]
 NOTIFY_EMAIL = "info@stuffnthings.io"
 ALLOWED_ORIGIN = "https://stuffnthings.io"
+
+# KV namespace for download rate limiting (1 per IP per 24h)
+# Create with: wrangler kv namespace create "DOWNLOAD_KV"
+# Then paste the id below
+[[kv_namespaces]]
+binding = "DOWNLOAD_KV"
+id = "PLACEHOLDER_CREATE_KV_FIRST"

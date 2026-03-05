@@ -8,39 +8,41 @@ const inputClass =
   'w-full px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 transition-all duration-300 text-sm'
 
 const stats = [
-  { value: '55,000', label: 'US jobs cut citing AI in 2025 alone', source: 'Challenger, Gray & Christmas' },
-  { value: '25.9%', label: 'Decline in data entry roles by 2034', source: 'Bureau of Labor Statistics' },
-  { value: '$1,700–$3,200', label: 'Monthly savings from AI workflow automation', source: 'Industry average' },
+  { value: '55,000', label: 'US jobs restructured around AI in 2025', source: 'Challenger, Gray & Christmas' },
+  { value: '25.9%', label: 'Data entry roles declining by 2034', source: 'Bureau of Labor Statistics' },
+  { value: '$1,700–$3,200', label: 'Monthly savings from AI workflow automation', source: 'BLS salary benchmarks' },
   { value: '89%', label: 'Of SMBs already using AI for daily tasks', source: 'Microsoft/LinkedIn Research' },
 ]
 
 const chapters = [
   {
     number: '01',
-    title: 'The AI Layoff Wave',
-    description: '25+ companies with specific headcount cuts, roles eliminated, and dates. From Amazon\'s 30,000 to Klarna replacing 700 customer service agents with a single AI.',
+    title: 'The Shift Underway',
+    description: 'Where the workforce is changing, who\'s leading the transition, and what\'s driving it. 25+ companies with specific numbers.',
   },
   {
     number: '02',
-    title: 'Positions Becoming Obsolete',
-    description: 'BLS employment projections through 2034 showing which roles are declining fastest — data entry, customer service, bookkeeping, and more.',
+    title: 'The Roles in Transition',
+    description: 'BLS employment projections through 2034 — which positions are evolving fastest and what major research firms are saying.',
   },
   {
     number: '03',
-    title: 'The Productivity Counter-Narrative',
-    description: 'This isn\'t doom and gloom. WEF projects 170M new jobs vs 92M displaced. AI augments more roles than it replaces — if you adapt.',
+    title: 'The Opportunity',
+    description: 'WEF projects 170M new jobs vs 92M displaced. Businesses that embrace AI don\'t just keep up — they pull ahead.',
   },
   {
     number: '04',
-    title: 'Industry-Specific Impact',
-    description: 'Medical, legal, real estate, restaurants, e-commerce, consulting, construction, and salons — what\'s automatable in YOUR industry.',
+    title: 'Your Industry',
+    description: '8 verticals mapped: medical, legal, real estate, restaurants, e-commerce, professional services, construction, and salons.',
   },
   {
     number: '05',
-    title: 'The ROI Math',
-    description: 'Real salary benchmarks for 15 positions mapped against automation potential. See exactly what AI saves vs. hiring.',
+    title: 'The Numbers',
+    description: 'Real salary benchmarks for 10 positions mapped against automation potential. See what AI can save — in dollars.',
   },
 ]
+
+const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
 
 export default function AIWorkforceReport() {
   const [formData, setFormData] = useState({
@@ -62,14 +64,19 @@ export default function AIWorkforceReport() {
     setIsSubmitting(true)
     setError('')
 
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.')
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      const res = await fetch(`${CONTACT_API}/contact`, {
+      const res = await fetch(`${CONTACT_API}/download`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          websiteUrl: '',
-          message: '[Resource Download] AI Workforce Report 2026',
+          report: 'ai-workforce-report-2026',
         }),
       })
       const data = await res.json()
@@ -84,7 +91,7 @@ export default function AIWorkforceReport() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Nav back */}
+      {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <a href="/" className="text-xl font-bold gradient-text tracking-tight">stuffnthings</a>
@@ -106,13 +113,13 @@ export default function AIWorkforceReport() {
               Free Report — 2026 Edition
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] mb-6">
-              AI Is Replacing Roles<br />
-              <span className="gradient-text">Faster Than Anyone Expected.</span>
+              The AI Advantage<br />
+              <span className="gradient-text">Is Already Here.</span>
             </h1>
             <p className="text-xl text-slate-300/80 leading-relaxed mb-8">
-              55,000 US jobs were cut citing AI in 2025 alone — 12× more than two years prior.
-              This report breaks down exactly which roles are being automated, which industries
-              are most affected, and what smart businesses are doing to stay ahead.
+              55,000 US jobs were restructured around AI in 2025 — 12× more than two years prior.
+              This report breaks down which roles are shifting, which industries are moving fastest,
+              and what forward-thinking businesses are doing to stay ahead.
             </p>
           </div>
 
@@ -129,7 +136,7 @@ export default function AIWorkforceReport() {
         </div>
       </section>
 
-      {/* Content + Form — two columns */}
+      {/* Content + Form */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-16">
@@ -151,17 +158,17 @@ export default function AIWorkforceReport() {
                 ))}
               </div>
 
-              {/* Key findings preview */}
+              {/* Key findings */}
               <div className="mt-12 bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8">
                 <h3 className="text-lg font-bold text-white mb-6">Key Findings</h3>
                 <div className="space-y-4">
                   {[
-                    'Amazon, Intel, UPS, Salesforce, and 20+ more companies have cut 100K+ jobs citing AI',
-                    'Data entry roles declining 25.9% by 2034 — the steepest decline of any occupation (BLS)',
-                    'Customer service positions projected to lose 153,700 jobs by 2034 (BLS)',
+                    'Amazon, Intel, UPS, Salesforce, and 20+ companies have restructured 100K+ roles around AI',
+                    'Data entry roles declining 25.9% by 2034 — the steepest shift of any occupation (BLS)',
+                    'Customer service positions projected to see 153,700 fewer jobs by 2034 (BLS)',
                     'AI-exposed industries saw productivity growth jump from 7% to 27% — a 4× increase (PwC)',
                     '75% of knowledge workers now use AI at work. 46% started in just the last 6 months (Microsoft)',
-                    'Businesses using AI automation save $1,700–$3,200/month on average in staff equivalent costs',
+                    'Businesses using AI automation save $1,700–$3,200/month on average in operational efficiency',
                   ].map((finding, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,7 +180,7 @@ export default function AIWorkforceReport() {
                 </div>
               </div>
 
-              {/* Sources note */}
+              {/* Sources */}
               <p className="mt-8 text-xs text-slate-600">
                 Data sourced from Bureau of Labor Statistics, Challenger Gray & Christmas, Goldman Sachs Research,
                 World Economic Forum, PwC Global AI Jobs Barometer, Microsoft Work Trend Index, and 15+ additional sources.
@@ -187,9 +194,9 @@ export default function AIWorkforceReport() {
                 <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-8">
                   {!isSubmitted ? (
                     <>
-                      <h3 className="text-xl font-bold text-white mb-2">Download the Full Report</h3>
+                      <h3 className="text-xl font-bold text-white mb-2">Get the Full Report</h3>
                       <p className="text-slate-400 text-sm mb-6">
-                        Free. No strings attached. See the data and decide for yourself.
+                        Free. No strings attached. We&apos;ll email it to you right away.
                       </p>
 
                       <form onSubmit={handleSubmit} className="space-y-4">
@@ -205,6 +212,8 @@ export default function AIWorkforceReport() {
                           <label htmlFor="email" className="block text-xs font-medium text-slate-400 mb-1.5">Work Email</label>
                           <input
                             type="email" id="email" name="email" required
+                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                            title="Please enter a valid email address"
                             value={formData.email} onChange={handleChange}
                             className={inputClass} placeholder="jane@acme.com"
                           />
@@ -233,15 +242,15 @@ export default function AIWorkforceReport() {
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                               </svg>
-                              Processing...
+                              Sending...
                             </span>
                           ) : (
-                            'Get the Free Report →'
+                            'Send Me the Report →'
                           )}
                         </button>
 
                         {error && <p className="text-xs text-red-400 text-center">{error}</p>}
-                        <p className="text-[10px] text-slate-600 text-center">No spam. We&apos;ll email you the PDF within minutes.</p>
+                        <p className="text-[10px] text-slate-600 text-center">We&apos;ll email you the PDF. One download per person — no bots.</p>
                       </form>
                     </>
                   ) : (
@@ -251,9 +260,9 @@ export default function AIWorkforceReport() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-2">Check Your Inbox!</h3>
+                      <h3 className="text-xl font-bold text-white mb-2">Check Your Inbox</h3>
                       <p className="text-slate-400 text-sm mb-6">
-                        We&apos;ll send the full report to your email within a few minutes.
+                        The full report is on its way. Should arrive within a few minutes.
                       </p>
                       <a href="/" className="text-brand-cyan hover:text-white transition-colors text-sm">
                         ← Back to stuffnthings.io
@@ -262,7 +271,6 @@ export default function AIWorkforceReport() {
                   )}
                 </div>
 
-                {/* Social proof */}
                 <div className="mt-6 text-center">
                   <p className="text-xs text-slate-600">
                     Sourced from BLS, Goldman Sachs, WEF, PwC, Microsoft, and 15+ verified sources
@@ -278,13 +286,13 @@ export default function AIWorkforceReport() {
       <section className="py-16 border-t border-slate-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to See What AI Can Do for <span className="gradient-text">Your Business?</span>
+            Want to See What This Means for <span className="gradient-text">Your Business?</span>
           </h2>
           <p className="text-lg text-slate-400 mb-8">
-            We&apos;ll audit your website, identify where AI can save you time and money, and show you the math. Free. No obligation.
+            We&apos;ll review your site, map out where AI can create value, and show you the numbers. Free. No obligation.
           </p>
           <a href="/#contact" className="btn btn-primary text-lg px-10 py-5 inline-block">
-            Get Your Free Site Audit →
+            Request Your Free Site Audit →
           </a>
         </div>
       </section>
