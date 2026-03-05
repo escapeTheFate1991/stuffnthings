@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: 'https://stuffnthings.io',
               logo: 'https://stuffnthings.io/app-icon-1024.png',
               description: 'Web performance agency that designs, builds, and actively manages high-performance websites for small businesses and professional services. Monthly partnerships starting at $299/mo.',
-              email: 'info@stuffnthings.io',
+              email: 'admin@stuffnthings.io',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: '2093 Philadelphia Pike',
