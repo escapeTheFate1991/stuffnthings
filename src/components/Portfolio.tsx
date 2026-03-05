@@ -12,7 +12,7 @@ const projects = [
     title: 'Pinnacle Strategy Group',
     category: 'Consulting',
     description: 'Authority-driven consulting site with AI-powered lead qualification, automated intake workflows, and a smart chatbot that books discovery calls while the team sleeps.',
-    results: { Speed: '97', Uptime: '99.9%', SEO: '98', 'CTR': '6.8%' },
+    results: { Speed: '97', Saved: '$2.1K/mo', SEO: '98', 'AI': '4' },
     gradient: 'from-yellow-600 to-yellow-400',
     mockupAccent: 'bg-yellow-600/20',
     href: '/portfolio/consulting.html',
@@ -47,7 +47,7 @@ const projects = [
     title: 'FlowSync',
     category: 'SaaS',
     description: 'High-converting SaaS landing page backed by AI-powered onboarding, automated trial nurture sequences, and intelligent lead routing that sends the right prospects to the right team.',
-    results: { Speed: '98', Uptime: '99.9%', SEO: '99', 'CTR': '7.2%' },
+    results: { Speed: '98', Saved: '$3.4K/mo', SEO: '99', 'AI': '5' },
     gradient: 'from-brand-cyan to-brand-purple',
     mockupAccent: 'bg-brand-cyan/20',
     href: '/portfolio/saas.html',
@@ -82,7 +82,7 @@ const projects = [
     title: 'Sunshine Sprouts Day Care',
     category: 'Child Care',
     description: 'Warm, trust-first childcare site with an AI chatbot that answers parent questions instantly, automated tour scheduling, and smart waitlist management that fills spots without staff effort.',
-    results: { Speed: '96', Uptime: '99.9%', SEO: '97', 'CTR': '5.4%' },
+    results: { Speed: '96', Saved: '$1.8K/mo', SEO: '97', 'AI': '4' },
     gradient: 'from-orange-500 to-yellow-400',
     mockupAccent: 'bg-orange-500/20',
     href: '/portfolio/daycare.html',
@@ -117,7 +117,7 @@ const projects = [
     title: 'The Bellevue Grand Hotel',
     category: 'Hospitality',
     description: 'Luxury hotel site with an AI concierge chatbot, smart booking engine that upsells room upgrades, and automated pre-arrival sequences that personalize every guest experience.',
-    results: { Speed: '95', Uptime: '99.8%', SEO: '97', 'CTR': '4.9%' },
+    results: { Speed: '95', Saved: '$2.8K/mo', SEO: '97', 'AI': '5' },
     gradient: 'from-yellow-700 to-yellow-500',
     mockupAccent: 'bg-yellow-700/20',
     href: '/portfolio/hotel.html',
@@ -152,7 +152,7 @@ const projects = [
     title: 'Meridian Home',
     category: 'E-commerce',
     description: 'Premium e-commerce store with AI-powered product recommendations, automated cart recovery, and smart review collection that turns happy customers into repeat buyers.',
-    results: { Speed: '94', Uptime: '99.7%', SEO: '98', 'CTR': '5.1%' },
+    results: { Speed: '94', Saved: '$3.9K/mo', SEO: '98', 'AI': '6' },
     gradient: 'from-brand-coral to-red-600',
     mockupAccent: 'bg-brand-coral/20',
     href: '/portfolio/ecommerce.html',
@@ -187,7 +187,7 @@ const projects = [
     title: 'Iron Ridge Storage',
     category: 'Warehouse',
     description: 'B2B logistics platform with AI-powered quote generation, automated lead qualification, and a smart chatbot that handles facility questions and routes enterprise inquiries to the right team.',
-    results: { Speed: '97', Uptime: '99.9%', SEO: '99', 'CTR': '6.3%' },
+    results: { Speed: '97', Saved: '$2.5K/mo', SEO: '99', 'AI': '4' },
     gradient: 'from-blue-600 to-brand-cyan',
     mockupAccent: 'bg-blue-600/20',
     href: '/portfolio/warehouse.html',
@@ -244,7 +244,7 @@ function ProjectCard({ project, onSelect }: { project: (typeof projects)[0]; onS
               {Object.entries(project.results).slice(0, 3).map(([key, val]) => (
                 <div key={key} className="flex-1 text-center glass rounded-lg py-2 px-1">
                   <div className="text-sm font-bold text-white">{val}</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">{key.slice(0, 4)}</div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">{key}</div>
                 </div>
               ))}
             </div>
