@@ -11,4 +11,4 @@ ALLOWED_ORIGIN = "https://stuffnthings.io"
 # Then paste the id below
 [[kv_namespaces]]
 binding = "DOWNLOAD_KV"
-id = "PLACEHOLDER_CREATE_KV_FIRST"
+id = "4134486391e045f8a9998d098fefcd30"

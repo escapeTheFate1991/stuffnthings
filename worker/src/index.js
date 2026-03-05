@@ -59,7 +59,7 @@ async function handleContact(request, env, corsHeaders) {
 
   try {
     const notifyPayload = {
-      from: 'Stuff N Things <info@stuffnthings.io>',
+      from: 'Stuff N Things <noreply@stuffnthings.io>',
       to: [env.NOTIFY_EMAIL],
       subject: `New Site Audit Request — ${businessName}`,
       html: `
@@ -76,7 +76,7 @@ async function handleContact(request, env, corsHeaders) {
 
     const firstName = name.split(' ')[0]
     const replyPayload = {
-      from: 'Stuff N Things <info@stuffnthings.io>',
+      from: 'Stuff N Things <noreply@stuffnthings.io>',
       to: [email],
       subject: `We got your request, ${firstName}!`,
       html: `
@@ -152,7 +152,7 @@ async function handleDownload(request, env, corsHeaders) {
 
     // Email the PDF to the user
     const deliverPayload = {
-      from: 'Stuff N Things <info@stuffnthings.io>',
+      from: 'Stuff N Things <noreply@stuffnthings.io>',
       to: [email],
       subject: `Your report is ready, ${firstName} — AI Workforce Report 2026`,
       html: `
@@ -176,7 +176,7 @@ async function handleDownload(request, env, corsHeaders) {
 
     // Notify us of the download lead
     const notifyPayload = {
-      from: 'Stuff N Things <info@stuffnthings.io>',
+      from: 'Stuff N Things <noreply@stuffnthings.io>',
       to: [env.NOTIFY_EMAIL],
       subject: `Report Download — ${businessName}`,
       html: `
@@ -218,3 +218,4 @@ async function handleDownload(request, env, corsHeaders) {
     )
   }
 }
+
