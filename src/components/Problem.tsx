@@ -111,16 +111,38 @@ export default function Problem() {
           <div className="relative rounded-2xl overflow-hidden max-w-4xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/10 via-brand-purple/10 to-brand-cyan/10" />
             <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
+              {/* Stat bar */}
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-black gradient-text">55K</div>
+                  <div className="text-xs text-slate-500 mt-1">US jobs cut by AI in 2025</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-black gradient-text">66%</div>
+                  <div className="text-xs text-slate-500 mt-1">avg productivity gain with AI</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl font-black gradient-text">89%</div>
+                  <div className="text-xs text-slate-500 mt-1">of SMBs already using AI</div>
+                </div>
+              </div>
+
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-                What If Your Web Team Actually Stayed?
+                AI Is Reshaping Every Business. Is Yours Ready?
               </h3>
               <p className="text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
-                That&apos;s what we do. Design, development, AI, performance, security — all handled, all ongoing.
-                No project end date. No final invoice and silence. Just a site that keeps getting better.
+                Companies are cutting thousands of roles in customer service, admin, and back-office — replacing them with AI workflows.
+                The businesses that adapt now are saving $1,700–$3,200/month while their competitors still hire for tasks a machine handles in seconds.
               </p>
-              <button onClick={handleScroll} className="btn btn-primary text-lg px-8 py-4">
-                See how it works →
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onClick={handleScroll} className="btn btn-primary text-lg px-8 py-4">
+                  See how it works →
+                </button>
+                <a href="/resources/ai-workforce-report" className="text-brand-cyan hover:text-white transition-colors text-sm font-medium flex items-center gap-1">
+                  Read the full AI workforce report
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
