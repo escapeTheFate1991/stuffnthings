@@ -3,7 +3,7 @@ main = "src/index.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-NOTIFY_EMAIL = "info@stuffnthings.io"
+NOTIFY_EMAIL = "contact@stuffnthings.io"
 ALLOWED_ORIGIN = "https://stuffnthings.io"
 
 # KV namespace for download rate limiting (1 per IP per 24h)
