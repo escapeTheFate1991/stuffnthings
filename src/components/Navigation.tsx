@@ -20,7 +20,7 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: '#ai', label: 'AI' },
+    { href: '/resources/ai-workforce-report', label: 'Research' },
     { href: '#problem', label: 'Why Us' },
     { href: '#how-it-works', label: 'How It Works' },
     { href: '#testimonials', label: 'Results' },
