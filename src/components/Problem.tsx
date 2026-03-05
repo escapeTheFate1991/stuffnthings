@@ -134,15 +134,9 @@ export default function Problem() {
                 Companies are cutting thousands of roles in customer service, admin, and back-office — replacing them with AI workflows.
                 The businesses that adapt now are saving $1,700–$3,200/month while their competitors still hire for tasks a machine handles in seconds.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onClick={handleScroll} className="btn btn-primary text-lg px-8 py-4">
-                  See how it works →
-                </button>
-                <a href="/resources/ai-workforce-report" className="text-brand-cyan hover:text-white transition-colors text-sm font-medium flex items-center gap-1">
-                  Read the full AI workforce report
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-              </div>
+              <a href="/resources/ai-workforce-report" className="btn btn-primary text-lg px-8 py-4 inline-block">
+                Learn more →
+              </a>
             </div>
           </div>
         </div>
