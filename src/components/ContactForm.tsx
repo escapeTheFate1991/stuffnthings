@@ -66,10 +66,18 @@ export default function ContactForm() {
 
   const [error, setError] = useState('')
 
+  const isValidEmail = (email: string) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setError('')
+
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address.')
+      setIsSubmitting(false)
+      return
+    }
 
     try {
       const res = await fetch(`${CONTACT_API}/contact`, {
@@ -167,6 +175,8 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                        title="Please enter a valid email address"
                         className={inputClass}
                         placeholder="jane@acme.com"
                       />
