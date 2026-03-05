@@ -6,16 +6,16 @@ import { useScrollReveal } from '@/lib/hooks'
 const steps = [
   {
     number: '01',
-    title: 'Free Site Audit',
-    subtitle: 'We find what\u2019s costing you customers',
+    title: 'Free Site + AI Audit',
+    subtitle: 'We find what\u2019s costing you customers — and what AI can fix',
     description:
-      'We run your site through a full diagnostic — speed, mobile experience, SEO, conversion paths, and AI automation opportunities. In 48 hours you get a plain-English report showing what\u2019s broken, what to fix first, and exactly where AI can start saving you time and money. Free. No strings.',
+      'We run your site through a full diagnostic covering speed, mobile experience, SEO, and conversion paths. Then we go deeper: we scan for AI automation opportunities across your customer interactions, lead handling, scheduling, and internal workflows. In 48 hours you get a plain-English report with real dollar estimates on what AI saves you. Free. No strings.',
     timeline: '48 hours',
     deliverables: [
-      'Performance & speed analysis',
-      'Mobile experience review',
-      'SEO & technical health check',
-      'AI automation opportunity scan',
+      'Performance, SEO & mobile analysis',
+      'AI automation opportunity scan (6 categories)',
+      'Estimated monthly savings from AI workflows',
+      'Industry-specific automation recommendations',
       'Prioritized improvement roadmap',
     ],
     color: 'from-brand-cyan to-blue-500',
@@ -28,17 +28,17 @@ const steps = [
   },
   {
     number: '02',
-    title: 'We Build & Launch',
-    subtitle: 'Blueprint to live in 2–4 weeks',
+    title: 'We Build + Wire In AI',
+    subtitle: 'Your site and AI automations go live together',
     description:
-      'Based on the audit, we design and build your site from scratch — fast, search-optimized, and ready to convert. You see progress along the way and approve everything before it goes live.',
+      'We design and build your site from scratch — fast, search-optimized, and ready to convert. But we don\u2019t stop at the website. We configure the AI automations from your audit: chatbots, smart forms, lead routing, scheduling assistants, workflow automation. Everything launches together so day one is already smarter than your competition.',
     timeline: '2-4 weeks',
     deliverables: [
       'Custom design & development',
-      'Performance optimization',
-      'SEO implementation',
-      'Mobile-first responsive build',
-      'AI integrations configured',
+      'AI chatbot + smart form setup',
+      'Lead qualification & routing automation',
+      'Scheduling or workflow integrations',
+      'SEO, performance & mobile optimization',
     ],
     color: 'from-brand-purple to-pink-500',
     glowColor: 'shadow-brand-purple/20',
@@ -53,14 +53,14 @@ const steps = [
     title: 'We Stay & Improve',
     subtitle: 'This is where most agencies disappear. We don\u2019t.',
     description:
-      'After launch, we keep going. Monitoring, security patches, design updates, SEO tweaks, AI tuning — your site stays at peak performance and you never have to think about it.',
+      'After launch, we keep going. Performance monitoring, security patches, SEO tweaks — and we keep tuning your AI automations based on real data. New workflows get added as your business grows. Monthly reports show exactly what\u2019s working, what\u2019s saving you money, and what we\u2019re improving next.',
     timeline: 'Ongoing',
     deliverables: [
-      'Continuous performance monitoring',
-      'Security updates & patching',
+      'AI performance tuning & new workflow rollouts',
+      'Continuous monitoring & security patching',
       'A/B testing & conversion optimization',
-      'Monthly reporting & insights',
-      'Unlimited updates & support',
+      'Monthly AI + performance reports',
+      'Unlimited updates & priority support',
     ],
     color: 'from-brand-green to-emerald-400',
     glowColor: 'shadow-brand-green/20',
@@ -94,7 +94,7 @@ export default function HowItWorks() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Three steps. No jargon. You tell us what&apos;s broken, we fix it and keep it running.
+              Three steps. No jargon. We audit your site, build what you need, and wire in AI that does the heavy lifting — so you don&apos;t have to.
             </p>
           </div>
         </div>
