@@ -89,6 +89,22 @@ export default function ContactForm() {
       if (!res.ok) throw new Error(data.error || 'Request failed')
       setIsSubmitting(false)
       setIsSubmitted(true)
+
+      // Also notify War Room (fire-and-forget — don't break the form if War Room is down)
+      fetch('https://warroom.stuffnthings.io/api/webhooks/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || '',
+          message: formData.message,
+          business_name: formData.businessName,
+          website_url: formData.websiteUrl,
+          source_url: window.location.href,
+        }),
+      }).catch(() => {})
+
       setTimeout(() => {
         setIsSubmitted(false)
         setFormData({ name: '', email: '', businessName: '', websiteUrl: '', phone: '', message: '' })
