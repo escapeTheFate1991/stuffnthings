@@ -79,6 +79,12 @@ export default function ContactForm() {
       return
     }
 
+    if (!formData.phone || formData.phone.replace(/\D/g, '').length < 10) {
+      setError('Please enter a valid phone number.')
+      setIsSubmitting(false)
+      return
+    }
+
     try {
       const res = await fetch(`${CONTACT_API}/contact`, {
         method: 'POST',
@@ -232,7 +238,7 @@ export default function ContactForm() {
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-2">
-                        Phone Number
+                        Phone Number <span className="text-red-400">*</span>
                       </label>
                       <input
                         type="tel"
