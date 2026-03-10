@@ -13,31 +13,33 @@ const tiers = [
   {
     name: 'Foundation',
     subtitle: 'Custom Website',
-    price: '$997',
+    price: '$299',
+    period: '/mo',
     description: 'A rock-solid website that actually works for your business — not a template with your logo slapped on.',
     features: [
       'Custom-designed, mobile-first website',
-      '5–7 optimized pages',
-      'SEO-optimized titles, meta descriptions, headings',
-      'LocalBusiness schema markup',
-      'Google Analytics 4 + conversion tracking',
-      'Contact form with email notifications',
       'SSL, fast hosting, CDN',
+      'Monthly maintenance and updates',
+      'Contact form with email notifications',
+      'Google Analytics 4 + conversion tracking',
+      'LocalBusiness schema markup',
       'Google Business Profile optimization',
+      'Monthly uptime and health reports',
     ],
     popular: false,
   },
   {
-    name: 'Growth',
-    subtitle: 'Website + SEO',
-    price: '$1,997',
-    description: 'Everything in Foundation, plus ongoing SEO and lead capture that compounds month over month.',
+    name: 'Operational',
+    subtitle: 'Website + SEO + AI',
+    price: '$599',
+    period: '/mo',
+    description: 'Everything in Foundation, plus AI workflows and SEO that compounds month over month.',
     features: [
       'Everything in Foundation, plus:',
       'Monthly SEO content (blog posts)',
       'Local SEO strategy (citations, reviews)',
-      'Before/after project portfolio',
       'AI-powered chatbot for lead capture',
+      'AI workflow automation',
       'Review collection and display',
       'Monthly performance reports',
       'Social media profile optimization',
@@ -45,12 +47,13 @@ const tiers = [
     popular: true,
   },
   {
-    name: 'Dominate',
+    name: 'Growth',
     subtitle: 'Full Digital Presence',
-    price: '$3,497',
-    description: 'Everything in Growth, plus paid ads, AI automation, and a dedicated manager who actually knows your business.',
+    price: '$1,200',
+    period: '/mo',
+    description: 'Everything in Operational, plus paid ads, competitor intelligence, and a dedicated manager.',
     features: [
-      'Everything in Growth, plus:',
+      'Everything in Operational, plus:',
       'AI automation (follow-up emails, lead scoring, CRM)',
       'Video content strategy support',
       'Google Ads + Facebook Ads management',
@@ -154,9 +157,7 @@ export default function Services() {
               <div className={`text-center ${tier.popular ? 'mt-2' : ''} mb-6`}>
                 <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
                 <p className="text-sm text-slate-400 mb-4">{tier.subtitle}</p>
-                <div className="flex items-baseline justify-center gap-1 mb-2">
-                  <span className="text-sm text-slate-500">Starting at</span>
-                </div>
+                <div className="mb-2" />
                 <div className="flex items-baseline justify-center gap-1">
                   <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r bg-clip-text text-transparent ${
                     tier.popular
