@@ -3,15 +3,64 @@
 import { useCallback } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
 
-const features = [
-  'Custom website — designed, built, and deployed',
-  'AI-powered lead capture & smart forms',
-  'AI workflow automation & task routing',
-  'Performance monitoring & auto-alerts',
-  'Hosting, SSL, security hardening & uptime monitoring',
-  'Monthly performance report with clear insights',
-  'On-page SEO architecture & Core Web Vitals optimization',
-  'Email support with 48-hour response SLA',
+const CheckIcon = () => (
+  <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+  </svg>
+)
+
+const tiers = [
+  {
+    name: 'Foundation',
+    subtitle: 'Custom Website',
+    price: '$997',
+    description: 'A rock-solid website that actually works for your business — not a template with your logo slapped on.',
+    features: [
+      'Custom-designed, mobile-first website',
+      '5–7 optimized pages',
+      'SEO-optimized titles, meta descriptions, headings',
+      'LocalBusiness schema markup',
+      'Google Analytics 4 + conversion tracking',
+      'Contact form with email notifications',
+      'SSL, fast hosting, CDN',
+      'Google Business Profile optimization',
+    ],
+    popular: false,
+  },
+  {
+    name: 'Growth',
+    subtitle: 'Website + SEO',
+    price: '$1,997',
+    description: 'Everything in Foundation, plus ongoing SEO and lead capture that compounds month over month.',
+    features: [
+      'Everything in Foundation, plus:',
+      'Monthly SEO content (blog posts)',
+      'Local SEO strategy (citations, reviews)',
+      'Before/after project portfolio',
+      'AI-powered chatbot for lead capture',
+      'Review collection and display',
+      'Monthly performance reports',
+      'Social media profile optimization',
+    ],
+    popular: true,
+  },
+  {
+    name: 'Dominate',
+    subtitle: 'Full Digital Presence',
+    price: '$3,497',
+    description: 'Everything in Growth, plus paid ads, AI automation, and a dedicated manager who actually knows your business.',
+    features: [
+      'Everything in Growth, plus:',
+      'AI automation (follow-up emails, lead scoring, CRM)',
+      'Video content strategy support',
+      'Google Ads + Facebook Ads management',
+      'Competitor monitoring and intelligence',
+      'Branded proposal and estimate system',
+      'Priority support with dedicated manager',
+      'Quarterly strategy reviews',
+    ],
+    popular: false,
+  },
 ]
 
 const guarantees = [
@@ -67,9 +116,9 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">One Plan.</span>
+              <span className="gradient-text">Pick Your Level.</span>
               <br />
-              <span className="text-white">Everything Included.</span>
+              <span className="text-white">We Handle the Rest.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
@@ -80,50 +129,87 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Single Pricing Card */}
-        <div className="max-w-2xl mx-auto reveal">
-          <div className="relative rounded-2xl bg-slate-800/80 border-2 border-brand-cyan/30 shadow-2xl shadow-brand-cyan/10 hover:shadow-brand-cyan/20 hover:border-brand-cyan/50 transition-all duration-500 p-8 lg:p-12">
-            {/* Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
-                <span className="w-1.5 h-1.5 bg-white rounded-full" />
-                Your AI-Powered Web Team
-              </span>
-            </div>
-
-            <div className="text-center mb-10">
-              {/* Setup fee */}
-              <div className="mb-6">
-                <div className="flex items-baseline justify-center gap-1 mb-1">
-                  <span className="text-5xl md:text-6xl font-black bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">
-                    $497
+        {/* Pricing Tiers */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal">
+          {tiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`relative flex flex-col rounded-2xl bg-slate-800/80 border-2 shadow-2xl transition-all duration-500 p-8 ${
+                tier.popular
+                  ? 'border-brand-cyan/50 shadow-brand-cyan/20 hover:shadow-brand-cyan/30 hover:border-brand-cyan/70 md:scale-105 md:z-10'
+                  : 'border-slate-700/30 shadow-slate-900/20 hover:shadow-brand-purple/10 hover:border-slate-600/50'
+              }`}
+            >
+              {/* Most Popular Badge */}
+              {tier.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
+                    <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                    Most Popular
                   </span>
-                  <span className="text-slate-500 text-sm ml-1">/month</span>
                 </div>
-                <p className="text-slate-400 text-sm">+ $1,997 one-time setup</p>
+              )}
+
+              {/* Tier Header */}
+              <div className={`text-center ${tier.popular ? 'mt-2' : ''} mb-6`}>
+                <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
+                <p className="text-sm text-slate-400 mb-4">{tier.subtitle}</p>
+                <div className="flex items-baseline justify-center gap-1 mb-2">
+                  <span className="text-sm text-slate-500">Starting at</span>
+                </div>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r bg-clip-text text-transparent ${
+                    tier.popular
+                      ? 'from-brand-cyan to-brand-purple'
+                      : 'from-slate-200 to-slate-400'
+                  }`}>
+                    {tier.price}
+                  </span>
+                  <span className="text-slate-500 text-sm ml-1">/mo</span>
+                </div>
               </div>
 
-              <p className="text-slate-300 text-lg leading-relaxed max-w-md mx-auto">
-                Your site updates itself. Your workflows run themselves. Your leads get captured automatically.
-                You get a report every month showing what&apos;s working.
+              {/* Description */}
+              <p className="text-slate-400 text-sm leading-relaxed text-center mb-6">
+                {tier.description}
               </p>
+
+              {/* Features */}
+              <ul className="space-y-3 mb-8 flex-grow">
+                {tier.features.map((feature, fi) => (
+                  <li key={fi} className="flex items-start gap-3">
+                    {feature.endsWith(':') ? (
+                      <span className="text-sm text-brand-cyan font-medium">{feature}</span>
+                    ) : (
+                      <>
+                        <CheckIcon />
+                        <span className="text-sm text-slate-300">{feature}</span>
+                      </>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <button
+                onClick={handleCTAClick}
+                className={`w-full btn !rounded-xl !py-4 text-base ${
+                  tier.popular
+                    ? 'btn-primary'
+                    : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
+                }`}
+              >
+                Get Started
+              </button>
             </div>
+          ))}
+        </div>
 
-            {/* Features */}
-            <ul className="space-y-3 mb-10">
-              {features.map((feature, fi) => (
-                <li key={fi} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-sm text-slate-300">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* What it replaces */}
-            <div className="border-t border-slate-700/50 pt-6 mb-8">
-              <p className="text-xs text-slate-500 text-center mb-3 uppercase tracking-wider font-medium">What this replaces</p>
+        {/* What this replaces */}
+        <div className="reveal mt-16">
+          <div className="max-w-2xl mx-auto">
+            <div className="border-t border-slate-700/50 pt-8">
+              <p className="text-xs text-slate-500 text-center mb-4 uppercase tracking-wider font-medium">What this replaces</p>
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="glass rounded-xl p-3">
                   <div className="text-lg font-bold text-red-400 line-through">$25K+</div>
@@ -139,20 +225,11 @@ export default function Services() {
                 </div>
               </div>
             </div>
-
-            {/* CTA */}
-            <button
-              onClick={handleCTAClick}
-              className="w-full btn btn-primary !rounded-xl !py-5 text-lg"
-            >
-              Start With a Free Audit
-            </button>
-            <p className="text-xs text-slate-600 text-center mt-3">No contracts. Cancel anytime.</p>
           </div>
         </div>
 
         {/* Guarantees */}
-        <div className="reveal mt-20">
+        <div className="reveal mt-16">
           <div className="glass rounded-2xl p-8 md:p-10 max-w-4xl mx-auto border border-brand-green/10">
             <h3 className="text-xl font-bold text-white mb-6 text-center">Every Partnership Includes</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
