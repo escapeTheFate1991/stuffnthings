@@ -480,12 +480,12 @@ export default function Portfolio() {
         <div key={activeFilter}>
           {activeFilter === 'All' ? (
             <div className="animate-fade-in space-y-10">
-              {/* Featured project — first in list */}
-              <FeaturedProject project={projects[0]} onSelect={handleFilter} />
+              {/* Featured project — Meridian Home (E-commerce) */}
+              <FeaturedProject project={projects[4]} onSelect={handleFilter} />
 
               {/* Remaining projects — compact horizontal strip */}
               <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
-                {projects.slice(1).map((project, i) => (
+                {projects.filter((_, i) => i !== 4).map((project, i) => (
                   <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${(i + 1) * 80}ms` }}>
                     <CompactCard project={project} onSelect={handleFilter} />
                   </div>

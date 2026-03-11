@@ -79,7 +79,7 @@ export default function Results() {
         </div>
 
         {/* Metrics — count-up with glowing underlines */}
-        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-24">
+        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-12 mb-24">
           {metrics.map((metric, i) => (
             <div key={metric.label} className={`stagger-${i + 1}`}>
               <MetricBlock metric={metric} />
