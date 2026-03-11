@@ -19,7 +19,6 @@ const steps = [
       'Prioritized improvement roadmap',
     ],
     color: 'from-brand-cyan to-blue-500',
-    glowColor: 'shadow-brand-cyan/20',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -41,7 +40,6 @@ const steps = [
       'SEO, performance & mobile optimization',
     ],
     color: 'from-brand-purple to-pink-500',
-    glowColor: 'shadow-brand-purple/20',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -63,7 +61,6 @@ const steps = [
       'Unlimited updates & priority support',
     ],
     color: 'from-brand-green to-emerald-400',
-    glowColor: 'shadow-brand-green/20',
     icon: (
       <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -110,71 +107,73 @@ export default function HowItWorks() {
           </div>
         </div>
 
-        {/* Timeline Steps */}
-        <div className="relative">
+        {/* Vertical Timeline */}
+        <div className="relative max-w-5xl mx-auto">
           {/* Vertical timeline line (desktop) */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-cyan via-brand-purple to-brand-green" />
-          {/* Glow effect on timeline line */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-[1px] bg-gradient-to-b from-brand-cyan via-brand-purple to-brand-green opacity-20 blur-[4px]" />
 
-          <div className="space-y-16 lg:space-y-0">
-            {steps.map((step, index) => (
-              <div key={index} className="reveal relative lg:pb-24 last:lg:pb-0">
-                {/* Timeline node (desktop) */}
-                <div className="hidden lg:flex absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-xl ${step.glowColor} ring-4 ring-slate-950`}>
-                    {step.icon}
-                  </div>
-                </div>
+          <div className="space-y-16 lg:space-y-24">
+            {steps.map((step, index) => {
+              const isLeft = index % 2 === 1
+              const revealClass = index === 0 ? 'reveal-slide-right' : index === 1 ? 'reveal-slide-left' : 'reveal-slide-right'
 
-                <div className={`lg:grid lg:grid-cols-2 lg:gap-20 items-start ${index % 2 === 0 ? '' : 'lg:direction-rtl'}`}>
-                  {/* Content side */}
-                  <div className={`${index % 2 === 0 ? 'lg:text-right lg:pr-16' : 'lg:col-start-2 lg:pl-16'}`}>
-                    {/* Mobile icon */}
-                    <div className="lg:hidden flex items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg`}>
-                        {step.icon}
-                      </div>
-                      <span className={`text-5xl font-black bg-gradient-to-r ${step.color} bg-clip-text text-transparent opacity-30`}>
-                        {step.number}
-                      </span>
+              return (
+                <div key={index} className={`${revealClass} relative`}>
+                  {/* Timeline node (desktop) */}
+                  <div className="hidden lg:flex absolute left-1/2 top-0 -translate-x-1/2 z-10">
+                    <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-xl ring-4 ring-slate-950`}>
+                      {step.icon}
                     </div>
-
-                    <div className={`hidden lg:block text-7xl font-black bg-gradient-to-r ${step.color} bg-clip-text text-transparent opacity-20 mb-2`}>
-                      {step.number}
-                    </div>
-
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">{step.title}</h3>
-                    <p className={`text-lg font-medium mb-4 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
-                      {step.subtitle}
-                    </p>
-                    <p className="text-slate-400 leading-relaxed mb-6">{step.description}</p>
                   </div>
 
-                  {/* Deliverables card */}
-                  <div className={`${index % 2 === 0 ? 'lg:col-start-2 lg:pl-16' : 'lg:pr-16 lg:row-start-1'}`}>
-                    <div className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.06]">
-                      <div className="flex items-center justify-between mb-5">
-                        <h4 className="text-white font-semibold text-sm uppercase tracking-wider">Deliverables</h4>
-                        <span className={`text-sm font-semibold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
-                          {step.timeline}
+                  <div className={`lg:grid lg:grid-cols-2 lg:gap-20 items-start`}>
+                    {/* Content side */}
+                    <div className={`${isLeft ? 'lg:col-start-1 lg:text-right lg:pr-16' : 'lg:col-start-2 lg:pl-16'}`}>
+                      {/* Mobile icon */}
+                      <div className="lg:hidden flex items-center gap-4 mb-6">
+                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg`}>
+                          {step.icon}
+                        </div>
+                        <span className={`text-5xl font-black bg-gradient-to-r ${step.color} bg-clip-text text-transparent opacity-30`}>
+                          {step.number}
                         </span>
                       </div>
-                      <ul className="space-y-3">
-                        {step.deliverables.map((item, di) => (
-                          <li key={di} className="flex items-center gap-3 text-sm text-slate-300">
-                            <svg className="w-4 h-4 text-brand-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+
+                      <div className={`hidden lg:block text-7xl font-black bg-gradient-to-r ${step.color} bg-clip-text text-transparent opacity-20 mb-2`}>
+                        {step.number}
+                      </div>
+
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">{step.title}</h3>
+                      <p className={`text-lg font-medium mb-4 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
+                        {step.subtitle}
+                      </p>
+                      <p className="text-slate-400 leading-relaxed mb-6">{step.description}</p>
+
+                      {/* Deliverables — inline, no card wrapper */}
+                      <div className={`${isLeft ? 'lg:text-right' : ''}`}>
+                        <div className="flex items-center justify-between mb-4">
+                          <h4 className="text-white font-semibold text-sm uppercase tracking-wider">Deliverables</h4>
+                          <span className={`text-sm font-semibold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
+                            {step.timeline}
+                          </span>
+                        </div>
+                        <ul className={`space-y-2 ${isLeft ? 'lg:text-left' : ''}`}>
+                          {step.deliverables.map((item, di) => (
+                            <li key={di} className="flex items-center gap-3 text-sm text-slate-300">
+                              <svg className="w-4 h-4 text-brand-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                              </svg>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 

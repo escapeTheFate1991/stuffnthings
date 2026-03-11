@@ -1,40 +1,7 @@
 'use client'
 
 import { useCallback } from 'react'
-import { useScrollReveal, useTilt } from '@/lib/hooks'
-
-/* ── Problem Card ── */
-function ProblemCard({ icon, title, description, stat, index }: {
-  icon: React.ReactNode
-  title: string
-  description: string
-  stat: string
-  index: number
-}) {
-  const { ref, handlers } = useTilt<HTMLDivElement>(8)
-
-  return (
-    <div className={`reveal stagger-${index + 1}`}>
-      <div
-        ref={ref}
-        {...handlers}
-        className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 group cursor-default text-center h-full hover:border-red-400/30 transition-all duration-500"
-      >
-        <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-500">
-          {icon}
-        </div>
-
-        <h3 className="text-2xl font-bold text-white mb-4 font-display">{title}</h3>
-
-        <p className="text-slate-400 mb-6 leading-relaxed">{description}</p>
-
-        <div className="bg-red-950/40 border border-red-900/30 rounded-xl p-4 group-hover:border-red-800/50 transition-colors duration-500">
-          <p className="text-red-300/90 font-semibold text-sm">{stat}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { useScrollReveal } from '@/lib/hooks'
 
 export default function Problem() {
   const sectionRef = useScrollReveal<HTMLElement>()
@@ -42,33 +9,36 @@ export default function Problem() {
   const problems = [
     {
       icon: (
-        <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
       title: 'Built It and Bailed',
       description: "Your agency launched the site, cashed the check, and moved on. Nobody's watching performance. Nobody's patching security holes. Your site is quietly getting worse — and nobody's telling you.",
       stat: 'Most business sites lose 15–30% performance within 6 months of launch',
+      revealClass: 'reveal-slide-left',
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2-2v14a2 2 0 002 2z" />
         </svg>
       ),
       title: "Can't Justify a Full Team",
       description: "A designer, a developer, an SEO person, someone handling security patches — that's $25K a month in salary. For most businesses, hiring all of that in-house just doesn't make sense.",
       stat: 'A full-stack web team runs $25K+ per month in salary alone',
+      revealClass: 'reveal',
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
       ),
       title: 'Slow Site, Lost Money',
       description: "Every second your site takes to load costs you customers. Google penalizes it, visitors bounce, and your competitors pick up the traffic. This isn't a vanity metric — it's revenue walking out the door.",
       stat: '1-second delay = 7% fewer conversions, 11% fewer page views',
+      revealClass: 'reveal-slide-right',
     },
   ]
 
@@ -77,7 +47,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-[#0B1120]">
       {/* Edge glow line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
       {/* Aurora orbs for card area */}
@@ -103,10 +73,28 @@ export default function Problem() {
           </div>
         </div>
 
-        {/* Problem Cards */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+        {/* Problems — open layout, no card wrappers */}
+        <div className="max-w-4xl mx-auto space-y-0">
           {problems.map((problem, index) => (
-            <ProblemCard key={index} {...problem} index={index} />
+            <div key={index}>
+              <div className={`${problem.revealClass} stagger-${index + 1} py-10`}>
+                <div className="flex flex-col md:flex-row md:items-start gap-6">
+                  {/* Icon — larger, no box */}
+                  <div className="flex-shrink-0">
+                    {problem.icon}
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-3 font-display">{problem.title}</h3>
+                    <p className="text-slate-400 leading-relaxed mb-4">{problem.description}</p>
+                    <p className="text-red-300/80 font-semibold text-sm">{problem.stat}</p>
+                  </div>
+                </div>
+              </div>
+              {index < problems.length - 1 && (
+                <div className="gradient-divider" />
+              )}
+            </div>
           ))}
         </div>
 

@@ -35,7 +35,6 @@ export default function BlogTeaser() {
       {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-8%] w-[500px] h-[500px] rounded-full bg-brand-coral/[0.06] blur-[120px] animate-aurora-1" />
       <div className="absolute bottom-[15%] right-[-10%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.05] blur-[110px] animate-aurora-2" />
-      <div className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.04] blur-[100px] animate-aurora-3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -53,28 +52,30 @@ export default function BlogTeaser() {
           </div>
         </div>
 
-        {/* Blog Cards */}
+        {/* Blog Posts — clean, no card wrappers */}
         <div className="grid md:grid-cols-3 gap-8">
           {posts.map((post, i) => (
             <div key={post.title} className={`reveal stagger-${i + 1}`}>
               <a href={post.href} className="block group no-underline h-full">
-                <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl !p-0 overflow-hidden h-full flex flex-col hover:border-white/[0.12] hover:shadow-lg hover:shadow-brand-cyan/5 transition-all duration-500">
-                  {/* Color accent bar — subtle pulse */}
-                  <div className={`h-1 bg-gradient-to-r ${post.gradient} animate-pulse`} />
-                  <div className="p-8 flex flex-col flex-1">
-                    <h3 className="text-white font-bold text-lg mb-3 font-display group-hover:text-brand-cyan transition-colors duration-300">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-6">
-                      {post.excerpt}
-                    </p>
-                    <span className={`text-sm font-semibold bg-gradient-to-r ${post.gradient} bg-clip-text text-transparent flex items-center gap-1`}>
-                      Read More
-                      <svg className="w-4 h-4 text-brand-cyan group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </span>
-                  </div>
+                <div className="h-full flex flex-col py-2">
+                  {/* Color accent bar */}
+                  <div className={`h-[3px] w-16 bg-gradient-to-r ${post.gradient} mb-6 group-hover:w-full transition-all duration-500`} />
+
+                  <h3 className="text-white font-bold text-lg mb-3 font-display group-hover:text-brand-cyan transition-colors duration-300">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-6">
+                    {post.excerpt}
+                  </p>
+                  <span className={`text-sm font-semibold bg-gradient-to-r ${post.gradient} bg-clip-text text-transparent flex items-center gap-1`}>
+                    Read More
+                    <svg className="w-4 h-4 text-brand-cyan group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+
+                  {/* Subtle bottom border separator */}
+                  <div className="gradient-divider mt-6 md:hidden" />
                 </div>
               </a>
             </div>

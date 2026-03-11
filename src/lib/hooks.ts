@@ -24,7 +24,7 @@ export function useScrollReveal<T extends HTMLElement>(
 
     const el = ref.current
     if (el) {
-      el.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(
+      el.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-slide-left, .reveal-slide-right').forEach(
         (child) => observer.observe(child)
       )
     }

@@ -96,7 +96,7 @@ export default function ContactForm() {
       setIsSubmitting(false)
       setIsSubmitted(true)
 
-      // Also notify War Room (fire-and-forget — don't break the form if War Room is down)
+      // Also notify War Room (fire-and-forget)
       fetch('https://warroom.stuffnthings.io/api/webhooks/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -124,13 +124,11 @@ export default function ContactForm() {
   const filledCount = Object.values(formData).filter(Boolean).length
 
   return (
-    <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
       {/* Edge glow line — cyan top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
-      {/* Aurora orbs — dramatic for conversion section */}
-      <div className="absolute top-[10%] left-[-8%] w-[700px] h-[700px] rounded-full bg-brand-cyan/[0.10] blur-[140px] animate-aurora-1" />
-      <div className="absolute bottom-[5%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.10] blur-[130px] animate-aurora-2" />
-      <div className="absolute top-[40%] left-[50%] w-[500px] h-[500px] rounded-full bg-brand-coral/[0.06] blur-[120px] animate-aurora-3" />
+      {/* One subtle gradient orb — not aurora overkill */}
+      <div className="absolute top-[30%] left-[40%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.05] blur-[150px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -153,9 +151,8 @@ export default function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
           {/* Form */}
           <div className="reveal">
-            <div className="relative group">
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-brand-cyan/30 via-brand-purple/20 to-brand-cyan/30 opacity-60 blur-sm animate-aurora-1" />
-              <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8">
+            <div className="relative">
+              <div className="bg-white/[0.02] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8">
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Progress dots */}
@@ -271,23 +268,23 @@ export default function ContactForm() {
 
                     <div className="relative group/submit mt-2">
                       <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover/submit:opacity-70 blur-lg transition-opacity duration-700" />
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="relative w-full btn btn-primary !py-5 text-lg"
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center gap-3">
-                          <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                          </svg>
-                          Analyzing...
-                        </span>
-                      ) : (
-                        'Get My Free Site Audit →'
-                      )}
-                    </button>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="relative w-full btn btn-primary !py-5 text-lg"
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center justify-center gap-3">
+                            <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                            </svg>
+                            Analyzing...
+                          </span>
+                        ) : (
+                          'Get My Free Site Audit →'
+                        )}
+                      </button>
                     </div>
 
                     {error && (
@@ -314,7 +311,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Benefits */}
+          {/* Benefits — clean icon + text, no card wrappers */}
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
@@ -326,10 +323,10 @@ export default function ContactForm() {
               </p>
             </div>
 
-            <div className="space-y-6 mb-10">
+            <div className="space-y-8 mb-10">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-4 group cursor-default">
-                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:border-brand-cyan/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300">
+                  <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     {b.icon}
                   </div>
                   <div>
@@ -340,7 +337,7 @@ export default function ContactForm() {
               ))}
             </div>
 
-            <div className="glass rounded-2xl p-6 border border-brand-green/10">
+            <div className="border border-white/[0.06] rounded-2xl p-6">
               <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
                 <svg className="w-5 h-5 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
@@ -348,19 +345,19 @@ export default function ContactForm() {
                 What We Measure
               </h4>
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-3 rounded-xl bg-slate-800/50">
+                <div className="text-center p-3">
                   <div className="text-2xl font-bold gradient-text">95+</div>
                   <div className="text-xs text-slate-400 mt-1">Lighthouse Performance Target</div>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-slate-800/50">
+                <div className="text-center p-3">
                   <div className="text-2xl font-bold gradient-text">&lt;1.5s</div>
                   <div className="text-xs text-slate-400 mt-1">LCP (Largest Contentful Paint)</div>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-slate-800/50">
+                <div className="text-center p-3">
                   <div className="text-2xl font-bold gradient-text">3</div>
                   <div className="text-xs text-slate-400 mt-1">AI Automations Per Site</div>
                 </div>
-                <div className="text-center p-3 rounded-xl bg-slate-800/50">
+                <div className="text-center p-3">
                   <div className="text-2xl font-bold gradient-text">0.00</div>
                   <div className="text-xs text-slate-400 mt-1">CLS (Layout Shift) Target</div>
                 </div>

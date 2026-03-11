@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from 'react'
 import { useParallax } from '@/lib/hooks'
+import AnimatedStreaks from './AnimatedStreaks'
 
 /* ── Particle Canvas ── */
 function ParticleBackground() {
@@ -139,7 +140,9 @@ function FloatingElements() {
         style={{ transform: `translate(${offset.x * -0.6}px, ${offset.y * -0.6}px)` }}
       >
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
-          <div className="w-3 h-3 bg-brand-green rounded-full animate-pulse" />
+          <svg className="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
           <div>
             <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Uptime SLA</div>
             <div className="text-lg font-bold text-white">99.9%</div>
@@ -189,16 +192,16 @@ export default function Hero() {
         backgroundSize: '60px 60px'
       }} />
 
+      <AnimatedStreaks opacity={0.15} />
       <ParticleBackground />
       <FloatingElements />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24 pb-16">
-        {/* Tagline chip */}
+        {/* Tagline — clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
-          <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
-            <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
-            Now accepting new partners — Free site audit included
-          </span>
+          <p className="text-sm text-slate-400 tracking-widest uppercase">
+            Now Accepting Partners — Free Audit Included
+          </p>
         </div>
 
         {/* Main heading */}
@@ -227,7 +230,7 @@ export default function Hero() {
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
             <button
               onClick={handleCTAClick}
-              className="relative btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
+              className="relative btn btn-primary text-lg px-10 py-5 hover:scale-[1.04] transition-transform duration-300"
             >
               Get Your Free Site Audit
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -243,28 +246,16 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Trust bar */}
+        {/* Trust bar — clean, no green dots */}
         <div className="hero-reveal reveal">
-          <div className="glass rounded-2xl border border-slate-700/30 px-6 py-4 inline-flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            <span className="flex items-center gap-2 text-sm text-slate-400">
-              <span className="w-2 h-2 bg-brand-green rounded-full" />
-              No contracts
-            </span>
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-400">
+            <span>No contracts</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span className="flex items-center gap-2 text-sm text-slate-400">
-              <span className="w-2 h-2 bg-brand-green rounded-full" />
-              Cancel anytime
-            </span>
+            <span>Cancel anytime</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span className="flex items-center gap-2 text-sm text-slate-400">
-              <span className="w-2 h-2 bg-brand-green rounded-full" />
-              48-hour audit turnaround
-            </span>
+            <span>48-hour audit turnaround</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span className="flex items-center gap-2 text-sm text-slate-400">
-              <span className="w-2 h-2 bg-brand-green rounded-full" />
-              Every score is verifiable
-            </span>
+            <span>Every score is verifiable</span>
           </div>
         </div>
       </div>

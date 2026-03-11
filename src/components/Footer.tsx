@@ -10,18 +10,9 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-slate-950 border-t border-slate-800/50 overflow-hidden">
-      {/* Gradient top border — edge glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
-
-      {/* Aurora orbs — very subtle */}
-      <div className="absolute top-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.03] blur-[120px] animate-aurora-1" />
-      <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.04] blur-[130px] animate-aurora-2" />
-      <div className="absolute bottom-[-20%] left-[30%] w-[600px] h-[600px] rounded-full bg-brand-coral/[0.03] blur-[140px] animate-aurora-3" />
-
-      {/* Atmospheric bottom glow — nebula effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-cyan/[0.04] via-brand-purple/[0.02] to-transparent" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[200px] bg-brand-cyan/[0.06] rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[150px] bg-brand-purple/[0.05] rounded-full blur-[80px]" />
+      {/* Gradient glow line at top */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent blur-sm" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-12 gap-10">
@@ -34,13 +25,7 @@ export default function Footer() {
             <p className="text-slate-600 text-sm mb-6">
               Independent studio. Founding partners welcome.
             </p>
-            <div className="flex items-center gap-3 text-slate-500 text-sm">
-              <div className="relative">
-                <div className="absolute inset-0 w-2 h-2 bg-brand-green rounded-full animate-ping opacity-40" />
-                <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse relative" />
-              </div>
-              All systems operational
-            </div>
+            <p className="text-slate-500 text-sm">All systems operational</p>
           </div>
 
           {/* Navigation */}

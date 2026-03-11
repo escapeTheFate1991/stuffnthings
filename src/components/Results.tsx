@@ -1,23 +1,12 @@
 'use client'
 
-import { useScrollReveal, useCountUp } from '@/lib/hooks'
-
-function MetricCard({ value, suffix, label, color }: { value: string; suffix?: string; label: string; color: string }) {
-  return (
-    <div className="text-center group cursor-default">
-      <div className={`text-4xl md:text-5xl lg:text-6xl font-black mb-2 ${color}`} style={{ textShadow: '0 0 25px rgba(6, 182, 212, 0.3), 0 0 50px rgba(168, 85, 247, 0.15)' }}>
-        {value}{suffix}
-      </div>
-      <div className="text-slate-400 text-sm md:text-base font-medium">{label}</div>
-    </div>
-  )
-}
+import { useScrollReveal } from '@/lib/hooks'
 
 const metrics = [
-  { value: '3.2x', label: 'Average traffic increase in 90 days', color: 'gradient-text' },
-  { value: '95+', label: 'Lighthouse performance score, every build', color: 'gradient-text' },
-  { value: '$2,400', label: 'Average monthly savings from AI automation', color: 'gradient-text' },
-  { value: '48hr', label: 'From audit to action plan', color: 'gradient-text' },
+  { value: '3.2x', label: 'Average traffic increase in 90 days' },
+  { value: '95+', label: 'Lighthouse performance score, every build' },
+  { value: '$2,400', label: 'Average monthly savings from AI automation' },
+  { value: '48hr', label: 'From audit to action plan' },
 ]
 
 const testimonials = [
@@ -39,14 +28,13 @@ export default function Results() {
   const sectionRef = useScrollReveal<HTMLElement>()
 
   return (
-    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-[#0B1120]">
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
-      {/* Aurora orbs — green/cyan */}
+      {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-green/[0.07] blur-[130px] animate-aurora-1" />
       <div className="absolute bottom-[5%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.06] blur-[120px] animate-aurora-2" />
-      <div className="absolute top-[50%] left-[50%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.04] blur-[100px] animate-aurora-3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -66,35 +54,37 @@ export default function Results() {
           </div>
         </div>
 
-        {/* Metrics Grid */}
-        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-20">
+        {/* Metrics — MUCH bigger numbers, no card wrappers */}
+        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-24">
           {metrics.map((metric, i) => (
-            <div key={metric.label} className={`stagger-${i + 1}`}>
-              <MetricCard {...metric} />
+            <div key={metric.label} className={`stagger-${i + 1} text-center`}>
+              <div className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-3" style={{ textShadow: '0 0 25px rgba(6, 182, 212, 0.3), 0 0 50px rgba(168, 85, 247, 0.15)' }}>
+                {metric.value}
+              </div>
+              <div className="text-slate-400 text-sm md:text-base font-medium">{metric.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Testimonials — Splunk-style: gradient left border, no cards */}
+        <div className="space-y-12 max-w-5xl mx-auto">
           {testimonials.map((t, i) => (
-            <div key={t.name} className={`reveal stagger-${i + 1}`}>
-              <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 h-full hover:border-white/[0.12] hover:shadow-lg hover:shadow-brand-cyan/5 transition-all duration-500">
-                {/* Quote mark */}
-                <svg className="w-10 h-10 text-slate-700/50 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z" />
-                </svg>
-                <p className="text-slate-300 text-lg leading-relaxed mb-6 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center`}>
-                    <span className="text-white font-bold text-sm">{t.name[0]}</span>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold text-sm">{t.name}</div>
-                    <div className="text-slate-500 text-xs">{t.company}</div>
-                  </div>
+            <div key={t.name} className={`${i === 0 ? 'reveal-slide-left' : 'reveal-slide-right'} stagger-${i + 1}`}>
+              <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
+                {/* Quote — gradient left border */}
+                <div className="pl-8" style={{
+                  borderLeft: `4px solid transparent`,
+                  borderImage: `linear-gradient(to bottom, ${i === 0 ? '#06b6d4' : '#a855f7'}, ${i === 0 ? '#a855f7' : '#f97316'}) 1`,
+                }}>
+                  <p className="text-slate-200 text-xl md:text-2xl leading-relaxed italic">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                {/* Attribution — clean text, no avatar */}
+                <div className="md:text-right pl-8 md:pl-0">
+                  <div className="text-white font-semibold">{t.name}</div>
+                  <div className="text-slate-500 text-sm">{t.company}</div>
                 </div>
               </div>
             </div>

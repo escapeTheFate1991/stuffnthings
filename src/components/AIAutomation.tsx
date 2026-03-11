@@ -2,6 +2,7 @@
 
 import { useCallback } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
+import AnimatedStreaks from './AnimatedStreaks'
 
 const capabilities = [
   {
@@ -45,9 +46,10 @@ export default function AIAutomation() {
   }, [])
 
   return (
-    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-[#111827] rounded-3xl mx-4 my-8">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111827] via-[#111827] to-[#111827]" />
+      <AnimatedStreaks opacity={0.1} />
       {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.08] blur-[120px] animate-aurora-1" />
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.08] blur-[100px] animate-aurora-2" />
@@ -65,10 +67,9 @@ export default function AIAutomation() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="reveal">
-            <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/20 mb-8">
-              <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
+            <p className="text-sm text-slate-400 tracking-widest uppercase mb-8">
               AI Built Into Every Layer
-            </span>
+            </p>
           </div>
           <div className="reveal stagger-1">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6">

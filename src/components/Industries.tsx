@@ -12,8 +12,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-cyan',
-    borderHover: 'group-hover:border-brand-cyan/30',
-    bgHover: 'from-brand-cyan/10 to-transparent',
+    glowColor: 'group-hover:text-brand-cyan group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]',
+    underlineColor: 'from-brand-cyan to-blue-500',
   },
   {
     name: 'Medical & Dental',
@@ -24,8 +24,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-purple',
-    borderHover: 'group-hover:border-brand-purple/30',
-    bgHover: 'from-brand-purple/10 to-transparent',
+    glowColor: 'group-hover:text-brand-purple group-hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]',
+    underlineColor: 'from-brand-purple to-pink-500',
   },
   {
     name: 'Legal & Professional',
@@ -36,8 +36,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-coral',
-    borderHover: 'group-hover:border-brand-coral/30',
-    bgHover: 'from-brand-coral/10 to-transparent',
+    glowColor: 'group-hover:text-brand-coral group-hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]',
+    underlineColor: 'from-brand-coral to-red-500',
   },
   {
     name: 'Restaurants & Hospitality',
@@ -48,32 +48,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-green',
-    borderHover: 'group-hover:border-brand-green/30',
-    bgHover: 'from-brand-green/10 to-transparent',
-  },
-  {
-    name: 'Salon & Beauty',
-    problem: 'Stop losing bookings to phone tag. AI scheduling fills your chair every hour.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-      </svg>
-    ),
-    color: 'text-brand-purple',
-    borderHover: 'group-hover:border-brand-purple/30',
-    bgHover: 'from-brand-purple/10 to-transparent',
-  },
-  {
-    name: 'Automotive & Repair',
-    problem: 'Automated appointment reminders and service follow-ups that keep bays full.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.42 15.17l-5.1-5.1m0 0L12 4.37m-5.68 5.7h11.8M4.26 19.72a9 9 0 1115.48 0" />
-      </svg>
-    ),
-    color: 'text-brand-coral',
-    borderHover: 'group-hover:border-brand-coral/30',
-    bgHover: 'from-brand-coral/10 to-transparent',
+    glowColor: 'group-hover:text-brand-green group-hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]',
+    underlineColor: 'from-brand-green to-emerald-400',
   },
   {
     name: 'Construction & Trades',
@@ -84,8 +60,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-cyan',
-    borderHover: 'group-hover:border-brand-cyan/30',
-    bgHover: 'from-brand-cyan/10 to-transparent',
+    glowColor: 'group-hover:text-brand-cyan group-hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]',
+    underlineColor: 'from-brand-cyan to-blue-500',
   },
   {
     name: 'Real Estate',
@@ -96,8 +72,8 @@ const industries = [
       </svg>
     ),
     color: 'text-brand-green',
-    borderHover: 'group-hover:border-brand-green/30',
-    bgHover: 'from-brand-green/10 to-transparent',
+    glowColor: 'group-hover:text-brand-green group-hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]',
+    underlineColor: 'from-brand-green to-emerald-400',
   },
 ]
 
@@ -110,15 +86,9 @@ export default function Industries() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
-      {/* Aurora orbs — cycling colors */}
+      {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.06] blur-[120px] animate-aurora-1" />
       <div className="absolute bottom-[10%] right-[-8%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.06] blur-[130px] animate-aurora-2" />
-      <div className="absolute top-[60%] left-[40%] w-[400px] h-[400px] rounded-full bg-brand-coral/[0.04] blur-[100px] animate-aurora-3" />
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -138,21 +108,22 @@ export default function Industries() {
           </div>
         </div>
 
-        {/* Industry Grid — 2 rows of 4 */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* Industry Grid — 2 rows of 3, transparent backgrounds */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {industries.map((industry, i) => (
-            <div key={industry.name} className={`reveal stagger-${(i % 4) + 1}`}>
-              <div className={`group relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl !p-6 h-full cursor-default ${industry.borderHover} transition-all duration-500 hover:shadow-lg hover:shadow-brand-cyan/5`}>
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${industry.bgHover} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                {/* Glow halo on hover */}
-                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${industry.bgHover} opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-md`} />
+            <div key={industry.name} className={`reveal stagger-${(i % 3) + 1}`}>
+              <div className="group relative cursor-default py-6 px-2 transition-all duration-500">
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 ${industry.borderHover} transition-all duration-300 group-hover:scale-110`}>
-                    <div className={industry.color}>{industry.icon}</div>
+                  <div className={`${industry.color} mb-4 transition-all duration-300 ${industry.glowColor}`}>
+                    {industry.icon}
                   </div>
-                  <h3 className="text-white font-bold text-sm md:text-base mb-2 font-display">{industry.name}</h3>
+                  <h3 className="text-white font-bold text-sm md:text-base mb-2 font-display transition-all duration-300">
+                    {industry.name}
+                  </h3>
                   <p className="text-slate-400 text-xs md:text-sm leading-relaxed">{industry.problem}</p>
                 </div>
+                {/* Gradient underline on hover */}
+                <div className={`mt-4 h-[2px] w-0 group-hover:w-full bg-gradient-to-r ${industry.underlineColor} transition-all duration-500`} />
               </div>
             </div>
           ))}

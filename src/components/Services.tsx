@@ -118,12 +118,6 @@ export default function Services() {
       {/* Aurora orbs */}
       <div className="absolute top-[15%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.06] blur-[130px] animate-aurora-1" />
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.07] blur-[120px] animate-aurora-2" />
-      <div className="absolute top-[60%] left-[30%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] animate-aurora-3" />
-      {/* Grid overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -143,32 +137,35 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Pricing Tiers */}
+        {/* Pricing Tiers — thin borders, transparent backgrounds */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl bg-white/[0.03] backdrop-blur-sm border-2 shadow-2xl transition-all duration-500 p-8 group ${
+              className={`relative flex flex-col rounded-2xl bg-transparent border transition-all duration-500 p-8 group overflow-hidden ${
                 tier.popular
-                  ? 'border-brand-cyan/50 shadow-[0_0_30px_rgba(6,182,212,0.2)] hover:shadow-[0_0_50px_rgba(6,182,212,0.3)] hover:border-brand-cyan/70 md:scale-105 md:z-10'
-                  : 'border-white/[0.06] shadow-slate-900/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:border-brand-purple/30'
+                  ? 'border-white/[0.1] md:scale-105 md:z-10'
+                  : 'border-white/[0.06] hover:border-brand-purple/30'
               }`}
             >
+              {/* Popular tier: gradient TOP border bar */}
+              {tier.popular && (
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral" />
+              )}
+
               {/* Most Popular Badge */}
               {tier.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25 animate-pulse-glow">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                <div className="absolute -top-0 left-1/2 -translate-x-1/2 translate-y-3">
+                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-cyan to-brand-purple text-white text-sm font-semibold px-5 py-1.5 rounded-full shadow-lg shadow-brand-cyan/25">
                     Most Popular
                   </span>
                 </div>
               )}
 
               {/* Tier Header */}
-              <div className={`text-center ${tier.popular ? 'mt-2' : ''} mb-6`}>
+              <div className={`text-center ${tier.popular ? 'mt-8' : ''} mb-6`}>
                 <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
                 <p className="text-sm text-slate-400 mb-4">{tier.subtitle}</p>
-                <div className="mb-2" />
                 <div className="flex items-baseline justify-center gap-1">
                   <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r bg-clip-text text-transparent ${
                     tier.popular
@@ -202,22 +199,17 @@ export default function Services() {
                 ))}
               </ul>
 
-              {/* CTA */}
-              <div className="relative group/btn">
-                {tier.popular && (
-                  <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover/btn:opacity-70 blur-lg transition-opacity duration-700" />
-                )}
-                <button
-                  onClick={handleCTAClick}
-                  className={`relative w-full btn !rounded-xl !py-4 text-base ${
-                    tier.popular
-                      ? 'btn-primary'
-                      : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
-                  }`}
-                >
-                  Get Started
-                </button>
-              </div>
+              {/* CTA — clean, no pulse */}
+              <button
+                onClick={handleCTAClick}
+                className={`w-full btn !rounded-xl !py-4 text-base ${
+                  tier.popular
+                    ? 'btn-primary'
+                    : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
+                }`}
+              >
+                Get Started
+              </button>
             </div>
           ))}
         </div>
@@ -227,16 +219,16 @@ export default function Services() {
           <div className="max-w-2xl mx-auto">
             <div className="border-t border-slate-700/50 pt-8">
               <p className="text-xs text-slate-500 text-center mb-4 uppercase tracking-wider font-medium">What this replaces</p>
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="glass rounded-xl p-3">
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div>
                   <div className="text-lg font-bold text-red-400 line-through">$25K+</div>
                   <div className="text-[10px] text-slate-500 mt-1">In-house team /mo</div>
                 </div>
-                <div className="glass rounded-xl p-3">
+                <div>
                   <div className="text-lg font-bold text-red-400 line-through">$15–50K</div>
                   <div className="text-[10px] text-slate-500 mt-1">Agency project</div>
                 </div>
-                <div className="glass rounded-xl p-3">
+                <div>
                   <div className="text-lg font-bold text-red-400 line-through">$200–500</div>
                   <div className="text-[10px] text-slate-500 mt-1">SaaS tools /mo</div>
                 </div>
@@ -245,14 +237,14 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Guarantees */}
+        {/* Guarantees — clean icon + text, no card wrappers */}
         <div className="reveal mt-16">
-          <div className="glass rounded-2xl p-8 md:p-10 max-w-4xl mx-auto border border-brand-green/10">
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Every Partnership Includes</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-white mb-8 text-center">Every Partnership Includes</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {guarantees.map((g, i) => (
-                <div key={i} className="text-center group cursor-default">
-                  <div className="w-10 h-10 mx-auto mb-2 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center group-hover:scale-125 group-hover:border-brand-cyan/30 transition-all duration-300">
+                <div key={i} className="flex flex-col items-center gap-3 text-center group cursor-default">
+                  <div className="group-hover:scale-110 transition-transform duration-300">
                     {g.icon}
                   </div>
                   <p className="text-slate-300 text-sm font-medium">{g.label}</p>
