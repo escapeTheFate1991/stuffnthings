@@ -22,15 +22,15 @@ const metrics = [
 
 const testimonials = [
   {
-    quote: 'We went from no online presence to getting 3-4 new calls a week. The AI handles our scheduling and follow-ups automatically.',
-    name: 'Mike',
-    company: 'Freedom Roofing Contractors',
-    gradient: 'from-brand-cyan to-brand-purple',
-  },
-  {
     quote: 'I used to spend two hours a day answering the same questions. Now our site handles it and I actually get to do my job.',
     name: 'Sarah',
     company: 'Bright Smile Dental',
+    gradient: 'from-brand-cyan to-brand-purple',
+  },
+  {
+    quote: 'Our old site was costing us leads we didn\'t even know about. Within a month of the rebuild, our phone started ringing again.',
+    name: 'James',
+    company: 'Summit Contractors',
     gradient: 'from-brand-purple to-brand-coral',
   },
 ]

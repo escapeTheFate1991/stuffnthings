@@ -106,41 +106,78 @@ export default function Problem() {
           ))}
         </div>
 
-        {/* CTA Box */}
-        <div className="reveal mt-20">
-          <div className="relative rounded-2xl overflow-hidden max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/10 via-brand-purple/10 to-brand-cyan/10" />
-            <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
-              {/* Stat bar */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-black gradient-text">55K</div>
-                  <div className="text-xs text-slate-500 mt-1">US jobs cut by AI in 2025</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-black gradient-text">66%</div>
-                  <div className="text-xs text-slate-500 mt-1">avg productivity gain with AI</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-black gradient-text">89%</div>
-                  <div className="text-xs text-slate-500 mt-1">of SMBs already using AI</div>
-                </div>
-              </div>
+        {/* ── Immersive CTA — Full-width Aurora Section ── */}
+      </div>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-                AI Is Reshaping Every Business. Is Yours Ready?
-              </h3>
-              <p className="text-lg text-slate-400 mb-6 max-w-2xl mx-auto">
-                Companies are cutting thousands of roles in customer service, admin, and back-office — replacing them with AI workflows.
-                The businesses that adapt now are saving $1,700–$3,200/month while their competitors still hire for tasks a machine handles in seconds.
-              </p>
-              <a href="/resources/ai-workforce-report" className="btn btn-primary text-lg px-8 py-4 inline-block">
-                Learn more →
+      <div className="reveal mt-20 relative">
+        {/* Full-bleed background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Aurora gradient layers */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-950" />
+          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-cyan/15 rounded-full blur-[120px] animate-aurora-1" />
+          <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-brand-purple/15 rounded-full blur-[100px] animate-aurora-2" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-coral/8 rounded-full blur-[140px] animate-aurora-3" />
+          {/* Subtle grid overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+          {/* Top/bottom edge glow lines */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
+        </div>
+
+        <div className="relative py-24 md:py-36 lg:py-44">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Floating stat pills */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+              {[
+                { value: '55K', label: 'US jobs displaced by AI in 2025', glow: 'shadow-brand-cyan/20' },
+                { value: '66%', label: 'avg productivity gain with AI', glow: 'shadow-brand-purple/20' },
+                { value: '89%', label: 'of SMBs already using AI', glow: 'shadow-brand-coral/20' },
+              ].map((stat) => (
+                <div key={stat.label} className={`flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm shadow-lg ${stat.glow} hover:bg-white/[0.07] hover:border-white/[0.15] transition-all duration-500`}>
+                  <span className="text-2xl md:text-3xl font-black gradient-text">{stat.value}</span>
+                  <span className="text-xs md:text-sm text-slate-400 text-left max-w-[140px] leading-tight">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Headline */}
+            <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 font-display leading-[1.1] tracking-tight">
+              AI Is Reshaping<br />
+              <span className="bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral bg-clip-text text-transparent">
+                Every Business.
+              </span>
+            </h3>
+
+            <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Companies are replacing entire departments with AI workflows.
+              The ones that move first save $1,700–$3,200 a month.
+              The ones that wait lose ground they won&apos;t get back.
+            </p>
+
+            {/* CTA Button — glowing, oversized */}
+            <div className="relative inline-block group">
+              {/* Glow behind button */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
+              <a
+                href="/resources/ai-workforce-report"
+                className="relative inline-flex items-center gap-3 px-10 py-5 md:px-14 md:py-6 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl text-white font-bold text-lg md:text-xl tracking-wide shadow-2xl hover:shadow-brand-purple/30 transition-all duration-500 hover:scale-[1.03]"
+              >
+                <span>See the Full Report</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </a>
             </div>
+
+            {/* Subtle subtext */}
+            <p className="mt-6 text-sm text-slate-500">Free download. No email required.</p>
           </div>
         </div>
       </div>
+
     </section>
   )
 }
