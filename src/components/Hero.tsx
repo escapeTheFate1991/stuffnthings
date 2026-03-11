@@ -176,12 +176,18 @@ export default function Hero() {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-950"
     >
-      {/* Gradient orbs */}
+      {/* Gradient orbs — aurora animated */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.07] blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.07] blur-[120px]" />
-        <div className="absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full bg-brand-coral/[0.04] blur-[100px]" />
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.07] blur-[120px] animate-aurora-1" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.07] blur-[120px] animate-aurora-2" />
+        <div className="absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full bg-brand-coral/[0.04] blur-[100px] animate-aurora-3" />
       </div>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 z-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
 
       <ParticleBackground />
       <FloatingElements />
@@ -189,7 +195,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24 pb-16">
         {/* Tagline chip */}
         <div className="hero-reveal reveal mb-8">
-          <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/20">
+          <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm font-medium text-brand-cyan border border-brand-cyan/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
             <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
             Now accepting new partners — Free site audit included
           </span>
@@ -217,15 +223,18 @@ export default function Hero() {
 
         {/* CTA Group */}
         <div className="hero-reveal reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <button
-            onClick={handleCTAClick}
-            className="btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
-          >
-            Get Your Free Site Audit
-            <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
+          <div className="relative inline-block group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
+            <button
+              onClick={handleCTAClick}
+              className="relative btn btn-primary text-lg px-10 py-5 animate-pulse-glow"
+            >
+              Get Your Free Site Audit
+              <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          </div>
           <button
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"

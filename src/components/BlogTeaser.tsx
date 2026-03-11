@@ -28,8 +28,14 @@ export default function BlogTeaser() {
 
   return (
     <section id="blog" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+      {/* Aurora orbs */}
+      <div className="absolute top-[10%] left-[-8%] w-[500px] h-[500px] rounded-full bg-brand-coral/[0.06] blur-[120px] animate-aurora-1" />
+      <div className="absolute bottom-[15%] right-[-10%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.05] blur-[110px] animate-aurora-2" />
+      <div className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.04] blur-[100px] animate-aurora-3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -52,9 +58,9 @@ export default function BlogTeaser() {
           {posts.map((post, i) => (
             <div key={post.title} className={`reveal stagger-${i + 1}`}>
               <a href={post.href} className="block group no-underline h-full">
-                <div className="card !p-0 overflow-hidden h-full flex flex-col hover:border-slate-600/50 transition-colors">
-                  {/* Color accent bar */}
-                  <div className={`h-1 bg-gradient-to-r ${post.gradient}`} />
+                <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl !p-0 overflow-hidden h-full flex flex-col hover:border-white/[0.12] hover:shadow-lg hover:shadow-brand-cyan/5 transition-all duration-500">
+                  {/* Color accent bar — subtle pulse */}
+                  <div className={`h-1 bg-gradient-to-r ${post.gradient} animate-pulse`} />
                   <div className="p-8 flex flex-col flex-1">
                     <h3 className="text-white font-bold text-lg mb-3 font-display group-hover:text-brand-cyan transition-colors duration-300">
                       {post.title}

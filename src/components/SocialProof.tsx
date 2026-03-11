@@ -10,7 +10,7 @@ function Stat({ end, suffix, label, icon }: { end: number; suffix: string; label
       <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center group-hover:scale-125 group-hover:border-brand-cyan/30 transition-all duration-300">
         {icon}
       </div>
-      <div className="text-4xl md:text-5xl font-black gradient-text mb-1">{value}{suffix}</div>
+      <div className="text-4xl md:text-5xl font-black gradient-text mb-1" style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(168, 85, 247, 0.15)' }}>{value}{suffix}</div>
       <div className="text-slate-400 text-sm font-medium">{label}</div>
     </div>
   )
@@ -25,7 +25,7 @@ function StandardCard({
   return (
     <div className="relative group h-full">
       <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm`} />
-      <div className="card relative h-full flex flex-col">
+      <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 h-full flex flex-col">
         <div className="mb-4">{icon}</div>
         <h4 className={`text-xl font-bold mb-3 font-display bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>{title}</h4>
         <p className="text-slate-300 leading-relaxed flex-1 mb-6">{commitment}</p>
@@ -100,7 +100,18 @@ export default function SocialProof() {
 
   return (
     <section id="testimonials" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
+      {/* Aurora orbs */}
+      <div className="absolute top-[5%] right-[-8%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.07] blur-[130px] animate-aurora-1" />
+      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.06] blur-[120px] animate-aurora-2" />
+      <div className="absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] animate-aurora-3" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Authority Badges */}
@@ -117,7 +128,7 @@ export default function SocialProof() {
             ].map((badge) => (
               <div
                 key={badge.name}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-slate-600/50 transition-colors duration-300"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] hover:border-brand-cyan/30 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300"
               >
                 <div className="w-2 h-2 rounded-full bg-brand-cyan/60" />
                 <span className="text-sm text-slate-300 font-medium">{badge.name}</span>

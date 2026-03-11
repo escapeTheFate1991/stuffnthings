@@ -112,7 +112,18 @@ export default function Services() {
     <section id="services" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
+      {/* Aurora orbs */}
+      <div className="absolute top-[15%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.06] blur-[130px] animate-aurora-1" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.07] blur-[120px] animate-aurora-2" />
+      <div className="absolute top-[60%] left-[30%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.04] blur-[100px] animate-aurora-3" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -137,10 +148,10 @@ export default function Services() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl bg-slate-800/80 border-2 shadow-2xl transition-all duration-500 p-8 ${
+              className={`relative flex flex-col rounded-2xl bg-white/[0.03] backdrop-blur-sm border-2 shadow-2xl transition-all duration-500 p-8 group ${
                 tier.popular
-                  ? 'border-brand-cyan/50 shadow-brand-cyan/20 hover:shadow-brand-cyan/30 hover:border-brand-cyan/70 md:scale-105 md:z-10'
-                  : 'border-slate-700/30 shadow-slate-900/20 hover:shadow-brand-purple/10 hover:border-slate-600/50'
+                  ? 'border-brand-cyan/50 shadow-[0_0_30px_rgba(6,182,212,0.2)] hover:shadow-[0_0_50px_rgba(6,182,212,0.3)] hover:border-brand-cyan/70 md:scale-105 md:z-10'
+                  : 'border-white/[0.06] shadow-slate-900/20 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:border-brand-purple/30'
               }`}
             >
               {/* Most Popular Badge */}
@@ -192,16 +203,21 @@ export default function Services() {
               </ul>
 
               {/* CTA */}
-              <button
-                onClick={handleCTAClick}
-                className={`w-full btn !rounded-xl !py-4 text-base ${
-                  tier.popular
-                    ? 'btn-primary'
-                    : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
-                }`}
-              >
-                Get Started
-              </button>
+              <div className="relative group/btn">
+                {tier.popular && (
+                  <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover/btn:opacity-70 blur-lg transition-opacity duration-700" />
+                )}
+                <button
+                  onClick={handleCTAClick}
+                  className={`relative w-full btn !rounded-xl !py-4 text-base ${
+                    tier.popular
+                      ? 'btn-primary'
+                      : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
+                  }`}
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
           ))}
         </div>

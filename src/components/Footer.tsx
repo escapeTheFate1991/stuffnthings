@@ -9,15 +9,25 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-slate-950 border-t border-slate-800/50">
-      {/* Gradient top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
+    <footer className="relative bg-slate-950 border-t border-slate-800/50 overflow-hidden">
+      {/* Gradient top border — edge glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Aurora orbs — very subtle */}
+      <div className="absolute top-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.03] blur-[120px] animate-aurora-1" />
+      <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.04] blur-[130px] animate-aurora-2" />
+      <div className="absolute bottom-[-20%] left-[30%] w-[600px] h-[600px] rounded-full bg-brand-coral/[0.03] blur-[140px] animate-aurora-3" />
+
+      {/* Atmospheric bottom glow — nebula effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-cyan/[0.04] via-brand-purple/[0.02] to-transparent" />
+      <div className="absolute bottom-0 left-1/4 w-[600px] h-[200px] bg-brand-cyan/[0.06] rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[150px] bg-brand-purple/[0.05] rounded-full blur-[80px]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid md:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="md:col-span-5">
-            <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight">stuffnthings</h3>
+            <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight" style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.2), 0 0 60px rgba(168, 85, 247, 0.1)' }}>stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
               We design, build, and run high-performance websites powered by AI — so you can focus on your business, not your site.
             </p>
@@ -25,7 +35,10 @@ export default function Footer() {
               Independent studio. Founding partners welcome.
             </p>
             <div className="flex items-center gap-3 text-slate-500 text-sm">
-              <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
+              <div className="relative">
+                <div className="absolute inset-0 w-2 h-2 bg-brand-green rounded-full animate-ping opacity-40" />
+                <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse relative" />
+              </div>
               All systems operational
             </div>
           </div>
@@ -53,9 +66,12 @@ export default function Footer() {
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
               Free site audit — full analysis delivered in 48 hours. No strings attached.
             </p>
-            <a href="#contact" className="btn btn-primary text-sm !px-6 !py-3 inline-block">
-              Get Free Audit →
-            </a>
+            <div className="relative inline-block group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-700" />
+              <a href="#contact" className="relative btn btn-primary text-sm !px-6 !py-3 inline-block">
+                Get Free Audit →
+              </a>
+            </div>
           </div>
         </div>
 

@@ -81,7 +81,18 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/30 to-transparent" />
+      {/* Aurora orbs — purple dominant */}
+      <div className="absolute top-[10%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.08] blur-[130px] animate-aurora-1" />
+      <div className="absolute bottom-[15%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.06] blur-[120px] animate-aurora-2" />
+      <div className="absolute top-[50%] left-[30%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.04] blur-[100px] animate-aurora-3" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -103,6 +114,8 @@ export default function HowItWorks() {
         <div className="relative">
           {/* Vertical timeline line (desktop) */}
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-cyan via-brand-purple to-brand-green" />
+          {/* Glow effect on timeline line */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-[1px] bg-gradient-to-b from-brand-cyan via-brand-purple to-brand-green opacity-20 blur-[4px]" />
 
           <div className="space-y-16 lg:space-y-0">
             {steps.map((step, index) => (
@@ -140,7 +153,7 @@ export default function HowItWorks() {
 
                   {/* Deliverables card */}
                   <div className={`${index % 2 === 0 ? 'lg:col-start-2 lg:pl-16' : 'lg:pr-16 lg:row-start-1'}`}>
-                    <div className="glass rounded-2xl p-6 border border-slate-700/50">
+                    <div className="bg-white/[0.03] backdrop-blur-sm rounded-2xl p-6 border border-white/[0.06]">
                       <div className="flex items-center justify-between mb-5">
                         <h4 className="text-white font-semibold text-sm uppercase tracking-wider">Deliverables</h4>
                         <span className={`text-sm font-semibold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
@@ -176,12 +189,15 @@ export default function HowItWorks() {
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                 The audit is free. Takes 48 hours. You get a full report — and it&apos;s yours whether you work with us or not.
               </p>
-              <button onClick={handleCTAClick} className="btn btn-primary text-lg px-10 py-5">
-                Get Your Free Site Audit
-                <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
+              <div className="relative inline-block group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
+                <button onClick={handleCTAClick} className="relative btn btn-primary text-lg px-10 py-5">
+                  Get Your Free Site Audit
+                  <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>

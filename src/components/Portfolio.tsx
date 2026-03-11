@@ -227,6 +227,8 @@ function ProjectCard({ project, onSelect }: { project: (typeof projects)[0]; onS
       <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors hover:scale-[1.02] transition-transform duration-300">
         <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
+          {/* Subtle glow shadow matching gradient */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-[0.08] blur-xl transition-opacity duration-500`} />
           <div className="absolute inset-4 rounded-lg bg-slate-900/90 border border-slate-700/50 overflow-hidden flex flex-col">
             <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-800/80 border-b border-slate-700/50 flex-shrink-0">
               <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
@@ -407,8 +409,13 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+      {/* Aurora orbs — subtle */}
+      <div className="absolute top-[15%] right-[-8%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.05] blur-[120px] animate-aurora-1" />
+      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.05] blur-[120px] animate-aurora-2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -434,7 +441,7 @@ export default function Portfolio() {
               key={cat}
               onClick={() => handleFilter(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === cat
-                  ? 'bg-gradient-to-r from-brand-cyan to-brand-purple text-white shadow-lg shadow-brand-cyan/20'
+                  ? 'bg-gradient-to-r from-brand-cyan to-brand-purple text-white shadow-lg shadow-brand-cyan/25 ring-1 ring-brand-cyan/30'
                   : 'text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700/50'
                 }`}
             >

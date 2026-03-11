@@ -18,7 +18,7 @@ function ProblemCard({ icon, title, description, stat, index }: {
       <div
         ref={ref}
         {...handlers}
-        className="card group cursor-default text-center h-full hover:border-red-400/30"
+        className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 group cursor-default text-center h-full hover:border-red-400/30 transition-all duration-500"
       >
         <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-500">
           {icon}
@@ -78,7 +78,11 @@ export default function Problem() {
 
   return (
     <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow line top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
+      {/* Aurora orbs for card area */}
+      <div className="absolute top-[5%] left-[-5%] w-[500px] h-[500px] rounded-full bg-brand-coral/[0.06] blur-[120px] animate-aurora-1" />
+      <div className="absolute top-[20%] right-[-8%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.05] blur-[100px] animate-aurora-2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

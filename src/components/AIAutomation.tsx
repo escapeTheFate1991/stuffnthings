@@ -48,8 +48,18 @@ export default function AIAutomation() {
     <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
-      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.04] blur-[120px]" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.04] blur-[100px]" />
+      {/* Aurora orbs */}
+      <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.08] blur-[120px] animate-aurora-1" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.08] blur-[100px] animate-aurora-2" />
+      <div className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full bg-brand-green/[0.05] blur-[120px] animate-aurora-3" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -61,7 +71,7 @@ export default function AIAutomation() {
             </span>
           </div>
           <div className="reveal stagger-1">
-            <h2 className="section-heading mb-6">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6">
               <span className="text-white">Your Site Gets</span>
               <br />
               <span className="gradient-text">Smarter Every Week.</span>
@@ -80,7 +90,7 @@ export default function AIAutomation() {
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {capabilities.map((cap, index) => (
             <div key={index} className={`reveal stagger-${index + 1}`}>
-              <div className="group relative bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-500 h-full">
+              <div className="group relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 hover:border-brand-cyan/30 hover:shadow-xl hover:shadow-brand-cyan/5 transition-all duration-500 h-full">
                 {/* Tag */}
                 <span className="absolute top-6 right-6 text-[10px] font-bold tracking-widest uppercase text-brand-cyan/60">
                   {cap.tag}
@@ -110,15 +120,18 @@ export default function AIAutomation() {
               Performance stays dialed. You get a monthly report showing everything that happened —
               no dashboard login required.
             </p>
-            <button
-              onClick={handleCTAClick}
-              className="btn btn-primary text-lg px-10 py-5"
-            >
-              See What We Can Automate
-              <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+            <div className="relative inline-block group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
+              <button
+                onClick={handleCTAClick}
+                className="relative btn btn-primary text-lg px-10 py-5"
+              >
+                See What We Can Automate
+                <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

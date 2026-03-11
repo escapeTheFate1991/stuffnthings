@@ -6,7 +6,7 @@ import { useScrollReveal } from '@/lib/hooks'
 const CONTACT_API = process.env.NEXT_PUBLIC_CONTACT_API || 'https://stuffnthings-contact.stuffnthings.workers.dev'
 
 const inputClass =
-  'w-full px-5 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 transition-all duration-300 hover:border-slate-600/50'
+  'w-full px-5 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan/30 focus:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all duration-300 hover:border-slate-600/50'
 
 const benefits = [
   {
@@ -125,10 +125,12 @@ export default function ContactForm() {
 
   return (
     <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
-      {/* Background accents */}
-      <div className="absolute top-[20%] left-[-5%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.03] blur-[100px]" />
-      <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-brand-purple/[0.03] blur-[100px]" />
+      {/* Edge glow line — cyan top */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
+      {/* Aurora orbs — dramatic for conversion section */}
+      <div className="absolute top-[10%] left-[-8%] w-[700px] h-[700px] rounded-full bg-brand-cyan/[0.10] blur-[140px] animate-aurora-1" />
+      <div className="absolute bottom-[5%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.10] blur-[130px] animate-aurora-2" />
+      <div className="absolute top-[40%] left-[50%] w-[500px] h-[500px] rounded-full bg-brand-coral/[0.06] blur-[120px] animate-aurora-3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -152,8 +154,8 @@ export default function ContactForm() {
           {/* Form */}
           <div className="reveal">
             <div className="relative group">
-              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-brand-cyan/20 via-brand-purple/10 to-brand-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
-              <div className="card relative">
+              <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-brand-cyan/30 via-brand-purple/20 to-brand-cyan/30 opacity-60 blur-sm animate-aurora-1" />
+              <div className="relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8">
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Progress dots */}
@@ -267,10 +269,12 @@ export default function ContactForm() {
                       />
                     </div>
 
+                    <div className="relative group/submit mt-2">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover/submit:opacity-70 blur-lg transition-opacity duration-700" />
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full btn btn-primary !py-5 text-lg mt-2"
+                      className="relative w-full btn btn-primary !py-5 text-lg"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center justify-center gap-3">
@@ -284,6 +288,7 @@ export default function ContactForm() {
                         'Get My Free Site Audit →'
                       )}
                     </button>
+                    </div>
 
                     {error && (
                       <p className="text-xs text-red-400 text-center">{error}</p>
@@ -324,7 +329,7 @@ export default function ContactForm() {
             <div className="space-y-6 mb-10">
               {benefits.map((b, i) => (
                 <div key={i} className="flex items-start gap-4 group cursor-default">
-                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:border-brand-cyan/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:border-brand-cyan/30 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300">
                     {b.icon}
                   </div>
                   <div>

@@ -106,8 +106,19 @@ export default function Industries() {
 
   return (
     <section id="industries" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+      {/* Edge glow lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+      {/* Aurora orbs — cycling colors */}
+      <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.06] blur-[120px] animate-aurora-1" />
+      <div className="absolute bottom-[10%] right-[-8%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.06] blur-[130px] animate-aurora-2" />
+      <div className="absolute top-[60%] left-[40%] w-[400px] h-[400px] rounded-full bg-brand-coral/[0.04] blur-[100px] animate-aurora-3" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+      }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -131,8 +142,10 @@ export default function Industries() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {industries.map((industry, i) => (
             <div key={industry.name} className={`reveal stagger-${(i % 4) + 1}`}>
-              <div className={`group card !p-6 h-full cursor-default ${industry.borderHover} transition-all duration-500`}>
+              <div className={`group relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl !p-6 h-full cursor-default ${industry.borderHover} transition-all duration-500 hover:shadow-lg hover:shadow-brand-cyan/5`}>
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${industry.bgHover} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                {/* Glow halo on hover */}
+                <div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${industry.bgHover} opacity-0 group-hover:opacity-30 transition-opacity duration-500 blur-md`} />
                 <div className="relative z-10">
                   <div className={`w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-4 ${industry.borderHover} transition-all duration-300 group-hover:scale-110`}>
                     <div className={industry.color}>{industry.icon}</div>
