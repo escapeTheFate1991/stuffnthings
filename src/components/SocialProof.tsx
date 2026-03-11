@@ -103,6 +103,30 @@ export default function SocialProof() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Authority Badges */}
+        <div className="reveal mb-16">
+          <div className="text-center mb-6">
+            <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">Powered By</span>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            {[
+              { name: 'Claude', company: 'Anthropic' },
+              { name: 'GPT', company: 'OpenAI' },
+              { name: 'Gemini', company: 'Google' },
+              { name: 'Perplexity', company: 'Perplexity AI' },
+            ].map((badge) => (
+              <div
+                key={badge.name}
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-slate-600/50 transition-colors duration-300"
+              >
+                <div className="w-2 h-2 rounded-full bg-brand-cyan/60" />
+                <span className="text-sm text-slate-300 font-medium">{badge.name}</span>
+                <span className="text-xs text-slate-500 hidden sm:inline">{badge.company}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-16">
           <div className="reveal">
