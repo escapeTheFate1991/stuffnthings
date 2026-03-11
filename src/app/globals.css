@@ -278,4 +278,13 @@ html {
   .section-subtext {
     @apply text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed;
   }
+
+  /* Hide scrollbar for horizontal scroll areas */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

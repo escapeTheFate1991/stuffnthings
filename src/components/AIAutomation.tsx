@@ -46,9 +46,9 @@ export default function AIAutomation() {
   }, [])
 
   return (
-    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-[#111827] rounded-3xl mx-4 my-8">
+    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111827] via-[#111827] to-[#111827]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/20 to-slate-950" />
       <AnimatedStreaks opacity={0.1} />
       {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.08] blur-[120px] animate-aurora-1" />
@@ -110,29 +110,27 @@ export default function AIAutomation() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="reveal text-center">
-          <div className="glass rounded-2xl border border-slate-700/30 p-10 md:p-14 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-              This Isn&apos;t Extra. <span className="gradient-text">It&apos;s Built In.</span>
-            </h3>
-            <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Workflows run on autopilot. Leads get captured the second they show interest.
-              Performance stays dialed. You get a monthly report showing everything that happened —
-              no dashboard login required.
-            </p>
-            <div className="relative inline-block group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
-              <button
-                onClick={handleCTAClick}
-                className="relative btn btn-primary text-lg px-10 py-5"
-              >
-                See What We Can Automate
-                <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </div>
+        {/* Bottom CTA — no card wrapper */}
+        <div className="reveal text-center max-w-3xl mx-auto mt-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
+            This Isn&apos;t Extra. <span className="gradient-text">It&apos;s Built In.</span>
+          </h3>
+          <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Workflows run on autopilot. Leads get captured the second they show interest.
+            Performance stays dialed. You get a monthly report showing everything that happened —
+            no dashboard login required.
+          </p>
+          <div className="relative inline-block group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
+            <button
+              onClick={handleCTAClick}
+              className="relative btn btn-primary text-lg px-10 py-5"
+            >
+              See What We Can Automate
+              <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

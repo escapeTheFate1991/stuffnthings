@@ -1,12 +1,12 @@
 'use client'
 
-import { useScrollReveal } from '@/lib/hooks'
+import { useScrollReveal, useCountUp } from '@/lib/hooks'
 
 const metrics = [
-  { value: '3.2x', label: 'Average traffic increase in 90 days' },
-  { value: '95+', label: 'Lighthouse performance score, every build' },
-  { value: '$2,400', label: 'Average monthly savings from AI automation' },
-  { value: '48hr', label: 'From audit to action plan' },
+  { value: 3.2, suffix: 'x', label: 'Average traffic increase in 90 days' },
+  { value: 95, suffix: '+', label: 'Lighthouse performance score, every build' },
+  { value: 2400, suffix: '', label: 'Average monthly savings from AI automation', prefix: '$' },
+  { value: 48, suffix: 'hr', label: 'From audit to action plan' },
 ]
 
 const testimonials = [
@@ -14,21 +14,45 @@ const testimonials = [
     quote: 'I used to spend two hours a day answering the same questions. Now our site handles it and I actually get to do my job.',
     name: 'Sarah',
     company: 'Bright Smile Dental',
-    gradient: 'from-brand-cyan to-brand-purple',
   },
   {
     quote: 'Our old site was costing us leads we didn\'t even know about. Within a month of the rebuild, our phone started ringing again.',
     name: 'James',
     company: 'Summit Contractors',
-    gradient: 'from-brand-purple to-brand-coral',
   },
 ]
+
+/* ── Metric with count-up + glowing underline ── */
+function MetricBlock({ metric }: { metric: (typeof metrics)[0] }) {
+  const { ref, value } = useCountUp(metric.value === 3.2 ? 32 : metric.value, 2200)
+  const displayValue = metric.value === 3.2
+    ? `${(value / 10).toFixed(1)}`
+    : `${value}`
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="relative inline-block">
+        <div
+          className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-1"
+          style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(168, 85, 247, 0.15)' }}
+        >
+          {metric.prefix || ''}{displayValue}{metric.suffix}
+        </div>
+        {/* Animated gradient underline */}
+        <div className="h-[2px] w-full mt-1 rounded-full overflow-hidden">
+          <div className="h-full w-full bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral animate-pulse opacity-60" />
+        </div>
+      </div>
+      <div className="text-slate-400 text-sm md:text-base font-medium mt-3">{metric.label}</div>
+    </div>
+  )
+}
 
 export default function Results() {
   const sectionRef = useScrollReveal<HTMLElement>()
 
   return (
-    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-[#0B1120]">
+    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
@@ -54,39 +78,34 @@ export default function Results() {
           </div>
         </div>
 
-        {/* Metrics — MUCH bigger numbers, no card wrappers */}
+        {/* Metrics — count-up with glowing underlines */}
         <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-24">
           {metrics.map((metric, i) => (
-            <div key={metric.label} className={`stagger-${i + 1} text-center`}>
-              <div className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-3" style={{ textShadow: '0 0 25px rgba(6, 182, 212, 0.3), 0 0 50px rgba(168, 85, 247, 0.15)' }}>
-                {metric.value}
-              </div>
-              <div className="text-slate-400 text-sm md:text-base font-medium">{metric.label}</div>
+            <div key={metric.label} className={`stagger-${i + 1}`}>
+              <MetricBlock metric={metric} />
             </div>
           ))}
         </div>
 
-        {/* Testimonials — Splunk-style: gradient left border, no cards */}
-        <div className="space-y-12 max-w-5xl mx-auto">
+        {/* Testimonials — stacked, full-width, large quote */}
+        <div className="space-y-16 max-w-4xl mx-auto">
           {testimonials.map((t, i) => (
             <div key={t.name} className={`${i === 0 ? 'reveal-slide-left' : 'reveal-slide-right'} stagger-${i + 1}`}>
-              <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
-                {/* Quote — gradient left border */}
-                <div className="pl-8" style={{
-                  borderLeft: `4px solid transparent`,
-                  borderImage: `linear-gradient(to bottom, ${i === 0 ? '#06b6d4' : '#a855f7'}, ${i === 0 ? '#a855f7' : '#f97316'}) 1`,
-                }}>
-                  <p className="text-slate-200 text-xl md:text-2xl leading-relaxed italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </div>
+              {/* Gradient line above */}
+              <div className={`h-px w-full bg-gradient-to-r ${i === 0 ? 'from-transparent via-brand-cyan/30 to-transparent' : 'from-transparent via-brand-purple/30 to-transparent'} mb-10`} />
 
-                {/* Attribution — clean text, no avatar */}
-                <div className="md:text-right pl-8 md:pl-0">
+              <div className="text-center">
+                <p className="text-white text-2xl md:text-3xl leading-relaxed italic font-light">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+                <div className="mt-6">
                   <div className="text-white font-semibold">{t.name}</div>
                   <div className="text-slate-500 text-sm">{t.company}</div>
                 </div>
               </div>
+
+              {/* Gradient line below */}
+              <div className={`h-px w-full bg-gradient-to-r ${i === 0 ? 'from-transparent via-brand-purple/30 to-transparent' : 'from-transparent via-brand-coral/30 to-transparent'} mt-10`} />
             </div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { useScrollReveal, useTilt } from '@/lib/hooks'
+import { useScrollReveal } from '@/lib/hooks'
 
 const categories = ['All', 'Consulting', 'SaaS', 'Child Care', 'Hospitality', 'E-commerce', 'Warehouse']
 
@@ -220,48 +220,74 @@ const projects = [
   },
 ]
 
-/* ── Small Card (All view) ── */
-function ProjectCard({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
+/* ── Featured Project (large, "All" view top) ── */
+function FeaturedProject({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
   return (
-    <div onClick={() => onSelect(project.category)} className="block group cursor-pointer no-underline">
-      <div className="card overflow-hidden !p-0 h-full hover:border-slate-600/50 transition-colors hover:scale-[1.02] transition-transform duration-300">
-        <div className={`relative h-52 ${project.mockupAccent} overflow-hidden`}>
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`} />
-          {/* Subtle glow shadow matching gradient */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-[0.08] blur-xl transition-opacity duration-500`} />
-          <div className="absolute inset-4 rounded-lg bg-slate-900/90 border border-slate-700/50 overflow-hidden flex flex-col">
-            <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-800/80 border-b border-slate-700/50 flex-shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-              <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
-              <div className="ml-2 flex-1 h-4 rounded bg-slate-700/50" />
-            </div>
-            <div className="flex-1 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="w-full h-full object-cover object-top" />
-            </div>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-            <div className="flex gap-3 w-full">
-              {Object.entries(project.results).slice(0, 3).map(([key, val]) => (
-                <div key={key} className="flex-1 text-center glass rounded-lg py-2 px-1">
-                  <div className="text-sm font-bold text-white">{val}</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">{key}</div>
-                </div>
-              ))}
-            </div>
+    <div
+      onClick={() => onSelect(project.category)}
+      className="group cursor-pointer grid lg:grid-cols-[3fr_2fr] gap-8 items-center pb-10 border-b border-slate-800/60"
+    >
+      {/* Large screenshot — browser frame */}
+      <div className="relative rounded-2xl overflow-hidden border border-slate-700/40">
+        <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50">
+          <div className="w-3 h-3 rounded-full bg-red-400/60" />
+          <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+          <div className="w-3 h-3 rounded-full bg-green-400/60" />
+          <div className="ml-3 flex-1 h-5 rounded-md bg-slate-700/50 flex items-center px-3">
+            <span className="text-[10px] text-slate-500 truncate">{project.href}</span>
           </div>
         </div>
-        <div className="p-6">
-          <span className={`text-xs font-semibold uppercase tracking-wider bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
-            {project.category}
-          </span>
-          <h3 className="text-xl font-bold text-white mt-2 mb-2 font-display">{project.title}</h3>
-          <span className={`text-xs font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent flex items-center gap-1 mt-3`}>
-              View Case Study →
-            </span>
+        <div className="overflow-hidden aspect-[16/9]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
+          />
         </div>
       </div>
+
+      {/* Project info */}
+      <div className="space-y-4">
+        <span className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r ${project.gradient} text-white/90`}>
+          {project.category}
+        </span>
+        <h3 className="text-3xl md:text-4xl font-bold text-white font-display">{project.title}</h3>
+        <p className="text-slate-400 leading-relaxed">{project.description}</p>
+        <span className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent group-hover:gap-3 transition-all duration-300`}>
+          View Case Study
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+/* ── Compact Thumbnail (All view bottom strip) ── */
+function CompactCard({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
+  return (
+    <div
+      onClick={() => onSelect(project.category)}
+      className="group cursor-pointer flex-shrink-0 w-[220px] md:w-auto"
+    >
+      {/* Thumbnail — subtle rounded corners, hover zoom, no browser frame */}
+      <div className="relative rounded-xl overflow-hidden aspect-[16/10] mb-3">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          loading="lazy"
+          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/0 transition-colors duration-300" />
+      </div>
+      <h4 className="text-sm font-semibold text-white group-hover:text-brand-cyan transition-colors duration-300 truncate">{project.title}</h4>
+      <span className={`text-[11px] font-medium uppercase tracking-wider bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+        {project.category}
+      </span>
     </div>
   )
 }
@@ -408,11 +434,11 @@ export default function Portfolio() {
   const handleFilter = useCallback((cat: string) => setActiveFilter(cat), [])
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
+    <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/30 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/20 to-slate-950" />
       {/* Aurora orbs — subtle */}
       <div className="absolute top-[15%] right-[-8%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.05] blur-[120px] animate-aurora-1" />
       <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.05] blur-[120px] animate-aurora-2" />
@@ -450,15 +476,21 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* Content — Grid (All) or Case Study (filtered) */}
+        {/* Content — Featured+Grid (All) or Case Study (filtered) */}
         <div key={activeFilter}>
           {activeFilter === 'All' ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, i) => (
-                <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                  <ProjectCard project={project} onSelect={handleFilter} />
-                </div>
-              ))}
+            <div className="animate-fade-in space-y-10">
+              {/* Featured project — first in list */}
+              <FeaturedProject project={projects[0]} onSelect={handleFilter} />
+
+              {/* Remaining projects — compact horizontal strip */}
+              <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
+                {projects.slice(1).map((project, i) => (
+                  <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${(i + 1) * 80}ms` }}>
+                    <CompactCard project={project} onSelect={handleFilter} />
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div className="animate-fade-in">

@@ -69,7 +69,7 @@ export default function SocialProof() {
   return (
     <section id="testimonials" ref={sectionRef} className="relative overflow-hidden">
       {/* ── Part 1: Floating Logo Cloud ── */}
-      <div className="py-16 md:py-28 lg:py-36 relative bg-[#0B1120]">
+      <div className="py-16 md:py-28 lg:py-36 relative bg-slate-950">
         {/* Edge glow lines */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
 
