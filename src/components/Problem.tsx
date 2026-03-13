@@ -1,10 +1,24 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Problem() {
   const sectionRef = useScrollReveal<HTMLElement>()
+  const ctaRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: ctaRef,
+    offset: ['start end', 'center center']
+  })
+
+  // Expand from center: bg panel starts narrow and grows to full
+  const scaleX = useTransform(scrollYProgress, [0, 0.8], [0.3, 1])
+  const scaleY = useTransform(scrollYProgress, [0, 0.6], [0.6, 1])
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1])
+  const contentOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1])
+  const contentY = useTransform(scrollYProgress, [0.3, 0.7], [40, 0])
 
   const problems = [
     {
@@ -47,7 +61,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
+    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Edge glow line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
       {/* Aurora orbs for card area */}
@@ -73,17 +87,13 @@ export default function Problem() {
           </div>
         </div>
 
-        {/* Problems — open layout, no card wrappers */}
+        {/* Problems */}
         <div className="max-w-4xl mx-auto space-y-0">
           {problems.map((problem, index) => (
             <div key={index}>
               <div className={`${problem.revealClass} stagger-${index + 1} py-10`}>
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
-                  {/* Icon — larger, no box */}
-                  <div className="flex-shrink-0">
-                    {problem.icon}
-                  </div>
-
+                  <div className="flex-shrink-0">{problem.icon}</div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-white mb-3 font-display">{problem.title}</h3>
                     <p className="text-slate-400 leading-relaxed mb-4">{problem.description}</p>
@@ -91,35 +101,36 @@ export default function Problem() {
                   </div>
                 </div>
               </div>
-              {index < problems.length - 1 && (
-                <div className="gradient-divider" />
-              )}
+              {index < problems.length - 1 && <div className="gradient-divider" />}
             </div>
           ))}
         </div>
-
-        {/* ── Immersive CTA — Full-width Aurora Section ── */}
       </div>
 
-      <div className="reveal mt-20 relative">
-        {/* Full-bleed background */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Aurora gradient layers */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-950" />
+      {/* ── Immersive CTA — Expand-from-center scroll reveal ── */}
+      <div ref={ctaRef} className="mt-20 relative">
+        {/* Expanding background panel */}
+        <motion.div
+          className="absolute inset-0 overflow-hidden origin-center rounded-3xl mx-4 md:mx-8 lg:mx-12"
+          style={{ scaleX, scaleY, opacity: bgOpacity }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/90 via-neutral-900/95 to-black" />
           <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-cyan/15 rounded-full blur-[120px] animate-aurora-1" />
           <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-brand-purple/15 rounded-full blur-[100px] animate-aurora-2" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-coral/8 rounded-full blur-[140px] animate-aurora-3" />
-          {/* Subtle grid overlay */}
           <div className="absolute inset-0 opacity-[0.03]" style={{
             backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
             backgroundSize: '60px 60px'
           }} />
-          {/* Top/bottom edge glow lines */}
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
-        </div>
+        </motion.div>
 
-        <div className="relative py-24 md:py-36 lg:py-44">
+        {/* Content — fades in after background expands */}
+        <motion.div
+          className="relative py-24 md:py-36 lg:py-44"
+          style={{ opacity: contentOpacity, y: contentY }}
+        >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Floating stat pills */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
@@ -135,7 +146,6 @@ export default function Problem() {
               ))}
             </div>
 
-            {/* Headline */}
             <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 font-display leading-[1.1] tracking-tight">
               AI Is Reshaping<br />
               <span className="bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral bg-clip-text text-transparent">
@@ -149,9 +159,7 @@ export default function Problem() {
               The ones that wait lose ground they won&apos;t get back.
             </p>
 
-            {/* CTA Button — glowing, oversized */}
             <div className="relative inline-block group">
-              {/* Glow behind button */}
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
               <a
                 href="/resources/ai-workforce-report"
@@ -164,12 +172,10 @@ export default function Problem() {
               </a>
             </div>
 
-            {/* Subtle subtext */}
-            <p className="mt-6 text-sm text-slate-500">Free download. No email required.</p>
+            <p className="mt-6 text-sm text-slate-500">Free download</p>
           </div>
-        </div>
+        </motion.div>
       </div>
-
     </section>
   )
 }

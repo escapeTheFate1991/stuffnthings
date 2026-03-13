@@ -33,7 +33,7 @@ function MetricBlock({ metric }: { metric: (typeof metrics)[0] }) {
     <div ref={ref} className="text-center">
       <div className="relative inline-block">
         <div
-          className="text-6xl md:text-7xl lg:text-8xl font-black gradient-text mb-1"
+          className="text-5xl md:text-6xl lg:text-7xl font-black gradient-text mb-1"
           style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(168, 85, 247, 0.15)' }}
         >
           {metric.prefix || ''}{displayValue}{metric.suffix}
@@ -52,7 +52,7 @@ export default function Results() {
   const sectionRef = useScrollReveal<HTMLElement>()
 
   return (
-    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
+    <section id="results" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
@@ -79,7 +79,7 @@ export default function Results() {
         </div>
 
         {/* Metrics — count-up with glowing underlines */}
-        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-12 mb-24">
+        <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-12 md:gap-16 mb-24">
           {metrics.map((metric, i) => (
             <div key={metric.label} className={`stagger-${i + 1}`}>
               <MetricBlock metric={metric} />

@@ -41,7 +41,7 @@ const tiers = [
       'AI-powered chatbot for lead capture',
       'AI workflow automation',
       'Review collection and display',
-      'Monthly performance reports',
+      'Performance reports',
       'Social media profile optimization',
     ],
     popular: true,
@@ -97,7 +97,7 @@ const guarantees = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
       </svg>
     ),
-    label: 'Monthly Performance Reports',
+    label: 'Performance Reports',
   },
 ]
 
@@ -111,7 +111,7 @@ export default function Services() {
   return (
     <section id="services" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-900/50 to-black" />
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent" />
@@ -142,11 +142,10 @@ export default function Services() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl bg-transparent border transition-all duration-500 p-8 group overflow-hidden ${
-                tier.popular
-                  ? 'border-white/[0.1] md:scale-105 md:z-10'
-                  : 'border-white/[0.06] hover:border-brand-purple/30'
-              }`}
+              className={`relative flex flex-col rounded-2xl bg-transparent border transition-all duration-500 p-8 group overflow-hidden ${tier.popular
+                ? 'border-white/[0.1] md:scale-105 md:z-10'
+                : 'border-white/[0.06] hover:border-brand-purple/30'
+                }`}
             >
               {/* Popular tier: gradient TOP border bar */}
               {tier.popular && (
@@ -167,11 +166,10 @@ export default function Services() {
                 <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
                 <p className="text-sm text-slate-400 mb-4">{tier.subtitle}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r bg-clip-text text-transparent ${
-                    tier.popular
-                      ? 'from-brand-cyan to-brand-purple'
-                      : 'from-slate-200 to-slate-400'
-                  }`}>
+                  <span className={`text-4xl md:text-5xl font-black bg-gradient-to-r bg-clip-text text-transparent ${tier.popular
+                    ? 'from-brand-cyan to-brand-purple'
+                    : 'from-slate-200 to-slate-400'
+                    }`}>
                     {tier.price}
                   </span>
                   <span className="text-slate-500 text-sm ml-1">/mo</span>
@@ -202,11 +200,10 @@ export default function Services() {
               {/* CTA — clean, no pulse */}
               <button
                 onClick={handleCTAClick}
-                className={`w-full btn !rounded-xl !py-4 text-base ${
-                  tier.popular
-                    ? 'btn-primary'
-                    : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
-                }`}
+                className={`w-full btn !rounded-xl !py-4 text-base ${tier.popular
+                  ? 'btn-primary'
+                  : 'bg-slate-700/50 text-white border border-slate-600/50 hover:bg-slate-700 hover:border-slate-500 transition-all'
+                  }`}
               >
                 Get Started
               </button>

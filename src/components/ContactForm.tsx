@@ -124,7 +124,7 @@ export default function ContactForm() {
   const filledCount = Object.values(formData).filter(Boolean).length
 
   return (
-    <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
+    <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Edge glow line — cyan top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
       {/* One subtle gradient orb — not aurora overkill */}

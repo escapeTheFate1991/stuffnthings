@@ -177,7 +177,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-950"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
     >
       {/* Gradient orbs — aurora animated */}
       <div className="absolute inset-0 z-0">

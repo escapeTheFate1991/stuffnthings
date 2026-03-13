@@ -1,8 +1,8 @@
-# YieldLabs Website
+# Stuffnthings Website
 
 **High-Performance Digital Presence. Zero Technical Friction.**
 
-This is the official website for YieldLabs, showcasing our Website-as-a-Service platform that transforms businesses' digital presence with zero technical friction.
+This is the official website for Stuffnthings, showcasing our Website-as-a-Service platform that transforms businesses' digital presence with zero technical friction.
 
 ## 🚀 Features
 
@@ -117,4 +117,4 @@ Comprehensive SEO setup includes:
 
 ---
 
-**Built with ⚡ by YieldLabs** - Demonstrating high-performance web development capabilities.
+**Built with ⚡ by Stuffnthings** - Demonstrating high-performance web development capabilities.

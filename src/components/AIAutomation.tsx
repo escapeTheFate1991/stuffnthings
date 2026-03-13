@@ -46,9 +46,9 @@ export default function AIAutomation() {
   }, [])
 
   return (
-    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
+    <section id="ai" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/20 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-900/20 to-black" />
       <AnimatedStreaks opacity={0.1} />
       {/* Aurora orbs */}
       <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.08] blur-[120px] animate-aurora-1" />

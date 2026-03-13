@@ -1,0 +1,43 @@
+# Reimagine landing page animations
+
+We will upgrade the designated sections ([BlogTeaser](file:///home/eddy/Development/stuffnthings/src/components/BlogTeaser.tsx#26-88), [Industries](file:///home/eddy/Development/stuffnthings/src/components/Industries.tsx#80-135), and [FloatingLogos](file:///home/eddy/Development/stuffnthings/src/components/FloatingLogos.tsx#12-62)) to feature impactful, Splunk/Datadog-style scroll animations. To achieve top-tier, smooth, and orchestrated scroll effects while maintaining development speed, we will use **Framer Motion**.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **New Dependency**: I propose installing `framer-motion` to handle complex scroll and layout animations cleanly in React. Please confirm if adding this dependency is acceptable. If not, I will rely solely on raw CSS/Intersection Observer.
+>
+> **Design Philosophy**: We are keeping the dark theme and highlight colors. We will add more "flash and impact" (e.g., parallax scrolling, 3D reveals, energetic staggers). 
+
+## Proposed Changes
+
+### Configuration
+#### [MODIFY] package.json
+- Add `framer-motion` to dependencies (via `npm install framer-motion`).
+
+---
+
+### Components
+#### [MODIFY] [FloatingLogos.tsx](file:///home/eddy/Development/stuffnthings/src/components/FloatingLogos.tsx)
+- Rebuild as a Framer Motion component.
+- Imbue the "World's most powerful AI" text with a high-impact zoom-in reveal.
+- Make the floating logos scatter outward or converge dynamically using [useScroll](file:///home/eddy/Development/stuffnthings/src/lib/hooks.ts#5-37) and `useTransform` to tie their position to the user's scroll depth.
+
+#### [MODIFY] [Industries.tsx](file:///home/eddy/Development/stuffnthings/src/components/Industries.tsx)
+- Replace static `.reveal` with orchestrated Framer Motion `variants`.
+- Add a stagger effect to the industry cards where they flip/slide in from the bottom with a subtle 3D tilt.
+- Enhance the hover "glow" with a motion transition.
+
+#### [MODIFY] [BlogTeaser.tsx](file:///home/eddy/Development/stuffnthings/src/components/BlogTeaser.tsx)
+- Build a sequential scroll reveal.
+- The colorful gradient lines above each blog post will dynamically "draw" themselves out as the user scrolls into view.
+- Introduce a slight parallax effect to the Aurora orbs in the background.
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` to ensure the new Framer Motion dependency doesn't break the Next.js production build.
+- Use the `browser_subagent` to navigate to the landing page and record scrolling behavior to confirm the animations run perfectly on scroll without jank.
+
+### Manual Verification
+- Ask the user to run `npm run dev`, open the local server, and scroll through the modified sections ([Industries](file:///home/eddy/Development/stuffnthings/src/components/Industries.tsx#80-135), [FloatingLogos](file:///home/eddy/Development/stuffnthings/src/components/FloatingLogos.tsx#12-62), [BlogTeaser](file:///home/eddy/Development/stuffnthings/src/components/BlogTeaser.tsx#26-88)) to confirm the timing, impact, and aesthetic execution match the desired "flash and impact."

@@ -129,7 +129,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-slate-950 text-white antialiased font-sans selection:bg-brand-cyan/30 selection:text-white">
+      <body className="bg-black text-white antialiased font-sans selection:bg-brand-cyan/30 selection:text-white">
         {children}
       </body>
     </html>

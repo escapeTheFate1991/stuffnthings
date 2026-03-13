@@ -9,7 +9,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-slate-950 border-t border-slate-800/50 overflow-hidden">
+    <footer className="relative bg-black border-t border-slate-800/50 overflow-hidden">
       {/* Gradient glow line at top */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent" />
       <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent blur-sm" />

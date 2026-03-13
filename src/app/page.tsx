@@ -3,7 +3,6 @@ import AIAutomation from '@/components/AIAutomation'
 import Problem from '@/components/Problem'
 import HowItWorks from '@/components/HowItWorks'
 import SocialProof from '@/components/SocialProof'
-import Industries from '@/components/Industries'
 import Results from '@/components/Results'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
@@ -22,7 +21,6 @@ export default function Home() {
         <Problem />
         <HowItWorks />
         <SocialProof />
-        <Industries />
         <Results />
         <Services />
         <Portfolio />

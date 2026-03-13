@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { useScrollReveal } from '@/lib/hooks'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 
 const categories = ['All', 'Consulting', 'SaaS', 'Child Care', 'Hospitality', 'E-commerce', 'Warehouse']
 
@@ -220,80 +221,78 @@ const projects = [
   },
 ]
 
-/* ── Featured Project (large, "All" view top) ── */
-function FeaturedProject({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
+/* ── Case Study Right Panel ── */
+function CaseStudyRight({ project }: { project: (typeof projects)[0] }) {
   return (
-    <div
-      onClick={() => onSelect(project.category)}
-      className="group cursor-pointer grid lg:grid-cols-[3fr_2fr] gap-8 items-center pb-10 border-b border-slate-800/60"
-    >
-      {/* Large screenshot — browser frame */}
-      <div className="relative rounded-2xl overflow-hidden border border-slate-700/40">
-        <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50">
-          <div className="w-3 h-3 rounded-full bg-red-400/60" />
-          <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-          <div className="w-3 h-3 rounded-full bg-green-400/60" />
-          <div className="ml-3 flex-1 h-5 rounded-md bg-slate-700/50 flex items-center px-3">
-            <span className="text-[10px] text-slate-500 truncate">{project.href}</span>
+    <div className="space-y-8">
+      {/* Lighthouse Metrics */}
+      <div className="grid grid-cols-4 gap-3">
+        {Object.entries(project.results).map(([key, val]) => (
+          <div key={key} className="rounded-xl p-3 text-center border border-white/[0.06] bg-white/[0.02]">
+            <div className={`text-2xl font-bold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>{val}</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mt-1">{key}</div>
           </div>
-        </div>
-        <div className="overflow-hidden aspect-[16/9]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.image}
-            alt={`${project.title} preview`}
-            loading="lazy"
-            className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
-          />
-        </div>
+        ))}
       </div>
 
-      {/* Project info */}
-      <div className="space-y-4">
-        <span className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r ${project.gradient} text-white/90`}>
-          {project.category}
-        </span>
-        <h3 className="text-3xl md:text-4xl font-bold text-white font-display">{project.title}</h3>
-        <p className="text-slate-400 leading-relaxed">{project.description}</p>
-        <span className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent group-hover:gap-3 transition-all duration-300`}>
-          View Case Study
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </span>
+      {/* Before */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-red-500/80" />
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-red-400">Before</h4>
+        </div>
+        <p className="text-slate-400 text-sm font-medium">{project.before.headline}</p>
+        <ul className="space-y-2">
+          {project.before.issues.map((issue, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-500">
+              <svg className="w-4 h-4 text-red-500/60 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              {issue}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* After */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-brand-green" />
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-green">After</h4>
+        </div>
+        <p className="text-slate-400 text-sm font-medium">{project.after.headline}</p>
+        <ul className="space-y-2">
+          {project.after.improvements.map((item, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
+              <svg className="w-4 h-4 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Use Cases */}
+      <div className="space-y-3">
+        <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Ideal For</h4>
+        <div className="flex flex-wrap gap-2">
+          {project.useCases.map((uc, i) => (
+            <span key={i} className="text-xs px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-400">
+              {uc}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-/* ── Compact Thumbnail (All view bottom strip) ── */
-function CompactCard({ project, onSelect }: { project: (typeof projects)[0]; onSelect: (cat: string) => void }) {
-  return (
-    <div
-      onClick={() => onSelect(project.category)}
-      className="group cursor-pointer flex-shrink-0 w-[220px] md:w-auto"
-    >
-      {/* Thumbnail — subtle rounded corners, hover zoom, no browser frame */}
-      <div className="relative rounded-xl overflow-hidden aspect-[16/10] mb-3">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={project.image}
-          alt={`${project.title} preview`}
-          loading="lazy"
-          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/0 transition-colors duration-300" />
-      </div>
-      <h4 className="text-sm font-semibold text-white group-hover:text-brand-cyan transition-colors duration-300 truncate">{project.title}</h4>
-      <span className={`text-[11px] font-medium uppercase tracking-wider bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
-        {project.category}
-      </span>
-    </div>
-  )
-}
-
-/* ── Full-width Case Study View ── */
-function CaseStudyColumns({ project }: { project: (typeof projects)[0] }) {
+export default function Portfolio() {
+  const sectionRef = useScrollReveal<HTMLElement>()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+  const [activeFilter, setActiveFilter] = useState('All')
   const rightRef = useRef<HTMLDivElement>(null)
   const [rightH, setRightH] = useState<number>(0)
 
@@ -302,202 +301,218 @@ function CaseStudyColumns({ project }: { project: (typeof projects)[0] }) {
     const ro = new ResizeObserver(([entry]) => setRightH(entry.contentRect.height))
     ro.observe(rightRef.current)
     return () => ro.disconnect()
-  }, [])
-
-  return (
-    <div className="grid lg:grid-cols-2 gap-10 items-start">
-      {/* Left — browser frame cropped to right column height */}
-      <div className="flex flex-col" style={rightH ? { height: rightH } : undefined}>
-        <div className={`relative rounded-2xl ${project.mockupAccent} overflow-hidden border border-slate-700/50 flex-1 min-h-0`}>
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-5`} />
-          <div className="relative h-full flex flex-col">
-            <div className="flex items-center gap-1.5 px-4 py-3 bg-slate-800/80 border-b border-slate-700/50 flex-shrink-0">
-              <div className="w-3 h-3 rounded-full bg-red-400/60" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
-              <div className="w-3 h-3 rounded-full bg-green-400/60" />
-              <div className="ml-3 flex-1 h-5 rounded-md bg-slate-700/50 flex items-center px-3">
-                <span className="text-[10px] text-slate-500 truncate">{project.href}</span>
-              </div>
-            </div>
-            <a href={project.href} target="_blank" rel="noopener noreferrer" className="block flex-1 min-h-0 overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={project.image}
-                alt={`${project.title} website`}
-                loading="lazy"
-                className="w-full object-cover object-top hover:opacity-95 transition"
-              />
-            </a>
-          </div>
-        </div>
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-xl bg-gradient-to-r ${project.gradient} text-white font-semibold text-sm hover:opacity-90 transition shadow-lg flex-shrink-0`}
-        >
-          View Live Preview
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-        </a>
-      </div>
-
-      {/* Right — measured to set left column height */}
-      <div ref={rightRef}>
-        <CaseStudyRight project={project} />
-      </div>
-    </div>
-  )
-}
-
-function CaseStudyRight({ project }: { project: (typeof projects)[0] }) {
-  return (
-        <div className="space-y-8">
-          {/* Title */}
-          <div>
-            <span className={`text-xs font-semibold uppercase tracking-wider bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
-              {project.category}
-            </span>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mt-2 font-display">{project.title}</h3>
-          </div>
-
-          {/* Lighthouse Metrics */}
-          <div className="grid grid-cols-4 gap-3">
-            {Object.entries(project.results).map(([key, val]) => (
-              <div key={key} className="glass rounded-xl p-3 text-center border border-slate-700/30">
-                <div className={`text-2xl font-bold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>{val}</div>
-                <div className="text-[10px] text-slate-500 uppercase tracking-wider mt-1">{key}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Before */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500/80" />
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-red-400">Before</h4>
-            </div>
-            <p className="text-slate-400 text-sm font-medium">{project.before.headline}</p>
-            <ul className="space-y-2">
-              {project.before.issues.map((issue, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-slate-500">
-                  <svg className="w-4 h-4 text-red-500/60 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  {issue}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* After */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-brand-green" />
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-green">After</h4>
-            </div>
-            <p className="text-slate-400 text-sm font-medium">{project.after.headline}</p>
-            <ul className="space-y-2">
-              {project.after.improvements.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
-                  <svg className="w-4 h-4 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Use Cases */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Ideal For</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.useCases.map((uc, i) => (
-                <span key={i} className="text-xs px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/50 text-slate-400">
-                  {uc}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-  )
-}
-
-export default function Portfolio() {
-  const sectionRef = useScrollReveal<HTMLElement>()
-  const [activeFilter, setActiveFilter] = useState('All')
+  }, [activeFilter])
 
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter((p) => p.category === activeFilter)
 
+  const featured = filtered[0]
+
   const handleFilter = useCallback((cat: string) => setActiveFilter(cat), [])
 
   return (
-    <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-slate-950">
-      {/* Edge glow lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/20 to-slate-950" />
-      {/* Aurora orbs — subtle */}
-      <div className="absolute top-[15%] right-[-8%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.05] blur-[120px] animate-aurora-1" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.05] blur-[120px] animate-aurora-2" />
+    <section id="portfolio" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
+      {/* Aurora orbs */}
+      <motion.div
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[10%] right-[-8%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.06] blur-[120px]"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-[10%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.05] blur-[130px]"
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="reveal">
+        <div className="text-center mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+          >
             <h2 className="section-heading mb-6">
               <span className="text-white">Our Build</span>{' '}
               <span className="gradient-text">Standard</span>
             </h2>
-          </div>
-          <div className="reveal stagger-1">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <p className="section-subtext">
-              Every site is built to the same production standard — optimized, fast, and conversion-ready.
-              Click any project to see the before/after analysis and live Lighthouse scores.
+              Every site is built to the same production standard — optimized, fast, and
+              conversion-ready. Click any project to see the before/after analysis and live Lighthouse scores.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Filter tabs */}
-        <div className="reveal flex flex-wrap justify-center gap-2 mb-14">
+        {/* Tab bar — Industries style with gradient underlines */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => handleFilter(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === cat
-                  ? 'bg-gradient-to-r from-brand-cyan to-brand-purple text-white shadow-lg shadow-brand-cyan/25 ring-1 ring-brand-cyan/30'
-                  : 'text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700/50'
+              className={`relative px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${activeFilter === cat
+                  ? 'text-white bg-white/[0.08] border border-white/20'
+                  : 'text-slate-400 border border-transparent hover:text-white hover:border-white/10'
                 }`}
             >
               {cat}
+              {activeFilter === cat && (
+                <motion.div
+                  layoutId="portfolioTab"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] w-8 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Content — Featured+Grid (All) or Case Study (filtered) */}
-        <div key={activeFilter}>
-          {activeFilter === 'All' ? (
-            <div className="animate-fade-in space-y-10">
-              {/* Featured project — Meridian Home (E-commerce) */}
-              <FeaturedProject project={projects[4]} onSelect={handleFilter} />
-
-              {/* Remaining projects — compact horizontal strip */}
-              <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
-                {projects.filter((_, i) => i !== 4).map((project, i) => (
-                  <div key={project.title} className="animate-fade-in" style={{ animationDelay: `${(i + 1) * 80}ms` }}>
-                    <CompactCard project={project} onSelect={handleFilter} />
+        {/* Featured showcase — AnimatePresence crossfade */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            {activeFilter === 'All' ? (
+              /* ── All view: Featured + compact strip ── */
+              <div className="space-y-10">
+                {/* Featured project */}
+                <div
+                  onClick={() => handleFilter(projects[4].category)}
+                  className="group cursor-pointer grid lg:grid-cols-[3fr_2fr] gap-8 items-center"
+                >
+                  {/* Browser frame */}
+                  <div className="relative rounded-2xl overflow-hidden border border-white/[0.06]">
+                    <div className="flex items-center gap-1.5 px-4 py-3 bg-neutral-900/80 border-b border-white/[0.06]">
+                      <div className="w-3 h-3 rounded-full bg-red-400/60" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+                      <div className="w-3 h-3 rounded-full bg-green-400/60" />
+                      <div className="ml-3 flex-1 h-5 rounded-md bg-white/[0.04] flex items-center px-3">
+                        <span className="text-[10px] text-slate-500 truncate">{projects[4].href}</span>
+                      </div>
+                    </div>
+                    <div className="overflow-hidden aspect-[16/9]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={projects[4].image}
+                        alt={`${projects[4].title} preview`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
+                      />
+                    </div>
                   </div>
-                ))}
+
+                  {/* Info */}
+                  <div className="space-y-4">
+                    <span className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gradient-to-r ${projects[4].gradient} text-white/90`}>
+                      {projects[4].category}
+                    </span>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white font-display">{projects[4].title}</h3>
+                    <p className="text-slate-400 leading-relaxed">{projects[4].description}</p>
+                    <span className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${projects[4].gradient} bg-clip-text text-transparent group-hover:gap-3 transition-all duration-300`}>
+                      View Case Study
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Compact strip */}
+                <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide md:grid md:grid-cols-5 md:overflow-visible md:pb-0">
+                  {projects.filter((_, i) => i !== 4).map((project, i) => (
+                    <motion.div
+                      key={project.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.08, duration: 0.4 }}
+                      onClick={() => handleFilter(project.category)}
+                      className="group cursor-pointer flex-shrink-0 w-[220px] md:w-auto"
+                    >
+                      <div className="relative rounded-xl overflow-hidden aspect-[16/10] mb-3 border border-white/[0.04] hover:border-white/[0.1] transition-all duration-300">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={project.image}
+                          alt={`${project.title} preview`}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
+                      </div>
+                      <h4 className="text-sm font-semibold text-white group-hover:text-brand-cyan transition-colors duration-300 truncate">{project.title}</h4>
+                      <span className={`text-[11px] font-medium uppercase tracking-wider bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}>
+                        {project.category}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ) : (
-            <div className="animate-fade-in">
-              <CaseStudyColumns project={filtered[0]} />
-            </div>
-          )}
-        </div>
+            ) : (
+              /* ── Case Study view ── */
+              <div className="grid lg:grid-cols-2 gap-10 items-start">
+                {/* Left — browser frame */}
+                <div className="flex flex-col" style={rightH ? { height: rightH } : undefined}>
+                  <div className={`relative rounded-2xl ${featured.mockupAccent} overflow-hidden border border-white/[0.06] flex-1 min-h-0`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${featured.gradient} opacity-5`} />
+                    <div className="relative h-full flex flex-col">
+                      <div className="flex items-center gap-1.5 px-4 py-3 bg-neutral-900/80 border-b border-white/[0.06] flex-shrink-0">
+                        <div className="w-3 h-3 rounded-full bg-red-400/60" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-400/60" />
+                        <div className="w-3 h-3 rounded-full bg-green-400/60" />
+                        <div className="ml-3 flex-1 h-5 rounded-md bg-white/[0.04] flex items-center px-3">
+                          <span className="text-[10px] text-slate-500 truncate">{featured.href}</span>
+                        </div>
+                      </div>
+                      <a href={featured.href} target="_blank" rel="noopener noreferrer" className="block flex-1 min-h-0 overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={featured.image}
+                          alt={`${featured.title} website`}
+                          loading="lazy"
+                          className="w-full object-cover object-top hover:opacity-95 transition"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <a
+                    href={featured.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-xl bg-gradient-to-r ${featured.gradient} text-white font-semibold text-sm hover:opacity-90 transition shadow-lg flex-shrink-0`}
+                  >
+                    View Live Preview
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                </div>
+
+                {/* Right — case study details */}
+                <div ref={rightRef}>
+                  <div className="mb-4">
+                    <span className={`text-xs font-semibold uppercase tracking-wider bg-gradient-to-r ${featured.gradient} bg-clip-text text-transparent`}>
+                      {featured.category}
+                    </span>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mt-2 font-display">{featured.title}</h3>
+                  </div>
+                  <CaseStudyRight project={featured} />
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   )
