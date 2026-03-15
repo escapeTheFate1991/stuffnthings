@@ -11,56 +11,56 @@ const CheckIcon = () => (
 
 const tiers = [
   {
-    name: 'Foundation',
-    subtitle: 'Custom Website',
-    price: '$299',
+    name: 'Partner with Alex',
+    subtitle: 'AI Assistant',
+    price: '$599',
     period: '/mo',
-    description: 'A rock-solid website that actually works for your business — not a template with your logo slapped on.',
+    description: 'Alex handles your CRM, automates lead response, and manages one core workflow autonomously.',
     features: [
-      'Custom-designed, mobile-first website',
-      'SSL, fast hosting, CDN',
-      'Monthly maintenance and updates',
-      'Contact form with email notifications',
-      'Google Analytics 4 + conversion tracking',
-      'LocalBusiness schema markup',
-      'Google Business Profile optimization',
-      'Monthly uptime and health reports',
+      'AI CRM & pipeline management',
+      'Automated lead response system',
+      '1 marketing automation workflow',
+      'Business intelligence dashboard',
+      'Monthly strategy review with Alex',
+      'Talk to Alex via chat interface',
+      'Autonomous decision-making',
+      'Integration with existing tools',
     ],
     popular: false,
   },
   {
-    name: 'Operational',
-    subtitle: 'Website + SEO + AI',
-    price: '$599',
+    name: 'Growth Partnership',
+    subtitle: 'AI + Marketing Engine',
+    price: '$899',
     period: '/mo',
-    description: 'Everything in Foundation, plus AI workflows and SEO that compounds month over month.',
+    description: 'Everything in Partner, plus unlimited workflows and sales conversation intelligence.',
     features: [
-      'Everything in Foundation, plus:',
-      'Monthly SEO content (blog posts)',
-      'Local SEO strategy (citations, reviews)',
-      'AI-powered chatbot for lead capture',
-      'AI workflow automation',
-      'Review collection and display',
-      'Performance reports',
-      'Social media profile optimization',
+      'Everything in Partner, plus:',
+      'Unlimited marketing workflows',
+      'Sales conversation intelligence',
+      'Advanced business coaching',
+      'Social media automation',
+      'Review & reputation management',
+      'Performance optimization reports',
+      'Integration with unlimited tools',
     ],
     popular: true,
   },
   {
-    name: 'Growth',
-    subtitle: 'Full Digital Presence',
-    price: '$1,200',
+    name: 'Enterprise Partnership',
+    subtitle: 'Complete AI Operations',
+    price: '$1,299',
     period: '/mo',
-    description: 'Everything in Operational, plus paid ads, competitor intelligence, and a dedicated manager.',
+    description: 'Full AI-driven business operations with custom training and autonomous optimization.',
     features: [
-      'Everything in Operational, plus:',
-      'AI automation (follow-up emails, lead scoring, CRM)',
-      'Video content strategy support',
-      'Google Ads + Facebook Ads management',
-      'Competitor monitoring and intelligence',
-      'Branded proposal and estimate system',
+      'Everything in Growth, plus:',
+      'Custom AI training for your business',
+      'Autonomous decision-making across all functions',
+      'Dedicated optimization sessions',
+      'White-glove Alex customization',
       'Priority support with dedicated manager',
-      'Quarterly strategy reviews',
+      'Weekly strategic reviews',
+      'Custom integrations & workflows',
     ],
     popular: false,
   },
@@ -70,18 +70,18 @@ const guarantees = [
   {
     icon: (
       <svg className="w-6 h-6 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    label: '95+ Lighthouse Score',
+    label: '24/7 AI Operation',
   },
   {
     icon: (
       <svg className="w-6 h-6 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    label: 'AI Automation Included',
+    label: '30-Second Response Time',
   },
   {
     icon: (
@@ -89,7 +89,7 @@ const guarantees = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
-    label: 'Enterprise-Grade Security',
+    label: 'Autonomous Decision-Making',
   },
   {
     icon: (
@@ -97,7 +97,7 @@ const guarantees = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
       </svg>
     ),
-    label: 'Performance Reports',
+    label: 'Weekly Business Intelligence',
   },
 ]
 
@@ -124,15 +124,15 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Pick Your Level.</span>
+              <span className="gradient-text">Partner with Alex.</span>
               <br />
-              <span className="text-white">We Handle the Rest.</span>
+              <span className="text-white">AI That Never Stops Working.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              A full-time web team costs $25K+ a month. An agency charges $15–50K and disappears after launch.
-              We give you the team without the overhead — and we stick around.
+              Hiring a full business operations team costs $200K+ annually. SaaS tools cost $500-1,200/month and don't talk to each other.
+              Alex replaces your entire stack with one AI assistant that operates autonomously.
             </p>
           </div>
         </div>
@@ -218,16 +218,16 @@ export default function Services() {
               <p className="text-xs text-slate-500 text-center mb-4 uppercase tracking-wider font-medium">What this replaces</p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
-                  <div className="text-lg font-bold text-red-400 line-through">$25K+</div>
-                  <div className="text-[10px] text-slate-500 mt-1">In-house team /mo</div>
+                  <div className="text-lg font-bold text-red-400 line-through">$17K+</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Operations team /mo</div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold text-red-400 line-through">$15–50K</div>
-                  <div className="text-[10px] text-slate-500 mt-1">Agency project</div>
+                  <div className="text-lg font-bold text-red-400 line-through">$1,800+</div>
+                  <div className="text-[10px] text-slate-500 mt-1">SaaS stack /mo</div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold text-red-400 line-through">$200–500</div>
-                  <div className="text-[10px] text-slate-500 mt-1">SaaS tools /mo</div>
+                  <div className="text-lg font-bold text-red-400 line-through">40hrs+</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Manual work /week</div>
                 </div>
               </div>
             </div>
