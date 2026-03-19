@@ -1,13 +1,11 @@
 import Hero from '@/components/Hero'
-import AIAutomation from '@/components/AIAutomation'
 import Problem from '@/components/Problem'
-import HowItWorks from '@/components/HowItWorks'
-import SocialProof from '@/components/SocialProof'
-import Results from '@/components/Results'
-import Services from '@/components/Services'
+import ALECIntro from '@/components/ALECIntro'
 import UseCases from '@/components/UseCases'
+import SocialProof from '@/components/SocialProof'
 import Integrations from '@/components/Integrations'
 import Differentiation from '@/components/Differentiation'
+import Services from '@/components/Services'
 import BlogTeaser from '@/components/BlogTeaser'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
@@ -19,15 +17,13 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <AIAutomation />
         <Problem />
-        <HowItWorks />
-        <SocialProof />
-        <Results />
-        <Services />
+        <ALECIntro />
         <UseCases />
+        <SocialProof />
         <Integrations />
         <Differentiation />
+        <Services />
         <BlogTeaser />
         <ContactForm />
       </main>

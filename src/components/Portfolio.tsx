@@ -225,7 +225,7 @@ const projects = [
 function CaseStudyRight({ project }: { project: (typeof projects)[0] }) {
   return (
     <div className="space-y-8">
-      {/* Lighthouse Metrics */}
+      {/* Performance Metrics */}
       <div className="grid grid-cols-4 gap-3">
         {Object.entries(project.results).map(([key, val]) => (
           <div key={key} className="rounded-xl p-3 text-center border border-white/[0.06] bg-white/[0.02]">
@@ -345,7 +345,7 @@ export default function Portfolio() {
           >
             <p className="section-subtext">
               Every site is built to the same production standard -- optimized, fast, and
-              conversion-ready. Click any project to see the before/after analysis and live Lighthouse scores.
+              conversion-ready. Click any project to see the before/after analysis and live performance metrics.
             </p>
           </motion.div>
         </div>

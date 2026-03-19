@@ -20,6 +20,7 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
+    { href: '#hero', label: 'Meet ALEC' },
     { href: '#problem', label: 'Why Us' },
     { href: '#how-it-works', label: 'How It Works' },
     { href: '#testimonials', label: 'Results' },

@@ -106,7 +106,7 @@ export default function FloatingLogos() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Every site we build runs on enterprise-grade AI -- from content generation
+            Every automation we deploy runs on enterprise-grade AI -- from content generation
             to workflow automation to real-time monitoring.
           </motion.p>
 

@@ -116,7 +116,7 @@ function FloatingElements() {
         </div>
       </div>
 
-      {/* Performance badge */}
+      {/* ALEC Performance badge */}
       <div
         className="absolute bottom-[35%] left-[10%] animate-float-slow hidden lg:block"
         style={{ transform: `translate(${offset.x * 0.4}px, ${offset.y * 0.4}px)` }}
@@ -124,12 +124,12 @@ function FloatingElements() {
         <div className="glass rounded-2xl px-5 py-3 flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-brand-purple/20 flex items-center justify-center">
             <svg className="w-5 h-5 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <div>
-            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">Lighthouse Score</div>
-            <div className="text-lg font-bold text-brand-cyan">98 / 100</div>
+            <div className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">ALEC Response</div>
+            <div className="text-lg font-bold text-brand-cyan">&lt; 2 min</div>
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ export default function Hero() {
         {/* Tagline — clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
           <p className="text-sm text-slate-400 tracking-widest uppercase">
-            Now Accepting Partners — Free Audit Included
+            Now Accepting Partners — Free Assessment Included
           </p>
         </div>
 
@@ -219,7 +219,7 @@ export default function Hero() {
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Meet Alex: Your AI-powered business assistant that handles your CRM, automates your marketing, 
+            Meet ALEC: Your Artificial Learning Execution Client that handles your CRM, automates your marketing, 
             manages your pipeline, and makes autonomous decisions that grow your revenue 24/7.
           </p>
         </div>
@@ -232,7 +232,7 @@ export default function Hero() {
               onClick={handleCTAClick}
               className="relative btn btn-primary text-lg px-10 py-5 hover:scale-[1.04] transition-transform duration-300"
             >
-              Get Your Free Site Audit
+              Get Free Assessment
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -253,7 +253,7 @@ export default function Hero() {
             <span className="hidden md:block w-px h-4 bg-slate-700" />
             <span>Cancel anytime</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>48-hour audit turnaround</span>
+            <span>48-hour assessment turnaround</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
             <span>Every score is verifiable</span>
           </div>

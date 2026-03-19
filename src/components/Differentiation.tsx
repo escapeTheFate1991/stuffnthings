@@ -86,7 +86,7 @@ const comparison = {
     ]
   },
   us: {
-    title: 'Stuff N Things AI',
+    title: 'ALEC by Stuff N Things',
     subtitle: 'Business Automation Platform',
     capabilities: [
       'Full business context awareness',
@@ -140,7 +140,7 @@ export default function Differentiation() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="section-subtext">
-              Move beyond basic chat interfaces. Get AI that understands your business, automates your workflows, and grows with your company.
+              Move beyond basic chat interfaces. Get ALEC that understands your business, automates your workflows, and grows with your company.
             </p>
           </motion.div>
         </div>
@@ -239,11 +239,11 @@ export default function Differentiation() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <span className="text-sm text-slate-300">
-                <span className="text-white font-semibold">This Isn't Extra. It's Built In.</span> -- every partnership includes AI at no extra cost
+                <span className="text-white font-semibold">This Isn't Extra. It's Built In.</span> -- every partnership includes ALEC at no extra cost
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-3">
-              Every engagement includes full AI operations -- not a chatbot add-on. While others charge $200--500/month for basic automation, we deliver end-to-end workflow intelligence as part of every partnership.
+              Every engagement includes full ALEC operations -- not a chatbot add-on. While others charge $200--500/month for basic automation, we deliver end-to-end workflow intelligence as part of every partnership.
             </p>
           </div>
         </motion.div>

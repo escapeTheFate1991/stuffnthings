@@ -3,10 +3,10 @@
 import { useScrollReveal, useCountUp } from '@/lib/hooks'
 
 const metrics = [
-  { value: 3.2, suffix: 'x', label: 'Average traffic increase in 90 days' },
-  { value: 95, suffix: '+', label: 'Lighthouse performance score, every build' },
-  { value: 2400, suffix: '', label: 'Average monthly savings from AI automation', prefix: '$' },
-  { value: 48, suffix: 'hr', label: 'From assessment to action plan' },
+  { value: 2, suffix: ' min', label: 'Average agent response time' },
+  { value: 80, suffix: '%', label: 'Routine tasks automated' },
+  { value: 99.9, suffix: '%', label: 'Uptime SLA' },
+  { value: 48, suffix: ' hrs', label: 'Assessment to roadmap' },
 ]
 
 const testimonials = [

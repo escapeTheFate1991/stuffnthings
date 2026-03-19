@@ -54,7 +54,7 @@ export default function Footer() {
             <div className="relative inline-block group">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-700" />
               <a href="#contact" className="relative btn btn-primary text-sm !px-6 !py-3 inline-block">
-                Get Free Audit →
+                Get Free Assessment
               </a>
             </div>
           </div>

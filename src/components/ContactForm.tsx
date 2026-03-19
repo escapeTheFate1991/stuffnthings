@@ -281,7 +281,7 @@ export default function ContactForm() {
                             Analyzing...
                           </span>
                         ) : (
-                          'Request My Free Efficiency Assessment →'
+                          'Get Free Assessment'
                         )}
                       </button>
                     </div>

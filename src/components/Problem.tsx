@@ -20,40 +20,20 @@ export default function Problem() {
   const contentOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1])
   const contentY = useTransform(scrollYProgress, [0.3, 0.7], [40, 0])
 
-  const opportunities = [
-    {
-      icon: (
-        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: 'Reclaim Your Team\'s Best Hours',
-      description: "Every business has a layer of repetitive, process-driven work--answering the same common questions, re-entering data across systems, manually routing inquiries. These tasks are necessary, but they don't require your team's expertise. When you automate the routine, your people get their time back for client relationships, strategy, and creative problem-solving.",
-      stat: 'Research suggests that knowledge workers spend roughly 60% of their day on operational tasks rather than the skilled work they were hired to do.',
-      revealClass: 'reveal-slide-left',
-    },
-    {
-      icon: (
-        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-        </svg>
-      ),
-      title: 'Move Beyond First-Generation AI',
-      description: "If you've tried a chatbot or a basic workflow tool and walked away unimpressed--you're not alone. Early AI solutions often lacked the depth to handle real business logic. The technology has matured significantly. Today's AI agents can manage complex, multi-step processes with the reliability your operations demand. The question isn't whether AI works--it's whether you're working with the right framework.",
-      stat: '',
-      revealClass: 'reveal',
-    },
-    {
-      icon: (
-        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 010 0L21.75 9M21.75 9H18M21.75 9v3.75" />
-        </svg>
-      ),
-      title: 'Scale Without Proportional Overhead',
-      description: "Growth should be exciting, not exhausting. When every new client or order means hiring and training another team member, your margins shrink as your revenue grows. Intelligent automation creates operational leverage--the ability to handle significantly more volume without a proportional increase in headcount or cost.",
-      stat: 'Organizations leveraging AI-driven operations have reported operational cost reductions of up to 40-60% in targeted workflows.',
-      revealClass: 'reveal-slide-right',
-    },
+  const oldWayPoints = [
+    'Hire a $17K/mo ops team that still drops balls',
+    '45-minute average response times',
+    'Manual CRM updates across 6 different tools',
+    '40 hours/week of admin that never ends',
+    'Data scattered across spreadsheets and inboxes'
+  ]
+
+  const alecWayPoints = [
+    'Deploy ALEC in 48 hours for a fraction of the cost',
+    'Under 2-minute response times, 24/7',
+    'Automatic pipeline management across every platform',
+    '40 hours/week redirected to strategy and growth',
+    'One intelligence layer connecting your entire stack'
   ]
 
   const handleScroll = useCallback(() => {
@@ -61,7 +41,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="opportunity" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
+    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Edge glow line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
       {/* Aurora orbs for card area */}
@@ -73,35 +53,72 @@ export default function Problem() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Your Team Is Capable of More.</span>
-              <br />
-              <span className="gradient-text-warm">The System Is Holding Them Back.</span>
+              <span className="text-white">The Old Way</span>{' '}
+              <span className="text-slate-500">vs</span>{' '}
+              <span className="gradient-text">ALEC Way</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most businesses aren&apos;t struggling because of their people--they&apos;re struggling because talented people are spending too much of their day on low-leverage work. The opportunity isn&apos;t to replace your workforce. It&apos;s to redirect their energy toward the high-impact work that drives real growth.
+              Most businesses are stuck in manual processes that drain time and resources. 
+              ALEC changes the game completely.
             </p>
           </div>
         </div>
 
-        {/* Opportunities */}
-        <div className="max-w-4xl mx-auto space-y-0">
-          {opportunities.map((opportunity, index) => (
-            <div key={index}>
-              <div className={`${opportunity.revealClass} stagger-${index + 1} py-10`}>
-                <div className="flex flex-col md:flex-row md:items-start gap-6">
-                  <div className="flex-shrink-0">{opportunity.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-3 font-display">{opportunity.title}</h3>
-                    <p className="text-slate-400 leading-relaxed mb-4">{opportunity.description}</p>
-                    {opportunity.stat && <p className="text-brand-cyan/80 font-semibold text-sm">{opportunity.stat}</p>}
-                  </div>
+        {/* Comparison Grid */}
+        <div className="reveal grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto mb-20">
+          {/* The Old Way */}
+          <div className="reveal-slide-left">
+            <div className="relative p-8 rounded-2xl border border-red-500/20 bg-red-500/[0.02] h-full">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/[0.03] to-transparent" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <svg className="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  </svg>
+                  <h3 className="text-2xl font-bold text-white font-display">The Old Way</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {oldWayPoints.map((point, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                      <span className="text-slate-300 leading-relaxed">{point}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              {index < opportunities.length - 1 && <div className="gradient-divider" />}
             </div>
-          ))}
+          </div>
+
+          {/* With ALEC */}
+          <div className="reveal-slide-right">
+            <div className="relative p-8 rounded-2xl border border-brand-cyan/20 bg-brand-cyan/[0.02] h-full">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-cyan/[0.05] via-brand-purple/[0.03] to-transparent" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <svg className="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                  <h3 className="text-2xl font-bold gradient-text font-display">With ALEC</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {alecWayPoints.map((point, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-slate-300 leading-relaxed">{point}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -133,9 +150,9 @@ export default function Problem() {
             {/* Floating stat pills */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
               {[
-                { value: '55K', label: 'US jobs displaced by AI in 2025', glow: 'shadow-brand-cyan/20' },
-                { value: '66%', label: 'avg productivity gain with AI', glow: 'shadow-brand-purple/20' },
-                { value: '89%', label: 'of SMBs already using AI', glow: 'shadow-brand-coral/20' },
+                { value: '$2.4K', label: 'avg monthly savings', glow: 'shadow-brand-cyan/20' },
+                { value: '60-80%', label: 'tasks automated', glow: 'shadow-brand-purple/20' },
+                { value: '48hr', label: 'deployment time', glow: 'shadow-brand-coral/20' },
               ].map((stat) => (
                 <div key={stat.label} className={`flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm shadow-lg ${stat.glow} hover:bg-white/[0.07] hover:border-white/[0.15] transition-all duration-500`}>
                   <span className="text-2xl md:text-3xl font-black gradient-text">{stat.value}</span>
@@ -145,32 +162,31 @@ export default function Problem() {
             </div>
 
             <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 font-display leading-[1.1] tracking-tight">
-              AI Is Reshaping<br />
+              Stop Managing.<br />
               <span className="bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral bg-clip-text text-transparent">
-                Every Business.
+                Start Operating.
               </span>
             </h3>
 
             <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Companies are replacing entire departments with AI workflows.
-              The ones that move first save $1,700-$3,200 a month.
-              The ones that wait lose ground they won&apos;t get back.
+              ALEC doesn't just replace manual work. It transforms how your business operates.
+              Less admin. More growth. That's the difference.
             </p>
 
             <div className="relative inline-block group">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
-              <a
-                href="/resources/ai-workforce-report"
+              <button
+                onClick={handleScroll}
                 className="relative inline-flex items-center gap-3 px-10 py-5 md:px-14 md:py-6 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl text-white font-bold text-lg md:text-xl tracking-wide shadow-2xl hover:shadow-brand-purple/30 transition-all duration-500 hover:scale-[1.03]"
               >
-                <span>See the Full Report</span>
+                <span>Get Free Assessment</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </a>
+              </button>
             </div>
 
-            <p className="mt-6 text-sm text-slate-500">Free download</p>
+            <p className="mt-6 text-sm text-slate-500">48-hour turnaround</p>
           </div>
         </motion.div>
       </div>

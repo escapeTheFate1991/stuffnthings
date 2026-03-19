@@ -8,17 +8,17 @@ import Link from 'next/link'
 const posts = [
   {
     title: "How AI Agents Are Replacing $17K/Month Operations Teams",
-    excerpt: "Most agency sites look great and do nothing. Slow load times, zero automation, no lead capture. Here's what actually matters for local businesses.",
-    slug: '/blog/web-development-cost',
+    excerpt: "Most businesses hire expensive operations teams to handle routine tasks. AI agents do the same work at a fraction of the cost with zero human errors.",
+    slug: '/blog/ai-operations-cost-savings',
     image: '/images/sections/blog-cost.png',
     gradient: 'from-brand-cyan/30 to-blue-500/10',
     accentColor: '#22d3ee',
-    tag: 'Performance',
+    tag: 'AI Operations',
   },
   {
-    title: "5 AI Automations Every Local Business Should Have",
-    excerpt: "Chatbots, scheduling, review responses, follow-up sequences, lead scoring. These aren't enterprise tools anymore -- they're table stakes.",
-    slug: '/blog/ai-automations-local-business',
+    title: "5 AI Automations Every Growing Business Should Deploy First",
+    excerpt: "Lead qualification, email triage, CRM updates, follow-up sequences, customer support. These AI capabilities are table stakes for modern businesses.",
+    slug: '/blog/essential-ai-automations',
     image: '/images/sections/blog-ai.png',
     gradient: 'from-brand-purple/30 to-pink-500/10',
     accentColor: '#a855f7',
@@ -26,8 +26,8 @@ const posts = [
   },
   {
     title: "The Hidden Cost of Manual Processes (And How to Measure It)",
-    excerpt: "88% of consumers trust online reviews as much as personal recommendations. If your site isn't capturing and showcasing reviews, you're losing.",
-    slug: '/blog/online-reputation',
+    excerpt: "Manual data entry, response delays, human errors, and context switching cost businesses 40+ hours per week. Here's how to calculate the real cost.",
+    slug: '/blog/manual-process-costs',
     image: '/images/sections/blog-audit.png',
     gradient: 'from-brand-coral/30 to-red-500/10',
     accentColor: '#f97316',
@@ -96,7 +96,7 @@ export default function BlogTeaser() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="section-subtext">
-              Practical advice for local businesses. No jargon, no fluff -- just
+              Practical insights on AI agent deployment and intelligent automation. No jargon, no fluff -- just
               what works.
             </p>
           </motion.div>

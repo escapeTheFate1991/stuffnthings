@@ -142,8 +142,8 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">10. Warranties & Disclaimers</h2>
             <p>
-              We strive to deliver high-quality services including websites targeting 95+ Lighthouse
-              scores and sub-1.5s LCP. However, Services are provided &quot;as is&quot; and &quot;as available.&quot;
+              We strive to deliver high-quality services including automation systems with optimal
+              performance and reliability. However, Services are provided &quot;as is&quot; and &quot;as available.&quot;
               We do not guarantee specific search engine rankings, traffic levels, conversion rates,
               or revenue outcomes. Performance metrics are targets, not guarantees, and are subject
               to factors outside our control.
