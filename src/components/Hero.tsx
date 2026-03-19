@@ -179,7 +179,7 @@ export default function Hero() {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
     >
-      {/* Gradient orbs -- aurora animated */}
+      {/* Gradient orbs — aurora animated */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.07] blur-[120px] animate-aurora-1" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.07] blur-[120px] animate-aurora-2" />
@@ -197,27 +197,30 @@ export default function Hero() {
       <FloatingElements />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24 pb-16">
-        {/* Tagline -- clean text, no pill, no dot */}
+        {/* Tagline — clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
           <p className="text-sm text-slate-400 tracking-widest uppercase">
-            Deploying production-grade AI agents on the OpenClaw framework -- helping businesses operate smarter, not just faster.
+            Now Accepting Partners — Free Audit Included
           </p>
         </div>
 
         {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="text-white inline-block">Your Business Has</span>
+            <span className="gradient-text inline-block">Run Your</span>
             <br />
-            <span className="gradient-text inline-block">Untapped Capacity.</span>
+            <span className="text-white inline-block">Business.</span>
             <br />
-            <span className="text-white inline-block">Let&apos;s Unlock It.</span>
+            <span className="text-white inline-block">Let AI Handle</span>
+            <br />
+            <span className="gradient-text inline-block">the Rest.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We design and deploy intelligent automation systems powered by OpenClaw--so your team can focus on the work that actually moves the needle. Think of us as the AI operations partner you&apos;ve been looking for.
+            Meet Alex: Your AI-powered business assistant that handles your CRM, automates your marketing, 
+            manages your pipeline, and makes autonomous decisions that grow your revenue 24/7.
           </p>
         </div>
 
@@ -229,7 +232,7 @@ export default function Hero() {
               onClick={handleCTAClick}
               className="relative btn btn-primary text-lg px-10 py-5 hover:scale-[1.04] transition-transform duration-300"
             >
-              Request Your Complimentary Efficiency Assessment
+              Get Your Free Site Audit
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -239,16 +242,20 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
-            Explore the OpenClaw Advantage
+            See Our Work
           </button>
         </div>
 
-        {/* Trust bar -- clean, no green dots */}
+        {/* Trust bar — clean, no green dots */}
         <div className="hero-reveal reveal">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-400">
-            <span>Deploying production-grade AI agents on the OpenClaw framework</span>
+            <span>No contracts</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>helping businesses operate smarter, not just faster</span>
+            <span>Cancel anytime</span>
+            <span className="hidden md:block w-px h-4 bg-slate-700" />
+            <span>48-hour audit turnaround</span>
+            <span className="hidden md:block w-px h-4 bg-slate-700" />
+            <span>Every score is verifiable</span>
           </div>
         </div>
       </div>
