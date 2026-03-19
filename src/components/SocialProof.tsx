@@ -57,10 +57,10 @@ const standards = [
 ]
 
 const stats = [
-  { end: 2, suffix: ' min', label: 'Average response time', prefix: '< ' },
-  { end: 80, suffix: '%', label: 'Routine inquiries automated', prefix: '60-' },
-  { end: 2400, suffix: '', label: 'Average monthly savings', prefix: '$' },
-  { end: 48, suffix: ' hrs', label: 'Assessment to roadmap' },
+  { end: 2, suffix: ' min', label: 'avg response', prefix: '< ' },
+  { end: 78, suffix: '%', label: 'routine tasks automated' },
+  { end: 2400, suffix: '/mo', label: 'avg savings', prefix: '$' },
+  { end: 15, suffix: ' min', label: 'deploy time' },
 ]
 
 export default function SocialProof() {
@@ -96,14 +96,14 @@ export default function SocialProof() {
           <div className="text-center mb-16">
             <div className="reveal">
               <h2 className="section-heading mb-6">
-                <span className="gradient-text">Don&apos;t Take</span>
+                <span className="gradient-text">Measured.</span>
                 <br />
-                <span className="text-white">Our Word For It. Watch It Work.</span>
+                <span className="text-white">Reported. Verified.</span>
               </h2>
             </div>
             <div className="reveal stagger-1">
               <p className="section-subtext">
-                Every automation we deploy comes with transparent reporting. You&apos;ll see exactly what your agents are doing, how they&apos;re performing, and where the ROI is landing. No black boxes. That&apos;s the point.
+                Your ALEC dashboard shows agent activity, cost-per-action, and ROI in real time. No black boxes.
               </p>
             </div>
           </div>

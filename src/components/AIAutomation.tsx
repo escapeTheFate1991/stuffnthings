@@ -13,7 +13,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Operational Reliability',
-    description: 'OpenClaw agents don\'t just respond--they execute. They navigate your software, manage your CRM, and carry out multi-step workflows with the consistency your team and customers expect.',
+    description: 'ALEC executes CRM workflows, routes support tickets, and manages multi-step processes. Same consistency, no sick days.',
     tag: 'Reliability',
   },
   {
@@ -23,7 +23,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Institutional Memory',
-    description: 'Your business rules, brand voice, customer history--OpenClaw agents retain context across interactions. They learn how your business operates and maintain that understanding over time.',
+    description: 'Your brand voice. Your business rules. Your customer history. ALEC retains all of it across sessions and channels.',
     tag: 'Memory',
   },
   {
@@ -32,8 +32,8 @@ const capabilities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
-    title: 'Security-First Architecture',
-    description: 'Your data stays private. Our agents are deployed with enterprise-grade security practices--no data leaks, no unnecessary exposure. Just structured, secure logic doing the work.',
+    title: 'Security-First',
+    description: 'Self-hosted. Air-gapped. Your data stays on your infrastructure. SOC 2 and GDPR compliance built into the architecture.',
     tag: 'Security',
   },
 ]
@@ -68,14 +68,14 @@ export default function AIAutomation() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6">
-              <span className="gradient-text">Thoughtful Engineering.</span>
+              <span className="gradient-text">Built on OpenClaw.</span>
               <br />
-              <span className="text-white">Measurable Results.</span>
+              <span className="text-white">Runs Like Your Best Employee.</span>
             </h2>
           </div>
           <div className="reveal stagger-2">
             <p className="section-subtext">
-              We don&apos;t take shortcuts. Every automation we build runs on OpenClaw--a purpose-built framework for autonomous AI agents that goes well beyond what generic tools can offer.
+              OpenClaw is the framework behind ALEC. Purpose-built for agents that act, remember, and protect.
             </p>
           </div>
         </div>

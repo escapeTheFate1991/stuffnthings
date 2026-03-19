@@ -20,12 +20,20 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight" style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.2), 0 0 60px rgba(168, 85, 247, 0.1)' }}>stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              We design, deploy, and manage intelligent automation systems -- so your team can focus on the work that actually drives growth.
+              Managed AI operations for businesses that move fast.
             </p>
             <p className="text-slate-600 text-sm mb-6">
               Independent studio. Founding partners welcome.
             </p>
-            <p className="text-slate-500 text-sm">All systems operational</p>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+              <span>15 min deploy</span>
+              <span className="w-px h-3 bg-slate-700" />
+              <span>78% automated</span>
+              <span className="w-px h-3 bg-slate-700" />
+              <span>99.9% uptime</span>
+              <span className="w-px h-3 bg-slate-700" />
+              <span>&lt;2 min response</span>
+            </div>
           </div>
 
           {/* Navigation */}

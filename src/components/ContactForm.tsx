@@ -135,9 +135,9 @@ export default function ContactForm() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">What Could Your Team Accomplish</span>
+              <span className="text-white">Start With the Assessment.</span>
               <br />
-              <span className="gradient-text">With 20 Extra Hours a Week?</span>
+              <span className="gradient-text">It's Free.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
@@ -281,7 +281,7 @@ export default function ContactForm() {
                             Analyzing...
                           </span>
                         ) : (
-                          'Get Free Assessment'
+                          'Get Your Free Assessment'
                         )}
                       </button>
                     </div>
@@ -356,8 +356,8 @@ export default function ContactForm() {
                   <div className="text-xs text-slate-400 mt-1">Uptime SLA</div>
                 </div>
                 <div className="text-center p-3">
-                  <div className="text-2xl font-bold gradient-text">48 hrs</div>
-                  <div className="text-xs text-slate-400 mt-1">Assessment to roadmap</div>
+                  <div className="text-2xl font-bold gradient-text">15 min</div>
+                  <div className="text-xs text-slate-400 mt-1">deploy time</div>
                 </div>
               </div>
             </div>

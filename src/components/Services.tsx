@@ -79,16 +79,12 @@ const tiers = [
     subtitle: 'Managed AI Service',
     price: '$499',
     period: '/month',
-    description: '1 ALEC agent fully managed by our team. We handle the setup, monitoring, and optimization while you focus on your business.',
+    description: '1 ALEC agent. CRM integration. Weekly reporting. Managed setup and monitoring.',
     features: [
       '1 ALEC agent',
-      'Support automation',
       'CRM integration',
-      'Weekly reports',
-      'Email & chat support',
-      'Basic workflow automation',
-      'Standard integration support',
-      'Monthly optimization review',
+      'Weekly reporting',
+      'Managed setup and monitoring',
     ],
     popular: false,
   },
@@ -97,16 +93,12 @@ const tiers = [
     subtitle: 'Multi-Agent Operations',
     price: '$999-$1,499',
     period: '/month',
-    description: 'Up to 3 ALEC agents with lead qualification and complex workflows. This is managed - we don\'t hand you a tool and walk away.',
+    description: 'Up to 3 agents. Lead qualification. Multi-platform workflows. Monthly strategy call.',
     features: [
-      'Up to 3 ALEC agents',
+      'Up to 3 agents',
       'Lead qualification',
-      'Multi-app workflows',
-      'Monthly strategy calls',
-      'Priority support',
-      'Advanced CRM orchestration',
-      'Custom business logic',
-      'Performance analytics dashboard',
+      'Multi-platform workflows',
+      'Monthly strategy call',
     ],
     popular: true,
   },
@@ -115,16 +107,12 @@ const tiers = [
     subtitle: 'Full ALEC Operations',
     price: 'Custom',
     period: '',
-    description: 'Unlimited ALEC agents with dedicated engineering team. Complete managed service with 24/7 monitoring.',
+    description: 'Unlimited agents. Custom API work. Dedicated engineer. 24/7 monitoring.',
     features: [
-      'Unlimited ALEC agents',
-      'Custom API integrations',
+      'Unlimited agents',
+      'Custom API work',
       'Dedicated engineer',
       '24/7 monitoring',
-      'White-glove implementation',
-      'Enterprise security compliance',
-      'Custom training & onboarding',
-      'Advanced autonomous logic',
     ],
     popular: false,
   },
@@ -188,9 +176,9 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">AI Automation</span>
+              <span className="gradient-text">Managed AI Operations.</span>
               <br />
-              <span className="text-white">That Actually Works.</span>
+              <span className="text-white">Three Tiers.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">

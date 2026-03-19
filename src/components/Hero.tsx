@@ -200,7 +200,7 @@ export default function Hero() {
         {/* Tagline — clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
           <p className="text-sm text-slate-400 tracking-widest uppercase">
-            Now Accepting Partners — Free Assessment Included
+            Now Accepting Partners
           </p>
         </div>
 
@@ -219,8 +219,7 @@ export default function Hero() {
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Meet ALEC: Your Artificial Learning Execution Client that handles your CRM, automates your marketing, 
-            manages your pipeline, and makes autonomous decisions that grow your revenue 24/7.
+            ALEC deploys into your stack, manages your CRM, qualifies your leads, and runs your operations. Autonomous. 24/7. No new hires.
           </p>
         </div>
 
@@ -232,7 +231,7 @@ export default function Hero() {
               onClick={handleCTAClick}
               className="relative btn btn-primary text-lg px-10 py-5 hover:scale-[1.04] transition-transform duration-300"
             >
-              Get Free Assessment
+              Get Your Free Assessment
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -242,7 +241,7 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
-            See Our Work
+            See ALEC in Action
           </button>
         </div>
 
@@ -253,9 +252,9 @@ export default function Hero() {
             <span className="hidden md:block w-px h-4 bg-slate-700" />
             <span>Cancel anytime</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>48-hour assessment turnaround</span>
+            <span>Live in 15 minutes</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>Every score is verifiable</span>
+            <span>SOC 2 ready</span>
           </div>
         </div>
       </div>

@@ -21,19 +21,17 @@ export default function Problem() {
   const contentY = useTransform(scrollYProgress, [0.3, 0.7], [40, 0])
 
   const oldWayPoints = [
-    'Hire a $17K/mo ops team that still drops balls',
-    '45-minute average response times',
-    'Manual CRM updates across 6 different tools',
-    '40 hours/week of admin that never ends',
-    'Data scattered across spreadsheets and inboxes'
+    '$17K/mo ops team',
+    '45-min response times',
+    '6 disconnected tools',
+    '40 hrs/week on admin'
   ]
 
   const alecWayPoints = [
-    'Deploy ALEC in 48 hours for a fraction of the cost',
-    'Under 2-minute response times, 24/7',
-    'Automatic pipeline management across every platform',
-    '40 hours/week redirected to strategy and growth',
-    'One intelligence layer connecting your entire stack'
+    'Deployed in 15 minutes',
+    '<2 min responses, 24/7',
+    'One integration layer across your stack',
+    '40 hrs/week back on strategy'
   ]
 
   const handleScroll = useCallback(() => {
@@ -60,8 +58,7 @@ export default function Problem() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most businesses are stuck in manual processes that drain time and resources. 
-              ALEC changes the game completely.
+              You know the math. The old way costs more every quarter.
             </p>
           </div>
         </div>
@@ -152,7 +149,7 @@ export default function Problem() {
               {[
                 { value: '$2.4K', label: 'avg monthly savings', glow: 'shadow-brand-cyan/20' },
                 { value: '60-80%', label: 'tasks automated', glow: 'shadow-brand-purple/20' },
-                { value: '48hr', label: 'deployment time', glow: 'shadow-brand-coral/20' },
+                { value: '15min', label: 'deployment time', glow: 'shadow-brand-coral/20' },
               ].map((stat) => (
                 <div key={stat.label} className={`flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm shadow-lg ${stat.glow} hover:bg-white/[0.07] hover:border-white/[0.15] transition-all duration-500`}>
                   <span className="text-2xl md:text-3xl font-black gradient-text">{stat.value}</span>
@@ -179,14 +176,14 @@ export default function Problem() {
                 onClick={handleScroll}
                 className="relative inline-flex items-center gap-3 px-10 py-5 md:px-14 md:py-6 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-coral rounded-2xl text-white font-bold text-lg md:text-xl tracking-wide shadow-2xl hover:shadow-brand-purple/30 transition-all duration-500 hover:scale-[1.03]"
               >
-                <span>Get Free Assessment</span>
+                <span>Get Your Free Assessment</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
             </div>
 
-            <p className="mt-6 text-sm text-slate-500">48-hour turnaround</p>
+            <p className="mt-6 text-sm text-slate-500">48-hour assessment turnaround</p>
           </div>
         </motion.div>
       </div>
