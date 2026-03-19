@@ -13,7 +13,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Operational Reliability',
-    description: 'OpenClaw agents don\'t just respond—they execute. They navigate your software, manage your CRM, and carry out multi-step workflows with the consistency your team and customers expect.',
+    description: 'OpenClaw agents don\'t just respond--they execute. They navigate your software, manage your CRM, and carry out multi-step workflows with the consistency your team and customers expect.',
     tag: 'Reliability',
   },
   {
@@ -23,7 +23,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Institutional Memory',
-    description: 'Your business rules, brand voice, customer history—OpenClaw agents retain context across interactions. They learn how your business operates and maintain that understanding over time.',
+    description: 'Your business rules, brand voice, customer history--OpenClaw agents retain context across interactions. They learn how your business operates and maintain that understanding over time.',
     tag: 'Memory',
   },
   {
@@ -33,7 +33,7 @@ const capabilities = [
       </svg>
     ),
     title: 'Security-First Architecture',
-    description: 'Your data stays private. Our agents are deployed with enterprise-grade security practices—no data leaks, no unnecessary exposure. Just structured, secure logic doing the work.',
+    description: 'Your data stays private. Our agents are deployed with enterprise-grade security practices--no data leaks, no unnecessary exposure. Just structured, secure logic doing the work.',
     tag: 'Security',
   },
 ]
@@ -75,12 +75,12 @@ export default function AIAutomation() {
           </div>
           <div className="reveal stagger-2">
             <p className="section-subtext">
-              We don&apos;t take shortcuts. Every automation we build runs on OpenClaw—a purpose-built framework for autonomous AI agents that goes well beyond what generic tools can offer.
+              We don&apos;t take shortcuts. Every automation we build runs on OpenClaw--a purpose-built framework for autonomous AI agents that goes well beyond what generic tools can offer.
             </p>
           </div>
         </div>
 
-        {/* Capabilities Grid — 3 cards */}
+        {/* Capabilities Grid -- 3 cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {capabilities.map((cap, index) => (
             <div key={index} className={`reveal stagger-${index + 1}`}>
@@ -103,7 +103,7 @@ export default function AIAutomation() {
           ))}
         </div>
 
-        {/* Bottom CTA — no card wrapper */}
+        {/* Bottom CTA -- no card wrapper */}
         <div className="reveal text-center max-w-3xl mx-auto mt-8">
           <div className="relative inline-block group">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />

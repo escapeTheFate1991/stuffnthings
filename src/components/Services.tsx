@@ -31,7 +31,7 @@ const tiers = [
   {
     name: 'Growth',
     subtitle: 'Comprehensive Automation',
-    price: '$999–$1,499',
+    price: '$999-$1,499',
     period: '/month',
     description: 'Up to 3 Dedicated OpenClaw Agents for comprehensive business automation.',
     features: [
@@ -136,7 +136,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Pricing Tiers — thin borders, transparent backgrounds */}
+        {/* Pricing Tiers -- thin borders, transparent backgrounds */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal">
           {tiers.map((tier) => (
             <div
@@ -196,7 +196,7 @@ export default function Services() {
                 ))}
               </ul>
 
-              {/* CTA — clean, no pulse */}
+              {/* CTA -- clean, no pulse */}
               <button
                 onClick={handleCTAClick}
                 className={`w-full btn !rounded-xl !py-4 text-base ${tier.popular
@@ -233,7 +233,7 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Guarantees — clean icon + text, no card wrappers */}
+        {/* Guarantees -- clean icon + text, no card wrappers */}
         <div className="reveal mt-16">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-xl font-bold text-white mb-8 text-center">Every Partnership Includes</h3>

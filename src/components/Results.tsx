@@ -78,7 +78,7 @@ export default function Results() {
           </div>
         </div>
 
-        {/* Metrics — count-up with glowing underlines */}
+        {/* Metrics -- count-up with glowing underlines */}
         <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-12 md:gap-16 mb-24">
           {metrics.map((metric, i) => (
             <div key={metric.label} className={`stagger-${i + 1}`}>
@@ -87,7 +87,7 @@ export default function Results() {
           ))}
         </div>
 
-        {/* Testimonials — stacked, full-width, large quote */}
+        {/* Testimonials -- stacked, full-width, large quote */}
         <div className="space-y-16 max-w-4xl mx-auto">
           {testimonials.map((t, i) => (
             <div key={t.name} className={`${i === 0 ? 'reveal-slide-left' : 'reveal-slide-right'} stagger-${i + 1}`}>

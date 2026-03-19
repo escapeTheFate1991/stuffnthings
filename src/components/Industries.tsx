@@ -9,7 +9,7 @@ const industries = [
     name: 'Roofing',
     fullName: 'Roofing & Home Services',
     headline: 'Turn storm-chaser leads into booked inspections.',
-    description: 'Before your competitor answers the phone. AI-powered scheduling, automated follow-ups, and a site that converts visitors into booked jobs — not just pageviews.',
+    description: 'Before your competitor answers the phone. AI-powered scheduling, automated follow-ups, and a site that converts visitors into booked jobs -- not just pageviews.',
     color: 'text-brand-cyan',
     borderColor: 'border-brand-cyan/50',
     bgGlow: 'bg-brand-cyan',
@@ -57,7 +57,7 @@ const industries = [
     name: 'Restaurants',
     fullName: 'Restaurants & Hospitality',
     headline: 'Online ordering on autopilot.',
-    description: 'Reservation management, review responses, and menu updates — all automated. Your site works the late shift so your team doesn\'t have to.',
+    description: 'Reservation management, review responses, and menu updates -- all automated. Your site works the late shift so your team doesn\'t have to.',
     color: 'text-brand-green',
     borderColor: 'border-brand-green/50',
     bgGlow: 'bg-brand-green',
@@ -191,7 +191,7 @@ export default function Industries() {
             transition={{ duration: 0.4 }}
             className="grid md:grid-cols-2 gap-8 md:gap-12 items-center"
           >
-            {/* Left — text content */}
+            {/* Left -- text content */}
             <div className="order-2 md:order-1">
               <div className={`${active.color} mb-4`}>
                 {active.icon}
@@ -216,7 +216,7 @@ export default function Industries() {
               </a>
             </div>
 
-            {/* Right — mockup or gradient placeholder */}
+            {/* Right -- mockup or gradient placeholder */}
             <div className="order-1 md:order-2">
               <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl aspect-[4/3]">
                 {active.mockup ? (

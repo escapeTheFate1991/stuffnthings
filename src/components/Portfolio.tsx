@@ -21,10 +21,10 @@ const projects = [
     before: {
       headline: 'Generic template site with zero automation behind it',
       issues: [
-        'No social proof or case studies — visitors had no reason to trust',
+        'No social proof or case studies -- visitors had no reason to trust',
         'Contact form buried at the bottom with no supporting copy',
-        'No chatbot or instant response — leads waited days for a reply',
-        'Zero lead qualification — every inquiry went to the same inbox, no scoring',
+        'No chatbot or instant response -- leads waited days for a reply',
+        'Zero lead qualification -- every inquiry went to the same inbox, no scoring',
         'Consultation booking required back-and-forth emails',
       ],
     },
@@ -34,7 +34,7 @@ const projects = [
         'AI chatbot answers prospect questions 24/7 and qualifies leads before they hit the inbox',
         'Automated intake workflow scores leads by company size, budget, and urgency',
         'Smart scheduling widget lets qualified prospects self-book discovery calls',
-        'Drip email sequences triggered by visit behavior — case study downloads, return visits',
+        'Drip email sequences triggered by visit behavior -- case study downloads, return visits',
         'Authority page flow restructured: Proof → Expertise → AI-Powered Contact',
       ],
     },
@@ -56,10 +56,10 @@ const projects = [
     before: {
       headline: 'Feature-heavy page with no automation behind the signup flow',
       issues: [
-        'Listed 20+ features with no hierarchy — overwhelming for visitors',
+        'Listed 20+ features with no hierarchy -- overwhelming for visitors',
         'No free trial CTA above the fold',
         'Pricing hidden behind a "Contact Sales" wall',
-        'Trial signups got a generic welcome email and nothing else — no onboarding sequence',
+        'Trial signups got a generic welcome email and nothing else -- no onboarding sequence',
         'No way to identify or route high-value enterprise leads automatically',
       ],
     },
@@ -89,21 +89,21 @@ const projects = [
     href: '/portfolio/daycare.html',
     image: `${SCREENSHOTS}/daycare.jpg`,
     before: {
-      headline: 'Outdated site with zero automation — everything was manual',
+      headline: 'Outdated site with zero automation -- everything was manual',
       issues: [
-        'Stock photos instead of real facility images — felt impersonal',
+        'Stock photos instead of real facility images -- felt impersonal',
         'No parent testimonials or trust signals',
-        'Tour booking required a phone call — front desk was overwhelmed',
+        'Tour booking required a phone call -- front desk was overwhelmed',
         'No chatbot to answer common parent questions (hours, pricing, curriculum)',
-        'Waitlist was a spreadsheet — parents never got updates',
+        'Waitlist was a spreadsheet -- parents never got updates',
       ],
     },
     after: {
       headline: 'Warm design with AI handling enrollment, tours, and parent communication',
       improvements: [
-        'AI chatbot answers parent FAQs 24/7 — hours, pricing, availability, curriculum details',
+        'AI chatbot answers parent FAQs 24/7 -- hours, pricing, availability, curriculum details',
         'Smart tour scheduling widget with automated confirmations and reminders',
-        'Automated waitlist management — parents get real-time updates when spots open',
+        'Automated waitlist management -- parents get real-time updates when spots open',
         'Post-tour drip sequence nurtures parents with program highlights and enrollment prompts',
         'Automated review collection emails sent after first month of enrollment',
       ],
@@ -126,11 +126,11 @@ const projects = [
     before: {
       headline: 'Pretty site with no intelligence behind the booking flow',
       issues: [
-        'Hero was a stock photo — no atmosphere or emotion',
-        'Booking widget was 3 clicks deep — guests gave up and used OTAs',
-        'No chatbot — guests called the front desk for basic questions',
-        'Zero pre-arrival automation — no upsell, no personalization',
-        'No post-stay review collection — missing out on social proof',
+        'Hero was a stock photo -- no atmosphere or emotion',
+        'Booking widget was 3 clicks deep -- guests gave up and used OTAs',
+        'No chatbot -- guests called the front desk for basic questions',
+        'Zero pre-arrival automation -- no upsell, no personalization',
+        'No post-stay review collection -- missing out on social proof',
       ],
     },
     after: {
@@ -140,7 +140,7 @@ const projects = [
         'Smart booking engine suggests room upgrades and add-ons based on stay duration and party size',
         'Automated pre-arrival email sequence with personalized restaurant, spa, and experience recommendations',
         'Post-stay AI triggers review requests and loyalty offers based on guest satisfaction signals',
-        'Direct booking flow with persistent widget — reducing OTA commission leakage by design',
+        'Direct booking flow with persistent widget -- reducing OTA commission leakage by design',
       ],
     },
     useCases: [
@@ -159,20 +159,20 @@ const projects = [
     href: '/portfolio/ecommerce.html',
     image: `${SCREENSHOTS}/ecommerce.jpg`,
     before: {
-      headline: 'Product grid with no intelligence — every shopper got the same experience',
+      headline: 'Product grid with no intelligence -- every shopper got the same experience',
       issues: [
-        'Every product looked the same — no visual hierarchy or curation',
+        'Every product looked the same -- no visual hierarchy or curation',
         'No brand story or editorial content to differentiate from Amazon',
-        'Cart abandonment was sky-high — no recovery emails, no exit intent',
-        'No product recommendations — shoppers browsed randomly or left',
-        'No post-purchase review automation — social proof was stale',
+        'Cart abandonment was sky-high -- no recovery emails, no exit intent',
+        'No product recommendations -- shoppers browsed randomly or left',
+        'No post-purchase review automation -- social proof was stale',
       ],
     },
     after: {
       headline: 'Editorial shopping experience with AI working every stage of the funnel',
       improvements: [
         'AI product recommendations personalize the homepage based on browsing behavior and purchase history',
-        'Automated cart abandonment sequence — email + SMS with dynamic product reminders',
+        'Automated cart abandonment sequence -- email + SMS with dynamic product reminders',
         'Smart exit-intent popup offers personalized discount based on cart value and visit frequency',
         'Post-purchase AI sends review requests, cross-sell recommendations, and restock reminders',
         'AI-generated product descriptions highlight sustainability details and material sourcing',
@@ -197,10 +197,10 @@ const projects = [
       headline: 'Brochure site with a 12-field form and zero automation',
       issues: [
         'Facility photos were dark, low-res, and uninspiring',
-        'Pricing required a phone call — enterprise buyers want transparency',
-        'No chatbot — prospects with quick questions bounced instead of calling',
-        'Quote process was fully manual — sales team spent hours on spreadsheets',
-        'No lead scoring — a 500 sq ft inquiry got the same treatment as 50,000 sq ft',
+        'Pricing required a phone call -- enterprise buyers want transparency',
+        'No chatbot -- prospects with quick questions bounced instead of calling',
+        'Quote process was fully manual -- sales team spent hours on spreadsheets',
+        'No lead scoring -- a 500 sq ft inquiry got the same treatment as 50,000 sq ft',
       ],
     },
     after: {
@@ -210,7 +210,7 @@ const projects = [
         'Automated quote generator builds custom proposals based on space needs, term length, and services',
         'Smart lead scoring routes enterprise inquiries to senior reps, SMBs to self-serve flow',
         'Automated follow-up sequences nurture leads with facility tours, case studies, and pricing updates',
-        'Contact form reduced to 4 fields — AI enriches the rest from company data',
+        'Contact form reduced to 4 fields -- AI enriches the rest from company data',
       ],
     },
     useCases: [
@@ -344,13 +344,13 @@ export default function Portfolio() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <p className="section-subtext">
-              Every site is built to the same production standard — optimized, fast, and
+              Every site is built to the same production standard -- optimized, fast, and
               conversion-ready. Click any project to see the before/after analysis and live Lighthouse scores.
             </p>
           </motion.div>
         </div>
 
-        {/* Tab bar — Industries style with gradient underlines */}
+        {/* Tab bar -- Industries style with gradient underlines */}
         <motion.div
           className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-14"
           initial={{ opacity: 0, y: 20 }}
@@ -378,7 +378,7 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
-        {/* Featured showcase — AnimatePresence crossfade */}
+        {/* Featured showcase -- AnimatePresence crossfade */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
@@ -464,7 +464,7 @@ export default function Portfolio() {
             ) : (
               /* ── Case Study view ── */
               <div className="grid lg:grid-cols-2 gap-10 items-start">
-                {/* Left — browser frame */}
+                {/* Left -- browser frame */}
                 <div className="flex flex-col" style={rightH ? { height: rightH } : undefined}>
                   <div className={`relative rounded-2xl ${featured.mockupAccent} overflow-hidden border border-white/[0.06] flex-1 min-h-0`}>
                     <div className={`absolute inset-0 bg-gradient-to-br ${featured.gradient} opacity-5`} />
@@ -499,7 +499,7 @@ export default function Portfolio() {
                   </a>
                 </div>
 
-                {/* Right — case study details */}
+                {/* Right -- case study details */}
                 <div ref={rightRef}>
                   <div className="mb-4">
                     <span className={`text-xs font-semibold uppercase tracking-wider bg-gradient-to-r ${featured.gradient} bg-clip-text text-transparent`}>

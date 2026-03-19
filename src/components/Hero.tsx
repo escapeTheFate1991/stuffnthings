@@ -179,7 +179,7 @@ export default function Hero() {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
     >
-      {/* Gradient orbs — aurora animated */}
+      {/* Gradient orbs -- aurora animated */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.07] blur-[120px] animate-aurora-1" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.07] blur-[120px] animate-aurora-2" />
@@ -197,10 +197,10 @@ export default function Hero() {
       <FloatingElements />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24 pb-16">
-        {/* Tagline — clean text, no pill, no dot */}
+        {/* Tagline -- clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
           <p className="text-sm text-slate-400 tracking-widest uppercase">
-            Deploying production-grade AI agents on the OpenClaw framework — helping businesses operate smarter, not just faster.
+            Deploying production-grade AI agents on the OpenClaw framework -- helping businesses operate smarter, not just faster.
           </p>
         </div>
 
@@ -217,7 +217,7 @@ export default function Hero() {
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            We design and deploy intelligent automation systems powered by OpenClaw—so your team can focus on the work that actually moves the needle. Think of us as the AI operations partner you&apos;ve been looking for.
+            We design and deploy intelligent automation systems powered by OpenClaw--so your team can focus on the work that actually moves the needle. Think of us as the AI operations partner you&apos;ve been looking for.
           </p>
         </div>
 
@@ -243,7 +243,7 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Trust bar — clean, no green dots */}
+        {/* Trust bar -- clean, no green dots */}
         <div className="hero-reveal reveal">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-400">
             <span>Deploying production-grade AI agents on the OpenClaw framework</span>

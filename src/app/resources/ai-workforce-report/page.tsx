@@ -10,7 +10,7 @@ const inputClass =
 const stats = [
   { value: '55,000', label: 'US jobs restructured around AI in 2025', source: 'Challenger, Gray & Christmas' },
   { value: '25.9%', label: 'Data entry roles declining by 2034', source: 'Bureau of Labor Statistics' },
-  { value: '$1,700–$3,200', label: 'Monthly savings from AI workflow automation', source: 'BLS salary benchmarks' },
+  { value: '$1,700-$3,200', label: 'Monthly savings from AI workflow automation', source: 'BLS salary benchmarks' },
   { value: '89%', label: 'Of SMBs already using AI for daily tasks', source: 'Microsoft/LinkedIn Research' },
 ]
 
@@ -23,12 +23,12 @@ const chapters = [
   {
     number: '02',
     title: 'The Roles in Transition',
-    description: 'BLS employment projections through 2034 — which positions are evolving fastest and what major research firms are saying.',
+    description: 'BLS employment projections through 2034 -- which positions are evolving fastest and what major research firms are saying.',
   },
   {
     number: '03',
     title: 'The Opportunity',
-    description: 'WEF projects 170M new jobs vs 92M displaced. Businesses that embrace AI don\'t just keep up — they pull ahead.',
+    description: 'WEF projects 170M new jobs vs 92M displaced. Businesses that embrace AI don\'t just keep up -- they pull ahead.',
   },
   {
     number: '04',
@@ -38,7 +38,7 @@ const chapters = [
   {
     number: '05',
     title: 'The Numbers',
-    description: 'Real salary benchmarks for 10 positions mapped against automation potential. See what AI can save — in dollars.',
+    description: 'Real salary benchmarks for 10 positions mapped against automation potential. See what AI can save -- in dollars.',
   },
 ]
 
@@ -110,14 +110,14 @@ export default function AIWorkforceReport() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-slate-800/60 rounded-full px-4 py-1.5 text-sm font-medium text-brand-cyan border border-brand-cyan/20 mb-6">
               <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
-              Free Report — 2026 Edition
+              Free Report -- 2026 Edition
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] mb-6">
               The AI Advantage<br />
               <span className="gradient-text">Is Already Here.</span>
             </h1>
             <p className="text-xl text-slate-300/80 leading-relaxed mb-8">
-              55,000 US jobs were restructured around AI in 2025 — 12× more than two years prior.
+              55,000 US jobs were restructured around AI in 2025 -- 12× more than two years prior.
               This report breaks down which roles are shifting, which industries are moving fastest,
               and what forward-thinking businesses are doing to stay ahead.
             </p>
@@ -164,11 +164,11 @@ export default function AIWorkforceReport() {
                 <div className="space-y-4">
                   {[
                     'Amazon, Intel, UPS, Salesforce, and 20+ companies have restructured 100K+ roles around AI',
-                    'Data entry roles declining 25.9% by 2034 — the steepest shift of any occupation (BLS)',
+                    'Data entry roles declining 25.9% by 2034 -- the steepest shift of any occupation (BLS)',
                     'Customer service positions projected to see 153,700 fewer jobs by 2034 (BLS)',
-                    'AI-exposed industries saw productivity growth jump from 7% to 27% — a 4× increase (PwC)',
+                    'AI-exposed industries saw productivity growth jump from 7% to 27% -- a 4× increase (PwC)',
                     '75% of knowledge workers now use AI at work. 46% started in just the last 6 months (Microsoft)',
-                    'Businesses using AI automation save $1,700–$3,200/month on average in operational efficiency',
+                    'Businesses using AI automation save $1,700-$3,200/month on average in operational efficiency',
                   ].map((finding, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,7 +250,7 @@ export default function AIWorkforceReport() {
                         </button>
 
                         {error && <p className="text-xs text-red-400 text-center">{error}</p>}
-                        <p className="text-[10px] text-slate-600 text-center">We&apos;ll email you the PDF. One download per person — no bots.</p>
+                        <p className="text-[10px] text-slate-600 text-center">We&apos;ll email you the PDF. One download per person -- no bots.</p>
                       </form>
                     </>
                   ) : (

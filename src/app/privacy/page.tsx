@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Stuff N Things',
-  description: 'Privacy Policy for Stuff N Things LLC — how we collect, use, and protect your information.',
+  title: 'Privacy Policy -- Stuff N Things',
+  description: 'Privacy Policy for Stuff N Things LLC -- how we collect, use, and protect your information.',
 }
 
 export default function PrivacyPolicy() {
@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>We access only the data and permissions you explicitly authorize.</li>
-              <li>We use OAuth 2.0 or equivalent secure authorization protocols — we never store your third-party passwords.</li>
+              <li>We use OAuth 2.0 or equivalent secure authorization protocols -- we never store your third-party passwords.</li>
               <li>Data retrieved from these platforms is used solely to provide the services you requested.</li>
               <li>You may revoke access at any time through the respective platform&apos;s settings or by contacting us.</li>
             </ul>

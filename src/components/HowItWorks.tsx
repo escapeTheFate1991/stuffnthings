@@ -9,7 +9,7 @@ const steps = [
     title: 'The Efficiency Assessment',
     subtitle: 'We find where your team is spending time on routine tasks',
     description:
-      'We start with a focused review of your current operations. Together, we identify the workflows where your team is spending the most time on routine tasks—and where intelligent automation will deliver the highest return. You'll receive a clear, prioritized roadmap within 48 hours.',
+      `We start with a focused review of your current operations. Together, we identify the workflows where your team is spending the most time on routine tasks--and where intelligent automation will deliver the highest return. You'll receive a clear, prioritized roadmap within 48 hours.`,
     timeline: '48 hours',
     deliverables: [
       'Workflow analysis & automation opportunities',
@@ -30,7 +30,7 @@ const steps = [
     title: 'Custom Agent Design & Deployment',
     subtitle: 'Built specifically for your tech stack and business processes',
     description:
-      'Based on the assessment, we design and deploy custom AI agents built specifically for your tech stack and business processes. Whether it\'s automated customer engagement, intelligent lead qualification, or complex data orchestration across multiple platforms—every agent is engineered to integrate seamlessly.',
+      `Based on the assessment, we design and deploy custom AI agents built specifically for your tech stack and business processes. Whether it\'s automated customer engagement, intelligent lead qualification, or complex data orchestration across multiple platforms--every agent is engineered to integrate seamlessly.`,
     timeline: '2-4 weeks',
     deliverables: [
       'Custom OpenClaw agent development',
@@ -51,7 +51,7 @@ const steps = [
     title: 'Continuous Optimization',
     subtitle: 'Your dedicated AI operations partner',
     description:
-      'AI isn\'t a \'set it and forget it\' solution. We stay on as your dedicated AI operations partner—monitoring performance, refining agent logic, and proactively adapting the system as your business evolves.',
+      `AI isn\'t a \'set it and forget it\' solution. We stay on as your dedicated AI operations partner--monitoring performance, refining agent logic, and proactively adapting the system as your business evolves.`,
     timeline: 'Ongoing',
     deliverables: [
       'Performance monitoring & tuning',
@@ -81,7 +81,7 @@ export default function HowItWorks() {
       {/* Edge glow lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/30 to-transparent" />
-      {/* Aurora orbs — purple dominant */}
+      {/* Aurora orbs -- purple dominant */}
       <div className="absolute top-[10%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-purple/[0.08] blur-[130px] animate-aurora-1" />
       <div className="absolute bottom-[15%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-purple/[0.06] blur-[120px] animate-aurora-2" />
       <div className="absolute top-[50%] left-[30%] w-[400px] h-[400px] rounded-full bg-brand-cyan/[0.04] blur-[100px] animate-aurora-3" />
@@ -150,7 +150,7 @@ export default function HowItWorks() {
                       </p>
                       <p className="text-slate-400 leading-relaxed mb-6">{step.description}</p>
 
-                      {/* Deliverables — inline, no card wrapper */}
+                      {/* Deliverables -- inline, no card wrapper */}
                       <div className={`${isLeft ? 'lg:text-right' : ''}`}>
                         <div className="flex items-center justify-between mb-4">
                           <h4 className="text-white font-semibold text-sm uppercase tracking-wider">Deliverables</h4>
@@ -186,7 +186,7 @@ export default function HowItWorks() {
                 Ready to See Where You Can Save Time?
               </h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                The assessment is complimentary. Takes 48 hours. You get a detailed report — and it&apos;s yours whether you work with us or not.
+                The assessment is complimentary. Takes 48 hours. You get a detailed report -- and it&apos;s yours whether you work with us or not.
               </p>
               <div className="relative inline-block group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />

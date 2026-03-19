@@ -50,7 +50,7 @@ export default function FloatingLogos() {
     <section className="relative py-20 md:py-32 overflow-hidden">
       <div ref={containerRef} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[500px] md:min-h-[600px] flex items-center justify-center">
 
-        {/* Floating logo constellation — desktop only */}
+        {/* Floating logo constellation -- desktop only */}
         <motion.div
           className="absolute inset-0 hidden md:block"
           variants={containerVariants}
@@ -106,7 +106,7 @@ export default function FloatingLogos() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Every site we build runs on enterprise-grade AI — from content generation
+            Every site we build runs on enterprise-grade AI -- from content generation
             to workflow automation to real-time monitoring.
           </motion.p>
 

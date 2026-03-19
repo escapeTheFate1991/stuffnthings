@@ -9,12 +9,12 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Stuff N Things — AI Automation Agency | OpenClaw Framework',
+  title: 'Stuff N Things -- AI Automation Agency | OpenClaw Framework',
   description: 'We design and deploy intelligent automation systems powered by OpenClaw. Custom AI agents that handle your routine tasks so your team can focus on high-impact work that drives real growth.',
   keywords: 'AI automation, OpenClaw agents, business process automation, intelligent workflow automation, AI operations partner, custom AI agents',
   authors: [{ name: 'Stuff N Things' }],
   openGraph: {
-    title: 'Stuff N Things — AI Automation Agency | OpenClaw Framework',
+    title: 'Stuff N Things -- AI Automation Agency | OpenClaw Framework',
     description: 'We design and deploy intelligent automation systems powered by OpenClaw. Custom AI agents that handle your routine tasks so your team can focus on high-impact work.',
     url: 'https://stuffnthings.io',
     siteName: 'Stuff N Things',
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: 'https://stuffnthings.io/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Stuff N Things — Your Website Should Never Fall Behind',
+        alt: 'Stuff N Things -- Your Website Should Never Fall Behind',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stuff N Things — AI Automation Agency | OpenClaw Framework',
+    title: 'Stuff N Things -- AI Automation Agency | OpenClaw Framework',
     description: 'We design and deploy intelligent automation systems powered by OpenClaw. Custom AI agents that handle your routine tasks so your team can focus on high-impact work.',
     images: ['https://stuffnthings.io/og-image.png'],
   },

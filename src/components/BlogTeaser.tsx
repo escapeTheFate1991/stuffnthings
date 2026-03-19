@@ -17,7 +17,7 @@ const posts = [
   },
   {
     title: "5 AI Automations Every Local Business Should Have",
-    excerpt: "Chatbots, scheduling, review responses, follow-up sequences, lead scoring. These aren't enterprise tools anymore — they're table stakes.",
+    excerpt: "Chatbots, scheduling, review responses, follow-up sequences, lead scoring. These aren't enterprise tools anymore -- they're table stakes.",
     slug: '/blog/ai-automations-local-business',
     image: '/images/sections/blog-ai.png',
     gradient: 'from-brand-purple/30 to-pink-500/10',
@@ -96,7 +96,7 @@ export default function BlogTeaser() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="section-subtext">
-              Practical advice for local businesses. No jargon, no fluff — just
+              Practical advice for local businesses. No jargon, no fluff -- just
               what works.
             </p>
           </motion.div>

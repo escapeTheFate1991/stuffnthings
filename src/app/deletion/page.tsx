@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Data Deletion — Stuff N Things',
+  title: 'Data Deletion -- Stuff N Things',
   description: 'Request deletion of your personal data from Stuff N Things LLC.',
 }
 

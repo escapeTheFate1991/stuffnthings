@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Stuff N Things',
-  description: 'Terms of Service for Stuff N Things LLC — the agreement governing use of our services.',
+  title: 'Terms of Service -- Stuff N Things',
+  description: 'Terms of Service for Stuff N Things LLC -- the agreement governing use of our services.',
 }
 
 export default function TermsOfService() {

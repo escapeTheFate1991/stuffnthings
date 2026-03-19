@@ -4,7 +4,7 @@ import { useScrollReveal, useCountUp } from '@/lib/hooks'
 import FloatingLogos from './FloatingLogos'
 import AnimatedStreaks from './AnimatedStreaks'
 
-/* ── Animated Stat — no icon boxes, just big numbers ── */
+/* ── Animated Stat -- no icon boxes, just big numbers ── */
 function Stat({ end, suffix, label }: { end: number; suffix: string; label: string }) {
   const { ref, value } = useCountUp(end, 2200)
   return (
@@ -26,7 +26,7 @@ const standards = [
     ),
     title: '95+ Performance. Every Build.',
     commitment:
-      "We don't ship anything below 95 on Google Lighthouse. That's not a target — it's a rule. You can verify it yourself on day one. Open DevTools, run the audit, see the number.",
+      "We don't ship anything below 95 on Google Lighthouse. That's not a target -- it's a rule. You can verify it yourself on day one. Open DevTools, run the audit, see the number.",
     proof: 'Target: Lighthouse Perf ≥ 95 · LCP < 1.5s · CLS = 0.00',
     gradient: 'from-brand-cyan to-blue-500',
   },
@@ -38,7 +38,7 @@ const standards = [
     ),
     title: 'AI That Does Real Work.',
     commitment:
-      "We don't just hand you a login and wish you luck. Our AI automates your workflows, qualifies your leads, and monitors your performance — so things keep moving even when you're not looking.",
+      "We don't just hand you a login and wish you luck. Our AI automates your workflows, qualifies your leads, and monitors your performance -- so things keep moving even when you're not looking.",
     proof: 'Included: AI Workflows · Lead Capture · Performance Monitoring',
     gradient: 'from-brand-purple to-pink-500',
   },
@@ -50,17 +50,17 @@ const standards = [
     ),
     title: 'SEO Baked In From Day One.',
     commitment:
-      "Clean structure, correct headings, structured data, meta strategy built around your keywords. Search engines see exactly what humans see — a site built with intention, not duct-taped together with plugins.",
+      "Clean structure, correct headings, structured data, meta strategy built around your keywords. Search engines see exactly what humans see -- a site built with intention, not duct-taped together with plugins.",
     proof: 'Target: SEO = 100 · Structured data · Zero crawl errors',
     gradient: 'from-brand-green to-emerald-400',
   },
 ]
 
 const stats = [
-  { end: 95, suffix: '+', label: 'Lighthouse Perf — our floor' },
+  { end: 95, suffix: '+', label: 'Lighthouse Perf -- our floor' },
   { end: 3, suffix: '', label: 'AI automations per site' },
   { end: 99, suffix: '.9%', label: 'Uptime SLA' },
-  { end: 100, suffix: '', label: 'SEO Score — our standard' },
+  { end: 100, suffix: '', label: 'SEO Score -- our standard' },
 ]
 
 export default function SocialProof() {
@@ -103,13 +103,13 @@ export default function SocialProof() {
             </div>
             <div className="reveal stagger-1">
               <p className="section-subtext">
-                Every site we build hits these numbers. Not sometimes — every time.
+                Every site we build hits these numbers. Not sometimes -- every time.
                 Run Lighthouse yourself. The scores are public. That&apos;s the point.
               </p>
             </div>
           </div>
 
-          {/* Stats — clean, no icon boxes */}
+          {/* Stats -- clean, no icon boxes */}
           <div className="reveal grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {stats.map((s, i) => (
               <div key={i} className={`stagger-${i + 1}`}>
@@ -118,7 +118,7 @@ export default function SocialProof() {
             ))}
           </div>
 
-          {/* Build Standards — open layout, no cards */}
+          {/* Build Standards -- open layout, no cards */}
           <div className="grid md:grid-cols-3 gap-12">
             {standards.map((s, i) => {
               const revealClass = i === 0 ? 'reveal-slide-left' : i === 2 ? 'reveal-slide-right' : 'reveal'

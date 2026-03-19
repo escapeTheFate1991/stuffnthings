@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-3xl font-bold gradient-text mb-4 tracking-tight" style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.2), 0 0 60px rgba(168, 85, 247, 0.1)' }}>stuffnthings</h3>
             <p className="text-slate-400 max-w-md leading-relaxed mb-3">
-              We design, build, and run high-performance websites powered by AI — so you can focus on your business, not your site.
+              We design, build, and run high-performance websites powered by AI -- so you can focus on your business, not your site.
             </p>
             <p className="text-slate-600 text-sm mb-6">
               Independent studio. Founding partners welcome.
@@ -49,7 +49,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Get Started</h4>
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              Free site audit — full analysis delivered in 48 hours. No strings attached.
+              Free site audit -- full analysis delivered in 48 hours. No strings attached.
             </p>
             <div className="relative inline-block group">
               <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-30 group-hover:opacity-60 blur-lg transition-opacity duration-700" />

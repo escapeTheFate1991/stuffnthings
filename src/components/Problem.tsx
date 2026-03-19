@@ -28,7 +28,7 @@ export default function Problem() {
         </svg>
       ),
       title: 'Reclaim Your Team\'s Best Hours',
-      description: "Every business has a layer of repetitive, process-driven work—answering the same common questions, re-entering data across systems, manually routing inquiries. These tasks are necessary, but they don't require your team's expertise. When you automate the routine, your people get their time back for client relationships, strategy, and creative problem-solving.",
+      description: "Every business has a layer of repetitive, process-driven work--answering the same common questions, re-entering data across systems, manually routing inquiries. These tasks are necessary, but they don't require your team's expertise. When you automate the routine, your people get their time back for client relationships, strategy, and creative problem-solving.",
       stat: 'Research suggests that knowledge workers spend roughly 60% of their day on operational tasks rather than the skilled work they were hired to do.',
       revealClass: 'reveal-slide-left',
     },
@@ -39,7 +39,7 @@ export default function Problem() {
         </svg>
       ),
       title: 'Move Beyond First-Generation AI',
-      description: "If you've tried a chatbot or a basic workflow tool and walked away unimpressed—you're not alone. Early AI solutions often lacked the depth to handle real business logic. The technology has matured significantly. Today's AI agents can manage complex, multi-step processes with the reliability your operations demand. The question isn't whether AI works—it's whether you're working with the right framework.",
+      description: "If you've tried a chatbot or a basic workflow tool and walked away unimpressed--you're not alone. Early AI solutions often lacked the depth to handle real business logic. The technology has matured significantly. Today's AI agents can manage complex, multi-step processes with the reliability your operations demand. The question isn't whether AI works--it's whether you're working with the right framework.",
       stat: '',
       revealClass: 'reveal',
     },
@@ -50,8 +50,8 @@ export default function Problem() {
         </svg>
       ),
       title: 'Scale Without Proportional Overhead',
-      description: "Growth should be exciting, not exhausting. When every new client or order means hiring and training another team member, your margins shrink as your revenue grows. Intelligent automation creates operational leverage—the ability to handle significantly more volume without a proportional increase in headcount or cost.",
-      stat: 'Organizations leveraging AI-driven operations have reported operational cost reductions of up to 40–60% in targeted workflows.',
+      description: "Growth should be exciting, not exhausting. When every new client or order means hiring and training another team member, your margins shrink as your revenue grows. Intelligent automation creates operational leverage--the ability to handle significantly more volume without a proportional increase in headcount or cost.",
+      stat: 'Organizations leveraging AI-driven operations have reported operational cost reductions of up to 40-60% in targeted workflows.',
       revealClass: 'reveal-slide-right',
     },
   ]
@@ -80,7 +80,7 @@ export default function Problem() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most businesses aren&apos;t struggling because of their people—they&apos;re struggling because talented people are spending too much of their day on low-leverage work. The opportunity isn&apos;t to replace your workforce. It&apos;s to redirect their energy toward the high-impact work that drives real growth.
+              Most businesses aren&apos;t struggling because of their people--they&apos;re struggling because talented people are spending too much of their day on low-leverage work. The opportunity isn&apos;t to replace your workforce. It&apos;s to redirect their energy toward the high-impact work that drives real growth.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function Problem() {
         </div>
       </div>
 
-      {/* ── Immersive CTA — Expand-from-center scroll reveal ── */}
+      {/* ── Immersive CTA -- Expand-from-center scroll reveal ── */}
       <div ref={ctaRef} className="mt-20 relative">
         {/* Expanding background panel */}
         <motion.div
@@ -124,7 +124,7 @@ export default function Problem() {
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-purple/40 to-transparent" />
         </motion.div>
 
-        {/* Content — fades in after background expands */}
+        {/* Content -- fades in after background expands */}
         <motion.div
           className="relative py-24 md:py-36 lg:py-44"
           style={{ opacity: contentOpacity, y: contentY }}
@@ -153,7 +153,7 @@ export default function Problem() {
 
             <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
               Companies are replacing entire departments with AI workflows.
-              The ones that move first save $1,700–$3,200 a month.
+              The ones that move first save $1,700-$3,200 a month.
               The ones that wait lose ground they won&apos;t get back.
             </p>
 

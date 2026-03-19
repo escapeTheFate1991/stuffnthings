@@ -125,9 +125,9 @@ export default function ContactForm() {
 
   return (
     <section id="contact" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
-      {/* Edge glow line — cyan top */}
+      {/* Edge glow line -- cyan top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/40 to-transparent" />
-      {/* One subtle gradient orb — not aurora overkill */}
+      {/* One subtle gradient orb -- not aurora overkill */}
       <div className="absolute top-[30%] left-[40%] w-[600px] h-[600px] rounded-full bg-brand-cyan/[0.05] blur-[150px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -142,7 +142,7 @@ export default function ContactForm() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              The assessment is complimentary. The insights are yours to keep—whether or not we work together. We&apos;ll show you exactly where your operations have room to improve, which workflows are the strongest candidates for automation, and what kind of return you can realistically expect.
+              The assessment is complimentary. The insights are yours to keep--whether or not we work together. We&apos;ll show you exactly where your operations have room to improve, which workflows are the strongest candidates for automation, and what kind of return you can realistically expect.
             </p>
           </div>
         </div>
@@ -310,14 +310,14 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Benefits — clean icon + text, no card wrappers */}
+          {/* Benefits -- clean icon + text, no card wrappers */}
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 What We Actually Analyze
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Not a generic checklist with vague recommendations. Every analysis comes with time savings estimates, ROI projections, and concrete implementation steps — whether you work with us or not.
+                Not a generic checklist with vague recommendations. Every analysis comes with time savings estimates, ROI projections, and concrete implementation steps -- whether you work with us or not.
               </p>
             </div>
 
