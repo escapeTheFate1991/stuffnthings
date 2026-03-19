@@ -293,15 +293,15 @@ export default function Services() {
           ))}
         </div>
 
-        {/* What this replaces */}
+        {/* What this offsets */}
         <div className="reveal mt-16">
           <div className="max-w-2xl mx-auto">
             <div className="border-t border-slate-700/50 pt-8">
-              <p className="text-xs text-slate-500 text-center mb-4 uppercase tracking-wider font-medium">What this replaces</p>
+              <p className="text-xs text-slate-500 text-center mb-4 uppercase tracking-wider font-medium">What this offsets</p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-lg font-bold text-red-400 line-through">$17K+</div>
-                  <div className="text-[10px] text-slate-500 mt-1">Operations team /mo</div>
+                  <div className="text-[10px] text-slate-500 mt-1">In operational overhead /mo</div>
                 </div>
                 <div>
                   <div className="text-lg font-bold text-red-400 line-through">$1,800+</div>
@@ -309,7 +309,7 @@ export default function Services() {
                 </div>
                 <div>
                   <div className="text-lg font-bold text-red-400 line-through">40hrs+</div>
-                  <div className="text-[10px] text-slate-500 mt-1">Manual work /week</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Of manual work redirected weekly</div>
                 </div>
               </div>
             </div>

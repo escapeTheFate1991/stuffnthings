@@ -94,7 +94,7 @@ export default function Navigation() {
                 }}
                 className="btn btn-primary text-sm !px-6 !py-2.5 ml-4"
               >
-                Get Free Audit
+                Get Free Assessment
               </a>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function Navigation() {
                 }}
                 className="btn btn-primary w-full text-center !py-3"
               >
-                Get Free Audit
+                Get Free Assessment
               </a>
             </div>
           </div>

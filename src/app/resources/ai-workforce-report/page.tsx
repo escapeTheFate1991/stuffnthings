@@ -292,7 +292,7 @@ export default function AIWorkforceReport() {
             We&apos;ll review your site, map out where AI can create value, and show you the numbers. Free. No obligation.
           </p>
           <a href="/#contact" className="btn btn-primary text-lg px-10 py-5 inline-block">
-            Request Your Free Site Audit →
+            Request Your Free Assessment →
           </a>
         </div>
       </section>

@@ -243,7 +243,7 @@ export default function Differentiation() {
               </span>
             </div>
             <p className="text-xs text-slate-500 mt-3">
-              While competitors charge $200-500/mo for basic scheduling, our AI handles your entire business.
+              Every engagement includes full AI operations -- not a chatbot add-on. While others charge $200--500/month for basic automation, we deliver end-to-end workflow intelligence as part of every partnership.
             </p>
           </div>
         </motion.div>

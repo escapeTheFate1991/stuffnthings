@@ -154,7 +154,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
                                     Stuffnthings builds high-performance, conversion-engineered digital infrastructure tailored for enterprise-grade local dominance.
                                 </p>
                                 <Link href="/#contact" className="flex items-center justify-center w-full px-6 py-4 rounded-xl bg-white text-black font-black uppercase tracking-wider hover:bg-brand-cyan hover:scale-105 transition-all">
-                                    Get Your Free Audit
+                                    Get Your Free Assessment
                                 </Link>
                             </div>
 

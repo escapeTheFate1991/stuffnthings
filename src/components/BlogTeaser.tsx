@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const posts = [
   {
-    title: "Why Your $5,000 Website Is Costing You Customers",
+    title: "How AI Agents Are Replacing $17K/Month Operations Teams",
     excerpt: "Most agency sites look great and do nothing. Slow load times, zero automation, no lead capture. Here's what actually matters for local businesses.",
     slug: '/blog/web-development-cost',
     image: '/images/sections/blog-cost.png',
@@ -25,7 +25,7 @@ const posts = [
     tag: 'AI',
   },
   {
-    title: "The Real Cost of a Bad Online Reputation",
+    title: "The Hidden Cost of Manual Processes (And How to Measure It)",
     excerpt: "88% of consumers trust online reviews as much as personal recommendations. If your site isn't capturing and showcasing reviews, you're losing.",
     slug: '/blog/online-reputation',
     image: '/images/sections/blog-audit.png',
@@ -175,7 +175,7 @@ export default function BlogTeaser() {
             href="/blog"
             className="inline-flex items-center px-8 py-3 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-white font-semibold transition-all hover:scale-105 hover:border-brand-cyan/50"
           >
-            Explore The Agent Articles
+            Read the Latest Insights
             <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

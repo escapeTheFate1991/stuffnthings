@@ -6,17 +6,17 @@ const metrics = [
   { value: 3.2, suffix: 'x', label: 'Average traffic increase in 90 days' },
   { value: 95, suffix: '+', label: 'Lighthouse performance score, every build' },
   { value: 2400, suffix: '', label: 'Average monthly savings from AI automation', prefix: '$' },
-  { value: 48, suffix: 'hr', label: 'From audit to action plan' },
+  { value: 48, suffix: 'hr', label: 'From assessment to action plan' },
 ]
 
 const testimonials = [
   {
-    quote: 'I used to spend two hours a day answering the same questions. Now our site handles it and I actually get to do my job.',
+    quote: 'I used to spend two hours a day answering the same questions. Now our AI agent handles it and I actually get to do my job.',
     name: 'Sarah',
     company: 'Bright Smile Dental',
   },
   {
-    quote: 'Our old site was costing us leads we didn\'t even know about. Within a month of the rebuild, our phone started ringing again.',
+    quote: 'Our old site was costing us leads we didn\'t even know about. Within a month of deploying our agents, the pipeline started filling itself.',
     name: 'James',
     company: 'Summit Contractors',
   },

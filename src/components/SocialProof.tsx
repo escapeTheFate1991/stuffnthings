@@ -24,10 +24,10 @@ const standards = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
-    title: '95+ Performance. Every Build.',
+    title: 'Always-On Operations. Zero Busywork.',
     commitment:
-      "We don't ship anything below 95 on Google Lighthouse. That's not a target -- it's a rule. You can verify it yourself on day one. Open DevTools, run the audit, see the number.",
-    proof: 'Target: Lighthouse Perf ≥ 95 · LCP < 1.5s · CLS = 0.00',
+      "Your OpenClaw agents are engineered for real business processes -- qualifying leads, triaging support tickets, and keeping your pipeline moving while your team focuses on higher-leverage work.",
+    proof: 'Included: Custom AI Agents · Lead Qualification · Workflow Automation · Performance Dashboards',
     gradient: 'from-brand-cyan to-blue-500',
   },
   {
@@ -48,19 +48,19 @@ const standards = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
     ),
-    title: 'SEO Baked In From Day One.',
+    title: 'Built to Integrate, Not Disrupt.',
     commitment:
-      "Clean structure, correct headings, structured data, meta strategy built around your keywords. Search engines see exactly what humans see -- a site built with intention, not duct-taped together with plugins.",
-    proof: 'Target: SEO = 100 · Structured data · Zero crawl errors',
+      "Your team already has tools they rely on -- CRMs, calendars, email, messaging platforms. We don't ask anyone to learn new software. Your AI agents plug directly into the systems your team already uses, working alongside them, not in front of them.",
+    proof: 'Supported: Slack · WhatsApp · Telegram · Google Workspace · CRM Integrations · Custom APIs',
     gradient: 'from-brand-green to-emerald-400',
   },
 ]
 
 const stats = [
-  { end: 95, suffix: '+', label: 'Lighthouse Perf -- our floor' },
-  { end: 3, suffix: '', label: 'AI automations per site' },
+  { end: 2, suffix: ' min', label: 'Response time' },
+  { end: 70, suffix: '%', label: 'Routine inquiries handled automatically' },
+  { end: 48, suffix: ' hrs', label: 'From assessment to your prioritized roadmap' },
   { end: 99, suffix: '.9%', label: 'Uptime SLA' },
-  { end: 100, suffix: '', label: 'SEO Score -- our standard' },
 ]
 
 export default function SocialProof() {
@@ -98,13 +98,12 @@ export default function SocialProof() {
               <h2 className="section-heading mb-6">
                 <span className="gradient-text">Don&apos;t Take</span>
                 <br />
-                <span className="text-white">Our Word For It. Measure It.</span>
+                <span className="text-white">Our Word For It. Watch It Work.</span>
               </h2>
             </div>
             <div className="reveal stagger-1">
               <p className="section-subtext">
-                Every site we build hits these numbers. Not sometimes -- every time.
-                Run Lighthouse yourself. The scores are public. That&apos;s the point.
+                Every automation we deploy comes with transparent reporting. You&apos;ll see exactly what your agents are doing, how they&apos;re performing, and where the ROI is landing. No black boxes. That&apos;s the point.
               </p>
             </div>
           </div>
