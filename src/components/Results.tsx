@@ -24,8 +24,8 @@ const testimonials = [
 
 /* ── Metric with count-up + glowing underline ── */
 function MetricBlock({ metric }: { metric: (typeof metrics)[0] }) {
-  const { ref, value } = useCountUp(metric.value === 3.2 ? 32 : metric.value, 2200)
-  const displayValue = metric.value === 3.2
+  const { ref, value } = useCountUp(metric.value === 99.9 ? 999 : metric.value, 2200)
+  const displayValue = metric.value === 99.9
     ? `${(value / 10).toFixed(1)}`
     : `${value}`
 
@@ -36,7 +36,7 @@ function MetricBlock({ metric }: { metric: (typeof metrics)[0] }) {
           className="text-5xl md:text-6xl lg:text-7xl font-black gradient-text mb-1"
           style={{ textShadow: '0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(168, 85, 247, 0.15)' }}
         >
-          {metric.prefix || ''}{displayValue}{metric.suffix}
+          {displayValue}{metric.suffix}
         </div>
         {/* Animated gradient underline */}
         <div className="h-[2px] w-full mt-1 rounded-full overflow-hidden">
