@@ -12,29 +12,29 @@ const capabilities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    title: 'AI Workflow Automation',
-    description: 'Repetitive tasks, customer follow-ups, internal routing — AI handles the busywork so your team stays focused on what actually moves the business forward.',
-    tag: 'Automation',
+    title: 'Operational Reliability',
+    description: 'OpenClaw agents don\'t just respond—they execute. They navigate your software, manage your CRM, and carry out multi-step workflows with the consistency your team and customers expect.',
+    tag: 'Reliability',
   },
   {
     icon: (
       <svg className="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.01v.008H12v-.008z" />
       </svg>
     ),
-    title: 'Leads That Don\'t Slip Away',
-    description: 'Smart forms that qualify visitors on the spot, send hot leads straight to your inbox, and follow up automatically when someone goes quiet. Nothing falls through the cracks.',
-    tag: 'Leads',
+    title: 'Institutional Memory',
+    description: 'Your business rules, brand voice, customer history—OpenClaw agents retain context across interactions. They learn how your business operates and maintain that understanding over time.',
+    tag: 'Memory',
   },
   {
     icon: (
       <svg className="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
-    title: 'Always Watching, Always Improving',
-    description: 'Speed, SEO, uptime — we monitor it all around the clock. When something drifts, we catch it and fix it before you notice. Monthly reports show exactly what moved the needle.',
-    tag: 'Monitoring',
+    title: 'Security-First Architecture',
+    description: 'Your data stays private. Our agents are deployed with enterprise-grade security practices—no data leaks, no unnecessary exposure. Just structured, secure logic doing the work.',
+    tag: 'Security',
   },
 ]
 
@@ -67,22 +67,15 @@ export default function AIAutomation() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="reveal">
-            <p className="text-sm text-slate-400 tracking-widest uppercase mb-8">
-              AI Built Into Every Layer
-            </p>
-          </div>
-          <div className="reveal stagger-1">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6">
-              <span className="text-white">Your Site Gets</span>
+              <span className="gradient-text">Thoughtful Engineering.</span>
               <br />
-              <span className="gradient-text">Smarter Every Week.</span>
+              <span className="text-white">Measurable Results.</span>
             </h2>
           </div>
           <div className="reveal stagger-2">
             <p className="section-subtext">
-              Most agencies build your site and vanish. We wire AI into the foundation —
-              workflow automation, lead capture, performance monitoring —
-              so it keeps improving long after launch day.
+              We don&apos;t take shortcuts. Every automation we build runs on OpenClaw—a purpose-built framework for autonomous AI agents that goes well beyond what generic tools can offer.
             </p>
           </div>
         </div>
@@ -112,21 +105,13 @@ export default function AIAutomation() {
 
         {/* Bottom CTA — no card wrapper */}
         <div className="reveal text-center max-w-3xl mx-auto mt-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-            This Isn&apos;t Extra. <span className="gradient-text">It&apos;s Built In.</span>
-          </h3>
-          <p className="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Workflows run on autopilot. Leads get captured the second they show interest.
-            Performance stays dialed. You get a monthly report showing everything that happened —
-            no dashboard login required.
-          </p>
           <div className="relative inline-block group">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
             <button
               onClick={handleCTAClick}
               className="relative btn btn-primary text-lg px-10 py-5"
             >
-              See What We Can Automate
+              Request Your Efficiency Assessment
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

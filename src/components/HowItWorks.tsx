@@ -6,17 +6,17 @@ import { useScrollReveal } from '@/lib/hooks'
 const steps = [
   {
     number: '01',
-    title: 'Free Site + AI Audit',
-    subtitle: 'We find what\u2019s costing you customers — and what AI can fix',
+    title: 'The Efficiency Assessment',
+    subtitle: 'We find where your team is spending time on routine tasks',
     description:
-      'We run your site through a full diagnostic covering speed, mobile experience, SEO, and conversion paths. Then we go deeper: we scan for AI automation opportunities across your customer interactions, lead handling, scheduling, and internal workflows. In 48 hours you get a plain-English report with real dollar estimates on what AI saves you. Free. No strings.',
+      'We start with a focused review of your current operations. Together, we identify the workflows where your team is spending the most time on routine tasks—and where intelligent automation will deliver the highest return. You'll receive a clear, prioritized roadmap within 48 hours.',
     timeline: '48 hours',
     deliverables: [
-      'Performance, SEO & mobile analysis',
-      'AI automation opportunity scan (6 categories)',
-      'Estimated monthly savings from AI workflows',
-      'Industry-specific automation recommendations',
-      'Prioritized improvement roadmap',
+      'Workflow analysis & automation opportunities',
+      'Time savings projections per workflow',
+      'ROI estimates for AI implementation',
+      'Prioritized automation roadmap',
+      'Technology stack integration plan',
     ],
     color: 'from-brand-cyan to-blue-500',
     icon: (
@@ -27,17 +27,17 @@ const steps = [
   },
   {
     number: '02',
-    title: 'We Build + Wire In AI',
-    subtitle: 'Your site and AI automations go live together',
+    title: 'Custom Agent Design & Deployment',
+    subtitle: 'Built specifically for your tech stack and business processes',
     description:
-      'We design and build your site from scratch — fast, search-optimized, and ready to convert. But we don\u2019t stop at the website. We configure the AI automations from your audit: chatbots, smart forms, lead routing, scheduling assistants, workflow automation. Everything launches together so day one is already smarter than your competition.',
+      'Based on the assessment, we design and deploy custom AI agents built specifically for your tech stack and business processes. Whether it\'s automated customer engagement, intelligent lead qualification, or complex data orchestration across multiple platforms—every agent is engineered to integrate seamlessly.',
     timeline: '2-4 weeks',
     deliverables: [
-      'Custom design & development',
-      'AI chatbot + smart form setup',
-      'Lead qualification & routing automation',
-      'Scheduling or workflow integrations',
-      'SEO, performance & mobile optimization',
+      'Custom OpenClaw agent development',
+      'Business process automation setup',
+      'CRM & tool integrations',
+      'Intelligent workflow orchestration',
+      'Testing & quality assurance',
     ],
     color: 'from-brand-purple to-pink-500',
     icon: (
@@ -48,17 +48,17 @@ const steps = [
   },
   {
     number: '03',
-    title: 'We Stay & Improve',
-    subtitle: 'This is where most agencies disappear. We don\u2019t.',
+    title: 'Continuous Optimization',
+    subtitle: 'Your dedicated AI operations partner',
     description:
-      'After launch, we keep going. Performance monitoring, security patches, SEO tweaks — and we keep tuning your AI automations based on real data. New workflows get added as your business grows. Monthly reports show exactly what\u2019s working, what\u2019s saving you money, and what we\u2019re improving next.',
+      'AI isn\'t a \'set it and forget it\' solution. We stay on as your dedicated AI operations partner—monitoring performance, refining agent logic, and proactively adapting the system as your business evolves.',
     timeline: 'Ongoing',
     deliverables: [
-      'AI performance tuning & new workflow rollouts',
-      'Continuous monitoring & security patching',
-      'A/B testing & conversion optimization',
-      'Monthly AI + performance reports',
-      'Unlimited updates & priority support',
+      'Performance monitoring & tuning',
+      'Agent logic refinement',
+      'New workflow development',
+      'Monthly optimization reports',
+      'Strategic business adaptation',
     ],
     color: 'from-brand-green to-emerald-400',
     icon: (
@@ -102,7 +102,7 @@ export default function HowItWorks() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Three steps. No jargon. We audit your site, build what you need, and wire in AI that does the heavy lifting — so you don&apos;t have to.
+              Three steps. No jargon. We assess your operations, deploy custom AI agents, and continuously optimize the system as your business grows.
             </p>
           </div>
         </div>
@@ -183,15 +183,15 @@ export default function HowItWorks() {
             <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-brand-purple/10 to-brand-green/5" />
             <div className="relative glass rounded-2xl p-10 text-center border border-slate-700/50">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Curious What&apos;s Holding Your Site Back?
+                Ready to See Where You Can Save Time?
               </h3>
               <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                The audit is free. Takes 48 hours. You get a full report — and it&apos;s yours whether you work with us or not.
+                The assessment is complimentary. Takes 48 hours. You get a detailed report — and it&apos;s yours whether you work with us or not.
               </p>
               <div className="relative inline-block group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-cyan to-brand-purple rounded-xl opacity-40 group-hover:opacity-70 blur-lg transition-opacity duration-700" />
                 <button onClick={handleCTAClick} className="relative btn btn-primary text-lg px-10 py-5">
-                  Get Your Free Site Audit
+                  Request Your Efficiency Assessment
                   <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

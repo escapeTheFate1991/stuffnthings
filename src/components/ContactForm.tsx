@@ -15,17 +15,17 @@ const benefits = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
     ),
-    title: 'Full Site Diagnostic',
-    text: 'Performance, SEO, conversion paths, AI automation potential — we test everything and explain every finding in plain language.',
+    title: 'Workflow Analysis',
+    text: 'We map your current business processes and identify where your team spends the most time on repetitive tasks that could be automated.',
   },
   {
     icon: (
       <svg className="w-6 h-6 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: 'Core Web Vitals Breakdown',
-    text: 'We identify your LCP, CLS, and INP scores and trace each one back to the specific code or infrastructure causing the problem.',
+    title: 'Time Savings Projections',
+    text: 'Detailed estimates of how many hours per week each automation could save, with specific ROI calculations for your business.',
   },
   {
     icon: (
@@ -33,8 +33,8 @@ const benefits = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082" />
       </svg>
     ),
-    title: 'AI Automation Opportunities',
-    text: 'We scan your site for areas where AI can automate tasks — content, lead capture, customer interactions — and show you exactly how much time and money it saves.',
+    title: 'OpenClaw Implementation Plan',
+    text: 'Specific recommendations for AI agents tailored to your tech stack and business processes, with prioritized rollout timeline.',
   },
   {
     icon: (
@@ -43,7 +43,7 @@ const benefits = [
       </svg>
     ),
     title: 'Zero Pressure. Guaranteed.',
-    text: 'No follow-up calls you didn\'t ask for. No hard sell. We send you the report and let the work speak for itself.',
+    text: 'No follow-up calls you didn\'t ask for. No hard sell. We send you the assessment and let the results speak for themselves.',
   },
 ]
 
@@ -135,15 +135,14 @@ export default function ContactForm() {
         <div className="text-center mb-16">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="text-white">Get Your Free</span>
+              <span className="text-white">What Could Your Team Accomplish</span>
               <br />
-              <span className="gradient-text">Site Audit</span>
+              <span className="gradient-text">With 20 Extra Hours a Week?</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Most sites have 3–5 issues quietly costing real money. We&apos;ll find them,
-              explain them in plain English, and show you what to fix first — no obligation.
+              The assessment is complimentary. The insights are yours to keep—whether or not we work together. We&apos;ll show you exactly where your operations have room to improve, which workflows are the strongest candidates for automation, and what kind of return you can realistically expect.
             </p>
           </div>
         </div>
@@ -282,7 +281,7 @@ export default function ContactForm() {
                             Analyzing...
                           </span>
                         ) : (
-                          'Get My Free Site Audit →'
+                          'Request My Free Efficiency Assessment →'
                         )}
                       </button>
                     </div>
@@ -315,11 +314,10 @@ export default function ContactForm() {
           <div className="reveal stagger-2 lg:pt-4">
             <div className="mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                What We Actually Look At
+                What We Actually Analyze
               </h3>
               <p className="text-slate-400 leading-relaxed">
-                Not a traffic-light PDF with zero context. Every finding comes with an explanation,
-                a severity rating, and a concrete fix — whether you work with us or not.
+                Not a generic checklist with vague recommendations. Every analysis comes with time savings estimates, ROI projections, and concrete implementation steps — whether you work with us or not.
               </p>
             </div>
 

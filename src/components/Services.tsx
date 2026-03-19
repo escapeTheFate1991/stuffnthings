@@ -11,56 +11,56 @@ const CheckIcon = () => (
 
 const tiers = [
   {
-    name: 'Partner with Alex',
-    subtitle: 'AI Assistant',
-    price: '$599',
-    period: '/mo',
-    description: 'Alex handles your CRM, automates lead response, and manages one core workflow autonomously.',
+    name: 'Foundation',
+    subtitle: 'Essential AI Automation',
+    price: '$499',
+    period: '/month',
+    description: '1 Custom OpenClaw Agent to handle your most time-consuming workflow.',
     features: [
-      'AI CRM & pipeline management',
-      'Automated lead response system',
-      '1 marketing automation workflow',
-      'Business intelligence dashboard',
-      'Monthly strategy review with Alex',
-      'Talk to Alex via chat interface',
-      'Autonomous decision-making',
-      'Integration with existing tools',
+      '1 Custom OpenClaw Agent',
+      'Customer Support & FAQ Automation',
+      'CRM Integration',
+      'Weekly Performance Insights',
+      'Email & chat support',
+      'Basic workflow automation',
+      'Standard integration support',
+      'Monthly optimization review',
     ],
     popular: false,
   },
   {
-    name: 'Growth Partnership',
-    subtitle: 'AI + Marketing Engine',
-    price: '$899',
-    period: '/mo',
-    description: 'Everything in Partner, plus unlimited workflows and sales conversation intelligence.',
+    name: 'Growth',
+    subtitle: 'Comprehensive Automation',
+    price: '$999–$1,499',
+    period: '/month',
+    description: 'Up to 3 Dedicated OpenClaw Agents for comprehensive business automation.',
     features: [
-      'Everything in Partner, plus:',
-      'Unlimited marketing workflows',
-      'Sales conversation intelligence',
-      'Advanced business coaching',
-      'Social media automation',
-      'Review & reputation management',
-      'Performance optimization reports',
-      'Integration with unlimited tools',
+      'Up to 3 Dedicated OpenClaw Agents',
+      'Lead Qualification & Scheduling',
+      'Multi-App Workflow Automation',
+      'Monthly Strategy Calls',
+      'Priority Support',
+      'Advanced CRM orchestration',
+      'Custom business logic',
+      'Performance analytics dashboard',
     ],
     popular: true,
   },
   {
-    name: 'Enterprise Partnership',
-    subtitle: 'Complete AI Operations',
-    price: '$1,299',
-    period: '/mo',
-    description: 'Full AI-driven business operations with custom training and autonomous optimization.',
+    name: 'Enterprise',
+    subtitle: 'Full AI Operations',
+    price: 'Custom Pricing',
+    period: '',
+    description: 'Unlimited OpenClaw Agents with advanced autonomous logic and dedicated engineering.',
     features: [
-      'Everything in Growth, plus:',
-      'Custom AI training for your business',
-      'Autonomous decision-making across all functions',
-      'Dedicated optimization sessions',
-      'White-glove Alex customization',
-      'Priority support with dedicated manager',
-      'Weekly strategic reviews',
-      'Custom integrations & workflows',
+      'Unlimited OpenClaw Agents',
+      'Custom API & Database Integration',
+      'Advanced Autonomous Logic',
+      'Dedicated AI Engineer',
+      '24/7 Monitoring & Support',
+      'White-glove implementation',
+      'Enterprise security compliance',
+      'Custom training & onboarding',
     ],
     popular: false,
   },
@@ -124,15 +124,14 @@ export default function Services() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text">Partner with Alex.</span>
+              <span className="gradient-text">AI Automation</span>
               <br />
-              <span className="text-white">AI That Never Stops Working.</span>
+              <span className="text-white">That Actually Works.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Hiring a full business operations team costs $200K+ annually. SaaS tools cost $500-1,200/month and don't talk to each other.
-              Alex replaces your entire stack with one AI assistant that operates autonomously.
+              Choose the level of automation that fits your business. Every tier includes custom OpenClaw agents designed specifically for your workflows.
             </p>
           </div>
         </div>
@@ -172,7 +171,7 @@ export default function Services() {
                     }`}>
                     {tier.price}
                   </span>
-                  <span className="text-slate-500 text-sm ml-1">/mo</span>
+                  {tier.period && <span className="text-slate-500 text-sm ml-1">{tier.period}</span>}
                 </div>
               </div>
 

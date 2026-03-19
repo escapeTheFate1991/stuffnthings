@@ -20,38 +20,38 @@ export default function Problem() {
   const contentOpacity = useTransform(scrollYProgress, [0.3, 0.7], [0, 1])
   const contentY = useTransform(scrollYProgress, [0.3, 0.7], [40, 0])
 
-  const problems = [
+  const opportunities = [
     {
       icon: (
-        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: 'Built It and Bailed',
-      description: "Your agency launched the site, cashed the check, and moved on. Nobody's watching performance. Nobody's patching security holes. Your site is quietly getting worse — and nobody's telling you.",
-      stat: 'Most business sites lose 15–30% performance within 6 months of launch',
+      title: 'Reclaim Your Team\'s Best Hours',
+      description: "Every business has a layer of repetitive, process-driven work—answering the same common questions, re-entering data across systems, manually routing inquiries. These tasks are necessary, but they don't require your team's expertise. When you automate the routine, your people get their time back for client relationships, strategy, and creative problem-solving.",
+      stat: 'Research suggests that knowledge workers spend roughly 60% of their day on operational tasks rather than the skilled work they were hired to do.',
       revealClass: 'reveal-slide-left',
     },
     {
       icon: (
-        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2-2v14a2 2 0 002 2z" />
+        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
         </svg>
       ),
-      title: "Can't Justify a Full Team",
-      description: "A designer, a developer, an SEO person, someone handling security patches — that's $25K a month in salary. For most businesses, hiring all of that in-house just doesn't make sense.",
-      stat: 'A full-stack web team runs $25K+ per month in salary alone',
+      title: 'Move Beyond First-Generation AI',
+      description: "If you've tried a chatbot or a basic workflow tool and walked away unimpressed—you're not alone. Early AI solutions often lacked the depth to handle real business logic. The technology has matured significantly. Today's AI agents can manage complex, multi-step processes with the reliability your operations demand. The question isn't whether AI works—it's whether you're working with the right framework.",
+      stat: '',
       revealClass: 'reveal',
     },
     {
       icon: (
-        <svg className="w-10 h-10 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <svg className="w-10 h-10 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 010 0L21.75 9M21.75 9H18M21.75 9v3.75" />
         </svg>
       ),
-      title: 'Slow Site, Lost Money',
-      description: "Every second your site takes to load costs you customers. Google penalizes it, visitors bounce, and your competitors pick up the traffic. This isn't a vanity metric — it's revenue walking out the door.",
-      stat: '1-second delay = 7% fewer conversions, 11% fewer page views',
+      title: 'Scale Without Proportional Overhead',
+      description: "Growth should be exciting, not exhausting. When every new client or order means hiring and training another team member, your margins shrink as your revenue grows. Intelligent automation creates operational leverage—the ability to handle significantly more volume without a proportional increase in headcount or cost.",
+      stat: 'Organizations leveraging AI-driven operations have reported operational cost reductions of up to 40–60% in targeted workflows.',
       revealClass: 'reveal-slide-right',
     },
   ]
@@ -61,7 +61,7 @@ export default function Problem() {
   }, [])
 
   return (
-    <section id="problem" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
+    <section id="opportunity" ref={sectionRef} className="py-16 md:py-28 lg:py-36 relative overflow-hidden bg-black">
       {/* Edge glow line top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
       {/* Aurora orbs for card area */}
@@ -73,35 +73,33 @@ export default function Problem() {
         <div className="text-center mb-20">
           <div className="reveal">
             <h2 className="section-heading mb-6">
-              <span className="gradient-text-warm">Your agency built it.</span>
+              <span className="text-white">Your Team Is Capable of More.</span>
               <br />
-              <span className="text-white">Then ghosted.</span>
+              <span className="gradient-text-warm">The System Is Holding Them Back.</span>
             </h2>
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Sound familiar? The site launched, looked great for a month, and then nobody touched it again.
-              Performance dropped. Security patches piled up. Rankings slipped.
-              Meanwhile, you&apos;re paying for traffic that bounces before the homepage loads.
+              Most businesses aren&apos;t struggling because of their people—they&apos;re struggling because talented people are spending too much of their day on low-leverage work. The opportunity isn&apos;t to replace your workforce. It&apos;s to redirect their energy toward the high-impact work that drives real growth.
             </p>
           </div>
         </div>
 
-        {/* Problems */}
+        {/* Opportunities */}
         <div className="max-w-4xl mx-auto space-y-0">
-          {problems.map((problem, index) => (
+          {opportunities.map((opportunity, index) => (
             <div key={index}>
-              <div className={`${problem.revealClass} stagger-${index + 1} py-10`}>
+              <div className={`${opportunity.revealClass} stagger-${index + 1} py-10`}>
                 <div className="flex flex-col md:flex-row md:items-start gap-6">
-                  <div className="flex-shrink-0">{problem.icon}</div>
+                  <div className="flex-shrink-0">{opportunity.icon}</div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-3 font-display">{problem.title}</h3>
-                    <p className="text-slate-400 leading-relaxed mb-4">{problem.description}</p>
-                    <p className="text-red-300/80 font-semibold text-sm">{problem.stat}</p>
+                    <h3 className="text-2xl font-bold text-white mb-3 font-display">{opportunity.title}</h3>
+                    <p className="text-slate-400 leading-relaxed mb-4">{opportunity.description}</p>
+                    {opportunity.stat && <p className="text-brand-cyan/80 font-semibold text-sm">{opportunity.stat}</p>}
                   </div>
                 </div>
               </div>
-              {index < problems.length - 1 && <div className="gradient-divider" />}
+              {index < opportunities.length - 1 && <div className="gradient-divider" />}
             </div>
           ))}
         </div>

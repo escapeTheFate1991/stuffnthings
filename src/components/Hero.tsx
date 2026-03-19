@@ -200,27 +200,24 @@ export default function Hero() {
         {/* Tagline — clean text, no pill, no dot */}
         <div className="hero-reveal reveal mb-8">
           <p className="text-sm text-slate-400 tracking-widest uppercase">
-            Now Accepting Partners — Free Audit Included
+            Deploying production-grade AI agents on the OpenClaw framework — helping businesses operate smarter, not just faster.
           </p>
         </div>
 
         {/* Main heading */}
         <div className="hero-reveal reveal">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] mb-8 tracking-tight">
-            <span className="gradient-text inline-block">Run Your</span>
+            <span className="text-white inline-block">Your Business Has</span>
             <br />
-            <span className="text-white inline-block">Business.</span>
+            <span className="gradient-text inline-block">Untapped Capacity.</span>
             <br />
-            <span className="text-white inline-block">Let AI Handle</span>
-            <br />
-            <span className="gradient-text inline-block">the Rest.</span>
+            <span className="text-white inline-block">Let&apos;s Unlock It.</span>
           </h1>
         </div>
 
         <div className="hero-reveal reveal">
           <p className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Meet Alex: Your AI-powered business assistant that handles your CRM, automates your marketing, 
-            manages your pipeline, and makes autonomous decisions that grow your revenue 24/7.
+            We design and deploy intelligent automation systems powered by OpenClaw—so your team can focus on the work that actually moves the needle. Think of us as the AI operations partner you&apos;ve been looking for.
           </p>
         </div>
 
@@ -232,7 +229,7 @@ export default function Hero() {
               onClick={handleCTAClick}
               className="relative btn btn-primary text-lg px-10 py-5 hover:scale-[1.04] transition-transform duration-300"
             >
-              Get Your Free Site Audit
+              Request Your Complimentary Efficiency Assessment
               <svg className="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -242,20 +239,16 @@ export default function Hero() {
             onClick={handleWorkClick}
             className="btn text-lg px-10 py-5 border border-slate-600/60 text-slate-300 hover:border-brand-cyan/50 hover:text-white transition-all duration-300"
           >
-            See Our Work
+            Explore the OpenClaw Advantage
           </button>
         </div>
 
         {/* Trust bar — clean, no green dots */}
         <div className="hero-reveal reveal">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-400">
-            <span>No contracts</span>
+            <span>Deploying production-grade AI agents on the OpenClaw framework</span>
             <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>Cancel anytime</span>
-            <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>48-hour audit turnaround</span>
-            <span className="hidden md:block w-px h-4 bg-slate-700" />
-            <span>Every score is verifiable</span>
+            <span>helping businesses operate smarter, not just faster</span>
           </div>
         </div>
       </div>
