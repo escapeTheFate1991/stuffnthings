@@ -11,8 +11,8 @@ const CheckIcon = () => (
 
 const services = [
   {
-    title: 'AI Agent Deployment',
-    description: 'Custom OpenClaw agents built specifically for your business workflows. From single-task automation to full business orchestration.',
+    title: 'ALEC Agent Deployment',
+    description: 'Custom ALEC agents built specifically for your business workflows. From single-task automation to full business orchestration.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -43,7 +43,7 @@ const services = [
   },
   {
     title: 'Marketing Automation',
-    description: 'AI-powered content creation, social media management, and campaign optimization. Keep your marketing running 24/7 with autonomous decision-making.',
+    description: 'ALEC-powered content creation, social media management, and campaign optimization. Keep your marketing running 24/7 with autonomous decision-making.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -53,7 +53,7 @@ const services = [
   },
   {
     title: 'Custom Knowledge Assistants',
-    description: 'Private AI assistants trained on your documents, SOPs, and business knowledge. Self-hosted options for complete data privacy.',
+    description: 'Private ALEC assistants trained on your documents, SOPs, and business knowledge. Self-hosted options for complete data privacy.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -63,7 +63,7 @@ const services = [
   },
   {
     title: 'Ongoing Optimization & Support',
-    description: 'Continuous performance monitoring, agent optimization, and business intelligence reporting. Your AI gets smarter as your business grows.',
+    description: 'Continuous performance monitoring, agent optimization, and business intelligence reporting. Your ALEC gets smarter as your business grows.',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -76,15 +76,15 @@ const services = [
 const tiers = [
   {
     name: 'Foundation',
-    subtitle: 'Essential AI Automation',
+    subtitle: 'Managed AI Service',
     price: '$499',
     period: '/month',
-    description: '1 Custom OpenClaw Agent to handle your most time-consuming workflow.',
+    description: '1 ALEC agent fully managed by our team. We handle the setup, monitoring, and optimization while you focus on your business.',
     features: [
-      '1 Custom OpenClaw Agent',
-      'Customer Support & FAQ Automation',
-      'CRM Integration',
-      'Weekly Performance Insights',
+      '1 ALEC agent',
+      'Support automation',
+      'CRM integration',
+      'Weekly reports',
       'Email & chat support',
       'Basic workflow automation',
       'Standard integration support',
@@ -94,16 +94,16 @@ const tiers = [
   },
   {
     name: 'Growth',
-    subtitle: 'Comprehensive Automation',
+    subtitle: 'Multi-Agent Operations',
     price: '$999-$1,499',
     period: '/month',
-    description: 'Up to 3 Dedicated OpenClaw Agents for comprehensive business automation.',
+    description: 'Up to 3 ALEC agents with lead qualification and complex workflows. This is managed - we don\'t hand you a tool and walk away.',
     features: [
-      'Up to 3 Dedicated OpenClaw Agents',
-      'Lead Qualification & Scheduling',
-      'Multi-App Workflow Automation',
-      'Monthly Strategy Calls',
-      'Priority Support',
+      'Up to 3 ALEC agents',
+      'Lead qualification',
+      'Multi-app workflows',
+      'Monthly strategy calls',
+      'Priority support',
       'Advanced CRM orchestration',
       'Custom business logic',
       'Performance analytics dashboard',
@@ -112,19 +112,19 @@ const tiers = [
   },
   {
     name: 'Enterprise',
-    subtitle: 'Full AI Operations',
-    price: 'Custom Pricing',
+    subtitle: 'Full ALEC Operations',
+    price: 'Custom',
     period: '',
-    description: 'Unlimited OpenClaw Agents with advanced autonomous logic and dedicated engineering.',
+    description: 'Unlimited ALEC agents with dedicated engineering team. Complete managed service with 24/7 monitoring.',
     features: [
-      'Unlimited OpenClaw Agents',
-      'Custom API & Database Integration',
-      'Advanced Autonomous Logic',
-      'Dedicated AI Engineer',
-      '24/7 Monitoring & Support',
+      'Unlimited ALEC agents',
+      'Custom API integrations',
+      'Dedicated engineer',
+      '24/7 monitoring',
       'White-glove implementation',
       'Enterprise security compliance',
       'Custom training & onboarding',
+      'Advanced autonomous logic',
     ],
     popular: false,
   },
@@ -137,7 +137,7 @@ const guarantees = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    label: '24/7 AI Operation',
+    label: '24/7 ALEC Operation',
   },
   {
     icon: (
@@ -195,7 +195,7 @@ export default function Services() {
           </div>
           <div className="reveal stagger-1">
             <p className="section-subtext">
-              Choose the level of automation that fits your business. Every tier includes custom OpenClaw agents designed specifically for your workflows.
+              Choose the level of automation that fits your business. This is managed - we don't hand you a tool and walk away. Every tier includes custom ALEC agents designed specifically for your workflows.
             </p>
           </div>
         </div>
@@ -305,11 +305,11 @@ export default function Services() {
                 </div>
                 <div>
                   <div className="text-lg font-bold text-red-400 line-through">$1,800+</div>
-                  <div className="text-[10px] text-slate-500 mt-1">SaaS stack /mo</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Fragmented SaaS /mo</div>
                 </div>
                 <div>
                   <div className="text-lg font-bold text-red-400 line-through">40hrs+</div>
-                  <div className="text-[10px] text-slate-500 mt-1">Of manual work redirected weekly</div>
+                  <div className="text-[10px] text-slate-500 mt-1">Manual work redirected weekly</div>
                 </div>
               </div>
             </div>

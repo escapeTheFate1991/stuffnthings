@@ -5,12 +5,12 @@ import FloatingLogos from './FloatingLogos'
 import AnimatedStreaks from './AnimatedStreaks'
 
 /* ── Animated Stat -- no icon boxes, just big numbers ── */
-function Stat({ end, suffix, label }: { end: number; suffix: string; label: string }) {
+function Stat({ end, suffix, label, prefix }: { end: number; suffix: string; label: string; prefix?: string }) {
   const { ref, value } = useCountUp(end, 2200)
   return (
     <div ref={ref} className="text-center cursor-default">
       <div className="text-4xl md:text-5xl font-black gradient-text mb-1" style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(168, 85, 247, 0.15)' }}>
-        {value}{suffix}
+        {prefix || ''}{value}{suffix}
       </div>
       <div className="text-slate-400 text-sm font-medium">{label}</div>
     </div>
@@ -26,8 +26,8 @@ const standards = [
     ),
     title: 'Always-On Operations. Zero Busywork.',
     commitment:
-      "Your OpenClaw agents are engineered for real business processes -- qualifying leads, triaging support tickets, and keeping your pipeline moving while your team focuses on higher-leverage work.",
-    proof: 'Included: Custom AI Agents · Lead Qualification · Workflow Automation · Performance Dashboards',
+      "ALEC deployments are engineered for real business processes -- qualifying leads, triaging support tickets, and keeping your pipeline moving while your team focuses on higher-leverage work.",
+    proof: 'Included: Custom ALEC Agents · Lead Qualification · Workflow Automation · Performance Dashboards',
     gradient: 'from-brand-cyan to-blue-500',
   },
   {
@@ -36,10 +36,10 @@ const standards = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
-    title: 'AI That Does Real Work.',
+    title: 'ALEC That Does Real Work.',
     commitment:
-      "We don't just hand you a login and wish you luck. Our AI automates your workflows, qualifies your leads, and monitors your performance -- so things keep moving even when you're not looking.",
-    proof: 'Included: AI Workflows · Lead Capture · Performance Monitoring',
+      "We don't just hand you a login and wish you luck. ALEC automates your workflows, qualifies your leads, and monitors your performance -- so things keep moving even when you're not looking.",
+    proof: 'Included: ALEC Workflows · Lead Capture · Performance Monitoring',
     gradient: 'from-brand-purple to-pink-500',
   },
   {
@@ -50,17 +50,17 @@ const standards = [
     ),
     title: 'Built to Integrate, Not Disrupt.',
     commitment:
-      "Your team already has tools they rely on -- CRMs, calendars, email, messaging platforms. We don't ask anyone to learn new software. Your AI agents plug directly into the systems your team already uses, working alongside them, not in front of them.",
+      "Your team already has tools they rely on -- CRMs, calendars, email, messaging platforms. We don't ask anyone to learn new software. ALEC plugs directly into the systems your team already uses, working alongside them, not in front of them.",
     proof: 'Supported: Slack · WhatsApp · Telegram · Google Workspace · CRM Integrations · Custom APIs',
     gradient: 'from-brand-green to-emerald-400',
   },
 ]
 
 const stats = [
-  { end: 2, suffix: ' min', label: 'Response time' },
-  { end: 70, suffix: '%', label: 'Routine inquiries handled automatically' },
-  { end: 48, suffix: ' hrs', label: 'From assessment to your prioritized roadmap' },
-  { end: 99, suffix: '.9%', label: 'Uptime SLA' },
+  { end: 2, suffix: ' min', label: 'Average response time', prefix: '< ' },
+  { end: 80, suffix: '%', label: 'Routine inquiries automated', prefix: '60-' },
+  { end: 2400, suffix: '', label: 'Average monthly savings', prefix: '$' },
+  { end: 48, suffix: ' hrs', label: 'Assessment to roadmap' },
 ]
 
 export default function SocialProof() {
@@ -137,6 +137,73 @@ export default function SocialProof() {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Part 3: Testimonials ── */}
+      <div className="py-16 md:py-28 lg:py-36 relative bg-black">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/40 to-transparent" />
+        
+        {/* Aurora orbs */}
+        <div className="absolute top-[10%] left-[-8%] w-[600px] h-[600px] rounded-full bg-brand-green/[0.07] blur-[130px] animate-aurora-1" />
+        <div className="absolute bottom-[5%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-cyan/[0.06] blur-[120px] animate-aurora-2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="reveal">
+              <h2 className="section-heading mb-6">
+                <span className="gradient-text">Real Results.</span>
+                <br />
+                <span className="text-white">Real Stories.</span>
+              </h2>
+            </div>
+            <div className="reveal stagger-1">
+              <p className="section-subtext">
+                These are averages across our client base. Not cherry-picked.
+                Not theoretical. Just what happens when you deploy ALEC right.
+              </p>
+            </div>
+          </div>
+
+          {/* Testimonials -- stacked, full-width, large quote */}
+          <div className="space-y-16 max-w-4xl mx-auto">
+            <div className="reveal-slide-left stagger-1">
+              {/* Gradient line above */}
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent mb-10" />
+
+              <div className="text-center">
+                <p className="text-white text-2xl md:text-3xl leading-relaxed italic font-light">
+                  "Now our AI agent handles it and I actually get to do my job."
+                </p>
+                <div className="mt-6">
+                  <div className="text-white font-semibold">Sarah</div>
+                  <div className="text-slate-500 text-sm">Bright Smile Dental</div>
+                </div>
+              </div>
+
+              {/* Gradient line below */}
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent mt-10" />
+            </div>
+
+            <div className="reveal-slide-right stagger-2">
+              {/* Gradient line above */}
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-purple/30 to-transparent mb-10" />
+
+              <div className="text-center">
+                <p className="text-white text-2xl md:text-3xl leading-relaxed italic font-light">
+                  "Within a month of deploying our agents, the pipeline started filling itself."
+                </p>
+                <div className="mt-6">
+                  <div className="text-white font-semibold">James</div>
+                  <div className="text-slate-500 text-sm">Summit Contractors</div>
+                </div>
+              </div>
+
+              {/* Gradient line below */}
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent mt-10" />
+            </div>
           </div>
         </div>
       </div>
