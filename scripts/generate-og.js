@@ -74,20 +74,20 @@ const drawGradientText = (text, x, y, size, w) => {
   ctx.fillText(text, x, y);
 };
 
-// "Your Website" in gradient
-drawGradientText('Your Website', W / 2, 200, 72, 600);
+// "Run Your Business." in gradient
+drawGradientText('Run Your Business.', W / 2, 200, 72, 600);
 
-// "Should Never Fall Behind." in white
+// "Let AI Handle the Rest." in white
 ctx.font = '900 72px "Inter", "Segoe UI", sans-serif';
 ctx.textAlign = 'center';
 ctx.fillStyle = '#ffffff';
-ctx.fillText('Should Never', W / 2, 280);
-ctx.fillText('Fall Behind.', W / 2, 360);
+ctx.fillText('Let AI Handle', W / 2, 280);
+ctx.fillText('the Rest.', W / 2, 360);
 
 // Subheading
 ctx.font = '500 24px "Inter", "Segoe UI", sans-serif';
 ctx.fillStyle = 'rgba(203, 213, 225, 0.8)';
-ctx.fillText('We keep it fast, secure, and performing at its peak.', W / 2, 415);
+ctx.fillText('ALEC deploys into your stack, manages your CRM, qualifies your leads.', W / 2, 415);
 
 // CTA Button
 const btnW = 340, btnH = 56, btnX = (W - btnW) / 2, btnY = 460;
@@ -121,13 +121,13 @@ ctx.shadowBlur = 0;
 ctx.font = '700 20px "Inter", "Segoe UI", sans-serif';
 ctx.fillStyle = '#ffffff';
 ctx.textAlign = 'center';
-ctx.fillText('Get Your Free Friction Audit →', W / 2, btnY + 36);
+ctx.fillText('Get Your Free Assessment →', W / 2, btnY + 36);
 
 // Trust bar at bottom
 const trustY = 555;
 ctx.font = '500 14px "Inter", "Segoe UI", sans-serif';
 ctx.fillStyle = 'rgba(148, 163, 184, 0.6)';
-const trustItems = ['No contracts', 'Cancel anytime', '48-hour turnaround', '95+ Lighthouse scores'];
+const trustItems = ['No contracts', 'Cancel anytime', '48-hour assessment', '< 2 min response'];
 const totalWidth = trustItems.length * 200;
 const startX = (W - totalWidth) / 2;
 trustItems.forEach((item, i) => {
