@@ -193,10 +193,10 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] transition-all duration-300"
+              className="group relative p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] transition-all duration-300 hover-lift"
             >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-4 group-hover:scale-105 transition-transform duration-300`}>
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                 {service.icon}
               </div>
 
@@ -212,10 +212,33 @@ export default function Services() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl bg-transparent border transition-all duration-500 p-8 group overflow-hidden ${tier.popular
+              className={`relative flex flex-col rounded-2xl bg-transparent border transition-all duration-500 p-8 group overflow-hidden perspective tilt-card ${tier.popular
                 ? 'border-white/[0.1] md:scale-105 md:z-10'
                 : 'border-white/[0.06] hover:border-brand-purple/30'
                 }`}
+              onMouseEnter={(e) => {
+                if (tier.popular) {
+                  e.currentTarget.style.transform = 'translateY(-8px) scale(1.08)'
+                  e.currentTarget.style.boxShadow = '0 20px 60px rgba(6, 182, 212, 0.3)'
+                } else {
+                  const rect = e.currentTarget.getBoundingClientRect()
+                  const centerX = rect.left + rect.width / 2
+                  const centerY = rect.top + rect.height / 2
+                  const mouseX = e.clientX
+                  const mouseY = e.clientY
+                  const rotateX = (mouseY - centerY) / 30
+                  const rotateY = (centerX - mouseX) / 30
+                  e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (tier.popular) {
+                  e.currentTarget.style.transform = 'translateY(0px) scale(1.05)'
+                  e.currentTarget.style.boxShadow = ''
+                } else {
+                  e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)'
+                }
+              }}
             >
               {/* Popular tier: gradient TOP border bar */}
               {tier.popular && (

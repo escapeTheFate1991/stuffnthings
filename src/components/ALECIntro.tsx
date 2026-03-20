@@ -93,7 +93,22 @@ export default function ALECIntro() {
               key={capability.title}
               className={`${index % 3 === 0 ? 'reveal-slide-left' : index % 3 === 2 ? 'reveal-slide-right' : 'reveal'} stagger-${index + 1}`}
             >
-              <div className="relative p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-500 h-full group">
+              <div 
+                className="relative p-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-500 h-full group perspective tilt-card"
+                onMouseEnter={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect()
+                  const centerX = rect.left + rect.width / 2
+                  const centerY = rect.top + rect.height / 2
+                  const mouseX = e.clientX
+                  const mouseY = e.clientY
+                  const rotateX = (mouseY - centerY) / 20
+                  const rotateY = (centerX - mouseX) / 20
+                  e.currentTarget.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)'
+                }}
+              >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-cyan/[0.03] via-brand-purple/[0.02] to-brand-coral/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 

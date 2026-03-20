@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"General Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Cabinet Grotesk"', '"General Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         brand: {
