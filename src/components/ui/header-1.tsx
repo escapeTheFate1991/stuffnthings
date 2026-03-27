@@ -44,8 +44,13 @@ export function Header() {
       })}
     >
       <nav className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4">
-        <div className="hover:bg-slate-800 rounded-md p-2 transition-colors">
-          <WordmarkIcon className="h-4 text-white" />
+        <div className="flex-shrink-0">
+          <a
+            href="/"
+            className="text-2xl font-bold gradient-text tracking-tight hover:opacity-80 transition-opacity"
+          >
+            stuffnthings
+          </a>
         </div>
         <div className="hidden items-center gap-2 md:flex">
           {links.map((link) => (
@@ -140,10 +145,3 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
   );
 }
 
-export const WordmarkIcon = (props: React.ComponentProps<"svg">) => (
-  <svg viewBox="0 0 120 24" fill="currentColor" {...props}>
-    <text x="0" y="18" fontSize="16" fontWeight="bold" fontFamily="system-ui, -apple-system, sans-serif">
-      stuffnthings
-    </text>
-  </svg>
-);
