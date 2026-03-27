@@ -46,14 +46,14 @@ export default function LMSFooter() {
   ]
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800">
+    <footer className="bg-[#0a0a0a] border-t border-white/10">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">stuffnthings</h3>
-            <p className="text-slate-400 mb-6 leading-relaxed max-w-sm">
+            <h3 className="text-2xl font-bold gradient-text mb-4">stuffnthings</h3>
+            <p className="text-zinc-400 mb-6 leading-relaxed max-w-sm">
               Empowering the next generation of tech professionals through hands-on learning 
               and real-world projects.
             </p>
@@ -62,7 +62,7 @@ export default function LMSFooter() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-lg transition-all duration-300 hover:scale-110"
+                  className="p-2 glass hover:glow-primary text-zinc-400 hover:text-white rounded-lg transition-all duration-300 hover:scale-110"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
