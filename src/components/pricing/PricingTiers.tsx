@@ -65,10 +65,10 @@ export default function PricingTiers({
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
-              Choose Your GitHub Journey
+              Choose Your AI Automation Journey
             </h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-              From beginner fundamentals to enterprise mastery. Unlock progressive repository access and join our community.
+              From AI fundamentals to full-spectrum transformation. Unlock progressive repository access and join our community.
             </p>
           </motion.div>
 
@@ -299,53 +299,53 @@ function PricingCard({
 function FeaturesComparison({ billingCycle }: { billingCycle: 'monthly' | 'annual' }) {
   const features = [
     {
-      name: 'GitHub Fundamentals Course',
-      tier1: true,
-      tier2: true,
-      tier3: true,
-      premium: true
+      name: 'AI Fundamentals Course',
+      spark: true,
+      synapse: true,
+      cortex: true,
+      singularity: true
     },
     {
       name: 'Community Discord Access',
-      tier1: true,
-      tier2: true,
-      tier3: true,
-      premium: true
+      spark: true,
+      synapse: true,
+      cortex: true,
+      singularity: true
     },
     {
-      name: 'Advanced Workflows Course',
-      tier1: false,
-      tier2: true,
-      tier3: true,
-      premium: true
+      name: 'Advanced AI Workflows Course',
+      spark: false,
+      synapse: true,
+      cortex: true,
+      singularity: true
     },
     {
       name: 'Business Automation Course',
-      tier1: false,
-      tier2: false,
-      tier3: true,
-      premium: true
+      spark: false,
+      synapse: false,
+      cortex: true,
+      singularity: true
     },
     {
-      name: 'Integration Code Library',
-      tier1: false,
-      tier2: false,
-      tier3: false,
-      premium: true
+      name: 'Enterprise Integration Library',
+      spark: false,
+      synapse: false,
+      cortex: false,
+      singularity: true
     },
     {
       name: 'Monthly Video Support',
-      tier1: false,
-      tier2: false,
-      tier3: false,
-      premium: '3 hours'
+      spark: false,
+      synapse: false,
+      cortex: false,
+      singularity: '8 hours'
     },
     {
       name: 'Priority Support',
-      tier1: false,
-      tier2: true,
-      tier3: true,
-      premium: 'Urgent'
+      spark: false,
+      synapse: true,
+      cortex: true,
+      singularity: 'Urgent'
     }
   ]
 
@@ -380,39 +380,39 @@ function FeaturesComparison({ billingCycle }: { billingCycle: 'monthly' | 'annua
                   {feature.name}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  {feature.tier1 === true ? (
+                  {feature.spark === true ? (
                     <Check className="w-5 h-5 text-green-500 mx-auto" />
-                  ) : feature.tier1 === false ? (
+                  ) : feature.spark === false ? (
                     <span className="text-gray-300">—</span>
                   ) : (
-                    <span className="text-sm text-blue-600 font-medium">{feature.tier1}</span>
+                    <span className="text-sm text-blue-600 font-medium">{feature.spark}</span>
                   )}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  {feature.tier2 === true ? (
+                  {feature.synapse === true ? (
                     <Check className="w-5 h-5 text-green-500 mx-auto" />
-                  ) : feature.tier2 === false ? (
+                  ) : feature.synapse === false ? (
                     <span className="text-gray-300">—</span>
                   ) : (
-                    <span className="text-sm text-blue-600 font-medium">{feature.tier2}</span>
+                    <span className="text-sm text-blue-600 font-medium">{feature.synapse}</span>
                   )}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  {feature.tier3 === true ? (
+                  {feature.cortex === true ? (
                     <Check className="w-5 h-5 text-green-500 mx-auto" />
-                  ) : feature.tier3 === false ? (
+                  ) : feature.cortex === false ? (
                     <span className="text-gray-300">—</span>
                   ) : (
-                    <span className="text-sm text-blue-600 font-medium">{feature.tier3}</span>
+                    <span className="text-sm text-blue-600 font-medium">{feature.cortex}</span>
                   )}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  {feature.premium === true ? (
+                  {feature.singularity === true ? (
                     <Check className="w-5 h-5 text-green-500 mx-auto" />
-                  ) : feature.premium === false ? (
+                  ) : feature.singularity === false ? (
                     <span className="text-gray-300">—</span>
                   ) : (
-                    <span className="text-sm text-blue-600 font-medium">{feature.premium}</span>
+                    <span className="text-sm text-blue-600 font-medium">{feature.singularity}</span>
                   )}
                 </td>
               </tr>
@@ -432,7 +432,7 @@ function PricingFAQ() {
   const faqs = [
     {
       question: "What's included with repository access?",
-      answer: "Each tier unlocks specific GitHub repositories containing real-world code examples, templates, and projects. Higher tiers include more advanced business automation and integration patterns."
+      answer: "Each tier unlocks specific GitHub repositories containing real-world AI automation code examples, templates, and projects. Higher tiers include more advanced business automation and enterprise integration patterns."
     },
     {
       question: "Can I switch between monthly and annual billing?",
@@ -447,8 +447,8 @@ function PricingFAQ() {
       answer: "We offer a 7-day free trial for any paid tier. Cancel anytime during the trial for a full refund."
     },
     {
-      question: "What's included in video support for Premium?",
-      answer: "Premium members get 3 hours of monthly 1-on-1 video consultation for custom workflows, repository setup, and troubleshooting complex GitHub automation."
+      question: "What's included in video support for Singularity?",
+      answer: "Singularity members get 8 hours of monthly 1-on-1 video consultation for custom AI workflows, enterprise setup, and troubleshooting complex automation challenges."
     }
   ]
 

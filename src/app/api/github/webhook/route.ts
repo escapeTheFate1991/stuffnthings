@@ -268,12 +268,12 @@ function extractRepositoryTier(repository: any): string {
   const { name } = repository
   
   if (name === 'lms-website') return 'free'
-  if (name === 'github-fundamentals') return 'tier1'
-  if (name === 'advanced-workflows') return 'tier2'
-  if (name === 'business-automation') return 'tier3'
-  if (name === 'integration-code-library') return 'premium'
+  if (name === 'ai-fundamentals') return 'spark'
+  if (name === 'advanced-workflows') return 'synapse'
+  if (name === 'business-automation') return 'cortex'
+  if (name === 'enterprise-integrations') return 'singularity'
   
-  return 'premium' // Default to highest tier for unknown repos
+  return 'singularity' // Default to highest tier for unknown repos
 }
 
 /**

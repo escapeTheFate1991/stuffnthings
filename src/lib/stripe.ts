@@ -23,23 +23,23 @@ export const getStripePublishableKey = () => {
 // PRICE MANAGEMENT
 // ============================================================================
 
-// Stripe Price IDs - Update these after creating products in Stripe Dashboard
+// Stripe Price IDs - stuffnthings LMS 4-Tier Structure (AI-centric)
 export const STRIPE_PRICE_IDS = {
-  tier1: {
-    monthly: process.env.STRIPE_TIER1_MONTHLY_PRICE_ID || 'price_tier1_monthly_placeholder',
-    annual: process.env.STRIPE_TIER1_ANNUAL_PRICE_ID || 'price_tier1_annual_placeholder'
+  spark: {
+    monthly: process.env.STRIPE_SPARK_MONTHLY_PRICE_ID || 'price_spark_monthly_placeholder',
+    annual: process.env.STRIPE_SPARK_ANNUAL_PRICE_ID || 'price_spark_annual_placeholder'
   },
-  tier2: {
-    monthly: process.env.STRIPE_TIER2_MONTHLY_PRICE_ID || 'price_tier2_monthly_placeholder',
-    annual: process.env.STRIPE_TIER2_ANNUAL_PRICE_ID || 'price_tier2_annual_placeholder'
+  synapse: {
+    monthly: process.env.STRIPE_SYNAPSE_MONTHLY_PRICE_ID || 'price_synapse_monthly_placeholder',
+    annual: process.env.STRIPE_SYNAPSE_ANNUAL_PRICE_ID || 'price_synapse_annual_placeholder'
   },
-  tier3: {
-    monthly: process.env.STRIPE_TIER3_MONTHLY_PRICE_ID || 'price_tier3_monthly_placeholder',
-    annual: process.env.STRIPE_TIER3_ANNUAL_PRICE_ID || 'price_tier3_annual_placeholder'
+  cortex: {
+    monthly: process.env.STRIPE_CORTEX_MONTHLY_PRICE_ID || 'price_cortex_monthly_placeholder',
+    annual: process.env.STRIPE_CORTEX_ANNUAL_PRICE_ID || 'price_cortex_annual_placeholder'
   },
-  premium: {
-    monthly: process.env.STRIPE_PREMIUM_MONTHLY_PRICE_ID || 'price_premium_monthly_placeholder',
-    annual: process.env.STRIPE_PREMIUM_ANNUAL_PRICE_ID || 'price_premium_annual_placeholder'
+  singularity: {
+    monthly: process.env.STRIPE_SINGULARITY_MONTHLY_PRICE_ID || 'price_singularity_monthly_placeholder',
+    annual: process.env.STRIPE_SINGULARITY_ANNUAL_PRICE_ID || 'price_singularity_annual_placeholder'
   }
 } as const
 

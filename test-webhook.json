@@ -1,0 +1,19 @@
+{
+  "data": {
+    "id": "user_test123",
+    "email_addresses": [
+      {
+        "email_address": "test@example.com",
+        "verification": {
+          "status": "verified"
+        }
+      }
+    ],
+    "first_name": "Test",
+    "last_name": "User",
+    "image_url": "https://images.clerk.dev/default.png",
+    "username": "testuser"
+  },
+  "type": "user.created",
+  "object": "event"
+}

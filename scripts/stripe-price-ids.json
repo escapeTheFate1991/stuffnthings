@@ -1,0 +1,18 @@
+{
+  "spark": {
+    "monthly": "price_1TFTLmF8fKoGX0ZQeVK6b6gJ",
+    "annual": "price_1TFTLnF8fKoGX0ZQwCqhZnUl"
+  },
+  "synapse": {
+    "monthly": "price_1TFTLnF8fKoGX0ZQkScJwC6P",
+    "annual": "price_1TFTLnF8fKoGX0ZQqRjNYF1z"
+  },
+  "cortex": {
+    "monthly": "price_1TFTLoF8fKoGX0ZQYgqwtq5h",
+    "annual": "price_1TFTLoF8fKoGX0ZQ9CM9Nn4e"
+  },
+  "singularity": {
+    "monthly": "price_1TFTLoF8fKoGX0ZQclpOTkMB",
+    "annual": "price_1TFTLpF8fKoGX0ZQyhC3H1mw"
+  }
+}

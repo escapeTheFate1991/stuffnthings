@@ -35,96 +35,94 @@ export interface RepositoryAccess {
   description: string
 }
 
-// Pricing Configuration
+// Pricing Configuration - stuffnthings LMS 4-Tier Structure (AI-centric)
 export const PRICING_TIERS: PricingTier[] = [
   {
-    id: 'tier1',
-    name: 'tier1',
-    displayName: 'Beginner',
-    description: 'Perfect for GitHub beginners',
+    id: 'spark',
+    name: 'spark',
+    displayName: 'Spark',
+    description: 'Launch your automation journey with AI fundamentals',
     features: [
-      'Beginner-level courses',
+      'Access to foundational AI automation courses',
       'Community Discord access',
-      'Basic GitHub fundamentals',
-      'Email support'
+      'Email support',
+      'Starter templates library'
     ],
-    repositoryAccess: ['github-fundamentals'],
+    repositoryAccess: ['ai-fundamentals'],
     monthlyPrice: 99,
     annualPrice: 70, // 29% discount
     priceId: {
-      monthly: 'price_tier1_monthly',
-      annual: 'price_tier1_annual'
+      monthly: process.env.STRIPE_SPARK_MONTHLY_PRICE_ID || 'price_spark_monthly_placeholder',
+      annual: process.env.STRIPE_SPARK_ANNUAL_PRICE_ID || 'price_spark_annual_placeholder'
     },
     community: true,
     priority: 'standard'
   },
   {
-    id: 'tier2',
-    name: 'tier2',
-    displayName: 'Intermediate',
-    description: 'For developers ready to level up',
+    id: 'synapse',
+    name: 'synapse',
+    displayName: 'Synapse',
+    description: 'Connect the dots with advanced AI workflows',
     features: [
-      'All Beginner courses',
-      'Intermediate courses',
-      'Advanced GitHub workflows',
-      'Priority Discord support',
-      'Project templates'
+      'All Spark features',
+      'Advanced AI workflow courses',
+      'Priority support',
+      'Pro templates & integrations',
+      'Monthly office hours'
     ],
-    repositoryAccess: ['github-fundamentals', 'advanced-workflows'],
-    monthlyPrice: 149,
-    annualPrice: 106, // 29% discount
+    repositoryAccess: ['ai-fundamentals', 'advanced-workflows'],
+    monthlyPrice: 299,
+    annualPrice: 212, // 29% discount
     priceId: {
-      monthly: 'price_tier2_monthly',
-      annual: 'price_tier2_annual'
+      monthly: process.env.STRIPE_SYNAPSE_MONTHLY_PRICE_ID || 'price_synapse_monthly_placeholder',
+      annual: process.env.STRIPE_SYNAPSE_ANNUAL_PRICE_ID || 'price_synapse_annual_placeholder'
     },
     popular: true,
     community: true,
     priority: 'priority'
   },
   {
-    id: 'tier3',
-    name: 'tier3',
-    displayName: 'Professional',
-    description: 'Complete GitHub mastery',
+    id: 'cortex',
+    name: 'cortex',
+    displayName: 'Cortex',
+    description: 'Master enterprise-grade AI automation',
     features: [
-      'All Beginner + Intermediate',
-      'Professional courses',
-      'Business automation workflows',
-      'Advanced CI/CD patterns',
-      'Code review best practices',
+      'All Synapse features',
+      'Enterprise AI masterclasses',
+      'Custom workflow consultation',
+      'Advanced business integrations',
       'Priority support'
     ],
-    repositoryAccess: ['github-fundamentals', 'advanced-workflows', 'business-automation'],
-    monthlyPrice: 249,
-    annualPrice: 177, // 29% discount
+    repositoryAccess: ['ai-fundamentals', 'advanced-workflows', 'business-automation'],
+    monthlyPrice: 499,
+    annualPrice: 354, // 29% discount
     priceId: {
-      monthly: 'price_tier3_monthly',
-      annual: 'price_tier3_annual'
+      monthly: process.env.STRIPE_CORTEX_MONTHLY_PRICE_ID || 'price_cortex_monthly_placeholder',
+      annual: process.env.STRIPE_CORTEX_ANNUAL_PRICE_ID || 'price_cortex_annual_placeholder'
     },
     community: true,
     priority: 'priority'
   },
   {
-    id: 'premium',
-    name: 'premium',
-    displayName: 'Premium',
-    description: 'Everything + business tools',
+    id: 'singularity',
+    name: 'singularity',
+    displayName: 'Singularity',
+    description: 'Full-spectrum AI transformation for your business',
     features: [
-      'All course content',
-      'Business tool integration library',
-      '3 hours monthly video support',
-      'Custom workflow consultation',
-      'White-glove repository setup',
-      'Urgent support priority'
+      'All Cortex features',
+      'White-glove AI setup & consulting',
+      'Custom enterprise integrations',
+      'Dedicated account manager',
+      'Priority phone support'
     ],
-    repositoryAccess: ['github-fundamentals', 'advanced-workflows', 'business-automation', 'integration-code-library'],
+    repositoryAccess: ['ai-fundamentals', 'advanced-workflows', 'business-automation', 'enterprise-integrations'],
     monthlyPrice: 799,
     annualPrice: 567, // 29% discount
     priceId: {
-      monthly: 'price_premium_monthly',
-      annual: 'price_premium_annual'
+      monthly: process.env.STRIPE_SINGULARITY_MONTHLY_PRICE_ID || 'price_singularity_monthly_placeholder',
+      annual: process.env.STRIPE_SINGULARITY_ANNUAL_PRICE_ID || 'price_singularity_annual_placeholder'
     },
-    supportHours: 3,
+    supportHours: 8,
     community: true,
     priority: 'urgent'
   }
@@ -132,24 +130,24 @@ export const PRICING_TIERS: PricingTier[] = [
 
 export const REPOSITORY_ACCESS: RepositoryAccess[] = [
   {
-    tierName: 'tier1',
-    repositories: ['github-fundamentals'],
-    description: 'Basic GitHub operations, commits, branches, and pull requests'
+    tierName: 'spark',
+    repositories: ['ai-fundamentals'],
+    description: 'Basic AI automation workflows, email sequences, and simple integrations'
   },
   {
-    tierName: 'tier2',
-    repositories: ['github-fundamentals', 'advanced-workflows'],
-    description: 'Includes advanced automation, GitHub Actions, and team workflows'
+    tierName: 'synapse',
+    repositories: ['ai-fundamentals', 'advanced-workflows'],
+    description: 'Includes advanced AI automation, multi-step workflows, and team coordination'
   },
   {
-    tierName: 'tier3',
-    repositories: ['github-fundamentals', 'advanced-workflows', 'business-automation'],
-    description: 'Adds enterprise patterns, security, and business process automation'
+    tierName: 'cortex',
+    repositories: ['ai-fundamentals', 'advanced-workflows', 'business-automation'],
+    description: 'Adds enterprise AI patterns, security, and advanced business process automation'
   },
   {
-    tierName: 'premium',
-    repositories: ['github-fundamentals', 'advanced-workflows', 'business-automation', 'integration-code-library'],
-    description: 'Complete access including custom business tool integrations'
+    tierName: 'singularity',
+    repositories: ['ai-fundamentals', 'advanced-workflows', 'business-automation', 'enterprise-integrations'],
+    description: 'Complete access including custom enterprise AI integrations and consulting'
   }
 ]
 

@@ -126,19 +126,21 @@ export async function getCurrentSupabaseUser(): Promise<User | null> {
 /**
  * Check if user has access to a specific course tier
  */
-export async function hasAccessToTier(user: User | null, tier: 'free' | 'pro' | 'premium'): Promise<boolean> {
+export async function hasAccessToTier(user: User | null, tier: 'free' | 'spark' | 'synapse' | 'cortex' | 'singularity'): Promise<boolean> {
   if (!user) return tier === 'free'
   
-  switch (tier) {
-    case 'free':
-      return true
-    case 'pro':
-      return user.subscription_tier === 'pro' || user.subscription_tier === 'premium'
-    case 'premium':
-      return user.subscription_tier === 'premium'
-    default:
-      return false
+  const tierHierarchy = {
+    'free': 0,
+    'spark': 1,
+    'synapse': 2,
+    'cortex': 3,
+    'singularity': 4
   }
+  
+  const userTierLevel = tierHierarchy[user.subscription_tier as keyof typeof tierHierarchy] || 0
+  const requiredTierLevel = tierHierarchy[tier as keyof typeof tierHierarchy] || 0
+  
+  return userTierLevel >= requiredTierLevel
 }
 
 /**
@@ -159,7 +161,7 @@ export async function hasAccessToCourse(courseId: string): Promise<boolean> {
     if (error || !course) return false
 
     // Check subscription tier access
-    const tierAccess = await hasAccessToTier(user, course.access_tier as 'free' | 'pro' | 'premium')
+    const tierAccess = await hasAccessToTier(user, course.access_tier as 'free' | 'spark' | 'synapse' | 'cortex' | 'singularity')
     if (!tierAccess) return false
 
     // Check git progress requirement if applicable

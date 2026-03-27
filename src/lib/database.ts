@@ -537,10 +537,10 @@ export const checkSubscriptionAccess = async (userId: number, requiredTier: stri
   // Define tier hierarchy (higher numbers = higher access)
   const tierHierarchy = {
     'free': 0,
-    'tier1': 1,
-    'tier2': 2,
-    'tier3': 3,
-    'premium': 4
+    'spark': 1,
+    'synapse': 2,
+    'cortex': 3,
+    'singularity': 4
   }
 
   const userTierLevel = tierHierarchy[user.subscription_tier as keyof typeof tierHierarchy] || 0
@@ -599,10 +599,10 @@ export const getBulkCourseAccess = async (userId: number, courseIds: number[]) =
 
   const tierHierarchy = {
     'free': 0,
-    'tier1': 1,
-    'tier2': 2,
-    'tier3': 3,
-    'premium': 4
+    'spark': 1,
+    'synapse': 2,
+    'cortex': 3,
+    'singularity': 4
   }
 
   const userTierLevel = tierHierarchy[user.subscription_tier as keyof typeof tierHierarchy] || 0
@@ -631,10 +631,10 @@ export const getUserRepositoryAccess = async (userId: number) => {
 
   // Map subscription tiers to repository access
   const repositoryMap = {
-    'tier1': ['github-fundamentals'],
-    'tier2': ['github-fundamentals', 'advanced-workflows'],
-    'tier3': ['github-fundamentals', 'advanced-workflows', 'business-automation'],
-    'premium': ['github-fundamentals', 'advanced-workflows', 'business-automation', 'integration-code-library']
+    'spark': ['ai-fundamentals'],
+    'synapse': ['ai-fundamentals', 'advanced-workflows'],
+    'cortex': ['ai-fundamentals', 'advanced-workflows', 'business-automation'],
+    'singularity': ['ai-fundamentals', 'advanced-workflows', 'business-automation', 'enterprise-integrations']
   }
 
   const isActive = user.subscription_status === 'active'
@@ -667,10 +667,10 @@ export const getSubscriptionAnalytics = async () => {
   const analytics = {
     totalSubscriptions: 0,
     activeSubscriptions: 0,
-    tier1: 0,
-    tier2: 0,
-    tier3: 0,
-    premium: 0,
+    spark: 0,
+    synapse: 0,
+    cortex: 0,
+    singularity: 0,
     churnRate: 0
   }
 
@@ -682,17 +682,17 @@ export const getSubscriptionAnalytics = async () => {
     }
     
     switch (user.subscription_tier) {
-      case 'tier1':
-        analytics.tier1++
+      case 'spark':
+        analytics.spark++
         break
-      case 'tier2':
-        analytics.tier2++
+      case 'synapse':
+        analytics.synapse++
         break
-      case 'tier3':
-        analytics.tier3++
+      case 'cortex':
+        analytics.cortex++
         break
-      case 'premium':
-        analytics.premium++
+      case 'singularity':
+        analytics.singularity++
         break
     }
   })

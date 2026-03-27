@@ -170,7 +170,7 @@ export async function PATCH(request: NextRequest) {
       )
     }
 
-    const validTiers = ['free', 'tier1', 'tier2', 'tier3', 'premium']
+    const validTiers = ['free', 'spark', 'synapse', 'cortex', 'singularity']
     if (!validTiers.includes(oldTier) || !validTiers.includes(newTier)) {
       return NextResponse.json(
         { error: 'Invalid tier specified' },

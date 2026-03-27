@@ -1,347 +1,241 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useUser } from '@clerk/nextjs'
-import { motion } from 'framer-motion'
-import PricingTiers from '@/components/pricing/PricingTiers'
-import { PRICING_TIERS } from '@/types/pricing'
-
-// ============================================================================
-// PRICING PAGE
-// ============================================================================
+import { useState } from 'react'
+import { Check, X, Crown, Zap, Star, ArrowRight } from 'lucide-react'
+import { Header } from '@/components/ui/header-1'
+import LMSFooter from '@/components/lms/LMSFooter'
 
 export default function PricingPage() {
-  const { user, isLoaded } = useUser()
-  const router = useRouter()
-  const [loading, setLoading] = useState(false)
-  const [currentTier, setCurrentTier] = useState<string>('free')
+  const [isAnnual, setIsAnnual] = useState(false)
 
-  // Get user's current subscription tier
-  useEffect(() => {
-    if (user) {
-      // This would typically come from your database
-      // For now, we'll assume free tier
-      setCurrentTier('free')
+  const tiers = [
+    {
+      name: 'Basic',
+      description: 'Perfect for getting started',
+      monthlyPrice: 29,
+      annualPrice: 21, // 29% discount
+      features: [
+        'Access to 200+ beginner courses',
+        'Basic project templates',
+        'Community forum access',
+        'Email support',
+        'Mobile app access',
+        'Progress tracking'
+      ],
+      limitations: [
+        'No advanced courses',
+        'No certificates',
+        'No 1-on-1 mentoring'
+      ],
+      popular: false,
+      cta: 'Start Learning',
+      gradient: 'from-slate-600 to-slate-700'
+    },
+    {
+      name: 'Pro',
+      description: 'Most popular for serious learners',
+      monthlyPrice: 49,
+      annualPrice: 35, // 29% discount
+      features: [
+        'Access to 500+ courses (all levels)',
+        'Premium project templates',
+        'Priority community support',
+        'Live Q&A sessions',
+        'Course certificates',
+        'Offline downloads',
+        'Advanced analytics'
+      ],
+      limitations: [
+        'No 1-on-1 mentoring',
+        'No enterprise features'
+      ],
+      popular: true,
+      cta: 'Get Pro Access',
+      gradient: 'from-violet-600 to-fuchsia-600'
+    },
+    {
+      name: 'Premium',
+      description: 'Everything you need to master tech',
+      monthlyPrice: 99,
+      annualPrice: 70, // 29% discount
+      features: [
+        'Access to 1000+ courses + bootcamps',
+        'All certificates & credentials',
+        '1-on-1 monthly mentoring call',
+        'Priority email & chat support',
+        'Custom learning paths',
+        'Beta course access',
+        'Career coaching',
+        'Portfolio reviews'
+      ],
+      limitations: [],
+      popular: false,
+      cta: 'Go Premium',
+      gradient: 'from-yellow-500 to-orange-500'
+    },
+    {
+      name: 'Enterprise',
+      description: 'For teams and organizations',
+      monthlyPrice: 199,
+      annualPrice: 141, // 29% discount
+      features: [
+        'Everything in Premium',
+        'Team management dashboard',
+        'Custom branding',
+        'Advanced analytics & reporting',
+        'Dedicated account manager',
+        'Custom course creation',
+        'API access',
+        'Priority support',
+        'Onboarding & training'
+      ],
+      limitations: [],
+      popular: false,
+      cta: 'Contact Sales',
+      gradient: 'from-emerald-500 to-teal-600'
     }
-  }, [user])
+  ]
 
-  const handleSelectPlan = async (tier: string, billingCycle: 'monthly' | 'annual') => {
-    if (!user) {
-      // Redirect to sign up if not authenticated
-      router.push('/sign-up?redirect=/pricing')
-      return
-    }
-
-    setLoading(true)
-
-    try {
-      // Create Stripe checkout session
-      const response = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          tier,
-          billingCycle,
-          returnUrl: window.location.origin + '/profile?success=true'
-        })
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to create checkout session')
-      }
-
-      const { url } = await response.json()
-      
-      // Redirect to Stripe checkout
-      if (url) {
-        window.location.href = url
-      } else {
-        throw new Error('No checkout URL received')
-      }
-
-    } catch (error) {
-      console.error('Checkout error:', error)
-      alert('Something went wrong. Please try again or contact support.')
-    } finally {
-      setLoading(false)
-    }
+  const handleGetStarted = async (tier: typeof tiers[0]) => {
+    // For now, redirect to sign up - will implement Stripe checkout later
+    window.location.href = '/auth/signup'
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* Hero Section */}
-      <div className="pt-16 pb-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 sm:text-6xl">
-            Master GitHub.
-            <span className="block text-blue-600">Transform Your Workflow.</span>
-          </h1>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-            From basic commits to enterprise automation. Unlock progressive repository access, 
-            join our community, and accelerate your GitHub mastery journey.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* Value Proposition */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl mb-4">
-              📚
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Progressive Learning</h3>
-            <p className="text-gray-600">
-              Start with fundamentals and advance to enterprise-level automation. 
-              Each tier unlocks new repositories and advanced concepts.
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <Header />
+      
+      <main className="pt-[72px]">
+        {/* Hero Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="text-white">Choose Your</span>{' '}
+              <span className="gradient-text">Learning Path</span>
+            </h1>
+            <p className="text-xl text-zinc-400 max-w-3xl mx-auto mb-8">
+              Unlock your potential with courses designed by industry experts. 
+              Start free, upgrade anytime.
             </p>
-          </div>
 
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-xl mb-4">
-              🏗️
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-World Projects</h3>
-            <p className="text-gray-600">
-              Access production-ready code examples, business automation templates, 
-              and integration patterns used by top companies.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl mb-4">
-              👥
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Community</h3>
-            <p className="text-gray-600">
-              Join our Discord community for peer support, code reviews, 
-              and direct access to GitHub automation experts.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Pricing Tiers */}
-      <PricingTiers 
-        onSelectPlan={handleSelectPlan}
-        currentTier={currentTier}
-        loading={loading}
-        className="pb-20"
-      />
-
-      {/* Social Proof */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="bg-white py-16"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Join Thousands of Developers Mastering GitHub
-            </h2>
-            <p className="mt-4 text-xl text-gray-600">
-              From startups to Fortune 500 companies
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  S
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Sarah Chen</div>
-                  <div className="text-sm text-gray-600">Lead DevOps Engineer</div>
-                </div>
-              </div>
-              <p className="text-gray-700">
-                "The business automation repository alone saved our team 20+ hours per week. 
-                The GitHub Actions templates are production-ready."
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  M
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Marcus Johnson</div>
-                  <div className="text-sm text-gray-600">Startup CTO</div>
-                </div>
-              </div>
-              <p className="text-gray-700">
-                "Started as a complete GitHub beginner. Now I'm implementing enterprise-level 
-                workflows. The progressive learning approach is perfect."
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-6">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  A
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Alex Rivera</div>
-                  <div className="text-sm text-gray-600">Senior Developer</div>
-                </div>
-              </div>
-              <p className="text-gray-700">
-                "The Discord community is incredible. Getting code reviews from GitHub experts 
-                has accelerated my learning beyond what I thought possible."
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Repository Access Preview */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="bg-gray-900 py-16"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white">
-              Progressive Repository Access
-            </h2>
-            <p className="mt-4 text-xl text-gray-300">
-              Each tier unlocks new repositories with advanced GitHub patterns
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PRICING_TIERS.map((tier, index) => (
-              <motion.div
-                key={tier.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700"
+            {/* Annual/Monthly Toggle */}
+            <div className="flex items-center justify-center gap-4 mb-12">
+              <span className={`text-sm ${!isAnnual ? 'text-white' : 'text-zinc-400'}`}>
+                Monthly
+              </span>
+              <button
+                onClick={() => setIsAnnual(!isAnnual)}
+                className={`relative w-14 h-7 rounded-full transition-colors ${
+                  isAnnual ? 'bg-violet-600' : 'bg-zinc-600'
+                }`}
               >
-                <h3 className="text-xl font-semibold text-white mb-4">{tier.displayName}</h3>
-                <div className="space-y-2">
-                  {tier.repositoryAccess.map((repo, repoIndex) => (
-                    <div key={repo} className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                      <span className="text-gray-300 text-sm">{repo}</span>
+                <div
+                  className={`absolute w-5 h-5 bg-white rounded-full top-1 transition-transform ${
+                    isAnnual ? 'translate-x-8' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+              <span className={`text-sm ${isAnnual ? 'text-white' : 'text-zinc-400'}`}>
+                Annual
+              </span>
+              <span className="bg-green-600 text-white text-xs px-2 py-1 rounded-full">
+                Save 29%
+              </span>
+            </div>
+
+            {/* Pricing Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl">
+              {tiers.map((tier, index) => (
+                <div
+                  key={tier.name}
+                  className={`relative glass rounded-2xl p-8 transition-all duration-300 hover:scale-105 ${
+                    tier.popular ? 'ring-2 ring-violet-500 scale-105' : ''
+                  }`}
+                >
+                  {tier.popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                        MOST POPULAR
+                      </div>
                     </div>
-                  ))}
+                  )}
+
+                  {/* Header */}
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
+                    <p className="text-sm text-zinc-400 mb-4">{tier.description}</p>
+                    
+                    <div className="mb-4">
+                      <span className="text-4xl font-bold text-white">
+                        ${isAnnual ? tier.annualPrice : tier.monthlyPrice}
+                      </span>
+                      <span className="text-zinc-400">/month</span>
+                      {isAnnual && (
+                        <div className="text-xs text-zinc-500 mt-1">
+                          Billed annually (${tier.annualPrice * 12})
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="mb-6">
+                    <ul className="space-y-3">
+                      {tier.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-sm">
+                          <Check className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-zinc-300">{feature}</span>
+                        </li>
+                      ))}
+                      {tier.limitations.map((limitation) => (
+                        <li key={limitation} className="flex items-start gap-3 text-sm">
+                          <X className="w-5 h-5 text-zinc-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-zinc-500">{limitation}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => handleGetStarted(tier)}
+                    className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 ${
+                      tier.popular
+                        ? 'btn-gradient'
+                        : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30'
+                    }`}
+                  >
+                    {tier.cta}
+                  </button>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* FAQ Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="bg-white py-16"
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">
-              Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                How does progressive repository access work?
-              </h3>
-              <p className="text-gray-600">
-                Each subscription tier unlocks access to specific GitHub repositories containing 
-                real-world code examples and templates. Start with fundamentals and progress to 
-                enterprise automation patterns as you advance through the tiers.
-              </p>
+              ))}
             </div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                What's included in the Discord community?
-              </h3>
-              <p className="text-gray-600">
-                Our Discord community includes dedicated channels for each tier, weekly office hours 
-                with GitHub experts, code review sessions, and peer networking opportunities. 
-                Higher tiers get priority support and exclusive channels.
+            {/* Bottom CTA */}
+            <div className="mt-16 text-center">
+              <p className="text-zinc-400 mb-6">
+                Not sure which plan is right for you? Start with our free trial.
               </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Can I cancel my subscription anytime?
-              </h3>
-              <p className="text-gray-600">
-                Yes, you can cancel your subscription at any time. Your access will continue until 
-                the end of your current billing period. You'll keep any progress made and can 
-                reactivate at any time.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Do you offer refunds?
-              </h3>
-              <p className="text-gray-600">
-                We offer a 7-day money-back guarantee for all plans. If you're not satisfied 
-                within the first week, contact support for a full refund.
-              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => window.location.href = '/auth/signup'}
+                  className="btn-gradient px-8 py-3 rounded-lg font-semibold"
+                >
+                  Start 7-Day Free Trial
+                </button>
+                <button 
+                  onClick={() => window.location.href = '/auth/signin'}
+                  className="px-8 py-3 rounded-lg font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 transition-all duration-300"
+                >
+                  Sign In
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
+        </section>
+      </main>
 
-      {/* CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="bg-blue-600 py-16"
-      >
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white">
-            Ready to Master GitHub?
-          </h2>
-          <p className="mt-4 text-xl text-blue-100">
-            Join thousands of developers already transforming their workflow
-          </p>
-          <div className="mt-8">
-            <button
-              onClick={() => {
-                document.querySelector('[data-pricing-cards]')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                })
-              }}
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-            >
-              Choose Your Plan
-            </button>
-          </div>
-        </div>
-      </motion.div>
+      <LMSFooter />
     </div>
   )
 }

@@ -5,8 +5,8 @@ import type { Database } from '../types/database'
 
 // Environment variables
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY!
+const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_SECRET_API_KEY!
 
 // Validate environment
 if (!supabaseUrl) {
@@ -14,7 +14,7 @@ if (!supabaseUrl) {
 }
 
 if (!supabaseAnonKey) {
-  throw new Error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable')
+  throw new Error('Missing NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY environment variable')
 }
 
 // Public client for browser/client-side operations
