@@ -15,7 +15,7 @@ export default function LMSCourses() {
       students: 2840,
       rating: 4.9,
       level: 'Beginner',
-      price: 'Free',
+      price: 'Included',
       category: 'Web Development'
     },
     {
@@ -28,7 +28,7 @@ export default function LMSCourses() {
       students: 1920,
       rating: 4.8,
       level: 'Intermediate',
-      price: '$99',
+      price: 'Included',
       category: 'AI/ML'
     },
     {
@@ -41,7 +41,7 @@ export default function LMSCourses() {
       students: 3150,
       rating: 4.9,
       level: 'Intermediate',
-      price: '$79',
+      price: 'Included',
       category: 'Mobile'
     },
     {
@@ -54,7 +54,7 @@ export default function LMSCourses() {
       students: 1680,
       rating: 4.7,
       level: 'Advanced',
-      price: '$129',
+      price: 'Included',
       category: 'DevOps'
     },
     {
@@ -67,7 +67,7 @@ export default function LMSCourses() {
       students: 920,
       rating: 4.8,
       level: 'Beginner',
-      price: '$89',
+      price: 'Included',
       category: 'Security'
     },
     {
@@ -80,7 +80,7 @@ export default function LMSCourses() {
       students: 2240,
       rating: 4.9,
       level: 'Intermediate',
-      price: '$109',
+      price: 'Included',
       category: 'Data Science'
     }
   ]
@@ -101,15 +101,15 @@ export default function LMSCourses() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-full px-4 py-2 text-sm text-slate-300 mb-6">
             <Star className="h-4 w-4 text-yellow-400" />
-            <span>Popular Courses</span>
+            <span>Featured Content</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Start Learning
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Today</span>
+            What You'll
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Learn</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            Choose from our most popular courses taught by industry experts. 
-            Start your journey to becoming a tech professional.
+            Explore our comprehensive learning paths and expertly crafted courses. 
+            All included in your membership.
           </p>
         </div>
 
@@ -176,8 +176,8 @@ export default function LMSCourses() {
                   <div className="text-2xl font-bold text-white">
                     {course.price}
                   </div>
-                  <button className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 group-hover:scale-105">
-                    Enroll Now
+                  <button className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg font-medium border border-slate-700 hover:border-slate-600 transition-all duration-300 group-hover:scale-105">
+                    Start Learning
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -188,9 +188,14 @@ export default function LMSCourses() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <button className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-lg font-semibold border border-slate-700 hover:border-slate-600 transition-all duration-300">
-            View All Courses
-          </button>
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to unlock everything?</h3>
+            <p className="text-slate-400 mb-6">Get unlimited access to all courses, new releases, and exclusive content.</p>
+            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+              Start Your Free Trial
+            </button>
+            <div className="text-sm text-slate-400 mt-3">7 days free, then $29/month. Cancel anytime.</div>
+          </div>
         </div>
       </div>
     </section>
