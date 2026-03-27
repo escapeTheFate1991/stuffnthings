@@ -1,33 +1,24 @@
-import Hero from '@/components/Hero'
-import Problem from '@/components/Problem'
-import ALECIntro from '@/components/ALECIntro'
-import UseCases from '@/components/UseCases'
-import SocialProof from '@/components/SocialProof'
-import Integrations from '@/components/Integrations'
-import Differentiation from '@/components/Differentiation'
-import Services from '@/components/Services'
-import BlogTeaser from '@/components/BlogTeaser'
-import ContactForm from '@/components/ContactForm'
-import Footer from '@/components/Footer'
-import Navigation from '@/components/Navigation'
+import { Header } from '@/components/ui/header-1'
+import LMSHero from '@/components/lms/LMSHero'
+import LMSFeatures from '@/components/lms/LMSFeatures'
+import LMSCourses from '@/components/lms/LMSCourses'
+import LMSFooter from '@/components/lms/LMSFooter'
+
+export const metadata = {
+  title: 'Learn Technology Skills That Matter | stuffnthings Learning Platform',
+  description: 'Master web development, AI/ML, mobile apps, and more with hands-on courses from industry experts. Join 50,000+ learners transforming their careers.',
+}
 
 export default function Home() {
   return (
-    <>
-      <Navigation />
+    <div className="min-h-screen bg-slate-900">
+      <Header />
       <main>
-        <Hero />
-        <Problem />
-        <ALECIntro />
-        <UseCases />
-        <SocialProof />
-        <Integrations />
-        <Differentiation />
-        <Services />
-        <BlogTeaser />
-        <ContactForm />
+        <LMSHero />
+        <LMSFeatures />
+        <LMSCourses />
       </main>
-      <Footer />
-    </>
+      <LMSFooter />
+    </div>
   )
 }

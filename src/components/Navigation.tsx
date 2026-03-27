@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { useActiveSection } from '@/lib/hooks'
+import { AuthStatus } from '@/components/auth'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -19,13 +20,14 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navLinks = [
+  const navLinks: Array<{ href: string; label: string; external?: boolean }> = [
     { href: '#hero', label: 'Meet ALEC' },
     { href: '#problem', label: 'Why Us' },
     { href: '#how-it-works', label: 'How It Works' },
     { href: '#testimonials', label: 'Results' },
     { href: '#services', label: 'Pricing' },
     { href: '#portfolio', label: 'Our Work' },
+    { href: '/courses', label: 'Learn', external: true },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -71,8 +73,10 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => {
-                      e.preventDefault()
-                      handleLinkClick(link.href)
+                      if (!link.external) {
+                        e.preventDefault()
+                        handleLinkClick(link.href)
+                      }
                     }}
                     className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                       isActive
@@ -87,6 +91,7 @@ export default function Navigation() {
                   </a>
                 )
               })}
+              <AuthStatus className="ml-4" />
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -126,8 +131,10 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => {
-                    e.preventDefault()
-                    handleLinkClick(link.href)
+                    if (!link.external) {
+                      e.preventDefault()
+                      handleLinkClick(link.href)
+                    }
                   }}
                   className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 ${
                     isActive
@@ -139,7 +146,8 @@ export default function Navigation() {
                 </a>
               )
             })}
-            <div className="pt-2 px-2">
+            <div className="pt-2 px-2 flex flex-col gap-2">
+              <AuthStatus className="justify-center" />
               <a
                 href="#contact"
                 onClick={(e) => {
