@@ -12,7 +12,7 @@ const BLOG_POSTS = {
     excerpt: "In Supabase, your 'API' is actually PostgREST sitting on PostgreSQL. Learn how IDOR + data exposure + broken auth chain together for devastating attacks, and get our audit prompt to find these vulnerabilities.",
     date: "2026-04-01",
     author: "Stuffnthings Security Team",
-    image: "/images/sections/blog-security.png",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80",
     tag: "Security",
     gradient: "from-red-500/30 to-orange-500/10",
     accentColor: "#ef4444",
@@ -84,50 +84,13 @@ Use this prompt with your AI coding assistant to systematically audit your Supab
 * Check for any "Shadow Admin" functions that bypass RLS but are exposed to the \`authenticated\` role.
 
 **Output Requirement:** Provide a summary of found "holes" and the exact SQL migrations needed to fix them.`
-  },
-  'ai-legal-privilege-considerations': {
-    slug: 'ai-legal-privilege-considerations',
-    title: "AI and Attorney-Client Privilege: What Law Firms Need to Know",
-    excerpt: "How AI tools affect attorney-client privilege, work product doctrine, and ethical obligations. Essential guidance for law firms deploying AI systems.",
-    date: "2024-07-20",
-    author: "Stuffnthings Legal Technology Team", 
-    image: "/images/sections/blog-legal.png",
-    tag: "Legal",
-    gradient: "from-brand-coral/30 to-red-500/10",
-    accentColor: "#f97316",
-    readingTime: "12 min read",
-    content: `# AI and Attorney-Client Privilege
-
-Law firms are rapidly adopting AI tools but need to understand how AI affects attorney-client privilege and work product protection.
-
-This guide provides practical frameworks for compliant AI deployment in legal practice.`,
-    promptContent: `**Context:** I am a law firm deploying AI tools and need to ensure compliance with attorney-client privilege, work product doctrine, and ethical obligations.
-
-**Task:** Review my AI deployment plan and provide guidance on:
-
-1. **Privilege Protection Analysis:**
-   * Assess third-party disclosure risks with AI vendors
-   * Evaluate data persistence and training implications
-   * Review confidentiality controls for AI processing
-
-2. **Contract Requirements:**
-   * Draft Business Associate Agreement (BAA) provisions for AI vendors
-   * Include data isolation and privilege acknowledgment clauses
-   * Specify audit rights and destruction procedures
-
-3. **Compliance Framework:**
-   * Create AI usage policies for different data classifications
-   * Develop client consent procedures for AI tool usage
-   * Establish training requirements for staff
-
-**Output:** Provide specific recommendations and template language for privilege-compliant AI deployment.`
   }
 }
 
 export function generateStaticParams() {
-  return Object.keys(BLOG_POSTS).map((slug) => ({
-    slug,
-  }))
+  return [
+    { slug: 'supabase-triple-threat-audit' }
+  ]
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {

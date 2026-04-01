@@ -36,51 +36,15 @@ export default function Home() {
         excerpt: "In Supabase, your 'API' is actually PostgREST sitting on PostgreSQL. Learn how IDOR + data exposure + broken auth chain together for devastating attacks, and get our audit prompt to find these vulnerabilities.",
         date: "2026-04-01",
         author: "Stuffnthings Security Team",
-        image: "/images/sections/blog-security.png",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80",
         tag: "Security",
         gradient: "from-red-500/30 to-orange-500/10",
         accentColor: "#ef4444",
         readingTime: "10 min read"
-      },
-      {
-        slug: 'ai-security-compliance-frameworks',
-        title: "AI Security & Compliance: Essential Frameworks for 2024",
-        excerpt: "SOC 2, ISO 27001, GDPR compliance for AI systems. How to build secure AI operations that meet enterprise security standards without sacrificing innovation.",
-        date: "2024-07-15",
-        author: "Stuffnthings Security Team",
-        image: "/images/sections/blog-security.png",
-        tag: "Security",
-        gradient: "from-brand-cyan/30 to-blue-500/10",
-        accentColor: "#22d3ee",
-        readingTime: "8 min read"
-      },
-      {
-        slug: 'ai-legal-privilege-considerations',
-        title: "AI and Attorney-Client Privilege: What Law Firms Need to Know",
-        excerpt: "How AI tools affect attorney-client privilege, work product doctrine, and ethical obligations. Essential guidance for law firms deploying AI systems.",
-        date: "2024-07-20",
-        author: "Stuffnthings Legal Technology Team",
-        image: "/images/sections/blog-legal.png",
-        tag: "Legal",
-        gradient: "from-brand-coral/30 to-red-500/10",
-        accentColor: "#f97316",
-        readingTime: "12 min read"
-      },
-      {
-        slug: 'ai-automations-local-business',
-        title: "5 AI Automations Every Local Business Should Have",
-        excerpt: "Chatbots, scheduling, review responses, follow-up sequences, lead scoring. These aren't enterprise tools anymore — they're table stakes.",
-        date: "2024-06-22",
-        author: "Stuffnthings AI Division",
-        image: "/images/sections/blog-ai.png",
-        tag: "AI",
-        gradient: "from-brand-purple/30 to-pink-500/10",
-        accentColor: "#a855f7",
-        readingTime: "6 min read"
       }
     ]
     setPosts(staticPosts)
-    setTags(['All', 'AI', 'Legal', 'Security', 'Platform', 'Case-Studies'])
+    setTags(['All', 'Security'])
   }, [])
 
   // Initialize Fuse.js for fuzzy search
