@@ -27,6 +27,7 @@ export default function Navigation() {
     { href: '#testimonials', label: 'Results' },
     { href: '#services', label: 'Pricing' },
     { href: '#portfolio', label: 'Our Work' },
+    { href: '/blog', label: 'Blog', external: true },
     { href: '/courses', label: 'Learn', external: true },
     { href: '#contact', label: 'Contact' },
   ]

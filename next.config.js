@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Dynamic app mode for Stripe/Clerk integration - no static export
-  // output: 'export', // DISABLED for server-side features
+  // Static export for GitHub Pages deployment
+  output: 'export',
   trailingSlash: true,
-  // distDir: 'out', // DISABLED - use default .next for dynamic apps
+  distDir: 'out',
   
   // GitHub Pages optimization (only when static export is enabled)
   // assetPrefix: process.env.NODE_ENV === 'production' && process.env.GITHUB_PAGES ? '/stuffnthings' : '',
