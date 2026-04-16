@@ -43,6 +43,18 @@ export default function Home() {
         readingTime: "8 min read"
       },
       {
+        slug: 'ai-agent-wave-planning',
+        title: "Stop Letting Your AI Agent Wing It: The Wave Plan Protocol for Organized Execution",
+        excerpt: "Your AI coding assistant is brilliant at generating code but terrible at managing complex tasks. Here's how to turn it into a disciplined orchestrator that plans before it acts, delegates instead of doing, and never walks away from broken state.",
+        date: "2026-04-06",
+        author: "Stuffnthings AI Team",
+        image: "/images/sections/blog-ai-wave-planning.jpg",
+        tag: "AI",
+        gradient: "from-brand-purple/30 to-brand-cyan/10",
+        accentColor: "#8b5cf6",
+        readingTime: "8 min read"
+      },
+      {
         slug: 'supabase-triple-threat-audit',
         title: "The Supabase Triple Threat: How Three Small Mistakes Create One Big Security Breach",
         excerpt: "In Supabase, your 'API' is actually PostgREST sitting on PostgreSQL. Learn how IDOR + data exposure + broken auth chain together for devastating attacks, and get our audit prompt to find these vulnerabilities.",
@@ -56,7 +68,7 @@ export default function Home() {
       }
     ]
     setPosts(staticPosts)
-    setTags(['All', 'Engineering', 'Security'])
+    setTags(['All', 'Engineering', 'AI', 'Security'])
   }, [])
 
   // Initialize Fuse.js for fuzzy search
