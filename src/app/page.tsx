@@ -31,6 +31,18 @@ export default function Home() {
   useEffect(() => {
     const staticPosts: BlogPost[] = [
       {
+        slug: 'ai-video-production-claude-remotion',
+        title: "AI Video Production From the Command Line: How We Use Claude Code and Remotion to Build Professional Videos",
+        excerpt: "Professional video production without a video team. We combined Claude Code with Remotion to produce polished product videos autonomously — from script to MP4 — using only a terminal and a browser.",
+        date: "2026-04-16",
+        author: "Stuffnthings Engineering",
+        image: "/images/sections/ai-video-production.png",
+        tag: "Engineering",
+        gradient: "from-brand-green/30 to-emerald-500/10",
+        accentColor: "#10b981",
+        readingTime: "8 min read"
+      },
+      {
         slug: 'supabase-triple-threat-audit',
         title: "The Supabase Triple Threat: How Three Small Mistakes Create One Big Security Breach",
         excerpt: "In Supabase, your 'API' is actually PostgREST sitting on PostgreSQL. Learn how IDOR + data exposure + broken auth chain together for devastating attacks, and get our audit prompt to find these vulnerabilities.",
@@ -44,7 +56,7 @@ export default function Home() {
       }
     ]
     setPosts(staticPosts)
-    setTags(['All', 'Security'])
+    setTags(['All', 'Engineering', 'Security'])
   }, [])
 
   // Initialize Fuse.js for fuzzy search
